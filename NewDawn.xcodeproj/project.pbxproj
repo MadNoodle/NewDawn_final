@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B97A57BB205856A800473581 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A57BA205856A800473581 /* AppDelegate.swift */; };
-		B97A57BD205856A800473581 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A57BC205856A800473581 /* ViewController.swift */; };
-		B97A57C0205856A800473581 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B97A57BE205856A800473581 /* Main.storyboard */; };
 		B97A57C3205856A800473581 /* NewDawn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B97A57C1205856A800473581 /* NewDawn.xcdatamodeld */; };
 		B97A57C5205856A800473581 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B97A57C4205856A800473581 /* Assets.xcassets */; };
 		B97A57C8205856A800473581 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B97A57C6205856A800473581 /* LaunchScreen.storyboard */; };
@@ -25,6 +23,12 @@
 		B97A57F12058598F00473581 /* TitilliumWeb-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B97A57E62058598F00473581 /* TitilliumWeb-Black.ttf */; };
 		B97A57F22058598F00473581 /* TitilliumWeb-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B97A57E72058598F00473581 /* TitilliumWeb-SemiBoldItalic.ttf */; };
 		B97A57F32058598F00473581 /* TitilliumWeb-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B97A57E82058598F00473581 /* TitilliumWeb-ExtraLightItalic.ttf */; };
+		B97A57F7205874C700473581 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A57F5205874C700473581 /* HomeViewController.swift */; };
+		B97A57F8205874C700473581 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B97A57F6205874C700473581 /* HomeViewController.xib */; };
+		B97A57FA205875AB00473581 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A57F9205875AB00473581 /* GradientButton.swift */; };
+		B97A57FE2058815A00473581 /* UIView+gradientExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A57FD2058815A00473581 /* UIView+gradientExtensions.swift */; };
+		B97A5800205881DC00473581 /* Trapezium.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A57FF205881DC00473581 /* Trapezium.swift */; };
+		B97A58022058863E00473581 /* ColorTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A58012058863E00473581 /* ColorTemplate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +44,6 @@
 /* Begin PBXFileReference section */
 		B97A57B7205856A800473581 /* NewDawn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewDawn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B97A57BA205856A800473581 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B97A57BC205856A800473581 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B97A57BF205856A800473581 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B97A57C2205856A800473581 /* NewDawn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewDawn.xcdatamodel; sourceTree = "<group>"; };
 		B97A57C4205856A800473581 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B97A57C7205856A800473581 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +62,12 @@
 		B97A57E62058598F00473581 /* TitilliumWeb-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Black.ttf"; sourceTree = "<group>"; };
 		B97A57E72058598F00473581 /* TitilliumWeb-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		B97A57E82058598F00473581 /* TitilliumWeb-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		B97A57F5205874C700473581 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B97A57F6205874C700473581 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		B97A57F9205875AB00473581 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		B97A57FD2058815A00473581 /* UIView+gradientExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+gradientExtensions.swift"; sourceTree = "<group>"; };
+		B97A57FF205881DC00473581 /* Trapezium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trapezium.swift; sourceTree = "<group>"; };
+		B97A58012058863E00473581 /* ColorTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTemplate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +109,13 @@
 		B97A57B9205856A800473581 /* NewDawn */ = {
 			isa = PBXGroup;
 			children = (
+				B97A57FC2058813B00473581 /* Extensions */,
+				B97A57FB2058804A00473581 /* UIElements */,
 				B97A57F420585D2100473581 /* SupportingFiles */,
-				B97A57BC205856A800473581 /* ViewController.swift */,
-				B97A57BE205856A800473581 /* Main.storyboard */,
 				B97A57C9205856A800473581 /* Info.plist */,
 				B97A57C1205856A800473581 /* NewDawn.xcdatamodeld */,
+				B97A57F5205874C700473581 /* HomeViewController.swift */,
+				B97A57F6205874C700473581 /* HomeViewController.xib */,
 			);
 			path = NewDawn;
 			sourceTree = "<group>";
@@ -146,6 +156,24 @@
 				B97A57DD2058596800473581 /* Fonts */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		B97A57FB2058804A00473581 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				B97A57F9205875AB00473581 /* GradientButton.swift */,
+				B97A57FF205881DC00473581 /* Trapezium.swift */,
+				B97A58012058863E00473581 /* ColorTemplate.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		B97A57FC2058813B00473581 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B97A57FD2058815A00473581 /* UIView+gradientExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,13 +264,13 @@
 				B97A57C8205856A800473581 /* LaunchScreen.storyboard in Resources */,
 				B97A57EA2058598F00473581 /* TitilliumWeb-ExtraLight.ttf in Resources */,
 				B97A57E92058598F00473581 /* TitilliumWeb-Italic.ttf in Resources */,
+				B97A57F8205874C700473581 /* HomeViewController.xib in Resources */,
 				B97A57F02058598F00473581 /* TitilliumWeb-LightItalic.ttf in Resources */,
 				B97A57F22058598F00473581 /* TitilliumWeb-SemiBoldItalic.ttf in Resources */,
 				B97A57EC2058598F00473581 /* TitilliumWeb-Light.ttf in Resources */,
 				B97A57C5205856A800473581 /* Assets.xcassets in Resources */,
 				B97A57EB2058598F00473581 /* TitilliumWeb-SemiBold.ttf in Resources */,
 				B97A57ED2058598F00473581 /* TitilliumWeb-BoldItalic.ttf in Resources */,
-				B97A57C0205856A800473581 /* Main.storyboard in Resources */,
 				B97A57F12058598F00473581 /* TitilliumWeb-Black.ttf in Resources */,
 				B97A57F32058598F00473581 /* TitilliumWeb-ExtraLightItalic.ttf in Resources */,
 			);
@@ -262,9 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B97A57BD205856A800473581 /* ViewController.swift in Sources */,
 				B97A57C3205856A800473581 /* NewDawn.xcdatamodeld in Sources */,
+				B97A5800205881DC00473581 /* Trapezium.swift in Sources */,
+				B97A57FA205875AB00473581 /* GradientButton.swift in Sources */,
+				B97A58022058863E00473581 /* ColorTemplate.swift in Sources */,
 				B97A57BB205856A800473581 /* AppDelegate.swift in Sources */,
+				B97A57FE2058815A00473581 /* UIView+gradientExtensions.swift in Sources */,
+				B97A57F7205874C700473581 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,14 +319,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B97A57BE205856A800473581 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B97A57BF205856A800473581 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B97A57C6205856A800473581 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
