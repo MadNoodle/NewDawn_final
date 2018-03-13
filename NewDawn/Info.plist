@@ -24,6 +24,21 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>TitilliumWeb-Regular</string>
+		<string>TitilliumWeb-ExtraLight</string>
+		<string>TitilliumWeb-Light</string>
+		<string>TitilliumWeb-ExtraLightItalic</string>
+		<string>TitilliumWeb-Italic</string>
+		<string>TitilliumWeb-LightItalic</string>
+		<string>TitilliumWeb-Bold</string>
+		<string>TitilliumWeb-Black
+</string>
+		<string>TitilliumWeb-SemiBold</string>
+		<string>TitilliumWeb-BoldItalic</string>
+		<string>TitilliumWeb-SemiBoldItalic</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
