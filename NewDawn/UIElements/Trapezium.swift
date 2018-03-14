@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+@IBDesignable
 class Trapezium: UIView {
   @IBInspectable var startColor:CGColor = ColorTemplate.darkGreen.cgColor
   @IBInspectable var endColor:CGColor = ColorTemplate.lightGreen.cgColor

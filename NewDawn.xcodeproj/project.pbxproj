@@ -29,6 +29,9 @@
 		B97A57FE2058815A00473581 /* UIView+gradientExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A57FD2058815A00473581 /* UIView+gradientExtensions.swift */; };
 		B97A5800205881DC00473581 /* Trapezium.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A57FF205881DC00473581 /* Trapezium.swift */; };
 		B97A58022058863E00473581 /* ColorTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A58012058863E00473581 /* ColorTemplate.swift */; };
+		B97A5805205930B800473581 /* roundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A5804205930B800473581 /* roundedImage.swift */; };
+		B97A580720595A1C00473581 /* customTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A580620595A1C00473581 /* customTextField.swift */; };
+		B97A580B20595FC700473581 /* nStopSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A580A20595FC700473581 /* nStopSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,9 @@
 		B97A57FD2058815A00473581 /* UIView+gradientExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+gradientExtensions.swift"; sourceTree = "<group>"; };
 		B97A57FF205881DC00473581 /* Trapezium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trapezium.swift; sourceTree = "<group>"; };
 		B97A58012058863E00473581 /* ColorTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTemplate.swift; sourceTree = "<group>"; };
+		B97A5804205930B800473581 /* roundedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundedImage.swift; sourceTree = "<group>"; };
+		B97A580620595A1C00473581 /* customTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTextField.swift; sourceTree = "<group>"; };
+		B97A580A20595FC700473581 /* nStopSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nStopSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,9 @@
 				B97A57F9205875AB00473581 /* GradientButton.swift */,
 				B97A57FF205881DC00473581 /* Trapezium.swift */,
 				B97A58012058863E00473581 /* ColorTemplate.swift */,
+				B97A5804205930B800473581 /* roundedImage.swift */,
+				B97A580620595A1C00473581 /* customTextField.swift */,
+				B97A580A20595FC700473581 /* nStopSlider.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -291,12 +300,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B97A57C3205856A800473581 /* NewDawn.xcdatamodeld in Sources */,
+				B97A5805205930B800473581 /* roundedImage.swift in Sources */,
+				B97A580B20595FC700473581 /* nStopSlider.swift in Sources */,
 				B97A5800205881DC00473581 /* Trapezium.swift in Sources */,
 				B97A57FA205875AB00473581 /* GradientButton.swift in Sources */,
 				B97A58022058863E00473581 /* ColorTemplate.swift in Sources */,
 				B97A57BB205856A800473581 /* AppDelegate.swift in Sources */,
 				B97A57FE2058815A00473581 /* UIView+gradientExtensions.swift in Sources */,
 				B97A57F7205874C700473581 /* HomeViewController.swift in Sources */,
+				B97A580720595A1C00473581 /* customTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class GradientButton: UIButton {
   @IBInspectable var startColor:CGColor = ColorTemplate.darkGreen.cgColor
   @IBInspectable var endColor:CGColor = ColorTemplate.lightGreen.cgColor
