@@ -9,7 +9,7 @@
 import UIKit
 
 
-class nStopSlider: UISlider {
+class NStopSlider: UISlider {
   
   @IBInspectable var thumbImage:UIImage? {
     didSet {

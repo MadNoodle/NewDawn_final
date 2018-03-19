@@ -1,14 +1,14 @@
 //
-//  HomeViewController.swift
+//  HistoryViewController.swift
 //  NewDawn
 //
-//  Created by Mathieu Janneau on 13/03/2018.
+//  Created by Mathieu Janneau on 18/03/2018.
 //  Copyright © 2018 Mathieu Janneau. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HistoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

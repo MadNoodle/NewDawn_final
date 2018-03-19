@@ -7,11 +7,19 @@
 //
 
 import UIKit
+
 @IBDesignable
+
+/// Customizable trapezium shape with a color graident background
 class Trapezium: UIView {
+  
+  /// Start color for the background gradient
   @IBInspectable var startColor:CGColor = ColorTemplate.darkGreen.cgColor
+  /// end color for the background gradient
   @IBInspectable var endColor:CGColor = ColorTemplate.lightGreen.cgColor
+  /// Offset por the bottom rigth CGPoint to customize the trapezium
   @IBInspectable var rigthOffset:CGFloat = 50
+  /// Offset por the bottom left CGPoint to customize the trapezium
   @IBInspectable var leftOffset:CGFloat = 0
   
   override func draw(_ rect:CGRect){
