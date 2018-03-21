@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B945FAB120605DAC004D86E3 /* Pulsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945FAB020605DAC004D86E3 /* Pulsable.swift */; };
 		B97A57BB205856A800473581 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A57BA205856A800473581 /* AppDelegate.swift */; };
 		B97A57C3205856A800473581 /* NewDawn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B97A57C1205856A800473581 /* NewDawn.xcdatamodeld */; };
 		B97A57C5205856A800473581 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B97A57C4205856A800473581 /* Assets.xcassets */; };
@@ -46,9 +45,10 @@
 		B9A43E37205EA96D000FDDEE /* CrisisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A43E35205EA96D000FDDEE /* CrisisViewController.xib */; };
 		B9A43E40205EA99D000FDDEE /* MedicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A43E3E205EA99D000FDDEE /* MedicViewController.swift */; };
 		B9A43E41205EA99D000FDDEE /* MedicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A43E3F205EA99D000FDDEE /* MedicViewController.xib */; };
-		B9A43E5520600B78000FDDEE /* PulsatingCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A43E5420600B78000FDDEE /* PulsatingCircles.swift */; };
 		B9BA5D39206061CD00301EAB /* ObjectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA5D37206061CD00301EAB /* ObjectiveViewController.swift */; };
 		B9BA5D3A206061CD00301EAB /* ObjectiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BA5D38206061CD00301EAB /* ObjectiveViewController.xib */; };
+		B9BA5D3D20616D7000301EAB /* TimeInterval + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA5D3C20616D7000301EAB /* TimeInterval + extensions.swift */; };
+		B9BA5D3F206295FB00301EAB /* TImerClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA5D3E206295FB00301EAB /* TImerClock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +62,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B945FAB020605DAC004D86E3 /* Pulsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pulsable.swift; sourceTree = "<group>"; };
 		B97A57B7205856A800473581 /* NewDawn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewDawn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B97A57BA205856A800473581 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B97A57C2205856A800473581 /* NewDawn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewDawn.xcdatamodel; sourceTree = "<group>"; };
@@ -105,9 +104,10 @@
 		B9A43E35205EA96D000FDDEE /* CrisisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CrisisViewController.xib; sourceTree = "<group>"; };
 		B9A43E3E205EA99D000FDDEE /* MedicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicViewController.swift; sourceTree = "<group>"; };
 		B9A43E3F205EA99D000FDDEE /* MedicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicViewController.xib; sourceTree = "<group>"; };
-		B9A43E5420600B78000FDDEE /* PulsatingCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulsatingCircles.swift; sourceTree = "<group>"; };
 		B9BA5D37206061CD00301EAB /* ObjectiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveViewController.swift; sourceTree = "<group>"; };
 		B9BA5D38206061CD00301EAB /* ObjectiveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ObjectiveViewController.xib; sourceTree = "<group>"; };
+		B9BA5D3C20616D7000301EAB /* TimeInterval + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval + extensions.swift"; sourceTree = "<group>"; };
+		B9BA5D3E206295FB00301EAB /* TImerClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TImerClock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +162,6 @@
 				B9A43E38205EA972000FDDEE /* Crisis */,
 				B9A43E3D205EA98B000FDDEE /* Objectives */,
 				B9A43E42205EA9A2000FDDEE /* Medic */,
-				B9A43E45205EC697000FDDEE /* Menu */,
 			);
 			path = NewDawn;
 			sourceTree = "<group>";
@@ -215,7 +214,6 @@
 				B97A580620595A1C00473581 /* customTextField.swift */,
 				B97A580A20595FC700473581 /* nStopSlider.swift */,
 				B9A43E1E205C45D2000FDDEE /* CustomButton.swift */,
-				B9A43E5420600B78000FDDEE /* PulsatingCircles.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -224,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				B97A57FD2058815A00473581 /* UIView+gradientExtensions.swift */,
+				B9BA5D3C20616D7000301EAB /* TimeInterval + extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -232,7 +231,6 @@
 			isa = PBXGroup;
 			children = (
 				B9A43E21205C6409000FDDEE /* SwitchableImage.swift */,
-				B945FAB020605DAC004D86E3 /* Pulsable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -271,6 +269,7 @@
 			children = (
 				B9A43E34205EA96D000FDDEE /* CrisisViewController.swift */,
 				B9A43E35205EA96D000FDDEE /* CrisisViewController.xib */,
+				B9BA5D3E206295FB00301EAB /* TImerClock.swift */,
 			);
 			path = Crisis;
 			sourceTree = "<group>";
@@ -291,13 +290,6 @@
 				B9A43E3F205EA99D000FDDEE /* MedicViewController.xib */,
 			);
 			path = Medic;
-			sourceTree = "<group>";
-		};
-		B9A43E45205EC697000FDDEE /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,16 +411,16 @@
 /* Begin PBXShellScriptBuildPhase section */
 		B9BA5D3B20606D9700301EAB /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelseecho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -442,6 +434,7 @@
 				B97A5805205930B800473581 /* roundedImage.swift in Sources */,
 				B9A43E2C205EA8BF000FDDEE /* MainTabBarController.swift in Sources */,
 				B97A580B20595FC700473581 /* nStopSlider.swift in Sources */,
+				B9BA5D3F206295FB00301EAB /* TImerClock.swift in Sources */,
 				B97A5800205881DC00473581 /* Trapezium.swift in Sources */,
 				B9A43E22205C6409000FDDEE /* SwitchableImage.swift in Sources */,
 				B9A43E36205EA96D000FDDEE /* CrisisViewController.swift in Sources */,
@@ -454,10 +447,9 @@
 				B9A43E1F205C45D2000FDDEE /* CustomButton.swift in Sources */,
 				B97A57FE2058815A00473581 /* UIView+gradientExtensions.swift in Sources */,
 				B9A43E26205C7EC8000FDDEE /* ChallengeCell.swift in Sources */,
-				B9A43E5520600B78000FDDEE /* PulsatingCircles.swift in Sources */,
+				B9BA5D3D20616D7000301EAB /* TimeInterval + extensions.swift in Sources */,
 				B97A57F7205874C700473581 /* HomeViewController.swift in Sources */,
 				B97A580720595A1C00473581 /* customTextField.swift in Sources */,
-				B945FAB120605DAC004D86E3 /* Pulsable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
