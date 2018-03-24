@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		12CA9D69CF5284242F6A37FF /* Pods_NewDawnTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE9FE8C23D4D072B2821FA4 /* Pods_NewDawnTests.framework */; };
 		7FDC8E4191A7CFA9A228DB61 /* Pods_NewDawn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0CE5EC480DA8D45176200D /* Pods_NewDawn.framework */; };
+		B9072DF52066CD3F00F17420 /* MedicAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9072DF42066CD3F00F17420 /* MedicAnnotation.swift */; };
+		B91BCA572066F1DA000841D1 /* adresses.json in Resources */ = {isa = PBXBuildFile; fileRef = B91BCA562066F1DA000841D1 /* adresses.json */; };
+		B91BCA5B20670BC1000841D1 /* MedicAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91BCA5A20670BC1000841D1 /* MedicAnnotationView.swift */; };
+		B91BCA5D20670CAF000841D1 /* MedicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91BCA5C20670CAF000841D1 /* MedicView.swift */; };
 		B97A57BB205856A800473581 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A57BA205856A800473581 /* AppDelegate.swift */; };
 		B97A57C3205856A800473581 /* NewDawn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B97A57C1205856A800473581 /* NewDawn.xcdatamodeld */; };
 		B97A57C5205856A800473581 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B97A57C4205856A800473581 /* Assets.xcassets */; };
@@ -55,6 +59,7 @@
 		B9D4A8422063B41C00313DAB /* MoodPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D4A8412063B41C00313DAB /* MoodPlot.swift */; };
 		B9D4A84A2064591800313DAB /* smilf___.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9D4A8492064591800313DAB /* smilf___.ttf */; };
 		B9D4A8502065C3B200313DAB /* extensionUIViewControllerChartSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D4A84F2065C3B200313DAB /* extensionUIViewControllerChartSettings.swift */; };
+		B9ECE95420667C2300A24216 /* Therapist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ECE95320667C2300A24216 /* Therapist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +76,10 @@
 		084CE7141294C6CA3CEB4AF7 /* Pods-NewDawnTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2A0CE5EC480DA8D45176200D /* Pods_NewDawn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EE9FE8C23D4D072B2821FA4 /* Pods_NewDawnTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9072DF42066CD3F00F17420 /* MedicAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicAnnotation.swift; sourceTree = "<group>"; };
+		B91BCA562066F1DA000841D1 /* adresses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = adresses.json; path = ../../../adresses.json; sourceTree = "<group>"; };
+		B91BCA5A20670BC1000841D1 /* MedicAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicAnnotationView.swift; sourceTree = "<group>"; };
+		B91BCA5C20670CAF000841D1 /* MedicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicView.swift; sourceTree = "<group>"; };
 		B97A57B7205856A800473581 /* NewDawn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewDawn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B97A57BA205856A800473581 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B97A57C2205856A800473581 /* NewDawn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewDawn.xcdatamodel; sourceTree = "<group>"; };
@@ -121,6 +130,7 @@
 		B9D4A8412063B41C00313DAB /* MoodPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodPlot.swift; sourceTree = "<group>"; };
 		B9D4A8492064591800313DAB /* smilf___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "smilf___.ttf"; sourceTree = "<group>"; };
 		B9D4A84F2065C3B200313DAB /* extensionUIViewControllerChartSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIViewControllerChartSettings.swift; sourceTree = "<group>"; };
+		B9ECE95320667C2300A24216 /* Therapist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Therapist.swift; sourceTree = "<group>"; };
 		C32A402A1A01F687FFE1372D /* Pods-NewDawn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawn.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn.release.xcconfig"; sourceTree = "<group>"; };
 		D15E612DD6C76CE8E8BE81EF /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
 		E49A3E688642F9F5A270C400 /* Pods-NewDawn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn.debug.xcconfig"; sourceTree = "<group>"; };
@@ -321,8 +331,13 @@
 		B9A43E42205EA9A2000FDDEE /* Medic */ = {
 			isa = PBXGroup;
 			children = (
+				B91BCA562066F1DA000841D1 /* adresses.json */,
 				B9A43E3E205EA99D000FDDEE /* MedicViewController.swift */,
 				B9A43E3F205EA99D000FDDEE /* MedicViewController.xib */,
+				B9ECE95320667C2300A24216 /* Therapist.swift */,
+				B9072DF42066CD3F00F17420 /* MedicAnnotation.swift */,
+				B91BCA5A20670BC1000841D1 /* MedicAnnotationView.swift */,
+				B91BCA5C20670CAF000841D1 /* MedicView.swift */,
 			);
 			path = Medic;
 			sourceTree = "<group>";
@@ -447,6 +462,7 @@
 				B97A57F12058598F00473581 /* TitilliumWeb-Black.ttf in Resources */,
 				B9A43E2D205EA8BF000FDDEE /* MainTabBarController.xib in Resources */,
 				B97A57F32058598F00473581 /* TitilliumWeb-ExtraLightItalic.ttf in Resources */,
+				B91BCA572066F1DA000841D1 /* adresses.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,8 +595,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9072DF52066CD3F00F17420 /* MedicAnnotation.swift in Sources */,
 				B9D4A83E2062DFB400313DAB /* YValueFormatter.swift in Sources */,
+				B9ECE95420667C2300A24216 /* Therapist.swift in Sources */,
 				B97A57C3205856A800473581 /* NewDawn.xcdatamodeld in Sources */,
+				B91BCA5D20670CAF000841D1 /* MedicView.swift in Sources */,
 				B9A43E40205EA99D000FDDEE /* MedicViewController.swift in Sources */,
 				B97A5805205930B800473581 /* roundedImage.swift in Sources */,
 				B9A43E2C205EA8BF000FDDEE /* MainTabBarController.swift in Sources */,
@@ -592,6 +611,7 @@
 				B9BA5D39206061CD00301EAB /* ObjectiveViewController.swift in Sources */,
 				B9A43E31205EA954000FDDEE /* HistoryViewController.swift in Sources */,
 				B97A57FA205875AB00473581 /* GradientButton.swift in Sources */,
+				B91BCA5B20670BC1000841D1 /* MedicAnnotationView.swift in Sources */,
 				B97A58022058863E00473581 /* ColorTemplate.swift in Sources */,
 				B9D4A84020631CCF00313DAB /* XAxisFormatter.swift in Sources */,
 				B9D4A8422063B41C00313DAB /* MoodPlot.swift in Sources */,
