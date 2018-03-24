@@ -5,6 +5,7 @@
 //  Created by Mathieu Janneau on 18/03/2018.
 //  Copyright © 2018 Mathieu Janneau. All rights reserved.
 //
+// swiftlint:disable trailing_whitespace
 
 import UIKit
 
@@ -19,8 +20,6 @@ class MainTabBarController: UITabBarController {
     setupTabBar()
     setupSwipe()
   }
-  
-
   
   /**
    Create programatically tab bar.
@@ -37,7 +36,6 @@ class MainTabBarController: UITabBarController {
     
     let medicVc = MedicViewController()
     
-    
     // Assign controllers to tab bar
     viewControllers = [
       createTabBarItem("Profil", imageName: "Profil", for: profilVc),
@@ -48,12 +46,10 @@ class MainTabBarController: UITabBarController {
     ]
   }
   
-
-  
   /**
    This method initialize tabBar item and insert them in a navigationController
    */
-  func createTabBarItem(_ title: String, imageName: String, for controller : UIViewController) -> UINavigationController{
+func createTabBarItem(_ title: String, imageName: String, for controller: UIViewController) -> UINavigationController {
     /// Navigontion controller embedded in tabBar
     let navController = UINavigationController(rootViewController: controller)
     // Set title
@@ -61,7 +57,7 @@ class MainTabBarController: UITabBarController {
     navController.navigationBar.setBackgroundImage(UIImage(), for: .default)
     navController.navigationBar.shadowImage = UIImage()
     navController.navigationBar.isTranslucent = true
-    navController.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor :UIColor.white]
+    navController.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     
     setpMenuButton(controller)
     
@@ -73,19 +69,21 @@ class MainTabBarController: UITabBarController {
   
   // MARK: - MENU BUTTON
   fileprivate func setpMenuButton(_ controller: UIViewController) {
-    let firstBarItem = UIBarButtonItem(image:UIImage(named:"hamburger_icon"), style:.plain, target:self, action: #selector(addTapped))
+    let firstBarItem = UIBarButtonItem(image: UIImage(named: "hamburger_icon"),
+                                       style: .plain, target: self,
+                                       action: #selector(addTapped))
     firstBarItem.tintColor = UIColor.white
     controller.navigationItem.leftBarButtonItem = firstBarItem
   }
   
-  @objc func addTapped(){
+  @objc func addTapped() {
     print("test")
 
   }
   /**
    Initialize left and rigth swipe gesture in order to swipe between tab bars items
    */
-  private func setupSwipe(){
+  private func setupSwipe() {
     
     /// Right swipe gesture instantiation
     let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
@@ -108,5 +106,3 @@ class MainTabBarController: UITabBarController {
     }
   }
 }
-
-

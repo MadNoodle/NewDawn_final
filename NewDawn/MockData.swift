@@ -5,17 +5,17 @@
 //  Created by Mathieu Janneau on 17/03/2018.
 //  Copyright © 2018 Mathieu Janneau. All rights reserved.
 //
+// swiftlint:disable trailing_whitespace
 
 import Foundation
-
 
 struct MockChallenge {
   var date: String
   var state: Bool
-  var title:String
+  var title: String
   var icon: String
   
-  init(date:String,state:Bool,title:String,icon:String){
+  init(date: String, state: Bool, title: String, icon: String) {
     self.date = date
     self.state = state
     self.title = title

@@ -4,7 +4,8 @@
 //
 //  Created by Mathieu Janneau on 13/03/2018.
 //  Copyright © 2018 Mathieu Janneau. All rights reserved.
-//
+
+// swiftlint:disable trailing_whitespace
 
 import UIKit
 
@@ -14,14 +15,12 @@ class HomeViewController: UIViewController {
   
   @IBOutlet weak var challengesTableView: UITableView!
   
-
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Profil"
     challengesTableView.delegate = self
     challengesTableView.dataSource = self
-    challengesTableView.register(UINib(nibName:"ChallengeCell",bundle: nil), forCellReuseIdentifier: "myCell")
+    challengesTableView.register(UINib(nibName: "ChallengeCell", bundle: nil), forCellReuseIdentifier: "myCell")
   }
   
   @IBAction func moodButtonTapped(_ sender: CustomUIButtonForUIToolbar) {
@@ -31,10 +30,8 @@ class HomeViewController: UIViewController {
   }
   
   fileprivate func evaluateMoodButtonState() {
-    for moodButton in moodButtons {
-      if moodButton.choosen {
+    for moodButton in moodButtons where moodButton.choosen {  
         moodButton.resetImage()
-      }
     }
   }
   
@@ -50,15 +47,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     cell?.challengeTime.text = currentChallenge.date
     if currentChallenge.state {
       cell?.challengeState.image = UIImage(named: "circle_green")
-    } else{
+    } else {
       cell?.challengeState.image = UIImage(named: "circle")
     }
     cell?.challengeDescription.text = currentChallenge.title
-    cell?.objectiveIcon.image = UIImage(named:currentChallenge.icon)
+    cell?.objectiveIcon.image = UIImage(named: currentChallenge.icon)
     
     return cell!
   }
-  
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 50.0

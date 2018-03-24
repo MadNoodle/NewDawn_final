@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12CA9D69CF5284242F6A37FF /* Pods_NewDawnTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE9FE8C23D4D072B2821FA4 /* Pods_NewDawnTests.framework */; };
+		7FDC8E4191A7CFA9A228DB61 /* Pods_NewDawn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0CE5EC480DA8D45176200D /* Pods_NewDawn.framework */; };
 		B97A57BB205856A800473581 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A57BA205856A800473581 /* AppDelegate.swift */; };
 		B97A57C3205856A800473581 /* NewDawn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B97A57C1205856A800473581 /* NewDawn.xcdatamodeld */; };
 		B97A57C5205856A800473581 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B97A57C4205856A800473581 /* Assets.xcassets */; };
@@ -48,7 +50,11 @@
 		B9BA5D39206061CD00301EAB /* ObjectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA5D37206061CD00301EAB /* ObjectiveViewController.swift */; };
 		B9BA5D3A206061CD00301EAB /* ObjectiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BA5D38206061CD00301EAB /* ObjectiveViewController.xib */; };
 		B9BA5D3D20616D7000301EAB /* TimeInterval + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA5D3C20616D7000301EAB /* TimeInterval + extensions.swift */; };
-		B9BA5D3F206295FB00301EAB /* TImerClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA5D3E206295FB00301EAB /* TImerClock.swift */; };
+		B9D4A83E2062DFB400313DAB /* YValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D4A83D2062DFB400313DAB /* YValueFormatter.swift */; };
+		B9D4A84020631CCF00313DAB /* XAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D4A83F20631CCF00313DAB /* XAxisFormatter.swift */; };
+		B9D4A8422063B41C00313DAB /* MoodPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D4A8412063B41C00313DAB /* MoodPlot.swift */; };
+		B9D4A84A2064591800313DAB /* smilf___.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9D4A8492064591800313DAB /* smilf___.ttf */; };
+		B9D4A8502065C3B200313DAB /* extensionUIViewControllerChartSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D4A84F2065C3B200313DAB /* extensionUIViewControllerChartSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +68,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		084CE7141294C6CA3CEB4AF7 /* Pods-NewDawnTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2A0CE5EC480DA8D45176200D /* Pods_NewDawn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EE9FE8C23D4D072B2821FA4 /* Pods_NewDawnTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B97A57B7205856A800473581 /* NewDawn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewDawn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B97A57BA205856A800473581 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B97A57C2205856A800473581 /* NewDawn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewDawn.xcdatamodel; sourceTree = "<group>"; };
@@ -107,7 +116,14 @@
 		B9BA5D37206061CD00301EAB /* ObjectiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveViewController.swift; sourceTree = "<group>"; };
 		B9BA5D38206061CD00301EAB /* ObjectiveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ObjectiveViewController.xib; sourceTree = "<group>"; };
 		B9BA5D3C20616D7000301EAB /* TimeInterval + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval + extensions.swift"; sourceTree = "<group>"; };
-		B9BA5D3E206295FB00301EAB /* TImerClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TImerClock.swift; sourceTree = "<group>"; };
+		B9D4A83D2062DFB400313DAB /* YValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YValueFormatter.swift; sourceTree = "<group>"; };
+		B9D4A83F20631CCF00313DAB /* XAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAxisFormatter.swift; sourceTree = "<group>"; };
+		B9D4A8412063B41C00313DAB /* MoodPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodPlot.swift; sourceTree = "<group>"; };
+		B9D4A8492064591800313DAB /* smilf___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "smilf___.ttf"; sourceTree = "<group>"; };
+		B9D4A84F2065C3B200313DAB /* extensionUIViewControllerChartSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIViewControllerChartSettings.swift; sourceTree = "<group>"; };
+		C32A402A1A01F687FFE1372D /* Pods-NewDawn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawn.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn.release.xcconfig"; sourceTree = "<group>"; };
+		D15E612DD6C76CE8E8BE81EF /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
+		E49A3E688642F9F5A270C400 /* Pods-NewDawn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FDC8E4191A7CFA9A228DB61 /* Pods_NewDawn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,18 +139,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12CA9D69CF5284242F6A37FF /* Pods_NewDawnTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		052660FFCB163DD3E085A53E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E49A3E688642F9F5A270C400 /* Pods-NewDawn.debug.xcconfig */,
+				C32A402A1A01F687FFE1372D /* Pods-NewDawn.release.xcconfig */,
+				084CE7141294C6CA3CEB4AF7 /* Pods-NewDawnTests.debug.xcconfig */,
+				D15E612DD6C76CE8E8BE81EF /* Pods-NewDawnTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B97A57AE205856A800473581 = {
 			isa = PBXGroup;
 			children = (
 				B97A57B9205856A800473581 /* NewDawn */,
 				B97A57D1205856A800473581 /* NewDawnTests */,
 				B97A57B8205856A800473581 /* Products */,
+				052660FFCB163DD3E085A53E /* Pods */,
+				DDB1CD1BB4B4E542B89DE6B6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,6 +209,7 @@
 		B97A57DD2058596800473581 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				B9D4A8492064591800313DAB /* smilf___.ttf */,
 				B97A57E62058598F00473581 /* TitilliumWeb-Black.ttf */,
 				B97A57E32058598F00473581 /* TitilliumWeb-Bold.ttf */,
 				B97A57E22058598F00473581 /* TitilliumWeb-BoldItalic.ttf */,
@@ -223,6 +255,7 @@
 			children = (
 				B97A57FD2058815A00473581 /* UIView+gradientExtensions.swift */,
 				B9BA5D3C20616D7000301EAB /* TimeInterval + extensions.swift */,
+				B9D4A84F2065C3B200313DAB /* extensionUIViewControllerChartSettings.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -260,6 +293,9 @@
 			children = (
 				B9A43E2F205EA954000FDDEE /* HistoryViewController.swift */,
 				B9A43E30205EA954000FDDEE /* HistoryViewController.xib */,
+				B9D4A83D2062DFB400313DAB /* YValueFormatter.swift */,
+				B9D4A83F20631CCF00313DAB /* XAxisFormatter.swift */,
+				B9D4A8412063B41C00313DAB /* MoodPlot.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -269,7 +305,6 @@
 			children = (
 				B9A43E34205EA96D000FDDEE /* CrisisViewController.swift */,
 				B9A43E35205EA96D000FDDEE /* CrisisViewController.xib */,
-				B9BA5D3E206295FB00301EAB /* TImerClock.swift */,
 			);
 			path = Crisis;
 			sourceTree = "<group>";
@@ -292,6 +327,15 @@
 			path = Medic;
 			sourceTree = "<group>";
 		};
+		DDB1CD1BB4B4E542B89DE6B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A0CE5EC480DA8D45176200D /* Pods_NewDawn.framework */,
+				4EE9FE8C23D4D072B2821FA4 /* Pods_NewDawnTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -299,10 +343,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B97A57D7205856A800473581 /* Build configuration list for PBXNativeTarget "NewDawn" */;
 			buildPhases = (
+				2BE6E50864BE3EB741E22E9B /* [CP] Check Pods Manifest.lock */,
 				B97A57B3205856A800473581 /* Sources */,
 				B97A57B4205856A800473581 /* Frameworks */,
 				B97A57B5205856A800473581 /* Resources */,
 				B9BA5D3B20606D9700301EAB /* ShellScript */,
+				9B108FB02AB19F52A3E0B10E /* [CP] Embed Pods Frameworks */,
+				1EA3BFC8AC895D33E4400A08 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -317,9 +364,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B97A57DA205856A800473581 /* Build configuration list for PBXNativeTarget "NewDawnTests" */;
 			buildPhases = (
+				7B52F121CFA2B03C23DBD05A /* [CP] Check Pods Manifest.lock */,
 				B97A57CA205856A800473581 /* Sources */,
 				B97A57CB205856A800473581 /* Frameworks */,
 				B97A57CC205856A800473581 /* Resources */,
+				F6C09C11ECC555F61B790875 /* [CP] Embed Pods Frameworks */,
+				22F571629EAAD494D5C9CC95 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -378,6 +428,7 @@
 			files = (
 				B9A43E32205EA954000FDDEE /* HistoryViewController.xib in Resources */,
 				B97A57EF2058598F00473581 /* TitilliumWeb-Regular.ttf in Resources */,
+				B9D4A84A2064591800313DAB /* smilf___.ttf in Resources */,
 				B97A57EE2058598F00473581 /* TitilliumWeb-Bold.ttf in Resources */,
 				B97A57C8205856A800473581 /* LaunchScreen.storyboard in Resources */,
 				B97A57EA2058598F00473581 /* TitilliumWeb-ExtraLight.ttf in Resources */,
@@ -409,18 +460,117 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1EA3BFC8AC895D33E4400A08 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		22F571629EAAD494D5C9CC95 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2BE6E50864BE3EB741E22E9B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NewDawn-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B52F121CFA2B03C23DBD05A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NewDawnTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B108FB02AB19F52A3E0B10E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B9BA5D3B20606D9700301EAB /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		F6C09C11ECC555F61B790875 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -429,12 +579,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9D4A83E2062DFB400313DAB /* YValueFormatter.swift in Sources */,
 				B97A57C3205856A800473581 /* NewDawn.xcdatamodeld in Sources */,
 				B9A43E40205EA99D000FDDEE /* MedicViewController.swift in Sources */,
 				B97A5805205930B800473581 /* roundedImage.swift in Sources */,
 				B9A43E2C205EA8BF000FDDEE /* MainTabBarController.swift in Sources */,
 				B97A580B20595FC700473581 /* nStopSlider.swift in Sources */,
-				B9BA5D3F206295FB00301EAB /* TImerClock.swift in Sources */,
 				B97A5800205881DC00473581 /* Trapezium.swift in Sources */,
 				B9A43E22205C6409000FDDEE /* SwitchableImage.swift in Sources */,
 				B9A43E36205EA96D000FDDEE /* CrisisViewController.swift in Sources */,
@@ -443,10 +593,13 @@
 				B9A43E31205EA954000FDDEE /* HistoryViewController.swift in Sources */,
 				B97A57FA205875AB00473581 /* GradientButton.swift in Sources */,
 				B97A58022058863E00473581 /* ColorTemplate.swift in Sources */,
+				B9D4A84020631CCF00313DAB /* XAxisFormatter.swift in Sources */,
+				B9D4A8422063B41C00313DAB /* MoodPlot.swift in Sources */,
 				B97A57BB205856A800473581 /* AppDelegate.swift in Sources */,
 				B9A43E1F205C45D2000FDDEE /* CustomButton.swift in Sources */,
 				B97A57FE2058815A00473581 /* UIView+gradientExtensions.swift in Sources */,
 				B9A43E26205C7EC8000FDDEE /* ChallengeCell.swift in Sources */,
+				B9D4A8502065C3B200313DAB /* extensionUIViewControllerChartSettings.swift in Sources */,
 				B9BA5D3D20616D7000301EAB /* TimeInterval + extensions.swift in Sources */,
 				B97A57F7205874C700473581 /* HomeViewController.swift in Sources */,
 				B97A580720595A1C00473581 /* customTextField.swift in Sources */,
@@ -592,6 +745,7 @@
 		};
 		B97A57D8205856A800473581 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E49A3E688642F9F5A270C400 /* Pods-NewDawn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -607,6 +761,7 @@
 		};
 		B97A57D9205856A800473581 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C32A402A1A01F687FFE1372D /* Pods-NewDawn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -622,6 +777,7 @@
 		};
 		B97A57DB205856A800473581 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 084CE7141294C6CA3CEB4AF7 /* Pods-NewDawnTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -639,6 +795,7 @@
 		};
 		B97A57DC205856A800473581 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D15E612DD6C76CE8E8BE81EF /* Pods-NewDawnTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

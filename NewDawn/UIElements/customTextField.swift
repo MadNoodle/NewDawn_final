@@ -5,7 +5,7 @@
 //  Created by Mathieu Janneau on 14/03/2018.
 //  Copyright © 2018 Mathieu Janneau. All rights reserved.
 //
-
+// swiftlint:disable trailing_whitespace
 import UIKit
 @IBDesignable
 class CustomTextField: UITextField {

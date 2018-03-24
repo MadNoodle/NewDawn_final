@@ -5,12 +5,13 @@
 //  Created by Mathieu Janneau on 13/03/2018.
 //  Copyright © 2018 Mathieu Janneau. All rights reserved.
 //
+// swiftlint:disable trailing_whitespace
 
 import UIKit
 
 extension UIView {
   
-  func setGradientBackground(from startColor: CGColor,to endColor: CGColor ){
+  func setGradientBackground(from startColor: CGColor, to endColor: CGColor ) {
     // Create Gradient
     let gradient = CAGradientLayer()
     // Cover whole Background
@@ -27,7 +28,7 @@ extension UIView {
     gradient.locations = [0.0, 1.0]
   }
   
-  func getGradientLayer(from startColor: CGColor,to endColor: CGColor ) -> CAGradientLayer {
+  func getGradientLayer(from startColor: CGColor, to endColor: CGColor ) -> CAGradientLayer {
     // Create Gradient
     let gradient = CAGradientLayer()
     // Cover whole Background

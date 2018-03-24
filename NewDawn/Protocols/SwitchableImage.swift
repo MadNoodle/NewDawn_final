@@ -12,14 +12,11 @@ import UIKit
 /// it sets a choosen as Bool. When user selects it goes true.
 protocol SwitchableImage {
   /// Selected state
-  var choosen:Bool {get set}
+  var choosen: Bool {get set}
   /// String for image Name
-  var imageName:String {get set}
+  var imageName: String {get set}
   /// Callback function
   func userDidSelect()
   /// set Image to original
   func resetImage()
 }
-
-
-

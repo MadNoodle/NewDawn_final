@@ -5,7 +5,7 @@
 //  Created by Mathieu Janneau on 13/03/2018.
 //  Copyright © 2018 Mathieu Janneau. All rights reserved.
 //
-
+// swiftlint:disable trailing_whitespace
 import UIKit
 
 @IBDesignable
@@ -14,15 +14,15 @@ import UIKit
 class Trapezium: UIView {
   
   /// Start color for the background gradient
-  @IBInspectable var startColor:CGColor = ColorTemplate.darkGreen.cgColor
+  var startColor: CGColor = ColorTemplate.darkGreen.cgColor
   /// end color for the background gradient
-  @IBInspectable var endColor:CGColor = ColorTemplate.lightGreen.cgColor
+  var endColor: CGColor = ColorTemplate.lightGreen.cgColor
   /// Offset por the bottom rigth CGPoint to customize the trapezium
-  @IBInspectable var rigthOffset:CGFloat = 50
+  @IBInspectable var rigthOffset: CGFloat = 50
   /// Offset por the bottom left CGPoint to customize the trapezium
-  @IBInspectable var leftOffset:CGFloat = 0
+  @IBInspectable var leftOffset: CGFloat = 0
   
-  override func draw(_ rect:CGRect){
+  override func draw(_ rect: CGRect) {
     // Draw trapezoid shape
     let path = UIBezierPath()
     path.move(to: CGPoint(x: 0, y: 0))

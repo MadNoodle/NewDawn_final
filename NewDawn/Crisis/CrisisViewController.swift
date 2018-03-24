@@ -5,7 +5,7 @@
 //  Created by Mathieu Janneau on 18/03/2018.
 //  Copyright © 2018 Mathieu Janneau. All rights reserved.
 //
-
+// swiftlint:disable trailing_whitespace
 import UIKit
 import AVFoundation
 
@@ -45,10 +45,12 @@ class CrisisViewController: UIViewController {
     addCircles()
   }
   
-  // MARK: - ACTIONS
+  // /////////////// //
+  // MARK: - ACTIONS //
+  // /////////////// //
   
   @IBAction func animation(_ sender: UIButton) {
-    
+
     let numberOfCycles = duration / 12.0
     if isActive == false {
       isActive = true
@@ -60,6 +62,7 @@ class CrisisViewController: UIViewController {
       resetCirclesAnimation()
     }
   }
+
   @IBAction func setDuration(_ sender: UIButton) {
     guard let title = sender.titleLabel?.text  else { return }
     if  let time = Float(title) {
@@ -68,13 +71,12 @@ class CrisisViewController: UIViewController {
       let countMS = timeRemaining.secondsToMinutesSeconds()
       timerLabel.text = "\(countMS)"
     }
-    
   }
   
   // //////////////// //
   // MARK: - UI SETUP //
   // //////////////// //
-  
+
   func runTimer() {
     timer = Timer.scheduledTimer(
       timeInterval: 1.0,
@@ -83,8 +85,7 @@ class CrisisViewController: UIViewController {
       userInfo: nil,
       repeats: true)
   }
-  
-  
+
   fileprivate func setupButton() {
     startButton.layer.borderColor = UIColor.white.cgColor
     startButton.layer.borderWidth = 2.0
@@ -95,17 +96,19 @@ class CrisisViewController: UIViewController {
       button.layer.cornerRadius = button.bounds.width / 2
     }
   }
-  
+
   fileprivate func setupLabel() {
     breathLabel.layer.cornerRadius = breathLabel.frame.width / 2
     breathLabel.layer.masksToBounds = true
     breathLabel.text = "BREATH"
   }
-  
+
   fileprivate func addCircles() {
     
+    // Define Common center for all the circles
     let newCenter = CGPoint(x: self.pulsatingCircles.bounds.width / 2, y: self.pulsatingCircles.bounds.height / 2)
-    
+  
+    // Create all the Circle paths according to the different radius
     for rad in radius {
       let pulsatingCircle = CAShapeLayer()
       let circularPath = UIBezierPath(arcCenter: .zero,
@@ -118,22 +121,26 @@ class CrisisViewController: UIViewController {
       circles.append(pulsatingCircle)
     }
     
+    // Adding the Circles to the View
     for circle in circles {
       circle.position = newCenter
       circle.lineCap = kCALineCapRound
       self.pulsatingCircles.layer.addSublayer(circle)
     }
   }
-  
-  // MARK: - ANIMATIONS
+  // ////////////////// //
+  // MARK: - ANIMATIONS //
+  // ////////////////// //
   
   @objc func updateTimerLabel() {
+    // Run countdown
     if timeRemaining > 0 {
       timeRemaining -= 1
       let countMS = timeRemaining.secondsToMinutesSeconds()
       timerLabel.text = "\(countMS)"
       
     } else {
+      // Signal the end of countDown
       AudioServicesPlaySystemSound (systemSoundID)
       timerLabel.text = "Congratulations"
       timer.invalidate()

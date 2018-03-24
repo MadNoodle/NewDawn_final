@@ -34,6 +34,7 @@
 		<string>TitilliumWeb-SemiBold</string>
 		<string>TitilliumWeb-BoldItalic</string>
 		<string>TitilliumWeb-SemiBoldItalic</string>
+		<string>SmileyfaceFont3</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>

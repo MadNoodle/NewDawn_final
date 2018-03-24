@@ -5,10 +5,12 @@
 //  Created by Mathieu Janneau on 16/03/2018.
 //  Copyright © 2018 Mathieu Janneau. All rights reserved.
 //
+// swiftlint:disable trailing_whitespace
+
 import UIKit
 
 /// Custom button than can change image when selected
-class CustomUIButtonForUIToolbar: UIButton,SwitchableImage {
+class CustomUIButtonForUIToolbar: UIButton, SwitchableImage {
  
   @IBInspectable var imageName: String = ""
   /// Sets the button state. if the button has alrready been selected
@@ -17,18 +19,18 @@ class CustomUIButtonForUIToolbar: UIButton,SwitchableImage {
   /// This method changes the button image when user clicks
   func userDidSelect() {
     if choosen {
-      self.setImage(UIImage(named:imageName), for: .normal)
+      self.setImage(UIImage(named: imageName), for: .normal)
       choosen = false
     } else {
-      self.setImage(UIImage(named:"\(imageName)_green"), for: .normal)
+      self.setImage(UIImage(named: "\(imageName)_green"), for: .normal)
       choosen = true
     }
   }
   
   /// Self Explanatory
-  func resetImage(){
+  func resetImage() {
     self.choosen = false
-    self.setImage(UIImage(named:imageName), for: .normal)
+    self.setImage(UIImage(named: imageName), for: .normal)
     
   }
 
