@@ -15,14 +15,18 @@ final class MedicAnnotation: NSObject, MKAnnotation {
   var title: String?
   var image: String
   var subtitle: String?
+  var tel: String?
+  var job: String?
   
-  init(lat: String, lng: String, name:String, image: String, subtitle: String) {
+  init(lat: String, lng: String, name:String, image: String, subtitle: String, tel: String, job: String) {
     let degLat: CLLocationDegrees = CLLocationDegrees(lat)!
     let degLng: CLLocationDegrees = CLLocationDegrees(lng)!
     self.coordinate = CLLocationCoordinate2D(latitude: degLat, longitude: degLng)
     self.title = name
     self.subtitle = subtitle
     self.image = image
+    self.tel = tel
+    self.job = job
     super.init()
   }
 }
