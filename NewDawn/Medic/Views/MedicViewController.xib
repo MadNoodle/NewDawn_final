@@ -54,23 +54,35 @@
                     <rect key="frame" x="0.0" y="62" width="375" height="0.0"/>
                     <subviews>
                         <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="RhR-2R-PcT">
-                            <rect key="frame" x="16" y="16" width="343" height="182"/>
+                            <rect key="frame" x="16" y="16" width="343" height="200"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="u9B-Zz-N7K">
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="u9B-Zz-N7K">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="26"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDA-94-BSR">
-                                            <rect key="frame" x="0.0" y="0.0" width="317" height="26"/>
-                                            <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="17"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="265" height="26"/>
+                                            <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqe-ZR-3S9">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMJ-MW-Kd1">
+                                            <rect key="frame" x="278" y="0.0" width="26" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="26" id="TCP-97-R8i"/>
+                                                <constraint firstAttribute="height" constant="26" id="egn-LN-sCB"/>
+                                            </constraints>
+                                            <state key="normal" image="upload"/>
+                                            <connections>
+                                                <action selector="shareDetail:" destination="-1" eventType="touchUpInside" id="jWm-r1-SR1"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqe-ZR-3S9">
                                             <rect key="frame" x="317" y="0.0" width="26" height="26"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="26" id="EoL-JG-imU"/>
                                                 <constraint firstAttribute="height" constant="26" id="ds1-Og-qpg"/>
                                             </constraints>
+                                            <state key="normal" image="close "/>
                                             <connections>
                                                 <action selector="closeDetail:" destination="-1" eventType="touchUpInside" id="PrV-KF-Wb7"/>
                                             </connections>
@@ -107,14 +119,32 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="telephone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pr2-zB-V06">
-                                    <rect key="frame" x="0.0" y="156" width="72" height="26"/>
-                                    <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wRS-RF-MIQ">
+                                    <rect key="frame" x="0.0" y="156" width="343" height="44"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="telephone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pr2-zB-V06">
+                                            <rect key="frame" x="0.0" y="9" width="299" height="26"/>
+                                            <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pw-wi-lum">
+                                            <rect key="frame" x="299" y="0.0" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="9ux-iT-8Xa"/>
+                                                <constraint firstAttribute="height" constant="44" id="EP9-2N-xeg"/>
+                                            </constraints>
+                                            <state key="normal" image="call "/>
+                                            <connections>
+                                                <action selector="callTherapist:" destination="-1" eventType="touchUpInside" id="ZmU-Fc-YnM"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="wRS-RF-MIQ" firstAttribute="leading" secondItem="RhR-2R-PcT" secondAttribute="leading" id="DlE-Ki-AGT"/>
+                                <constraint firstAttribute="trailing" secondItem="wRS-RF-MIQ" secondAttribute="trailing" id="ORH-ag-vVd"/>
                                 <constraint firstAttribute="trailing" secondItem="u9B-Zz-N7K" secondAttribute="trailing" id="VqP-hH-BGQ"/>
                                 <constraint firstItem="u9B-Zz-N7K" firstAttribute="leading" secondItem="RhR-2R-PcT" secondAttribute="leading" id="Yqq-VC-wRm"/>
                             </constraints>
@@ -146,4 +176,9 @@
             <point key="canvasLocation" x="25.5" y="52.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="call " width="20" height="20"/>
+        <image name="close " width="10" height="10"/>
+        <image name="upload" width="22" height="21"/>
+    </resources>
 </document>

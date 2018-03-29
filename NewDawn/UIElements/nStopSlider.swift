@@ -17,7 +17,7 @@ class NStopSlider: UISlider {
   }
   
   override func draw(_ rect: CGRect) {
-    self.tintColor = ColorTemplate.neutralGreen
+    self.tintColor = UIConfig.neutralGreen
   }
 
 }

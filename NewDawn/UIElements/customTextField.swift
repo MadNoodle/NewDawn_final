@@ -11,7 +11,7 @@ import UIKit
 class CustomTextField: UITextField {
   @IBInspectable var dividerOffset: CGFloat = 0.0
   @IBInspectable var strokeWidth: CGFloat = 1.0
-  @IBInspectable var color: UIColor = ColorTemplate.lightGreen
+  @IBInspectable var color: UIColor = UIConfig.lightGreen
   
   override func layoutSubviews() {
     let separator = CAShapeLayer()

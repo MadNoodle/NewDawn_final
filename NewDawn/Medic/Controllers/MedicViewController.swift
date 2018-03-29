@@ -48,22 +48,16 @@ class MedicViewController: UIViewController {
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
     self.locationManager.requestWhenInUseAuthorization()
     self.locationManager.startUpdatingLocation()
-    
     self.map.showsUserLocation = true
   }
   
-  
-  
+
   func centerMapOnLocation(_ location: CLLocationCoordinate2D) {
-    
     let coordinateRegion = MKCoordinateRegionMakeWithDistance(location, regionRadius, regionRadius)
     map.setRegion(coordinateRegion, animated: true)
     
-
-    
   }
-  
-  
+ 
   fileprivate func loadMedicAnnotations() {
     for medic in medics {
       let annotation = MedicAnnotation(lat: medic.lat, lng: medic.lng, name: medic.name, image: "pin", subtitle: medic.adresse,tel: medic.tel, job: medic.profession)
@@ -72,10 +66,12 @@ class MedicViewController: UIViewController {
   }
   
   // MARK: - Callout Methods
-  fileprivate func calloutSetup(_ views: [Any]?, _ medicAnnotation: MedicAnnotation, _ view: MKAnnotationView) {
+  func calloutSetup(_ views: [Any]?, _ medicAnnotation: MedicAnnotation, _ view: MKAnnotationView) {
+    
     let calloutView = views?[0] as! CustomCalloutView
     calloutView.nameLabel.text = medicAnnotation.title
     calloutView.addressLabel.text = medicAnnotation.subtitle
+    
     let button = UIButton(frame: calloutView.detail.frame)
     button.addTarget(self,action: #selector(showDetail), for: .touchUpInside)
     calloutView.addSubview(button)
@@ -88,7 +84,7 @@ class MedicViewController: UIViewController {
     constraint.constant = identity
   
     UIView.animate(withDuration: 0.5) {
-      self.constraint.constant = self.map.frame.size.height / 3
+      self.constraint.constant = self.map.frame.size.height / 3 + 50
       if self.coordinates != nil {
         self.centerMapOnLocation(self.coordinates!)
         self.infoStack.isHidden = false
@@ -107,7 +103,35 @@ class MedicViewController: UIViewController {
     }
   }
   
-  fileprivate func loadMedicDetails(_ view: MKAnnotationView) {
+  @IBAction func callTherapist(_ sender: UIButton) {
+    var formattedNumber = detailPhone.text!
+    let forbiddenCharacters = [" ", "-", "."]
+    for char in forbiddenCharacters {
+      formattedNumber = formattedNumber.replacingOccurrences(of: char , with: "")
+      
+    }
+    
+    guard let number = URL(string: "tel://" + formattedNumber) else { return }
+    UIApplication.shared.open(number)
+  }
+  @IBAction func shareDetail(_ sender: UIButton) {
+    
+    // text to share
+    let text = "\(String(describing: detailName.text!)) \n \(String(describing: detailAddress.text!)) \n \(String(describing: detailJob.text!)) \n \(String(describing: detailPhone.text!))"
+    
+    // set up activity view controller
+    let textToShare = [ text ]
+    let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+    activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+    
+    // exclude some activity types from the list (optional)
+    activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
+    
+    // present the view controller
+    self.present(activityViewController, animated: true, completion: nil)
+  }
+  
+   func loadMedicDetails(_ view: MKAnnotationView) {
     let detail = view.annotation as! MedicAnnotation
     detailName.text = detail.title
     detailAddress.text = detail.subtitle
@@ -117,70 +141,5 @@ class MedicViewController: UIViewController {
 }
 
 
-// MARK: - <#MKMapViewDelegate#>
-extension MedicViewController: MKMapViewDelegate {
-  
-  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-    if annotation is MKUserLocation {
-      return nil
-    }
-    
-    var annotationView = map.dequeueReusableAnnotationView(withIdentifier: "pin")
-    if annotationView == nil {
-      annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "pin")
-      annotationView?.canShowCallout = false
-    } else {
-      annotationView?.annotation = annotation
-    }
-    
-    annotationView?.image = UIImage(named: "pin")
-    return annotationView
-  }
-  
-  func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-    if view.annotation is MKUserLocation {
-      return
-    }
-    
-    let medicAnnotation = view.annotation as! MedicAnnotation
-    let views = Bundle.main.loadNibNamed("CustomCalloutView", owner: self, options: nil)
-    calloutSetup(views, medicAnnotation, view)
-    map.setCenter((view.annotation?.coordinate)!, animated: true)
-    coordinates = (view.annotation?.coordinate)!
-    
-    loadMedicDetails(view)
-  }
-  
-  func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-    if view.isKind(of: AnnotationView.self)
-    {
-      for subview in view.subviews
-      {
-        subview.removeFromSuperview()
-      }
-    }
-  }
-}
-
-// MARK: - <#CLLocationManagerDelegate#>
-extension MedicViewController: CLLocationManagerDelegate {
-  
-  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    let location = locations.last
-    // Set Center to users Location
-    let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
-    // Define scale
-    let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
-    
-    self.map.setRegion(region, animated: true)
-    self.locationManager.stopUpdatingLocation()
-    
-  }
-  
-  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-    print("Errors " + error.localizedDescription)
-  }
-  
-}
 
 

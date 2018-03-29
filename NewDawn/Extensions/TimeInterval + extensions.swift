@@ -11,6 +11,6 @@ import Foundation
 extension Int {
 
   func secondsToMinutesSeconds() -> String {
-    return String(format: "%02d:%02d", ((self % 3600) / 60), ((self % 3600) % 60))
+    return String(format: UIConfig.timerFormat , ((self % 3600) / 60), ((self % 3600) % 60))
   }
 }

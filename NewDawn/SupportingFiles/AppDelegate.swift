@@ -20,7 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window!.rootViewController = MainTabBarController()
     window!.makeKeyAndVisible()
     // set tabBAr Seleccted color
-    UITabBar.appearance().tintColor = #colorLiteral(red: 0.2588235294, green: 0.8039215686, blue: 0.768627451, alpha: 1)
+    UITabBar.appearance().tintColor = UIConfig.lightGreen
+    UINavigationBar.appearance().barTintColor = UIConfig.lightGreen
+    UINavigationBar.appearance().tintColor = .white
+    UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
     return true
   }
 

@@ -10,8 +10,8 @@ import UIKit
 
 @IBDesignable
 class GradientButton: UIButton {
-  var startColor: CGColor = ColorTemplate.darkGreen.cgColor
-  var endColor: CGColor = ColorTemplate.lightGreen.cgColor
+  var startColor: CGColor = UIConfig.darkGreen.cgColor
+  var endColor: CGColor = UIConfig.lightGreen.cgColor
   
   override func draw(_ rect: CGRect) {
     setGradientBackground(from: startColor, to: endColor)
