@@ -16,15 +16,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    // Define custom cell
     let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as? ChallengeCell
+    
+    // Data for cell
     let currentChallenge = mockData[indexPath.row]
+    
     cell?.challengeTime.text = currentChallenge.date
+    
+    // Change cell status image according to challenge completion or not
     if currentChallenge.state {
       cell?.challengeState.image = UIImage(named: "circle_green")
     } else {
       cell?.challengeState.image = UIImage(named: "circle")
     }
+    // Challenge title
     cell?.challengeDescription.text = currentChallenge.title
+    // Challenge Category image
     cell?.objectiveIcon.image = UIImage(named: currentChallenge.icon)
     
     return cell!

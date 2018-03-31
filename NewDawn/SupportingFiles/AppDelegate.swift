@@ -14,16 +14,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
+
+  
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     window = UIWindow(frame: UIScreen.main.bounds)
     window!.rootViewController = MainTabBarController()
     window!.makeKeyAndVisible()
+
+    statusBarSetup()
+    navigationBarSetup()
     // set tabBAr Seleccted color
     UITabBar.appearance().tintColor = UIConfig.lightGreen
-    UINavigationBar.appearance().barTintColor = UIConfig.lightGreen
-    UINavigationBar.appearance().tintColor = .white
-    UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+   
+    
     return true
   }
 
@@ -77,5 +81,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           }
       }
   }
-
+  
+  fileprivate func navigationBarSetup() {
+    // remove the 1 px shadow under navigationBar
+    UINavigationBar.appearance().shadowImage = UIImage()
+    UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+    UINavigationBar.appearance().barTintColor = UIConfig.lightGreen
+    UINavigationBar.appearance().tintColor = .white
+    UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+  }
+  
+  fileprivate func statusBarSetup() {
+    if let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView {
+      statusBar.backgroundColor = UIConfig.lightGreen
+      statusBar.isOpaque = true
+      
+    }
+    
+    UIApplication.shared.statusBarStyle = .lightContent
+  }
 }

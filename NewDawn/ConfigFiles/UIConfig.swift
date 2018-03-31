@@ -11,6 +11,7 @@ import UIKit
 struct UIConfig {
   
   // MARK: - COLORS
+  
   static let darkGreen = UIColor(red: 41.0/255.0, green: 178.0/255.0, blue: 159.0/255.0, alpha: 1)
   static let ultraDarkGreen = UIColor(red: 97.0/255.0, green: 140.0/255.0, blue: 134.0/255.0, alpha: 1)
   static let lightGreen = UIColor(red: 49.0/255.0, green: 212.0/255.0, blue: 202.0/255.0, alpha: 1)

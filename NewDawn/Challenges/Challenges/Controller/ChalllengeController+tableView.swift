@@ -23,7 +23,12 @@ extension ChallengeController : UITableViewDataSource,UITableViewDelegate {
     cell.addSubview(button)
     let size: CGFloat = 13
     button.frame = CGRect(x: cell.frame.width - size , y: (cell.frame.height / 2) - (size / 2), width: size, height: size)
-    
+    button.addTarget(self, action: #selector(createChallenge), for:.touchUpInside)
     return cell
+  }
+  
+  @objc func createChallenge(sender:UIButton){
+    let addVc = CreateChallengeViewController()
+    self.navigationController?.pushViewController(addVc, animated: true)
   }
 }

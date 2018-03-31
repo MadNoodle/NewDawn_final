@@ -35,7 +35,6 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = "History"
     lineChart.delegate = self
     barChart.delegate = self
   }

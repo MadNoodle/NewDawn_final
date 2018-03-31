@@ -22,6 +22,7 @@ class CrisisViewController: UIViewController {
   // Timer Properties
   var timer = Timer()
   var duration: Float = 120.0
+  let cycleLength: Float = 12.0
   var timeRemaining: Int = 0
   let systemSoundID: SystemSoundID = 1023
   
@@ -38,7 +39,6 @@ class CrisisViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = "Relax yourself"
     timeRemaining = Int(duration)
     setupLabel()
     setupButton()
@@ -50,24 +50,36 @@ class CrisisViewController: UIViewController {
   // /////////////// //
   
   @IBAction func animation(_ sender: UIButton) {
-
-    let numberOfCycles = duration / 12.0
+    // Define the number of animation for the selected duration
+    let numberOfCycles = duration / cycleLength
+    // start Breathing sessions
     if isActive == false {
       isActive = true
+      // start timer
       runTimer()
+      // update button title
+      startButton.setTitle("stop", for: .normal)
+      // start animation
       pulsatingCircles.circlesAnimation(for: numberOfCycles)
     } else {
+      // stop breathing session
       isActive = false
+      // stop timer
       timer.invalidate()
+      // reset button title
+      startButton.setTitle("Start", for: .normal)
+      // stop and reset animation
       pulsatingCircles.resetCirclesAnimation()
     }
   }
 
   @IBAction func setDuration(_ sender: UIButton) {
+    // grab button title and convert it to duration in min/sec
     guard let title = sender.titleLabel?.text  else { return }
     if  let time = Float(title) {
       duration = time * 60
       timeRemaining = Int(duration)
+      // Convert
       let countMS = timeRemaining.secondsToMinutesSeconds()
       timerLabel.text = "\(countMS)"
     }

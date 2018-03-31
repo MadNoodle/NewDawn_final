@@ -18,7 +18,6 @@ class ObjectiveViewController: UIViewController,ChallengeControllerDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = "Objectives"
     collectionView.dataSource = self
     collectionView.delegate = self
     collectionView.register(UINib(nibName: "ObjectiveCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseId)

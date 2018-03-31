@@ -8,13 +8,14 @@
 // swiftlint:disable trailing_whitespace
 import UIKit
 
-@IBDesignable
+
 
 /// Customizable trapezium shape with a color graident background
+@IBDesignable
 class Trapezium: UIView {
   
   /// Start color for the background gradient
-  var startColor: CGColor = UIConfig.darkGreen.cgColor
+  var startColor: CGColor = UIConfig.lightGreen.cgColor
   /// end color for the background gradient
   var endColor: CGColor = UIConfig.lightGreen.cgColor
   /// Offset por the bottom rigth CGPoint to customize the trapezium

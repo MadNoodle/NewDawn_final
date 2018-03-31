@@ -10,19 +10,35 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+  
+  // ////////////////// //
+  // MARK: - PROPERTIES //
+  // ////////////////// //
   let mockData = MockChallenge.getMockChallenges()
   let reuseId = "myCell"
-  @IBOutlet var moodButtons: [CustomUIButtonForUIToolbar]!
   
+  // ////////////////// //
+  // MARK: - OUTLETS    //
+  // ////////////////// //
+  @IBOutlet var moodButtons: [CustomUIButtonForUIToolbar]!
   @IBOutlet weak var challengesTableView: UITableView!
+  
+  // ///////////////////////// //
+  // MARK: - LIFECYCLE METHODS //
+  // ///////////////////////// //
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = "Profil"
+
+   
     challengesTableView.delegate = self
     challengesTableView.dataSource = self
     challengesTableView.register(UINib(nibName: "ChallengeCell", bundle: nil), forCellReuseIdentifier: reuseId)
   }
+  
+  // ////////////////// //
+  // MARK: - ACTIONS    //
+  // ////////////////// //
   
   @IBAction func moodButtonTapped(_ sender: CustomUIButtonForUIToolbar) {
     evaluateMoodButtonState()
