@@ -8,9 +8,10 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
 
   var window: UIWindow?
 
@@ -27,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // set tabBAr Seleccted color
     UITabBar.appearance().tintColor = UIConfig.lightGreen
    
-    
+    NotificationService.setupNotificationCenter()
+    NotificationService.center.delegate = self
     return true
   }
 
@@ -99,5 +101,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     UIApplication.shared.statusBarStyle = .lightContent
+  }
+  
+  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    // EZAlertController.alert("you have new meeting ")
+    
+    completionHandler( [.alert, .badge, .sound])
+  }
+  
+  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    completionHandler()
   }
 }

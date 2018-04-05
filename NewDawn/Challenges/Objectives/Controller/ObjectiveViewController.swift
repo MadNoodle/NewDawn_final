@@ -10,6 +10,7 @@
 import UIKit
 
 class ObjectiveViewController: UIViewController,ChallengeControllerDelegate {
+  
   let data = Category.getCategories()
   let reuseId = "my cell"
   var categoryTitle: ChallengeType?

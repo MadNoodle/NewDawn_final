@@ -19,6 +19,8 @@
 		B9083E47206D9D8700A64587 /* LocalisationString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9083E46206D9D8700A64587 /* LocalisationString.swift */; };
 		B9083E49206DA53D00A64587 /* MedicViewController+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9083E48206DA53D00A64587 /* MedicViewController+MapKit.swift */; };
 		B9083E4B206DA56800A64587 /* MedicViewController+CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9083E4A206DA56800A64587 /* MedicViewController+CLLocation.swift */; };
+		B912D73D2070F51F00E60867 /* ChallengeTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B912D73B2070F51F00E60867 /* ChallengeTwo.swift */; };
+		B912D73E2070F51F00E60867 /* ChallengeTwo.xib in Resources */ = {isa = PBXBuildFile; fileRef = B912D73C2070F51F00E60867 /* ChallengeTwo.xib */; };
 		B91BCA5F2067E4AC000841D1 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91BCA5E2067E4AC000841D1 /* AnnotationView.swift */; };
 		B91BCA6820681077000841D1 /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B91BCA6720681077000841D1 /* CustomCalloutView.xib */; };
 		B91BCA6A20681096000841D1 /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91BCA6920681096000841D1 /* CustomCalloutView.swift */; };
@@ -72,6 +74,11 @@
 		B9A43E37205EA96D000FDDEE /* CrisisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A43E35205EA96D000FDDEE /* CrisisViewController.xib */; };
 		B9A43E40205EA99D000FDDEE /* MedicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A43E3E205EA99D000FDDEE /* MedicViewController.swift */; };
 		B9A43E41205EA99D000FDDEE /* MedicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A43E3F205EA99D000FDDEE /* MedicViewController.xib */; };
+		B9B933D5207530080011B1F9 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B933D4207530080011B1F9 /* NotificationService.swift */; };
+		B9B933DA20756AFA0011B1F9 /* ChallengeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B933D820756AFA0011B1F9 /* ChallengeDetailCell.swift */; };
+		B9B933DB20756AFA0011B1F9 /* ChallengeDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9B933D920756AFA0011B1F9 /* ChallengeDetailCell.xib */; };
+		B9B933DD207613A40011B1F9 /* PostPoneLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B933DC207613A40011B1F9 /* PostPoneLauncher.swift */; };
+		B9B933DF2076480E0011B1F9 /* MyChallengesViewController+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B933DE2076480E0011B1F9 /* MyChallengesViewController+tableView.swift */; };
 		B9BA5D39206061CD00301EAB /* ObjectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA5D37206061CD00301EAB /* ObjectiveViewController.swift */; };
 		B9BA5D3A206061CD00301EAB /* ObjectiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BA5D38206061CD00301EAB /* ObjectiveViewController.xib */; };
 		B9BA5D3D20616D7000301EAB /* TimeInterval + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA5D3C20616D7000301EAB /* TimeInterval + extensions.swift */; };
@@ -103,11 +110,13 @@
 		B9083E36206D75C700A64587 /* ChallengeControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeControllerDelegate.swift; sourceTree = "<group>"; };
 		B9083E38206D99D800A64587 /* ChalllengeController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChalllengeController+tableView.swift"; sourceTree = "<group>"; };
 		B9083E3A206D9A4B00A64587 /* HomeViewController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+tableView.swift"; sourceTree = "<group>"; };
-		B9083E41206D9B2A00A64587 /* MyChallengesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyChallengesViewController.swift; path = NewDawn/Profil/Controller/MyChallengesViewController.swift; sourceTree = SOURCE_ROOT; };
-		B9083E42206D9B2A00A64587 /* TableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TableViewController.xib; path = NewDawn/Profil/Controller/TableViewController.xib; sourceTree = SOURCE_ROOT; };
+		B9083E41206D9B2A00A64587 /* MyChallengesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyChallengesViewController.swift; path = NewDawn/Challenges/MyChallenges/Controller/MyChallengesViewController.swift; sourceTree = SOURCE_ROOT; };
+		B9083E42206D9B2A00A64587 /* TableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TableViewController.xib; path = NewDawn/Challenges/MyChallenges/View/TableViewController.xib; sourceTree = SOURCE_ROOT; };
 		B9083E46206D9D8700A64587 /* LocalisationString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalisationString.swift; sourceTree = "<group>"; };
 		B9083E48206DA53D00A64587 /* MedicViewController+MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicViewController+MapKit.swift"; sourceTree = "<group>"; };
 		B9083E4A206DA56800A64587 /* MedicViewController+CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicViewController+CLLocation.swift"; sourceTree = "<group>"; };
+		B912D73B2070F51F00E60867 /* ChallengeTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTwo.swift; sourceTree = "<group>"; };
+		B912D73C2070F51F00E60867 /* ChallengeTwo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeTwo.xib; sourceTree = "<group>"; };
 		B91BCA5E2067E4AC000841D1 /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		B91BCA6720681077000841D1 /* CustomCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
 		B91BCA6920681096000841D1 /* CustomCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
@@ -165,6 +174,11 @@
 		B9A43E35205EA96D000FDDEE /* CrisisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CrisisViewController.xib; sourceTree = "<group>"; };
 		B9A43E3E205EA99D000FDDEE /* MedicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicViewController.swift; sourceTree = "<group>"; };
 		B9A43E3F205EA99D000FDDEE /* MedicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicViewController.xib; sourceTree = "<group>"; };
+		B9B933D4207530080011B1F9 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		B9B933D820756AFA0011B1F9 /* ChallengeDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailCell.swift; sourceTree = "<group>"; };
+		B9B933D920756AFA0011B1F9 /* ChallengeDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeDetailCell.xib; sourceTree = "<group>"; };
+		B9B933DC207613A40011B1F9 /* PostPoneLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPoneLauncher.swift; sourceTree = "<group>"; };
+		B9B933DE2076480E0011B1F9 /* MyChallengesViewController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyChallengesViewController+tableView.swift"; sourceTree = "<group>"; };
 		B9BA5D37206061CD00301EAB /* ObjectiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveViewController.swift; sourceTree = "<group>"; };
 		B9BA5D38206061CD00301EAB /* ObjectiveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ObjectiveViewController.xib; sourceTree = "<group>"; };
 		B9BA5D3C20616D7000301EAB /* TimeInterval + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval + extensions.swift"; sourceTree = "<group>"; };
@@ -224,6 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				B91FD168206AF25400EF4E5C /* ChallengeController.xib */,
+				B912D73B2070F51F00E60867 /* ChallengeTwo.swift */,
+				B912D73C2070F51F00E60867 /* ChallengeTwo.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,8 +267,9 @@
 		B9083E40206D9B0C00A64587 /* MyChallenges */ = {
 			isa = PBXGroup;
 			children = (
-				B9083E41206D9B2A00A64587 /* MyChallengesViewController.swift */,
-				B9083E42206D9B2A00A64587 /* TableViewController.xib */,
+				B9B933E020764F060011B1F9 /* Helpers */,
+				B9B933D720756AD70011B1F9 /* Controller */,
+				B9B933D620756ACE0011B1F9 /* View */,
 			);
 			path = MyChallenges;
 			sourceTree = "<group>";
@@ -613,6 +630,33 @@
 			path = Medic;
 			sourceTree = "<group>";
 		};
+		B9B933D620756ACE0011B1F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B9083E42206D9B2A00A64587 /* TableViewController.xib */,
+				B9B933D820756AFA0011B1F9 /* ChallengeDetailCell.swift */,
+				B9B933D920756AFA0011B1F9 /* ChallengeDetailCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B9B933D720756AD70011B1F9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B9083E41206D9B2A00A64587 /* MyChallengesViewController.swift */,
+				B9B933DE2076480E0011B1F9 /* MyChallengesViewController+tableView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B9B933E020764F060011B1F9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B9B933DC207613A40011B1F9 /* PostPoneLauncher.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		B9E888D1206FB5ED009A242F /* AddChallencges */ = {
 			isa = PBXGroup;
 			children = (
@@ -626,6 +670,7 @@
 		B9E888D2206FB5FD009A242F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B9B933D4207530080011B1F9 /* NotificationService.swift */,
 				B96C1082206ECCBC00C64CDA /* DateLauncher.swift */,
 			);
 			path = Helpers;
@@ -770,6 +815,8 @@
 				B91FD15C206AAEF700EF4E5C /* ObjectiveCollectionViewCell.xib in Resources */,
 				B97A57F02058598F00473581 /* TitilliumWeb-LightItalic.ttf in Resources */,
 				B9BA5D3A206061CD00301EAB /* ObjectiveViewController.xib in Resources */,
+				B912D73E2070F51F00E60867 /* ChallengeTwo.xib in Resources */,
+				B9B933DB20756AFA0011B1F9 /* ChallengeDetailCell.xib in Resources */,
 				B97A57F22058598F00473581 /* TitilliumWeb-SemiBoldItalic.ttf in Resources */,
 				B97A57EC2058598F00473581 /* TitilliumWeb-Light.ttf in Resources */,
 				B91BCA6C20681853000841D1 /* adresses.json in Resources */,
@@ -917,6 +964,7 @@
 			files = (
 				B9072DF52066CD3F00F17420 /* MedicAnnotation.swift in Sources */,
 				B91BCA5F2067E4AC000841D1 /* AnnotationView.swift in Sources */,
+				B912D73D2070F51F00E60867 /* ChallengeTwo.swift in Sources */,
 				B9ECE95420667C2300A24216 /* Therapist.swift in Sources */,
 				B9E888D8206FB672009A242F /* DestinationViewController.swift in Sources */,
 				B91FD161206ABC9A00EF4E5C /* Category.swift in Sources */,
@@ -924,6 +972,7 @@
 				B97A57C3205856A800473581 /* NewDawn.xcdatamodeld in Sources */,
 				B9083E3B206D9A4B00A64587 /* HomeViewController+tableView.swift in Sources */,
 				B9A43E40205EA99D000FDDEE /* MedicViewController.swift in Sources */,
+				B9B933DA20756AFA0011B1F9 /* ChallengeDetailCell.swift in Sources */,
 				B97A5805205930B800473581 /* roundedImage.swift in Sources */,
 				B9A43E2C205EA8BF000FDDEE /* MainTabBarController.swift in Sources */,
 				B97A580B20595FC700473581 /* nStopSlider.swift in Sources */,
@@ -945,6 +994,7 @@
 				B9D4A84020631CCF00313DAB /* XAxisFormatter.swift in Sources */,
 				B9D4A8422063B41C00313DAB /* MoodPlot.swift in Sources */,
 				B97A57BB205856A800473581 /* AppDelegate.swift in Sources */,
+				B9B933DD207613A40011B1F9 /* PostPoneLauncher.swift in Sources */,
 				B9A43E1F205C45D2000FDDEE /* CustomButton.swift in Sources */,
 				B9083E43206D9B2A00A64587 /* MyChallengesViewController.swift in Sources */,
 				B97A57FE2058815A00473581 /* UIView+gradientExtensions.swift in Sources */,
@@ -954,8 +1004,10 @@
 				B91FD169206AF25400EF4E5C /* ChallengeController.swift in Sources */,
 				B9D4A8502065C3B200313DAB /* extensionUIViewControllerChartSettings.swift in Sources */,
 				B9083E39206D99D800A64587 /* ChalllengeController+tableView.swift in Sources */,
+				B9B933DF2076480E0011B1F9 /* MyChallengesViewController+tableView.swift in Sources */,
 				B9BA5D3D20616D7000301EAB /* TimeInterval + extensions.swift in Sources */,
 				B97A57F7205874C700473581 /* HomeViewController.swift in Sources */,
+				B9B933D5207530080011B1F9 /* NotificationService.swift in Sources */,
 				B9083E37206D75C700A64587 /* ChallengeControllerDelegate.swift in Sources */,
 				B9083E49206DA53D00A64587 /* MedicViewController+MapKit.swift in Sources */,
 				B97A580720595A1C00473581 /* customTextField.swift in Sources */,

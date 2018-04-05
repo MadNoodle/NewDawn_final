@@ -10,7 +10,40 @@ import UIKit
 import MapKit
 
 class DestinationViewController: UIViewController, UISearchBarDelegate,MKMapViewDelegate {
-
+  
+  var challengeLocation : (lat: Double,long: Double,place: String)?
+  
+  // MARK: - OUTLETS
+  @IBOutlet weak var map: MKMapView!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // add search button to navBar
+    let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchLocation))
+    self.navigationItem.rightBarButtonItem = searchButton
+    
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    
+    
+  }
+  
+  @objc func searchLocation(_ sender: UIBarButtonItem){
+    // instantiate searchBar
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    searchController.obscuresBackgroundDuringPresentation = false
+    searchController.searchBar.placeholder = "Search place"
+    navigationItem.searchController = searchController
+    definesPresentationContext = true
+    searchController.searchBar.delegate = self
+   
+    
+    present(searchController, animated: true, completion: nil)
+    
+  }
+  
 
   
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
@@ -48,9 +81,26 @@ class DestinationViewController: UIViewController, UISearchBarDelegate,MKMapView
        {
         // create Annotation
         let annotation = MKPointAnnotation()
-        
+        // grap name from searchBar
         annotation.title = searchBar.text
+        // send coordinate for the annotation
         annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        ////////////// REFACTOR ///////////////
+        // Temporary store location in order to pass data
+       
+        
+        // Send data back to the challengeCreator controller
+        let location: (Double,Double,String) = (annotation.coordinate.latitude , annotation.coordinate.longitude,searchBar.text!)
+          // Coordinates
+          NotificationCenter.default.post(Notification(name:Notification.Name(rawValue: "LocationChanged"), object: nil, userInfo: ["Key":"key", "Location" : location ]))
+          // Place name
+         
+          
+        
+        
+        ////////////// REFACTOR ///////////////
+        // Add annotation to map
         self.map.addAnnotation(annotation)
         
         // Set Zoom 
@@ -92,21 +142,6 @@ class DestinationViewController: UIViewController, UISearchBarDelegate,MKMapView
       return pinView
     }
     return nil
-  }
-  @IBOutlet weak var map: MKMapView!
-  override func viewDidLoad() {
-        super.viewDidLoad()
-    // add search button to navBar
-    let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchLocation))
-    self.navigationItem.rightBarButtonItem = searchButton
-    
-    }
-
-  @objc func searchLocation(_ sender: UIBarButtonItem){
-    let searchController = UISearchController(searchResultsController: nil)
-    searchController.searchBar.delegate = self
-    present(searchController, animated: true, completion: nil)
-    
   }
 
 }

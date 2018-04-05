@@ -76,9 +76,6 @@ class DateLauncher: NSObject {
   }
   
   
-  
-
-  
   fileprivate func insantiateViewIn(_ window: UIWindow) {
     // add tap gesture to remove launcher when tap outside of frame
     blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))

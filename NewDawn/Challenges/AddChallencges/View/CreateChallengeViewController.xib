@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,6 +24,7 @@
                 <outlet property="anxietySlider" destination="FBj-ug-zII" id="uBU-tx-PYH"/>
                 <outlet property="benefitSlider" destination="Gsk-sD-fp9" id="jLa-kU-0Wu"/>
                 <outlet property="dateLabel" destination="n6M-ju-WaP" id="jlS-5o-DBa"/>
+                <outlet property="locationLabel" destination="PcR-Ce-Mrh" id="tME-40-fm5"/>
                 <outlet property="notificationSwitch" destination="X0F-nn-mAx" id="4Qk-Vo-Jcz"/>
                 <outlet property="titleLabel" destination="yeQ-gI-UWH" id="VGA-PX-CLz"/>
                 <outlet property="view" destination="Bbo-qh-iGt" id="8UJ-7j-35G"/>
@@ -101,9 +102,12 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="top" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X0F-nn-mAx">
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="X0F-nn-mAx">
                                     <rect key="frame" x="294" y="0.0" width="51" height="31"/>
                                     <color key="onTintColor" red="0.25882352939999997" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <action selector="userDidActivateNotification:" destination="-1" eventType="valueChanged" id="M51-8T-YaK"/>
+                                    </connections>
                                 </switch>
                             </subviews>
                         </stackView>
@@ -320,6 +324,6 @@
     <resources>
         <image name="Knob" width="35" height="30"/>
         <image name="circle_green" width="15" height="15"/>
-        <image name="plus " width="20" height="21"/>
+        <image name="plus " width="22" height="22"/>
     </resources>
 </document>

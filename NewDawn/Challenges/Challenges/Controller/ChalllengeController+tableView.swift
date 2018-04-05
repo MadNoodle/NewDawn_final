@@ -14,21 +14,27 @@ extension ChallengeController : UITableViewDataSource,UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath)
-    cell.textLabel?.text = data[indexPath.row]
-    cell.textLabel?.font = UIFont(name: UIConfig.lightFont, size: 15.0)
+    let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as? ChallengeTwo
+    cell?.challengeTitle.text = data[indexPath.row]
     
-    let button = UIButton()
-    button.setImage(#imageLiteral(resourceName: "plus "), for: .normal)
-    cell.addSubview(button)
-    let size: CGFloat = 13
-    button.frame = CGRect(x: cell.frame.width - size , y: (cell.frame.height / 2) - (size / 2), width: size, height: size)
-    button.addTarget(self, action: #selector(createChallenge), for:.touchUpInside)
-    return cell
+
+    return cell!
   }
   
-  @objc func createChallenge(sender:UIButton){
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    cellTitle = data[indexPath.row]
+    print("titre step1 :\(cellTitle!)")
+    
     let addVc = CreateChallengeViewController()
+    addVc.delegate = self
+    
     self.navigationController?.pushViewController(addVc, animated: true)
+  }
+  
+  func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+    guard let cell = tableView.cellForRow(at: indexPath) else {return}
+    cell.contentView.backgroundColor = UIConfig.lightGreen
+    cell.textLabel?.textColor = .white
+
   }
 }

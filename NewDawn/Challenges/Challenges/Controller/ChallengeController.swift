@@ -8,37 +8,25 @@
 
 import UIKit
 
-class ChallengeController: UIViewController {
+class ChallengeController: UIViewController, ChallengeControllerDelegate {
   
   let window = UIApplication.shared.keyWindow
   var data = [String]()
   var delegate: ChallengeControllerDelegate?
   var category : ChallengeType?
   let reuseId = "myCell"
+  var cellTitle: String?
   
-  var header: UIView = {
-    let headerView = UIView()
-    headerView.backgroundColor = .white
-    return headerView
-  }()
   
-  var divider: UIView = {
+  private var divider: UIView = {
     let view = UIView()
     view.backgroundColor = UIConfig.lightGreen
     return view
   }()
-  
-  var titleLabel: UILabel = {
-    let label = UILabel()
-    label.font = UIFont(name: UIConfig.semiBoldFont, size: 26.0)
-    return label
-  }()
-  
-  var tableView: UITableView = {
-    let table = UITableView()
-    return table
-  }()
-  
+
+  @IBOutlet weak var tableView: UITableView!
+
+  @IBOutlet weak var titleLabel: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,24 +40,23 @@ class ChallengeController: UIViewController {
     tableViewSetup()
   }
   
-  fileprivate func tableViewSetup() {
+  private func tableViewSetup() {
     // declare cell
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
+    tableView.register(UINib(nibName: "ChallengeTwo",bundle: nil), forCellReuseIdentifier: reuseId)
     tableView.delegate = self
     tableView.dataSource = self
     tableView.reloadData()
   }
   
-  func setupUI(){
+  private func setupUI(){
     self.navigationController?.navigationBar.tintColor = .white
-    view.addSubview(header)
-    header.frame = CGRect(x: 0, y: 85, width: self.view.frame.width, height: 50)
-    header.addSubview(divider)
-    divider.frame = CGRect(x: 16, y: header.frame.height - 2, width: header.frame.width - 32, height: 1)
-    view.addSubview(tableView)
-    tableView.frame = CGRect(x: 0, y: 85 + header.frame.height, width: self.view.frame.width, height: self.view.frame.height)
-    header.addSubview(titleLabel)
-    titleLabel.frame = CGRect(x: 16, y: header.frame.height - 32, width: header.frame.width - 32, height: 21)
+    titleLabel.addSubview(divider)
+    divider.frame = CGRect(x: 0, y: titleLabel.frame.height - 2, width: titleLabel.frame.width + 50, height: 1)
+  }
+  
+  func sendChallengeTitle() -> String? {
+ 
+    return cellTitle
   }
 }
 
