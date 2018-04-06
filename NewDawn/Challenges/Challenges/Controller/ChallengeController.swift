@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ChallengeController: UIViewController, ChallengeControllerDelegate {
+class ChallengeController: UIViewController {
   
   let window = UIApplication.shared.keyWindow
   var data = [String]()
   var delegate: ChallengeControllerDelegate?
   var category : ChallengeType?
   let reuseId = "myCell"
-  var cellTitle: String?
+ 
   
   
   private var divider: UIView = {
@@ -35,6 +35,7 @@ class ChallengeController: UIViewController, ChallengeControllerDelegate {
       data = ChallengeList.getChallenges(for: category)
       titleLabel.text = category.rawValue
     }
+    
     // Setup views
     setupUI()
     tableViewSetup()
@@ -54,10 +55,7 @@ class ChallengeController: UIViewController, ChallengeControllerDelegate {
     divider.frame = CGRect(x: 0, y: titleLabel.frame.height - 2, width: titleLabel.frame.width + 50, height: 1)
   }
   
-  func sendChallengeTitle() -> String? {
- 
-    return cellTitle
-  }
+
 }
 
 

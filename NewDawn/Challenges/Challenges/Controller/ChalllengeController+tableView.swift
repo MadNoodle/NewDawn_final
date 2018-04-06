@@ -22,13 +22,13 @@ extension ChallengeController : UITableViewDataSource,UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    cellTitle = data[indexPath.row]
-    print("titre step1 :\(cellTitle!)")
+    let cellTitle = data[indexPath.row]
     
-    let addVc = CreateChallengeViewController()
-    addVc.delegate = self
-    
-    self.navigationController?.pushViewController(addVc, animated: true)
+    let createVc = CreateChallengeViewController(nibName: nil, bundle: nil)
+    createVc.tableViewTitle = cellTitle
+   
+    self.navigationController?.pushViewController(createVc, animated: true)
+   
   }
   
   func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
@@ -37,4 +37,6 @@ extension ChallengeController : UITableViewDataSource,UITableViewDelegate {
     cell.textLabel?.textColor = .white
 
   }
+  
+
 }

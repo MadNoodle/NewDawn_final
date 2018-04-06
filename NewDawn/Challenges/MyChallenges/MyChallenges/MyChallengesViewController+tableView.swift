@@ -9,18 +9,12 @@
 import UIKit
 
 extension MyChallengesViewController {
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return mockData.count
-  }
+
   
-  override func numberOfSections(in tableView: UITableView) -> Int {
-    return sections.count
-  }
-  
+  // MARK: - HEADER METHODS
   override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return 30
   }
-  
   
   override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let view = UIView()
@@ -28,6 +22,35 @@ extension MyChallengesViewController {
     return view
   }
   
+  fileprivate func headerSetup(_ section: Int, _ view: UIView, _ tableView: UITableView) {
+    let greenCircle = UIImageView()
+    greenCircle.image = #imageLiteral(resourceName: "circle_green")
+    
+    let titleLabel = UILabel()
+    titleLabel.frame = CGRect(x: 40, y: 0, width: 100, height: 30)
+    titleLabel.text = sections[section]
+    titleLabel.textColor = .black
+    titleLabel.font = UIFont(name: UIConfig.lightFont, size: 18.0)
+    
+    let divider = UIView()
+    divider.backgroundColor = UIColor(white: 0, alpha: 0.3)
+    view.addSubview(divider)
+    view.addSubview(titleLabel)
+    view.addSubview(greenCircle)
+    divider.frame = CGRect(x: 8, y: 29, width: tableView.frame.width - 16, height: 1)
+    greenCircle.frame = CGRect(x: 16, y: 7.5, width: 15, height: 15)
+  }
+  
+   // MARK: - SECTIONS AND ROWS
+  override func numberOfSections(in tableView: UITableView) -> Int {
+    return sections.count
+  }
+  
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return mockData.count
+  }
+  
+  // MARK: - CELL DATA
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as? ChallengeDetailCell
     let currentChallenge = mockData[indexPath.row]
@@ -44,6 +67,17 @@ extension MyChallengesViewController {
     return cell!
   }
   
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let currentChallenge = mockData[indexPath.row]
+    // instantiate progress controller
+    let progressVc = ProgressViewController(nibName: nil, bundle: nil)
+    // pass data to the controller
+    progressVc.challenge = currentChallenge
+    // present controller
+    self.navigationController?.pushViewController(progressVc, animated: true)
+  }
+  
+  // MARK: - CELL DISPLAY
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 50.0
   }
@@ -52,7 +86,7 @@ extension MyChallengesViewController {
     return true
   }
   
-  
+  // MARK: - SLIDE OPTIONS
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     
   }
@@ -82,22 +116,5 @@ extension MyChallengesViewController {
     return [delete, postPone, done]
   }
   
-  fileprivate func headerSetup(_ section: Int, _ view: UIView, _ tableView: UITableView) {
-    let greenCircle = UIImageView()
-    greenCircle.image = #imageLiteral(resourceName: "circle_green")
-    
-    let titleLabel = UILabel()
-    titleLabel.frame = CGRect(x: 40, y: 0, width: 100, height: 30)
-    titleLabel.text = sections[section]
-    titleLabel.textColor = .black
-    titleLabel.font = UIFont(name: UIConfig.lightFont, size: 18.0)
-    
-    let divider = UIView()
-    divider.backgroundColor = UIColor(white: 0, alpha: 0.3)
-    view.addSubview(divider)
-    view.addSubview(titleLabel)
-    view.addSubview(greenCircle)
-    divider.frame = CGRect(x: 8, y: 29, width: tableView.frame.width - 16, height: 1)
-    greenCircle.frame = CGRect(x: 16, y: 7.5, width: 15, height: 15)
-  }
+
 }

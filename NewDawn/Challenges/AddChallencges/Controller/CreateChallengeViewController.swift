@@ -8,12 +8,10 @@ Copyright (c) 2018 Mathieu Janneau
 
 import UIKit
 
-
-
 class CreateChallengeViewController: UIViewController {
 
-  var delegate: ChallengeControllerDelegate?
 
+  var tableViewTitle: String?
   // /////////////// //
   // MARK: - OUTLETS //
   // /////////////// //
@@ -32,15 +30,17 @@ class CreateChallengeViewController: UIViewController {
   
   override func viewDidLoad() {
         super.viewDidLoad()
-   if let challengeTitle = delegate?.sendChallengeTitle() {
-    print("step2: \(challengeTitle)")
-      titleLabel.text = challengeTitle}
-  
+    guard let challenge = tableViewTitle else { return}
+      titleLabel.text = challenge
+
+    
     }
   
   override func viewWillAppear(_ animated: Bool) {
     NotificationCenter.default.addObserver(self, selector:#selector(didUpdateDate), name: NSNotification.Name(rawValue: "ValueChanged"), object: nil)
     NotificationCenter.default.addObserver(self, selector:#selector(didUpdateLocation), name: NSNotification.Name(rawValue: "LocationChanged"), object: nil)
+
+    
   }
   
   // /////////////////////// //

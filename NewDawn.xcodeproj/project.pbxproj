@@ -14,11 +14,15 @@
 		B9083E37206D75C700A64587 /* ChallengeControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9083E36206D75C700A64587 /* ChallengeControllerDelegate.swift */; };
 		B9083E39206D99D800A64587 /* ChalllengeController+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9083E38206D99D800A64587 /* ChalllengeController+tableView.swift */; };
 		B9083E3B206D9A4B00A64587 /* HomeViewController+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9083E3A206D9A4B00A64587 /* HomeViewController+tableView.swift */; };
-		B9083E43206D9B2A00A64587 /* MyChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9083E41206D9B2A00A64587 /* MyChallengesViewController.swift */; };
 		B9083E44206D9B2A00A64587 /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9083E42206D9B2A00A64587 /* TableViewController.xib */; };
 		B9083E47206D9D8700A64587 /* LocalisationString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9083E46206D9D8700A64587 /* LocalisationString.swift */; };
 		B9083E49206DA53D00A64587 /* MedicViewController+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9083E48206DA53D00A64587 /* MedicViewController+MapKit.swift */; };
 		B9083E4B206DA56800A64587 /* MedicViewController+CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9083E4A206DA56800A64587 /* MedicViewController+CLLocation.swift */; };
+		B910501C2077AE3600CE6B3E /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B910501A2077AE3600CE6B3E /* ProgressViewController.swift */; };
+		B910501D2077AE3600CE6B3E /* ProgressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B910501B2077AE3600CE6B3E /* ProgressViewController.xib */; };
+		B910501F2077E9B100CE6B3E /* Shareable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B910501E2077E9B100CE6B3E /* Shareable.swift */; };
+		B91050212077E9C900CE6B3E /* Trackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91050202077E9C900CE6B3E /* Trackable.swift */; };
+		B9105023207808F600CE6B3E /* ChallengeValidatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9105022207808F600CE6B3E /* ChallengeValidatorDelegate.swift */; };
 		B912D73D2070F51F00E60867 /* ChallengeTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B912D73B2070F51F00E60867 /* ChallengeTwo.swift */; };
 		B912D73E2070F51F00E60867 /* ChallengeTwo.xib in Resources */ = {isa = PBXBuildFile; fileRef = B912D73C2070F51F00E60867 /* ChallengeTwo.xib */; };
 		B91BCA5F2067E4AC000841D1 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91BCA5E2067E4AC000841D1 /* AnnotationView.swift */; };
@@ -33,6 +37,7 @@
 		B91FD16A206AF25400EF4E5C /* ChallengeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B91FD168206AF25400EF4E5C /* ChallengeController.xib */; };
 		B91FD16C206BC2FF00EF4E5C /* ChallengeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91FD16B206BC2FF00EF4E5C /* ChallengeList.swift */; };
 		B91FD16E206BC84700EF4E5C /* ChallengeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91FD16D206BC84700EF4E5C /* ChallengeType.swift */; };
+		B93E3CFB2077AD5800543D35 /* MyChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93E3CFA2077AD5800543D35 /* MyChallengesViewController.swift */; };
 		B96C1080206E769200C64CDA /* CreateChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96C107E206E769200C64CDA /* CreateChallengeViewController.swift */; };
 		B96C1081206E769200C64CDA /* CreateChallengeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96C107F206E769200C64CDA /* CreateChallengeViewController.xib */; };
 		B96C1083206ECCBC00C64CDA /* DateLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96C1082206ECCBC00C64CDA /* DateLauncher.swift */; };
@@ -110,11 +115,15 @@
 		B9083E36206D75C700A64587 /* ChallengeControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeControllerDelegate.swift; sourceTree = "<group>"; };
 		B9083E38206D99D800A64587 /* ChalllengeController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChalllengeController+tableView.swift"; sourceTree = "<group>"; };
 		B9083E3A206D9A4B00A64587 /* HomeViewController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+tableView.swift"; sourceTree = "<group>"; };
-		B9083E41206D9B2A00A64587 /* MyChallengesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyChallengesViewController.swift; path = NewDawn/Challenges/MyChallenges/Controller/MyChallengesViewController.swift; sourceTree = SOURCE_ROOT; };
 		B9083E42206D9B2A00A64587 /* TableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TableViewController.xib; path = NewDawn/Challenges/MyChallenges/View/TableViewController.xib; sourceTree = SOURCE_ROOT; };
 		B9083E46206D9D8700A64587 /* LocalisationString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalisationString.swift; sourceTree = "<group>"; };
 		B9083E48206DA53D00A64587 /* MedicViewController+MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicViewController+MapKit.swift"; sourceTree = "<group>"; };
 		B9083E4A206DA56800A64587 /* MedicViewController+CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicViewController+CLLocation.swift"; sourceTree = "<group>"; };
+		B910501A2077AE3600CE6B3E /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		B910501B2077AE3600CE6B3E /* ProgressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressViewController.xib; sourceTree = "<group>"; };
+		B910501E2077E9B100CE6B3E /* Shareable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shareable.swift; sourceTree = "<group>"; };
+		B91050202077E9C900CE6B3E /* Trackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackable.swift; sourceTree = "<group>"; };
+		B9105022207808F600CE6B3E /* ChallengeValidatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeValidatorDelegate.swift; sourceTree = "<group>"; };
 		B912D73B2070F51F00E60867 /* ChallengeTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTwo.swift; sourceTree = "<group>"; };
 		B912D73C2070F51F00E60867 /* ChallengeTwo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeTwo.xib; sourceTree = "<group>"; };
 		B91BCA5E2067E4AC000841D1 /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
@@ -129,6 +138,7 @@
 		B91FD168206AF25400EF4E5C /* ChallengeController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeController.xib; sourceTree = "<group>"; };
 		B91FD16B206BC2FF00EF4E5C /* ChallengeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeList.swift; sourceTree = "<group>"; };
 		B91FD16D206BC84700EF4E5C /* ChallengeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeType.swift; sourceTree = "<group>"; };
+		B93E3CFA2077AD5800543D35 /* MyChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyChallengesViewController.swift; sourceTree = "<group>"; };
 		B96C107E206E769200C64CDA /* CreateChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeViewController.swift; sourceTree = "<group>"; };
 		B96C107F206E769200C64CDA /* CreateChallengeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateChallengeViewController.xib; sourceTree = "<group>"; };
 		B96C1082206ECCBC00C64CDA /* DateLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLauncher.swift; sourceTree = "<group>"; };
@@ -255,6 +265,7 @@
 		B9083E3F206D9AFA00A64587 /* Challenges */ = {
 			isa = PBXGroup;
 			children = (
+				B9936C912077AC1300EFBF44 /* ProgressChallenge */,
 				B9E888D5206FB648009A242F /* SearchLocation */,
 				B9083E40206D9B0C00A64587 /* MyChallenges */,
 				B9A43E3D205EA98B000FDDEE /* Objectives */,
@@ -268,7 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				B9B933E020764F060011B1F9 /* Helpers */,
-				B9B933D720756AD70011B1F9 /* Controller */,
+				B9B933D720756AD70011B1F9 /* MyChallenges */,
 				B9B933D620756ACE0011B1F9 /* View */,
 			);
 			path = MyChallenges;
@@ -560,11 +571,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B9936C912077AC1300EFBF44 /* ProgressChallenge */ = {
+			isa = PBXGroup;
+			children = (
+				B910501A2077AE3600CE6B3E /* ProgressViewController.swift */,
+				B910501B2077AE3600CE6B3E /* ProgressViewController.xib */,
+			);
+			path = ProgressChallenge;
+			sourceTree = "<group>";
+		};
 		B9A43E20205C63BA000FDDEE /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				B9A43E21205C6409000FDDEE /* SwitchableImage.swift */,
 				B9083E36206D75C700A64587 /* ChallengeControllerDelegate.swift */,
+				B910501E2077E9B100CE6B3E /* Shareable.swift */,
+				B91050202077E9C900CE6B3E /* Trackable.swift */,
+				B9105022207808F600CE6B3E /* ChallengeValidatorDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -640,13 +663,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		B9B933D720756AD70011B1F9 /* Controller */ = {
+		B9B933D720756AD70011B1F9 /* MyChallenges */ = {
 			isa = PBXGroup;
 			children = (
-				B9083E41206D9B2A00A64587 /* MyChallengesViewController.swift */,
+				B93E3CFA2077AD5800543D35 /* MyChallengesViewController.swift */,
 				B9B933DE2076480E0011B1F9 /* MyChallengesViewController+tableView.swift */,
 			);
-			path = Controller;
+			path = MyChallenges;
 			sourceTree = "<group>";
 		};
 		B9B933E020764F060011B1F9 /* Helpers */ = {
@@ -768,6 +791,11 @@
 					B97A57B6205856A800473581 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					B97A57CD205856A800473581 = {
 						CreatedOnToolsVersion = 9.2;
@@ -809,6 +837,7 @@
 				B97A57EA2058598F00473581 /* TitilliumWeb-ExtraLight.ttf in Resources */,
 				B97A57E92058598F00473581 /* TitilliumWeb-Italic.ttf in Resources */,
 				B97A57F8205874C700473581 /* HomeViewController.xib in Resources */,
+				B910501D2077AE3600CE6B3E /* ProgressViewController.xib in Resources */,
 				B9A43E37205EA96D000FDDEE /* CrisisViewController.xib in Resources */,
 				B9A43E41205EA99D000FDDEE /* MedicViewController.xib in Resources */,
 				B9E888D9206FB672009A242F /* DestinationViewController.xib in Resources */,
@@ -966,6 +995,7 @@
 				B91BCA5F2067E4AC000841D1 /* AnnotationView.swift in Sources */,
 				B912D73D2070F51F00E60867 /* ChallengeTwo.swift in Sources */,
 				B9ECE95420667C2300A24216 /* Therapist.swift in Sources */,
+				B9105023207808F600CE6B3E /* ChallengeValidatorDelegate.swift in Sources */,
 				B9E888D8206FB672009A242F /* DestinationViewController.swift in Sources */,
 				B91FD161206ABC9A00EF4E5C /* Category.swift in Sources */,
 				B9083E47206D9D8700A64587 /* LocalisationString.swift in Sources */,
@@ -981,12 +1011,14 @@
 				B91FD14B206A3AA500EF4E5C /* PulsatingCirclesView.swift in Sources */,
 				B9A43E36205EA96D000FDDEE /* CrisisViewController.swift in Sources */,
 				B91FD15B206AAEF700EF4E5C /* ObjectiveCollectionViewCell.swift in Sources */,
+				B910501F2077E9B100CE6B3E /* Shareable.swift in Sources */,
 				B9A43E29205D33FE000FDDEE /* MockData.swift in Sources */,
 				B9BA5D39206061CD00301EAB /* ObjectiveViewController.swift in Sources */,
 				B9A43E31205EA954000FDDEE /* HistoryViewController.swift in Sources */,
 				B96C1080206E769200C64CDA /* CreateChallengeViewController.swift in Sources */,
 				B91FD16E206BC84700EF4E5C /* ChallengeType.swift in Sources */,
 				B97A57FA205875AB00473581 /* GradientButton.swift in Sources */,
+				B910501C2077AE3600CE6B3E /* ProgressViewController.swift in Sources */,
 				B91FD16C206BC2FF00EF4E5C /* ChallengeList.swift in Sources */,
 				B91BCA6A20681096000841D1 /* CustomCalloutView.swift in Sources */,
 				B97A58022058863E00473581 /* UIConfig.swift in Sources */,
@@ -994,9 +1026,9 @@
 				B9D4A84020631CCF00313DAB /* XAxisFormatter.swift in Sources */,
 				B9D4A8422063B41C00313DAB /* MoodPlot.swift in Sources */,
 				B97A57BB205856A800473581 /* AppDelegate.swift in Sources */,
+				B93E3CFB2077AD5800543D35 /* MyChallengesViewController.swift in Sources */,
 				B9B933DD207613A40011B1F9 /* PostPoneLauncher.swift in Sources */,
 				B9A43E1F205C45D2000FDDEE /* CustomButton.swift in Sources */,
-				B9083E43206D9B2A00A64587 /* MyChallengesViewController.swift in Sources */,
 				B97A57FE2058815A00473581 /* UIView+gradientExtensions.swift in Sources */,
 				B96C1083206ECCBC00C64CDA /* DateLauncher.swift in Sources */,
 				B9083E35206D708B00A64587 /* Icons.swift in Sources */,
@@ -1011,6 +1043,7 @@
 				B9083E37206D75C700A64587 /* ChallengeControllerDelegate.swift in Sources */,
 				B9083E49206DA53D00A64587 /* MedicViewController+MapKit.swift in Sources */,
 				B97A580720595A1C00473581 /* customTextField.swift in Sources */,
+				B91050212077E9C900CE6B3E /* Trackable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,8 @@ struct MockChallenge {
   var anxietyLevel: Int
   var benefitLevel: Int
   var category: ChallengeType
+  var comment: String?
+  var user: String?
   
   init(date: Double, state: Bool, title: String, category: ChallengeType, anxiety: Int, benefit: Int) {
     // Convert unix time to date

@@ -26,7 +26,7 @@
                 <outlet property="dateLabel" destination="n6M-ju-WaP" id="jlS-5o-DBa"/>
                 <outlet property="locationLabel" destination="PcR-Ce-Mrh" id="tME-40-fm5"/>
                 <outlet property="notificationSwitch" destination="X0F-nn-mAx" id="4Qk-Vo-Jcz"/>
-                <outlet property="titleLabel" destination="yeQ-gI-UWH" id="VGA-PX-CLz"/>
+                <outlet property="titleLabel" destination="yeQ-gI-UWH" id="jQa-Jf-4pb"/>
                 <outlet property="view" destination="Bbo-qh-iGt" id="8UJ-7j-35G"/>
             </connections>
         </placeholder>
