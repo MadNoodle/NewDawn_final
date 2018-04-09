@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TitilliumWeb-Light.ttf">
+            <string>TitilliumWeb-Light</string>
+        </array>
+        <array key="TitilliumWeb-SemiBold.ttf">
+            <string>TitilliumWeb-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReportCellView" customModule="NewDawn" customModuleProvider="target">
+            <connections>
+                <outlet property="anxietyLvl" destination="B2z-aT-VTE" id="guc-pd-Krd"/>
+                <outlet property="benefit" destination="pps-s2-dSA" id="0mk-Jq-DWR"/>
+                <outlet property="comments" destination="PzY-dN-GQO" id="8dQ-5Y-ZyH"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="o5h-SO-0oL"/>
+                <outlet property="dateLabel" destination="E4N-Zc-IHN" id="kZ5-rK-wnT"/>
+                <outlet property="feltAnxiety" destination="1xJ-mf-kWb" id="Fll-HX-AnJ"/>
+                <outlet property="map" destination="4wK-VK-hq3" id="1Dd-3h-UQj"/>
+                <outlet property="titleLabel" destination="HOy-tl-8YC" id="PGK-cT-wxw"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="595" height="127"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="sFr-Fu-b2z">
+                    <rect key="frame" x="8" y="6" width="579" height="115"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="03i-Da-QjV">
+                            <rect key="frame" x="0.0" y="0.0" width="579" height="21.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOy-tl-8YC">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="21.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="300" id="oUZ-JF-611"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-SemiBold" family="Titillium Web" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4N-Zc-IHN">
+                                    <rect key="frame" x="379" y="0.0" width="200" height="21.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="200" id="lKF-EP-zSC"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wP-IL-cKg">
+                            <rect key="frame" x="0.0" y="24.5" width="579" height="1"/>
+                            <color key="backgroundColor" red="0.25882352939999997" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="yFX-Dw-cxS"/>
+                            </constraints>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="fjb-B4-jsb">
+                            <rect key="frame" x="0.0" y="28.5" width="579" height="86.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="y3P-aN-vpC">
+                                    <rect key="frame" x="0.0" y="0.0" width="82.5" height="55.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anxiety Level : 5" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2z-aT-VTE">
+                                            <rect key="frame" x="0.0" y="0.0" width="82.5" height="18.5"/>
+                                            <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Benefit : 6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pps-s2-dSA">
+                                            <rect key="frame" x="0.0" y="18.5" width="82.5" height="18.5"/>
+                                            <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Felt anxiety: 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xJ-mf-kWb">
+                                            <rect key="frame" x="0.0" y="37" width="70" height="18.5"/>
+                                            <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="B2z-aT-VTE" firstAttribute="leading" secondItem="y3P-aN-vpC" secondAttribute="leading" id="7MC-B6-AOH"/>
+                                        <constraint firstAttribute="trailing" secondItem="B2z-aT-VTE" secondAttribute="trailing" id="Rvs-Or-VH1"/>
+                                        <constraint firstItem="pps-s2-dSA" firstAttribute="leading" secondItem="y3P-aN-vpC" secondAttribute="leading" id="cuv-dC-jeO"/>
+                                        <constraint firstAttribute="trailing" secondItem="pps-s2-dSA" secondAttribute="trailing" id="k06-Nz-cPB"/>
+                                    </constraints>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="9vd-bA-TQ3">
+                                    <rect key="frame" x="86.5" y="0.0" width="359.5" height="81.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxY-lK-jWE">
+                                            <rect key="frame" x="0.0" y="0.0" width="61" height="18.5"/>
+                                            <fontDescription key="fontDescription" name="TitilliumWeb-SemiBold" family="Titillium Web" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut " selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PzY-dN-GQO">
+                                            <rect key="frame" x="0.0" y="18.5" width="359.5" height="63"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="PzY-dN-GQO" secondAttribute="trailing" id="3uj-P0-5KU"/>
+                                        <constraint firstItem="PzY-dN-GQO" firstAttribute="leading" secondItem="9vd-bA-TQ3" secondAttribute="leading" id="Oh2-yl-fL9"/>
+                                    </constraints>
+                                </stackView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4wK-VK-hq3">
+                                    <rect key="frame" x="450" y="0.0" width="129" height="86.5"/>
+                                </imageView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="03i-Da-QjV" firstAttribute="leading" secondItem="sFr-Fu-b2z" secondAttribute="leading" id="3mf-hd-0JN"/>
+                        <constraint firstItem="5wP-IL-cKg" firstAttribute="leading" secondItem="sFr-Fu-b2z" secondAttribute="leading" id="7XW-Bs-Rr0"/>
+                        <constraint firstItem="fjb-B4-jsb" firstAttribute="leading" secondItem="sFr-Fu-b2z" secondAttribute="leading" id="8gR-Vm-7zj"/>
+                        <constraint firstAttribute="trailing" secondItem="fjb-B4-jsb" secondAttribute="trailing" id="A8v-3x-NVL"/>
+                        <constraint firstAttribute="trailing" secondItem="5wP-IL-cKg" secondAttribute="trailing" id="X93-H0-PgX"/>
+                        <constraint firstAttribute="trailing" secondItem="03i-Da-QjV" secondAttribute="trailing" id="sr6-Vx-Pc9"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sFr-Fu-b2z" secondAttribute="trailing" constant="8" id="Qw7-s8-kwb"/>
+                <constraint firstItem="sFr-Fu-b2z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="Vuc-ad-YZG"/>
+                <constraint firstItem="sFr-Fu-b2z" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="6" id="oqg-eo-Odo"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="sFr-Fu-b2z" secondAttribute="bottom" constant="6" id="vV1-HW-1fW"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-172.5" y="-207.5"/>
+        </view>
+    </objects>
+</document>

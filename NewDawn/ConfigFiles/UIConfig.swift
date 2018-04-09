@@ -45,6 +45,6 @@ struct UIConfig {
   
   
   // MARK: - CHART DISPLAY SETUP
-  static let chartDateFormat = "dd/MM"
+  static let chartDateFormat = DateFormat.day
   
 }

@@ -7,6 +7,7 @@ Copyright (c) 2018 Mathieu Janneau
 // swiftlint:disable trailing_whitespace
 
 import UIKit
+import UserNotifications
 
 class CreateChallengeViewController: UIViewController {
 
@@ -30,6 +31,13 @@ class CreateChallengeViewController: UIViewController {
   
   override func viewDidLoad() {
         super.viewDidLoad()
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
+      if error != nil {
+        print("authorization Unsuccessful")
+      } else {
+         print("authorization successful")
+      }
+    }
     guard let challenge = tableViewTitle else { return}
       titleLabel.text = challenge
 
@@ -65,7 +73,7 @@ class CreateChallengeViewController: UIViewController {
     let dateFormatter: DateFormatter = DateFormatter()
      dateFormatter.timeZone = TimeZone.current
     // Set date format
-    dateFormatter.dateFormat = "MM/dd/yyyy hh:mm a"
+      dateFormatter.dateFormat = DateFormat.dayHourMinute.rawValue
     
     // Apply date format
     dateLabel.text = dateFormatter.string(from: dateToRemind )}
@@ -81,17 +89,53 @@ class CreateChallengeViewController: UIViewController {
     
     if sender.isOn {
       if challengeDate != nil {
-        NotificationService.scheduleNotification(notificationId,to: challengeDate!, challenge: titleLabel.text!)
+        
+        // create notification
+        notification() { (success) in
+          if success { print("yahoo")}
+        }
+        print("notif")
       }
-      else {print("entre une date")}
+      else {
+        // show an alert
+        print("entre une date")
+        
+      }
       
     } else {
-     NotificationService.removeNotification(notificationId)
-      
+      // purge notification
+      NotificationService.removeNotification(notificationId)
+     // NotificationService.scheduleNotification(notificationId,to: challengeDate!, challenge: titleLabel.text!)
     }
   }
   
-  
+  func notification( completion:@escaping (_ success: Bool) ->()) {
+    
+    
+    
+    if let date = challengeDate {
+      var calendar = Calendar.current
+      calendar.timeZone = .autoupdatingCurrent
+      let componentsFromDate = calendar.dateComponents([.hour, .minute, .day, .month,.year], from: date)
+    // trigger
+    let trigger = UNCalendarNotificationTrigger(dateMatching: componentsFromDate, repeats: false)
+      
+    //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: inSeconds, repeats: false)
+    let content = UNMutableNotificationContent()
+      content.title = "it's Challenge Time"
+      if let message = titleLabel.text
+     { content.body = "here is your challenge: \(message)"}
+      content.sound = UNNotificationSound.default()
+    let request = UNNotificationRequest(identifier: "customNotification", content: content, trigger: trigger)
+    UNUserNotificationCenter.current().add(request) { (error) in
+      if error != nil {
+        completion(false)
+      } else {
+        completion(true)
+      }
+    }
+    }
+  }
   
   // //////////////////////////// //
   // MARK: - LOCATION MANAGEMENT  //

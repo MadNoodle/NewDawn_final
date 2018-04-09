@@ -14,3 +14,12 @@ extension Int {
     return String(format: UIConfig.timerFormat , ((self % 3600) / 60), ((self % 3600) % 60))
   }
 }
+extension Date {
+  
+  func convertToString( format:DateFormat) -> String {
+    let formatter = DateFormatter()
+    formatter.timeZone = .current
+    formatter.dateFormat = format.rawValue
+    return formatter.string(from: self)
+  }
+}

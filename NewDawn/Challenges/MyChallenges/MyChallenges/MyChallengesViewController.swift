@@ -37,16 +37,12 @@ class MyChallengesViewController: UITableViewController{
     print ("received notification")
     print(currentCell)
     // receive data from Picker
+    
     var currentChallenge = mockData[currentCell]
     
-    let challengeDate = notif.userInfo?["Date"] as! Date
-    let dateFormatter: DateFormatter = DateFormatter()
-    dateFormatter.timeZone = TimeZone.current
-    // Set date format
-    dateFormatter.dateFormat = "MM/dd/yyyy hh:mm a"
-    
-    // Apply date format
-    currentChallenge.date = dateFormatter.string(from: challengeDate  )
+   currentChallenge.date = notif.userInfo?["Date"] as! Date
+  
+   
     tableView.reloadData()
   }
   

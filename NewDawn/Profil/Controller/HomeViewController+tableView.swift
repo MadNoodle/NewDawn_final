@@ -23,7 +23,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     // Data for cell
     let currentChallenge = mockData[indexPath.row]
     
-    cell?.challengeTime.text = currentChallenge.date
+    cell?.challengeTime.text = currentChallenge.date.convertToString(format: .hourMinute)
     
     // Change cell status image according to challenge completion or not
     if currentChallenge.state {

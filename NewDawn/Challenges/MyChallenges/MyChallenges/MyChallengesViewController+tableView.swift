@@ -55,7 +55,7 @@ extension MyChallengesViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as? ChallengeDetailCell
     let currentChallenge = mockData[indexPath.row]
     
-    cell?.dateLabel.text = currentChallenge.date
+    cell?.dateLabel.text = currentChallenge.date.convertToString(format: .dayHourMinute)
     
     if currentChallenge.state {
       cell?.statusIndicator.image = UIImage(named: "circle_green")

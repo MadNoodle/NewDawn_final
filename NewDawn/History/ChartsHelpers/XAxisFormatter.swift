@@ -16,7 +16,8 @@ class XAxisFormatter: NSObject, IAxisValueFormatter {
     let date = Date(timeIntervalSince1970: TimeInterval(value))
     // Format date string
     let dayTimePeriodFormatter = DateFormatter()
-    dayTimePeriodFormatter.dateFormat = UIConfig.chartDateFormat
+    
+    dayTimePeriodFormatter.dateFormat = UIConfig.chartDateFormat.rawValue
     return dayTimePeriodFormatter.string(from: date)
   }
   

@@ -27,8 +27,9 @@
                 <outlet property="challengeLabel" destination="pbe-Aq-8SE" id="tyE-Wn-Aue"/>
                 <outlet property="dateLabel" destination="9D8-Nl-gVy" id="2kx-rD-cok"/>
                 <outlet property="mapView" destination="4mc-DG-9c8" id="yDU-15-omy"/>
+                <outlet property="startButton" destination="nU7-O3-ZR5" id="j2y-k5-LS9"/>
+                <outlet property="startButtonHeight" destination="U7r-ec-cua" id="qan-qJ-HZG"/>
                 <outlet property="textView" destination="MRm-gD-VLH" id="3ji-YL-uhf"/>
-                <outlet property="timerDisplay" destination="Wl6-Z3-IvN" id="04c-bY-kdu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -79,17 +80,8 @@
                                         <action selector="startChallenge:" destination="-1" eventType="touchUpInside" id="qOw-os-HXz"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wl6-Z3-IvN">
-                                    <rect key="frame" x="50" y="345" width="275" height="46"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="46" id="3mk-03-76v"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="30"/>
-                                    <color key="textColor" red="0.41838726399999998" green="0.41838726399999998" blue="0.41838726399999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="eKJ-RV-qzl">
-                                    <rect key="frame" x="50" y="399" width="277" height="69"/>
+                                    <rect key="frame" x="50" y="353" width="277" height="69"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="44N-W7-Rix">
                                             <rect key="frame" x="0.0" y="0.0" width="138.5" height="69"/>
@@ -143,15 +135,14 @@
                                     </constraints>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYE-UC-ztA">
-                                    <rect key="frame" x="16" y="476" width="343" height="23"/>
+                                    <rect key="frame" x="16" y="430" width="343" height="23"/>
                                     <fontDescription key="fontDescription" name="TitilliumWeb-SemiBold" family="Titillium Web" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MRm-gD-VLH">
-                                    <rect key="frame" x="16" y="507" width="343" height="285"/>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MRm-gD-VLH">
+                                    <rect key="frame" x="16" y="461" width="343" height="331"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </string>
                                     <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="15"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
@@ -160,11 +151,8 @@
                             <constraints>
                                 <constraint firstItem="MRm-gD-VLH" firstAttribute="leading" secondItem="WDG-Xx-qJc" secondAttribute="leading" constant="16" id="0Vj-5C-20p"/>
                                 <constraint firstItem="eKJ-RV-qzl" firstAttribute="leading" secondItem="WDG-Xx-qJc" secondAttribute="leading" constant="50" id="6XF-00-Rc2"/>
-                                <constraint firstAttribute="trailing" secondItem="Wl6-Z3-IvN" secondAttribute="trailing" constant="50" id="7Wr-RX-URY"/>
                                 <constraint firstItem="DGA-ne-rNG" firstAttribute="leading" secondItem="WDG-Xx-qJc" secondAttribute="leading" constant="16" id="ACN-ou-M9A"/>
                                 <constraint firstAttribute="height" constant="800" id="EcG-rk-Izd"/>
-                                <constraint firstItem="eKJ-RV-qzl" firstAttribute="top" secondItem="Wl6-Z3-IvN" secondAttribute="bottom" constant="8" id="Fgl-Wz-ikv"/>
-                                <constraint firstItem="Wl6-Z3-IvN" firstAttribute="top" secondItem="nU7-O3-ZR5" secondAttribute="bottom" constant="8" id="Hfs-Nb-YFu"/>
                                 <constraint firstAttribute="bottom" secondItem="MRm-gD-VLH" secondAttribute="bottom" constant="8" id="JFA-LR-Hdg"/>
                                 <constraint firstAttribute="trailing" secondItem="MRm-gD-VLH" secondAttribute="trailing" constant="16" id="S1R-u8-AzV"/>
                                 <constraint firstAttribute="trailing" secondItem="4mc-DG-9c8" secondAttribute="trailing" id="TqY-Ul-ABb"/>
@@ -173,7 +161,7 @@
                                 <constraint firstItem="nU7-O3-ZR5" firstAttribute="leading" secondItem="WDG-Xx-qJc" secondAttribute="leading" constant="50" id="ZUC-EV-hae"/>
                                 <constraint firstItem="MRm-gD-VLH" firstAttribute="top" secondItem="HYE-UC-ztA" secondAttribute="bottom" constant="8" id="cOX-m7-4DP"/>
                                 <constraint firstAttribute="trailing" secondItem="HYE-UC-ztA" secondAttribute="trailing" constant="16" id="cb8-86-haC"/>
-                                <constraint firstItem="Wl6-Z3-IvN" firstAttribute="leading" secondItem="WDG-Xx-qJc" secondAttribute="leading" constant="50" id="fa3-GH-XZq"/>
+                                <constraint firstItem="eKJ-RV-qzl" firstAttribute="top" secondItem="nU7-O3-ZR5" secondAttribute="bottom" constant="16" id="l38-AR-VC3"/>
                                 <constraint firstItem="nU7-O3-ZR5" firstAttribute="top" secondItem="DGA-ne-rNG" secondAttribute="bottom" constant="8" id="nxB-g2-etS"/>
                                 <constraint firstItem="DGA-ne-rNG" firstAttribute="top" secondItem="4mc-DG-9c8" secondAttribute="bottom" constant="16" id="oQN-52-Ivy"/>
                                 <constraint firstAttribute="trailing" secondItem="eKJ-RV-qzl" secondAttribute="trailing" constant="48" id="q9e-vc-FiQ"/>

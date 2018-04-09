@@ -8,9 +8,14 @@
 // swiftlint:disable trailing_whitespace
 
 import Foundation
-
+enum DateFormat: String {
+  case hourMinute = "HH:mm"
+  case day = "dd/MM"
+  case dayHourMinute = "MM/dd/yyyy hh:mm a"
+  
+}
 struct MockChallenge {
-  var date: String
+  var date: Date
   var state: Bool = false
   var title: String
   var icon: String
@@ -23,17 +28,14 @@ struct MockChallenge {
   var category: ChallengeType
   var comment: String?
   var user: String?
-  
+  ///// TODO
+  // date formatter
+  // image
   init(date: Double, state: Bool, title: String, category: ChallengeType, anxiety: Int, benefit: Int) {
-    // Convert unix time to date
-   let challengeDate = Date(timeIntervalSince1970: date)
-    let formatter = DateFormatter()
-    formatter.timeZone = .current
-    // Todo: creer un enum de format
-    formatter.dateFormat = "HH:mm"
+    let currentDate = Date(timeIntervalSince1970: date)
     
     // Convert date to string and assign it to the date property
-    self.date = formatter.string(from: challengeDate )
+    self.date = currentDate
     self.state = state
     self.title = title
     self.category = category
