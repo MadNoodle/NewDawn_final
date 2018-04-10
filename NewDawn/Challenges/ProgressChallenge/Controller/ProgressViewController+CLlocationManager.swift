@@ -16,6 +16,7 @@ extension ProgressViewController: CLLocationManagerDelegate {
     
     // TRACKING FEATURE
     for newLocation in locations {
+      // check last update to see if the difference is large enought to create a new tracking point
       let howRecent = newLocation.timestamp.timeIntervalSinceNow
       guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
       

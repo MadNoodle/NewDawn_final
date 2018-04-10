@@ -21,4 +21,14 @@ class LocalisationString {
   // MARK: - CHARTS
 static let noDataText = "You need to provide data for the chart."
   static let dataLabel = "number"
+  
+  //MARK: - MAIL COMPOSER
+  
+  static let messageRecipient = "mjanneau@gmail.com"
+  static let messageSubject = "Sending you an in-app e-mail..."
+  static let messageBody = "Sending e-mail in-app is not so bad!"
+  static let mime = "application/pdf"
+  static let attachmentFormat = "pdf"
+  static let attachmentName = "NewDawnReport"
 }
+

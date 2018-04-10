@@ -16,21 +16,21 @@ class ProgressViewController: UIViewController {
   // ////////////////// //
   // MARK: - PROPERTIES //
   // ////////////////// //
-    var outputAsData: Bool = false
+  var outputAsData: Bool = false
   // grab the challenge
   var challenge: MockChallenge?
   
   // initiate walk for tracking route
-   let walk = Walk()
+  let walk = Walk()
   
   // Initiate location functionnality
-   let locationManager = CLLocationManager()
+  let locationManager = CLLocationManager()
   
   // Temporary store route points
   var locationList: [CLLocation] = []
   var seconds = 0
-   var timer: Timer?
-   var distance = Measurement(value: 0, unit: UnitLength.meters)
+  var timer: Timer?
+  var distance = Measurement(value: 0, unit: UnitLength.meters)
   // instantiate timer
   
   // /////////////// //
@@ -47,44 +47,12 @@ class ProgressViewController: UIViewController {
   // MARK: - LIFECYCLE METHODS //
   // ///////////////////////// //
   
-
   override func viewDidLoad() {
     super.viewDidLoad()
+   
     
-    // Mock challenge Destination
-    challenge?.challengeLong = 2.3
-    challenge?.challengeLat = 48.876965
-    textView.layer.borderColor = UIConfig.blueGray.cgColor
-    textView.layer.borderWidth = 1
-    // add share button to navigation
-    let rightButton: UIBarButtonItem =
-      UIBarButtonItem(image: #imageLiteral(resourceName: "upload"), style: .plain , target: self, action: #selector(shareChallenge))
-    self.navigationController?.navigationBar.tintColor = .white
-    self.navigationItem.rightBarButtonItem = rightButton
-    
-    // load title
-    if let currentChallenge = challenge {
-      challengeLabel.text = currentChallenge.title
-      dateLabel.text = currentChallenge.date.convertToString(format: .dayHourMinute)
-    }
-    
-    
-    // load map
-    self.locationManager.delegate = self
-    self.locationManager.allowsBackgroundLocationUpdates = true
-    self.locationManager.pausesLocationUpdatesAutomatically = false
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    self.locationManager.requestWhenInUseAuthorization()
-    self.mapView.showsUserLocation = true
-    mapView.delegate = self
-    
-    // load annotation for destination
-    if let destination = challenge {
-      let challengeDestination: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: destination.challengeLat!, longitude: destination.challengeLong!)
-      let annotation = MKPointAnnotation()
-      annotation.coordinate = challengeDestination
-      mapView.addAnnotation(annotation)
-    }
+    setupUI()
+    setupMapView()
     
   }
   
@@ -95,6 +63,8 @@ class ProgressViewController: UIViewController {
       self.startButtonHeight.constant = 37
     }
   }
+  
+  
   
   
   // /////////////// //
@@ -130,13 +100,40 @@ class ProgressViewController: UIViewController {
   }
   
   @objc func shareChallenge() {
+    //send comment from text view to model
     challenge?.comment = textView.text
+    // instantiate pdfCreator
     let pdfCreator = PDFLayout()
     guard let exercise = challenge else {return}
-    let pages = pdfCreator.pdfLayout(for: [exercise, exercise,exercise,exercise,exercise,exercise], mapView: mapView)
+    let pages = pdfCreator.pdfLayout(for: [exercise], mapView: mapView, display: .singleReport)
     generatePDF(for: pages)
- }
+  }
   
+  
+  // ////////////////// //
+  // MARK: - UI METHODS //
+  // ////////////////// //
+  
+  fileprivate func setupUI() {
+    
+    // load title and date
+    if let currentChallenge = challenge {
+      challengeLabel.text = currentChallenge.title
+      dateLabel.text = currentChallenge.date.convertToString(format: .dayHourMinute)
+    }
+    // Mock challenge Destination
+    challenge?.challengeLong = 2.3
+    challenge?.challengeLat = 48.876965
+    // Set frame border for textView
+    textView.layer.borderColor = UIConfig.blueGray.cgColor
+    textView.layer.borderWidth = 1
+    
+    // add share button to navigation
+    let rightButton: UIBarButtonItem =
+      UIBarButtonItem(image: #imageLiteral(resourceName: "upload"), style: .plain , target: self, action: #selector(shareChallenge))
+    self.navigationController?.navigationBar.tintColor = .white
+    self.navigationItem.rightBarButtonItem = rightButton
+  }
   
   // //////////////////////// //
   // MARK: - PDF EXPORT METHODS //
@@ -144,55 +141,82 @@ class ProgressViewController: UIViewController {
   
   func generatePDF(for pages: [UIView]) {
     do {
-      let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending("sample1.pdf"))
+      // create the destination path
+      let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending("\(LocalisationString.attachmentName).pdf"))
       if outputAsData {
+        // generate the pdf
         let data = try PDFGenerator.generated(by: pages)
         try data.write(to: dst, options: .atomic)
       } else {
         try PDFGenerator.generate(pages, to: dst)
       }
+      
+      // display in viewer
       openPDFViewer(dst)
     } catch (let e) {
-      print(e)
+      print(e.localizedDescription)
     }
   }
   
   fileprivate func openPDFViewer(_ pdfPath: URL) {
-
     let vc = PDFPreviewViewController(nibName: nil, bundle: nil)
     vc.setupWithURL(pdfPath)
     present(vc, animated: true, completion: nil)
   }
- 
   
-
+  
+  
   
   // //////////////////////// //
   // MARK: - TRACKING METHODS //
   // //////////////////////// //
   
+  fileprivate func setupMapView() {
+    // load map
+    self.locationManager.delegate = self
+    self.locationManager.allowsBackgroundLocationUpdates = true
+    self.locationManager.pausesLocationUpdatesAutomatically = false
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    self.locationManager.requestWhenInUseAuthorization()
+    self.mapView.showsUserLocation = true
+    mapView.delegate = self
+    
+    // load annotation for destination
+    if let destination = challenge {
+      let challengeDestination: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: destination.challengeLat!, longitude: destination.challengeLong!)
+      let annotation = MKPointAnnotation()
+      annotation.coordinate = challengeDestination
+      mapView.addAnnotation(annotation)
+    }
+  }
+  
   fileprivate func startTracking() {
     // start tracking
+    // initialize the timer
     seconds = 0
+    // initialize distance
     distance = Measurement(value: 0, unit: UnitLength.meters)
+    // purge the data
     locationList.removeAll()
     
+    // update location each seconds
     timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
       self.seconds += 1
+      // draw path
       self.drawTrack()
     }
   }
   
   private func drawTrack()  {
-
+    // convert coodinates to draw path
     let coords: [CLLocationCoordinate2D] = locationList.map { location in
       return CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
     }
-    print(coords)
+    // draw
     mapView.add(MKPolyline(coordinates: coords, count: coords.count))
   }
   
-
-
+  
+  
 }
 
