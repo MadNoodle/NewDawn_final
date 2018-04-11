@@ -10,14 +10,20 @@
 import UIKit
 import Charts
 
+enum HistoryRange: Int {
+  case week = 7
+  case month = 31
+  case trimester = 100
+  case year = 365
+}
 class HistoryViewController: UIViewController, ChartViewDelegate {
   
   // ////////////////// //
   // MARK: - PROPERTIES //
   // ////////////////// //
   
-  let dataSet = MoodPlot.getMockData()
-  let dataPoints = MoodPlot.getMockData()
+  var dataSet = MoodPlot.getMockData()
+  var dataPoints = MoodPlot.getMockData()
   let progressData = MoodPlot.getChallenges()
   
   // /////////////// //
@@ -28,33 +34,91 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   @IBOutlet weak var barChart: BarChartView!
   @IBOutlet weak var progressCircle: UIView!
   @IBOutlet weak var progressLabel: UILabel!
+  @IBOutlet var buttons: [CustomUIButtonForUIToolbar]!
   
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
   // ///////////////////////// //
   
+
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupButtons()
+    
     lineChart.delegate = self
     barChart.delegate = self
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    updateLineGraph()
-    setupBarChart()
+    updateLineGraph(dataToDraw: dataSet)
+    setupBarChart(data: dataPoints)
     animateCircleProgress(progress: progressData.2)
   }
   
+  // /////////////// //
+  // MARK: - ACTIONS //
+  // /////////////// //
+  
+  @IBAction func viewLastWeek(_ sender: CustomUIButtonForUIToolbar) {
+    evaluateState()
+     sender.userDidSelect()
+    zoom(last: HistoryRange.week.rawValue)
+  }
+  
+  @IBAction func viewLastMonth(_ sender: CustomUIButtonForUIToolbar) {
+    evaluateState()
+     sender.userDidSelect()
+    zoom(last: HistoryRange.month.rawValue)
+  }
+  
+  @IBAction func viewLastTrimester(_ sender: CustomUIButtonForUIToolbar) {
+    evaluateState()
+     sender.userDidSelect()
+    zoom(last: HistoryRange.trimester.rawValue)
+  }
+  
+  @IBAction func viewAllTime(_ sender: CustomUIButtonForUIToolbar) {
+    evaluateState()
+     sender.userDidSelect()
+    zoom(last: HistoryRange.year.rawValue)
+  }
+  
+  // ////////////////// //
+  // MARK: - UI METHODS //
+  // ////////////////// //
+  
+  fileprivate func setupButtons() {
+    for button in buttons {
+      button.typeOfButton = .textButton
+      button.layer.borderColor = UIColor(white: 0.5, alpha: 1).cgColor
+      button.layer.borderWidth = 1
+      button.layer.cornerRadius = 5
+      button.layer.masksToBounds = true
+    }
+    
+    // initially select week display
+    buttons[0].choosen = true
+    buttons[0].layer.borderColor = UIConfig.darkGreen.cgColor
+    buttons[0].backgroundColor = UIConfig.darkGreen
+    buttons[0].setTitleColor(.white, for: .normal)
+  }
+  
+  func evaluateState() {
+    for button in buttons where button.choosen {
+      button.reset()
+    }
+  }
+    
   // ////////////////////// //
   // MARK: - BARCHART SETUP //
   // ////////////////////// //
   
-  fileprivate func setupBarChart() {
+  fileprivate func setupBarChart( data : [MoodPlot]) {
     
     var dataEntries: [BarChartDataEntry] = []
     
     // Populate data in BarChart matrix
-    for i in 0..<dataPoints.count {
+    for i in 0..<data.count {
       let value = BarChartDataEntry(x: dataSet[i].date, y: dataSet[i].value)
       dataEntries.append(value)
     }
@@ -72,7 +136,13 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     chartSettings(chart: barChart)
   }
   
-  
+  func redrawBarChart(_ index: Int){
+    dataPoints = MoodPlot.getMockData()
+    dataPoints = dataSet.getLast(index)
+    self.lineChart.notifyDataSetChanged()
+    setupBarChart(data: dataPoints)
+    barChart.setNeedsDisplay()
+  }
   func setChart(dataPoints: [String], values: [Double]) {
     barChart.noDataText = LocalisationString.noDataText
   }
@@ -81,19 +151,45 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   // MARK: - LINECHART SETUP //
   // /////////////////////// //
   
-  func updateLineGraph() {
+  func updateLineGraph(dataToDraw: [MoodPlot]) {
     chartSettings(chart: lineChart)
     // Custom Y axis values
     lineChart.leftAxis.drawLabelsEnabled = false
     LeftAxisIconSetup()
     
+    
     // Insert Data in LineChart
-    let lineChartEntry = populateData()
+    let lineChartEntry = populateData(data: dataToDraw)
     let line1 = setupLine(entry: lineChartEntry)
     let data = LineChartData()
     data.addDataSet(line1)
+    // set data source
     lineChart.data = data
+    // update visible range
+    
   }
+  fileprivate func redrawLineChart(_ index: Int) {
+    
+    self.lineChart.notifyDataSetChanged()
+    updateLineGraph(dataToDraw: dataSet)
+    lineChart.setNeedsDisplay()
+  }
+  
+
+
+
+  func zoom(last index:Int) {
+    dataSet = MoodPlot.getMockData()
+    if index >= dataSet.count {
+      redrawLineChart(dataSet.count)
+      redrawBarChart(dataSet.count)
+    } else{
+    dataSet = dataSet.getLast(index)
+    redrawLineChart(index)
+    redrawBarChart(index)}
+   
+  }
+
   
   func setupImageLabels(ImageName:String, multiplier: CGFloat){
     let iconOffset: CGFloat = -20
@@ -123,7 +219,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     // remove values above line
     line.drawValuesEnabled = false
     // Curvature option
-    line.mode = .linear
+    line.mode = .cubicBezier
     // Line weigth
     line.lineWidth = 3.0
     //Fill color under the linechart
@@ -132,11 +228,11 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     return line
   }
   
-  func populateData() -> [ChartDataEntry] {
+  func populateData(data: [MoodPlot]) -> [ChartDataEntry] {
     var lineChartEntry = [ChartDataEntry]()
     // send data to chart
-    for i in 0..<dataSet.count {
-      let value = ChartDataEntry(x: dataSet[i].date, y: dataSet[i].value)
+    for i in 0..<data.count {
+      let value = ChartDataEntry(x: data[i].date, y: data[i].value)
       lineChartEntry.append(value)
     }
     return lineChartEntry

@@ -14,4 +14,11 @@ extension Array {
       Array(self[$0..<Swift.min($0 + chunkSize, self.count)])
     }
   }
+  
+  func getLast(_ numberOfItem: Int) -> [Element]{
+ 
+  let range = self.index(self.endIndex, offsetBy: -numberOfItem)... 
+  let arraySlice = self[range]
+  return Array(arraySlice)
+}
 }

@@ -18,5 +18,5 @@ protocol SwitchableImage {
   /// Callback function
   func userDidSelect()
   /// set Image to original
-  func resetImage()
+  func reset()
 }

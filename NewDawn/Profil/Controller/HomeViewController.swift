@@ -29,7 +29,9 @@ class HomeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    for button in moodButtons {
+      button.typeOfButton = .imageButton
+    }
    
     challengesTableView.delegate = self
     challengesTableView.dataSource = self
@@ -48,7 +50,7 @@ class HomeViewController: UIViewController {
   
   fileprivate func evaluateMoodButtonState() {
     for moodButton in moodButtons where moodButton.choosen {  
-        moodButton.resetImage()
+        moodButton.reset()
     }
   }
   
