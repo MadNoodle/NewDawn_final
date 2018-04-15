@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TitilliumWeb-Regular.ttf">
+            <string>TitilliumWeb-Regular</string>
+        </array>
+        <array key="TitilliumWeb-SemiBold.ttf">
+            <string>TitilliumWeb-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="NewDawn" customModuleProvider="target">
+            <connections>
+                <outlet property="loginTextfield" destination="uID-pd-yJY" id="Ldd-ja-2GY"/>
+                <outlet property="passwordTextfield" destination="NMh-6n-arj" id="DVk-hQ-Xdx"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="eIV-Xv-xQz">
+                    <rect key="frame" x="30" y="86" width="315" height="495"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_green" translatesAutoresizingMaskIntoConstraints="NO" id="AJw-ac-ap5">
+                            <rect key="frame" x="130" y="0.0" width="55" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="55" id="Te8-dL-W9o"/>
+                                <constraint firstAttribute="height" constant="31" id="gdg-lB-rLc"/>
+                            </constraints>
+                        </imageView>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="E-mail" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uID-pd-yJY" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
+                            <rect key="frame" x="8" y="55" width="299" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="e9l-n8-fOr"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NMh-6n-arj" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
+                            <rect key="frame" x="8" y="129" width="299" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="mcL-iH-nnY"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                        </textField>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BTL-cP-ehq">
+                            <rect key="frame" x="8" y="203" width="299" height="70"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1C-3S-yDb" customClass="GradientButton" customModule="NewDawn" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="299" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="I5Z-PY-cK3"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-SemiBold" family="Titillium Web" pointSize="17"/>
+                                    <state key="normal" title="Sign In">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="signIn:" destination="-1" eventType="touchUpInside" id="Vuc-YS-UvE"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IkT-8s-Xak">
+                                    <rect key="frame" x="0.0" y="50" width="299" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="cl1-0b-WbN"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="13"/>
+                                    <state key="normal" title="Forgot your password?">
+                                        <color key="titleColor" red="0.25882352939999997" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="resetPassword:" destination="-1" eventType="touchUpInside" id="3fu-Iz-00c"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLZ-qX-Xrg">
+                            <rect key="frame" x="0.0" y="297" width="315" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="h4X-fL-MNy"/>
+                            </constraints>
+                            <state key="normal" image="fbButton"/>
+                            <connections>
+                                <action selector="loginWithFB:" destination="-1" eventType="touchUpInside" id="R4E-18-AIv"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3l-rE-B6i">
+                            <rect key="frame" x="5.5" y="371" width="304" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Ssb-h3-MqZ"/>
+                            </constraints>
+                            <state key="normal" image="twitter button"/>
+                            <connections>
+                                <action selector="loginWithTwitter:" destination="-1" eventType="touchUpInside" id="4RJ-Em-2GV"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ia8-jo-vZ5" customClass="GradientButton" customModule="NewDawn" customModuleProvider="target">
+                            <rect key="frame" x="8" y="445" width="299" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="I2D-dE-JDf"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="TitilliumWeb-SemiBold" family="Titillium Web" pointSize="17"/>
+                            <state key="normal" title="Create your account">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="createAccount:" destination="-1" eventType="touchUpInside" id="9WD-0B-jEA"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="NMh-6n-arj" firstAttribute="leading" secondItem="eIV-Xv-xQz" secondAttribute="leading" constant="8" id="DV9-QY-Lt0"/>
+                        <constraint firstItem="KLZ-qX-Xrg" firstAttribute="leading" secondItem="eIV-Xv-xQz" secondAttribute="leading" id="FUf-bL-nll"/>
+                        <constraint firstItem="Ia8-jo-vZ5" firstAttribute="leading" secondItem="eIV-Xv-xQz" secondAttribute="leading" constant="8" id="HG3-P3-RXm"/>
+                        <constraint firstItem="BTL-cP-ehq" firstAttribute="leading" secondItem="eIV-Xv-xQz" secondAttribute="leading" constant="8" id="KIj-b7-Sjv"/>
+                        <constraint firstAttribute="trailing" secondItem="uID-pd-yJY" secondAttribute="trailing" constant="8" id="MN3-gy-X1n"/>
+                        <constraint firstAttribute="trailing" secondItem="KLZ-qX-Xrg" secondAttribute="trailing" id="Vv4-ZO-ynv"/>
+                        <constraint firstItem="uID-pd-yJY" firstAttribute="leading" secondItem="eIV-Xv-xQz" secondAttribute="leading" constant="8" id="ZbA-gC-b8t"/>
+                        <constraint firstAttribute="trailing" secondItem="BTL-cP-ehq" secondAttribute="trailing" constant="8" id="krN-xb-caS"/>
+                        <constraint firstAttribute="trailing" secondItem="NMh-6n-arj" secondAttribute="trailing" constant="8" id="lz0-JB-hp5"/>
+                        <constraint firstAttribute="trailing" secondItem="Ia8-jo-vZ5" secondAttribute="trailing" constant="8" id="twK-ym-QXT"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="eIV-Xv-xQz" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="5mQ-2C-ZVy"/>
+                <constraint firstItem="eIV-Xv-xQz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="91g-QQ-6LQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eIV-Xv-xQz" secondAttribute="trailing" constant="30" id="OLv-Hl-HuA"/>
+                <constraint firstItem="eIV-Xv-xQz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Rm0-7j-Aoe"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="19" y="54"/>
+        </view>
+        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Bbs-Ms-Fp7">
+            <rect key="frame" x="0.0" y="0.0" width="97" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <nil key="textColor"/>
+            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+            <textInputTraits key="textInputTraits"/>
+        </textField>
+    </objects>
+    <resources>
+        <image name="fbButton" width="304" height="50"/>
+        <image name="logo_green" width="110" height="63"/>
+        <image name="twitter button" width="304" height="50"/>
+    </resources>
+</document>

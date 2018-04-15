@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TitilliumWeb-SemiBold.ttf">
+            <string>TitilliumWeb-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResetViewController" customModule="NewDawn" customModuleProvider="target">
+            <connections>
+                <outlet property="inputEmail" destination="XCe-j5-b4S" id="eLy-Kb-DR7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brow_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Fac-lk-gQt">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cvg-Xl-G4a">
+                    <rect key="frame" x="9.5" y="75" width="356" height="517"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card" translatesAutoresizingMaskIntoConstraints="NO" id="mpr-h9-YdX">
+                            <rect key="frame" x="0.5" y="0.0" width="355" height="516"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="mpr-h9-YdX" secondAttribute="height" multiplier="355:516" id="fVL-Bg-Plb"/>
+                            </constraints>
+                        </imageView>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter your email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XCe-j5-b4S" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
+                            <rect key="frame" x="35" y="339" width="286" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="hu8-LY-wE4"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="mpr-h9-YdX" firstAttribute="centerX" secondItem="Cvg-Xl-G4a" secondAttribute="centerX" id="2KX-EV-Q1G"/>
+                        <constraint firstItem="mpr-h9-YdX" firstAttribute="centerY" secondItem="Cvg-Xl-G4a" secondAttribute="centerY" id="Lna-iJ-Z7v"/>
+                        <constraint firstItem="XCe-j5-b4S" firstAttribute="leading" secondItem="Cvg-Xl-G4a" secondAttribute="leading" constant="35" id="TJF-tU-Zzq"/>
+                        <constraint firstAttribute="trailing" secondItem="XCe-j5-b4S" secondAttribute="trailing" constant="35" id="acz-f5-ZSz"/>
+                        <constraint firstAttribute="width" secondItem="Cvg-Xl-G4a" secondAttribute="height" multiplier="355:516" id="nbZ-wB-uGe"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dS-9v-NVM" customClass="GradientButton" customModule="NewDawn" customModuleProvider="target">
+                    <rect key="frame" x="40" y="497" width="295" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="xFM-Pk-CGU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="TitilliumWeb-SemiBold" family="Titillium Web" pointSize="15"/>
+                    <state key="normal" title="Reset password">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="reset:" destination="-1" eventType="touchUpInside" id="Ov0-SL-SyM"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="2dS-9v-NVM" firstAttribute="leading" secondItem="mpr-h9-YdX" secondAttribute="leading" constant="30" id="1r9-qQ-BIV"/>
+                <constraint firstItem="Cvg-Xl-G4a" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="55" id="7YL-el-10K"/>
+                <constraint firstItem="Fac-lk-gQt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="IQJ-eL-FSa"/>
+                <constraint firstItem="Cvg-Xl-G4a" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Imy-aV-srq"/>
+                <constraint firstItem="Cvg-Xl-G4a" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Mmo-hk-27y"/>
+                <constraint firstItem="2dS-9v-NVM" firstAttribute="top" secondItem="XCe-j5-b4S" secondAttribute="bottom" constant="33" id="NZx-K0-4rB"/>
+                <constraint firstItem="Fac-lk-gQt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-20" id="VNl-tE-5KR"/>
+                <constraint firstItem="Cvg-Xl-G4a" firstAttribute="bottom" secondItem="2dS-9v-NVM" secondAttribute="bottom" constant="45" id="Ydo-SZ-57j"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Fac-lk-gQt" secondAttribute="bottom" id="dUy-hp-xc2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Fac-lk-gQt" secondAttribute="trailing" id="pnm-g6-Wzy"/>
+                <constraint firstItem="mpr-h9-YdX" firstAttribute="trailing" secondItem="2dS-9v-NVM" secondAttribute="trailing" constant="30" id="zol-vF-UeH"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Card" width="355" height="516"/>
+        <image name="brow_bg" width="414" height="736"/>
+    </resources>
+</document>

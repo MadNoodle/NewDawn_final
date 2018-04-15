@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TitilliumWeb-Light.ttf">
+            <string>TitilliumWeb-Light</string>
+        </array>
+        <array key="TitilliumWeb-SemiBold.ttf">
+            <string>TitilliumWeb-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisteringViewController" customModule="NewDawn" customModuleProvider="target">
+            <connections>
+                <outlet property="emailTextField" destination="ah4-Wh-Rhv" id="tda-nI-N9h"/>
+                <outlet property="firstNameTextfield" destination="FEX-yU-hGt" id="vjW-6x-FBq"/>
+                <outlet property="lastNameTextfield" destination="lsv-V1-33d" id="n69-Eg-zQC"/>
+                <outlet property="passwordTextField" destination="kgm-SA-M4z" id="fV7-1q-YqA"/>
+                <outlet property="profilPicture" destination="IB3-8e-UIM" id="hSE-gW-oZO"/>
+                <outlet property="repeatPasswordTexfield" destination="UnE-M8-IHp" id="b6L-AS-ygZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happy" translatesAutoresizingMaskIntoConstraints="NO" id="IB3-8e-UIM" customClass="RoundedImage" customModule="NewDawn" customModuleProvider="target">
+                    <rect key="frame" x="137" y="70" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="Rdn-5U-592"/>
+                        <constraint firstAttribute="width" secondItem="IB3-8e-UIM" secondAttribute="height" multiplier="1:1" id="iM5-zX-lMM"/>
+                        <constraint firstAttribute="height" constant="100" id="w5r-Tl-sMk"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h4G-aa-605">
+                    <rect key="frame" x="50" y="220" width="275" height="250"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Firstname" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="lsv-V1-33d" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="275" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="EHH-EE-74J"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Lastname" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="FEX-yU-hGt" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="50" width="275" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Asv-5g-qsc"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="E-mail" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="ah4-Wh-Rhv" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="100" width="275" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Dv4-F8-HJf"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" textContentType="email"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="kgm-SA-M4z" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="150" width="275" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="vaZ-hV-cul"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Repeat Password" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="UnE-M8-IHp" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="200" width="275" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="VLU-QY-lKm"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                        </textField>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5U-ur-aFF" customClass="GradientButton" customModule="NewDawn" customModuleProvider="target">
+                    <rect key="frame" x="50" y="587" width="275" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="5tX-AB-0nO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="TitilliumWeb-SemiBold" family="Titillium Web" pointSize="17"/>
+                    <state key="normal" title="Create">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="createAccount:" destination="-1" eventType="touchUpInside" id="14c-8W-erh"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lO-cq-VuE">
+                    <rect key="frame" x="202" y="135" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="5lO-cq-VuE" secondAttribute="height" multiplier="1:1" id="EZT-8K-PWz"/>
+                        <constraint firstAttribute="width" constant="35" id="iY0-s9-MPg"/>
+                        <constraint firstAttribute="height" constant="35" id="yYJ-c6-RDF"/>
+                    </constraints>
+                    <state key="normal" image="plusButton"/>
+                    <connections>
+                        <action selector="changeProfilPicture:" destination="-1" eventType="touchUpInside" id="9XJ-go-sAh"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="d5U-ur-aFF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="1u1-Yb-n01"/>
+                <constraint firstItem="h4G-aa-605" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="P9f-7X-CYG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="h4G-aa-605" secondAttribute="trailing" constant="50" id="RCX-i5-o6e"/>
+                <constraint firstItem="IB3-8e-UIM" firstAttribute="trailing" secondItem="5lO-cq-VuE" secondAttribute="trailing" id="Rda-Nw-qll"/>
+                <constraint firstItem="IB3-8e-UIM" firstAttribute="bottom" secondItem="5lO-cq-VuE" secondAttribute="bottom" id="aYw-wi-rF1"/>
+                <constraint firstItem="IB3-8e-UIM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bib-gl-Me3"/>
+                <constraint firstItem="d5U-ur-aFF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="h4G-aa-605" secondAttribute="bottom" constant="50" id="c1a-EK-WNr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d5U-ur-aFF" secondAttribute="trailing" constant="50" id="hE8-54-Qrl"/>
+                <constraint firstItem="IB3-8e-UIM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="sWd-1v-p04"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="d5U-ur-aFF" secondAttribute="bottom" constant="30" id="wZe-go-0W7"/>
+                <constraint firstItem="h4G-aa-605" firstAttribute="top" secondItem="IB3-8e-UIM" secondAttribute="bottom" constant="50" id="yZV-1E-pMw"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oO5-ew-Pd8">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+        </button>
+    </objects>
+    <resources>
+        <image name="happy" width="40" height="40"/>
+        <image name="plusButton" width="35" height="35"/>
+    </resources>
+</document>
