@@ -9,46 +9,86 @@
 import UIKit
 import CoreData
 
-class MyChallengesViewController: UITableViewController{
- 
+/// TableView Controller that presents all the current challenge for the user
+/// It allows the user to add new challenges
+class MyChallengesViewController: UITableViewController {
+  
+  // ////////////////// //
+  // MARK: - PROPERTIES //
+  // ////////////////// //
+  
+  var data: [Challenge] = []
+  
+  lazy var fetchedResultsController: NSFetchedResultsController<Challenge> = {
+    // Initialize Fetch Request
+    // 1
+    let fetchRequest: NSFetchRequest<Challenge> = Challenge.fetchRequest()
+    // 2
+    
+    let sort = NSSortDescriptor(key: #keyPath(Challenge.dueDate),
+                                ascending: true)
+    fetchRequest.sortDescriptors = [sort]
+    let predicate = NSPredicate(format: "isDone == %@", NSNumber(value: false))
+    fetchRequest.predicate = predicate
+    let fetchedResultsController = NSFetchedResultsController(
+      fetchRequest: fetchRequest,
+      managedObjectContext: CoreDataService.managedContext!,
+      sectionNameKeyPath: #keyPath(Challenge.objective),
+      cacheName: "challengeStack")
+    // Configure Fetched Results Controller
+    fetchedResultsController.delegate = self
+    
+    return fetchedResultsController
+  }()
+  
   let postPoneLauncher = PostPoneLauncher()
-  var mockData = MockChallenge.getMockChallenges()
   let reuseId = "myCell"
-  let sections: [String] = ["Drive","Walk","Party","Travel"]
-  var currentCell:Int = 0
-
+  /// Objective category
+  let sections: [String] = ["Drive", "Walk", "Party", "Travel"]
+  var currentCell: IndexPath?
+  
+  // ////////////////////////// //
+  // MARK: - LIFECYCLE METHODS //
+  // ////////////////////////// //
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-   
-    let rightButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addChallenge))
+
+    do {
+      try fetchedResultsController.performFetch()
+    } catch let error as NSError {
+      print("Fetching error: \(error), \(error.userInfo)")
+    }
+    
+   /////////
+    let rightButton: UIBarButtonItem = UIBarButtonItem(
+                                  barButtonSystemItem: .add,
+                                  target: self,
+                                  action: #selector(addChallenge))
     self.navigationItem.rightBarButtonItem = rightButton
     tableView.register(UINib(nibName: "ChallengeDetailCell", bundle: nil), forCellReuseIdentifier: reuseId)
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    NotificationCenter.default.addObserver(self, selector: #selector(didUpdateDate(notif:)), name: NSNotification.Name(rawValue: "DateValueChanged"), object: nil)
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(didUpdateDate(notif:)), name: NSNotification.Name(rawValue: "DateValueChanged"),
+                                           object: nil)
   }
-  @objc func addChallenge(){
-    let objectiveVc = ObjectiveViewController(nibName:nil,bundle:nil)
+  
+  @objc func addChallenge() {
+    let objectiveVc = ObjectiveViewController(nibName: nil, bundle: nil)
     self.navigationController?.pushViewController(objectiveVc, animated: true)
   }
   
-  @objc func didUpdateDate(notif:NSNotification){
-    print ("received notification")
-    print(currentCell)
-    // receive data from Picker
+  @objc func didUpdateDate(notif: NSNotification) {
+    if let cell = currentCell {
+   let currentChallenge = self.fetchedResultsController.object(at: cell)
     
-    var currentChallenge = mockData[currentCell]
-    
-   currentChallenge.date = notif.userInfo?["Date"] as! Date
+    let date = (notif.userInfo?["Date"] as? Date)!.timeIntervalSince1970
+    currentChallenge.dueDate = date
   
-   
     tableView.reloadData()
+      
+    }
   }
-  
-
 }
-
-
-
-

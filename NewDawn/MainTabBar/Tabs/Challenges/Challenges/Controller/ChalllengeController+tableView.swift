@@ -8,7 +8,7 @@ Copyright (c) 2018 Mathieu Janneau
 
 import UIKit
 
-extension ChallengeController : UITableViewDataSource,UITableViewDelegate {
+extension ChallengeController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return data.count
   }
@@ -17,17 +17,15 @@ extension ChallengeController : UITableViewDataSource,UITableViewDelegate {
     let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as? ChallengeTwo
     cell?.challengeTitle.text = data[indexPath.row]
     
-
     return cell!
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let cellTitle = data[indexPath.row]
-    
     let createVc = CreateChallengeViewController(nibName: nil, bundle: nil)
+    createVc.objective = titleLabel.text
     createVc.tableViewTitle = cellTitle
-   
-    self.navigationController?.pushViewController(createVc, animated: true)
+ self.navigationController?.pushViewController(createVc, animated: true)
    
   }
   
@@ -37,6 +35,4 @@ extension ChallengeController : UITableViewDataSource,UITableViewDelegate {
     cell.textLabel?.textColor = .white
 
   }
-  
-
 }

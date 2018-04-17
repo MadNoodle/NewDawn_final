@@ -8,8 +8,6 @@
 // swiftlint:disable trailing_whitespace
 import UIKit
 
-
-
 /// Customizable trapezium shape with a color graident background
 @IBDesignable
 class Trapezium: UIView {

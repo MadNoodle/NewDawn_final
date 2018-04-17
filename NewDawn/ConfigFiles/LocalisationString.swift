@@ -19,10 +19,10 @@ class LocalisationString {
   static let medicVcTitle = "Find a Medic"
   
   // MARK: - CHARTS
-static let noDataText = "You need to provide data for the chart."
+  static let noDataText = "You need to provide data for the chart."
   static let dataLabel = "number"
   
-  //MARK: - MAIL COMPOSER
+  // MARK: - MAIL COMPOSER
   
   static let messageRecipient = "mjanneau@gmail.com"
   static let messageSubject = "Sending you an in-app e-mail..."
@@ -31,4 +31,3 @@ static let noDataText = "You need to provide data for the chart."
   static let attachmentFormat = "pdf"
   static let attachmentName = "NewDawnReport"
 }
-

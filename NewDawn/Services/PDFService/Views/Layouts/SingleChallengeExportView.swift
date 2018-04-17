@@ -18,7 +18,7 @@ class SingleChallengeExportView: UIView {
   @IBOutlet weak var anxietyLvl: UILabel!
   @IBOutlet weak var benefit: UILabel!
   @IBOutlet weak var feltAnxiety: UILabel!
-  override init(frame:CGRect){
+  override init(frame: CGRect) {
     super.init(frame: frame)
     commonInit()
   }
@@ -36,4 +36,3 @@ class SingleChallengeExportView: UIView {
     
   }
 }
-

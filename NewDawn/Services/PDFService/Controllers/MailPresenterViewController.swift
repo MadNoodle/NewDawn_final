@@ -41,7 +41,7 @@ let mailComposerVC = MFMailComposeViewController()
   }
   func configuredMailComposeViewController() -> MFMailComposeViewController {
     // set delegate to allow us to dismiss the controller
-    mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+    mailComposerVC.mailComposeDelegate = self
     
     // Populate the mail
     mailComposerVC.setToRecipients([LocalisationString.messageRecipient])
@@ -54,7 +54,7 @@ let mailComposerVC = MFMailComposeViewController()
       // Convert to data
       let fileData = try Data(contentsOf: dst)
       // attach
-      mailComposerVC.addAttachmentData(fileData, mimeType: LocalisationString.mime , fileName: LocalisationString.attachmentName)
+      mailComposerVC.addAttachmentData(fileData, mimeType: LocalisationString.mime, fileName: LocalisationString.attachmentName)
     } catch let error {
       print(error)
     }
@@ -72,6 +72,3 @@ let mailComposerVC = MFMailComposeViewController()
     UIApplication.shared.delegate?.window??.rootViewController = tabVc
     }
   }
-    
-
-

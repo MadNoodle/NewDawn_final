@@ -47,7 +47,6 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   // MARK: - LIFECYCLE METHODS //
   // ///////////////////////// //
   
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupButtons()
@@ -60,7 +59,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   override func viewWillAppear(_ animated: Bool) {
     shouldDisplayLineGraph(with: dataSet)
     shouldDisplayBarChart(with: dataPoints)
-    animateCircleProgress(progress: progressData.2)
+    shouldAnimateCircleProgress(progress: progressData.2)
   }
   
   // /////////////// //
@@ -117,7 +116,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     
     // add share button to navigation
     let rightButton: UIBarButtonItem =
-      UIBarButtonItem(image: #imageLiteral(resourceName: "upload"), style: .plain , target: self, action: #selector(shareChallenge))
+      UIBarButtonItem(image: #imageLiteral(resourceName: "upload"), style: .plain, target: self, action: #selector(shareChallenge))
     self.navigationController?.navigationBar.tintColor = .white
     self.navigationItem.rightBarButtonItem = rightButton
   }
@@ -133,18 +132,17 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   // MARK: - BARCHART SETUP //
   // ////////////////////// //
   
- 
   /// Allows the user to display a set of data in a Bar chart with
   /// a time based X axis and a value Y axis
   /// - Parameter data: [MoodPlot]
-  private func shouldDisplayBarChart(with data : [MoodPlot]) {
+  private func shouldDisplayBarChart(with data: [MoodPlot]) {
     
     if data.isEmpty { handleNoData()}
     var dataEntries: [BarChartDataEntry] = []
     
     // Populate data in BarChart matrix
-    for i in 0..<data.count {
-      let value = BarChartDataEntry(x: dataSet[i].date, y: dataSet[i].value)
+    for index in 0..<data.count {
+      let value = BarChartDataEntry(x: dataSet[index].date, y: dataSet[index].value)
       dataEntries.append(value)
     }
     
@@ -164,7 +162,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   /// Handles data update and charts redrawinf when user
   /// select a different time range option
   /// - Parameter index: Int number of days user wants to display data
-  private func handleBarChartRedraw(for index: Int){
+  private func handleBarChartRedraw(for index: Int) {
     // reset data
     dataPoints = MoodPlot.getMockData()
     // update data according to selected time range
@@ -174,7 +172,6 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     shouldDisplayBarChart(with: dataPoints)
     barChart.setNeedsDisplay()
   }
-  
   
   /// Displays a message when there is no data to display
   private func handleNoData() {
@@ -192,11 +189,11 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     chartSettings(chart: lineChart)
     // Custom Y axis values
     lineChart.leftAxis.drawLabelsEnabled = false
-    LeftAxisIconSetup()
+    leftAxisIconSetup()
     
     // Insert Data in LineChart
-    let lineChartEntry = populateData(data: dataToDraw)
-    let line1 = setupLine(entry: lineChartEntry)
+    let lineChartEntry = handleDataConvert(data: dataToDraw)
+    let line1 = shouldConfigLine(entry: lineChartEntry)
     let data = LineChartData()
     data.addDataSet(line1)
     // set data source
@@ -213,13 +210,14 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   }
   
   /// allows the user to zoom on a defined time range on all the charts
-  private func shouldZoom(onLast index:Int) {
+  private func shouldZoom(onLast index: Int) {
     dataSet = MoodPlot.getMockData()
+    // Define max range of data to users max data amount if there is not enougth
+    // data to be displayed
     if index >= dataSet.count {
-      // Define max range of data to users max data amount
       handleLineChartRedraw(for: dataSet.count)
       handleBarChartRedraw(for: dataSet.count)
-    } else{
+    } else {
       
       dataSet = dataSet.getLast(index)
       handleLineChartRedraw(for: index)
@@ -227,26 +225,38 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     
   }
   
-  
-  private func LoadImageLabels(ImageName:String, multiplier: CGFloat){
+  /// Load Smiley Icons on left axis of LineChart
+  ///
+  /// - Parameters:
+  ///   - ImageName: String
+  ///   - multiplier: CGFloat y coordinates ratio
+  private func loadImageLabels(imageName: String, multiplier: CGFloat) {
     let iconOffset: CGFloat = -20
     let imageLabel = UIImageView()
-    imageLabel.image = UIImage(named: ImageName)
-    imageLabel.frame = CGRect(x: iconOffset, y:   multiplier * (lineChart.frame.height / 14), width: 15, height: 15)
+    imageLabel.image = UIImage(named: imageName)
+    imageLabel.frame = CGRect(x: iconOffset, y: multiplier * (lineChart.frame.height / 14), width: 15, height: 15)
     lineChart.addSubview(imageLabel)
   }
   
-  private func LeftAxisIconSetup() {
+  /// Display Y axis Icons for LineChart
+  private func leftAxisIconSetup() {
     // left labels images
-    let icons:[(Icons,Offset)] = [(.superHappy,.step1),(.happy,.step2),(.neutral,.step3),(.sad,.step4),(.dead,.step5)]
+    let icons: [(Icons, Offset)] = [(.superHappy, .step1),
+                                   (.happy, .step2),
+                                   (.neutral, .step3),
+                                   (.sad, .step4),
+                                   (.dead, .step5)]
     // place icons according to chart
     for icon in icons {
-      LoadImageLabels(ImageName: icon.0.rawValue, multiplier: icon.1.rawValue)
+      loadImageLabels(imageName: icon.0.rawValue, multiplier: icon.1.rawValue)
     }
   }
   
-  
-  private func setupLine(entry: [ChartDataEntry] ) -> LineChartDataSet {
+  /// This function sends all needed parameters to setup a line Chart
+  ///
+  /// - Parameter entry: Data to be displayed
+  /// - Returns: LineChartDataSet
+  private func shouldConfigLine(entry: [ChartDataEntry] ) -> LineChartDataSet {
     // Line setup
     let line = LineChartDataSet(values: entry, label: LocalisationString.dataLabel)
     // Line color
@@ -265,11 +275,15 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     return line
   }
   
-  private func populateData(data: [MoodPlot]) -> [ChartDataEntry] {
+  /// Convert Raw Data in Charts friendly Data set
+  ///
+  /// - Parameter data: Raw Data
+  /// - Returns: [ChartDataEntry] formatted data
+  private func handleDataConvert(data: [MoodPlot]) -> [ChartDataEntry] {
     var lineChartEntry = [ChartDataEntry]()
     // send data to chart
-    for i in 0..<data.count {
-      let value = ChartDataEntry(x: data[i].date, y: data[i].value)
+    for index in 0..<data.count {
+      let value = ChartDataEntry(x: data[index].date, y: data[index].value)
       lineChartEntry.append(value)
     }
     return lineChartEntry
@@ -279,10 +293,21 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   // MARK: - PROGRESS CIRCLE SETUP //
   // ///////////////////////////// //
   
-  private func setupCircle(center: CGPoint, offset: CGFloat, color: CGColor) -> CAShapeLayer {
+  /// Draw the a circle and sets up all the display paraleters
+  ///such as color, range, center
+  /// - Parameters:
+  ///   - center: CGPoint
+  ///   - offset: CGFLoat
+  ///   - color: CGColor
+  /// - Returns: CAShapeLayer
+  private func shouldDrawCircle(center: CGPoint, offset: CGFloat, color: CGColor) -> CAShapeLayer {
     let circle = CAShapeLayer()
     // circle path with a beginning a 12:00
-    let circularPath = UIBezierPath(arcCenter: center, radius: (progressCircle.frame.width / 2) - offset, startAngle: (-1 / 2) * CGFloat.pi, endAngle: (3 / 2) * CGFloat.pi, clockwise: true)
+    let circularPath = UIBezierPath(arcCenter: center,
+                                    radius: (progressCircle.frame.width / 2) - offset,
+                                    startAngle: (-1 / 2) * CGFloat.pi,
+                                    endAngle: (3 / 2) * CGFloat.pi,
+                                    clockwise: true)
     circle.path = circularPath.cgPath
     circle.strokeColor = color
     circle.lineWidth = 3.0
@@ -291,15 +316,18 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     return circle
   }
   
-  private func animateCircleProgress(progress: Float) {
+  /// Animate the fill Around the progress circle until a given number
+  ///
+  /// - Parameter progress: CGFloat target amount
+  private func shouldAnimateCircleProgress(progress: Float) {
     // Common Center
     let center = CGPoint(x: progressCircle.frame.width / 2, y: progressCircle.frame.height / 2)
     // Reference circle
-    let insideCircle = setupCircle(center: center, offset: 15, color: UIConfig.ultraDarkGreen.cgColor)
+    let insideCircle = shouldDrawCircle(center: center, offset: 15, color: UIConfig.ultraDarkGreen.cgColor)
     progressCircle.layer.addSublayer(insideCircle)
     
     // progress circle
-    let outsideCircle = self.setupCircle(center: center, offset: 8, color: UIConfig.lightGreen.cgColor)
+    let outsideCircle = self.shouldDrawCircle(center: center, offset: 8, color: UIConfig.lightGreen.cgColor)
     progressCircle.layer.addSublayer(outsideCircle)
     // initial state
     outsideCircle.strokeEnd = 0
@@ -317,16 +345,18 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   // MARK: - PDF EXPORT METHODS //
   // //////////////////////// //
   
-  
+  /// Selector for the share button in the navigation bar
   @objc func shareChallenge() {
     //send comment from text view to model
     // instantiate pdfCreator
     let pdfCreator = PDFCreator()
     
-    let pages = pdfCreator.pdfLayout(for: MockChallenge.getMockChallenges(), mapView: nil, display: .multipleSummariesReport)
-    
-    if let vc = pdfCreator.generatePDF(for: pages){
-      present(vc, animated: true, completion: nil)
+    let pages = pdfCreator.pdfLayout(for: CoreDataService.loadData(filter: nil),
+                                     mapView: nil,
+                                     display: .multipleSummariesReport)
+    // Instantiate the PDF previewer
+    if let controller = pdfCreator.generatePDF(for: pages) {
+      present(controller, animated: true, completion: nil)
       
     }
   }

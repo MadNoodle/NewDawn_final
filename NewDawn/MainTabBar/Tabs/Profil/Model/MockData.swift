@@ -28,8 +28,7 @@ struct MockChallenge {
   var category: ChallengeType
   var comment: String?
   var user: String?
-  ///// TODO
-  // date formatter
+
   // image
   init(date: Double, state: Bool, title: String, category: ChallengeType, anxiety: Int, benefit: Int) {
     let currentDate = Date(timeIntervalSince1970: date)
@@ -44,24 +43,38 @@ struct MockChallenge {
     
     // assign icon according to category
     switch category {
-      case .drive:
+    case .drive:
         self.icon = "drive"
-      case .party:
+    case .party:
         self.icon = "party"
-      case .transport:
+    case .transport:
         self.icon = "metro"
-      case .travel:
+    case .travel:
         self.icon = "travel"
-      case .walk:
+    case .walk:
         self.icon = "hike"
     }
   }
   
   static func getMockChallenges() -> [MockChallenge] {
     return [
-      MockChallenge(date: Date().timeIntervalSince1970 + 86400 ,state: true, title: "Run 500 meters", category: .walk, anxiety: 5, benefit: 5),
-      MockChallenge(date: Date().timeIntervalSince1970 + 120000, state: false, title: "Take Subway", category: .transport, anxiety: 5, benefit: 5),
-      MockChallenge(date: Date().timeIntervalSince1970 + 46002, state: true, title: "Go party 1 hour", category: .party, anxiety: 5, benefit: 5)
+      MockChallenge(date: Date().timeIntervalSince1970 + 86400,
+                    state: true, title: "Run 500 meters",
+                    category: .walk,
+                    anxiety: 5,
+                    benefit: 5),
+      MockChallenge(date: Date().timeIntervalSince1970 + 120000,
+                    state: false,
+                    title: "Take Subway",
+                    category: .transport,
+                    anxiety: 5,
+                    benefit: 5),
+      MockChallenge(date: Date().timeIntervalSince1970 + 46002,
+                    state: true,
+                    title: "Go party 1 hour",
+                    category: .party,
+                    anxiety: 5,
+                    benefit: 5)
     ]
   }
   

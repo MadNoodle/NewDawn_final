@@ -36,7 +36,7 @@ extension MedicViewController: MKMapViewDelegate {
     }
     
     // pop call out when annotation is selected
-    let medicAnnotation = view.annotation as! MedicAnnotation
+    if let medicAnnotation = view.annotation as? MedicAnnotation {
     let views = Bundle.main.loadNibNamed("CustomCalloutView", owner: self, options: nil)
     calloutSetup(views, medicAnnotation, view)
     // recenter map on selected annotation
@@ -44,18 +44,15 @@ extension MedicViewController: MKMapViewDelegate {
     coordinates = (view.annotation?.coordinate)!
     
     // grab data from annotation and prepare it for detailView
-    loadMedicDetails(view)
+    loadMedicDetails(view)}
   }
   
   func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
     // remove annotation and callouts
-    if view.isKind(of: AnnotationView.self)
-    {
-      for subview in view.subviews
-      {
+    if view.isKind(of: AnnotationView.self) {
+      for subview in view.subviews {
         subview.removeFromSuperview()
       }
     }
   }
 }
-

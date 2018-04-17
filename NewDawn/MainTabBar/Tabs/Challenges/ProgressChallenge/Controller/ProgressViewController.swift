@@ -10,7 +10,10 @@ import UIKit
 import MapKit
 import CoreLocation
 
-
+/// This class handles a challenge progess. It allows
+/// the user to declare a challenge done or failed,
+/// a track is gps position during the challenge, write comments,
+/// and share a pdf report via email
 class ProgressViewController: UIViewController {
   
   // ////////////////// //
@@ -18,8 +21,8 @@ class ProgressViewController: UIViewController {
   // ////////////////// //
   var outputAsData: Bool = false
   // grab the challenge
-  var challenge: MockChallenge?
-  
+  var challenge: Challenge?
+  let context = CoreDataService.managedContext
   // initiate walk for tracking route
   let walk = Walk()
   
@@ -49,13 +52,15 @@ class ProgressViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupUI()
-    setupMapView()
+    shouldDrawUI()
+    handleMapViewSettings()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
+    // stop CLLocation from fetcing GPS coordinates
     locationManager.stopUpdatingLocation()
+    
     UIView.animate(withDuration: 0.5) {
       self.startButtonHeight.constant = 37
     }
@@ -65,34 +70,53 @@ class ProgressViewController: UIViewController {
   // MARK: - ACTIONS //
   // /////////////// //
   
+  /// Heigth of start button. Used make the button disappear and
+  /// realign stackview
   @IBOutlet weak var startButtonHeight: NSLayoutConstraint!
-  
-  
+    
+  /// start challenge button action
   @IBAction func startChallenge(_ sender: UIButton) {
-    startTracking()
-    self.locationManager.distanceFilter = 10
-    self.locationManager.startUpdatingLocation()
+    // tracking
+    shouldStartTracking()
+    
+    // remove start button
     UIView.animate(withDuration: 0.5) {
       self.startButtonHeight.constant = 0
     }
   }
   
+  /// Used to stop the challenge progress and declare it failed
   @IBAction func invalidateChallenge(_ sender: UIButton) {
-    challenge?.state = false
+    challenge?.isDone = false
     timer?.invalidate()
     locationManager.stopUpdatingLocation()
     mapView.showsUserLocation = false
   }
+  
+  /// Instatiate the challenge helper object
   let congratulation = Congratulation()
+  
+  /// Used to stop the current challenge progress and declare it done
   @IBAction func validateChallenge(_ sender: UIButton) {
     // change state of challenge
-    
     congratulation.showSettings()
-    challenge?.state = true
+    
+    challenge?.isDone = true
+    challenge?.comment = textView.text
+    let screenshot = UIImage(view:mapView)
+    // convert image to data
+    let mapImage = UIImagePNGRepresentation(screenshot) as NSData?
+    // store in core data
+    
+    challenge?.map = mapImage
+    CoreDataService.save()
+    print(challenge!)
     locationManager.stopUpdatingLocation()
     mapView.showsUserLocation = false
   }
   
+  /// Navigation Bar left button selector to share chalenge.
+  /// it generates a PDF and open the previewer
   @objc func shareChallenge() {
     //send comment from text view to model
     challenge?.comment = textView.text
@@ -101,35 +125,36 @@ class ProgressViewController: UIViewController {
     // instantiate pdfCreator
     let pdfCreator = PDFCreator()
     
-    let pages = pdfCreator.pdfLayout(for: [exercise], mapView: nil, display: .singleReport)
-    if let vc = pdfCreator.generatePDF(for: pages){
-      present(vc, animated: true, completion: nil)
+    let pages = pdfCreator.pdfLayout(for: [exercise], mapView: mapView, display: .singleReport)
+    if let controller = pdfCreator.generatePDF(for: pages) {
+      present(controller, animated: true, completion: nil)
       
     }
   }
-  
   
   // ////////////////// //
   // MARK: - UI METHODS //
   // ////////////////// //
   
-  fileprivate func setupUI() {
+  /// Draws all the UI elements
+  fileprivate func shouldDrawUI() {
     
     // load title and date
     if let currentChallenge = challenge {
-      challengeLabel.text = currentChallenge.title
-      dateLabel.text = currentChallenge.date.convertToString(format: .dayHourMinute)
+      challengeLabel.text = currentChallenge.name
+      // Convert double to date
+      let date = Date(timeIntervalSince1970: currentChallenge.dueDate)
+      dateLabel.text = date.convertToString(format: .dayHourMinute)
     }
-    // Mock challenge Destination
-    challenge?.challengeLong = 2.3
-    challenge?.challengeLat = 48.876965
+    
+    
     // Set frame border for textView
     textView.layer.borderColor = UIConfig.blueGray.cgColor
     textView.layer.borderWidth = 1
     
     // add share button to navigation
     let rightButton: UIBarButtonItem =
-      UIBarButtonItem(image: #imageLiteral(resourceName: "upload"), style: .plain , target: self, action: #selector(shareChallenge))
+      UIBarButtonItem(image: #imageLiteral(resourceName: "upload"), style: .plain, target: self, action: #selector(shareChallenge))
     self.navigationController?.navigationBar.tintColor = .white
     self.navigationItem.rightBarButtonItem = rightButton
   }
@@ -138,7 +163,8 @@ class ProgressViewController: UIViewController {
   // MARK: - TRACKING METHODS //
   // //////////////////////// //
   
-  fileprivate func setupMapView() {
+  /// Sets up all delegate and display settings for the MKMapView
+  fileprivate func handleMapViewSettings() {
     // load map
     self.locationManager.delegate = self
     self.locationManager.allowsBackgroundLocationUpdates = true
@@ -148,17 +174,24 @@ class ProgressViewController: UIViewController {
     self.mapView.showsUserLocation = true
     mapView.delegate = self
     
-    // load annotation for destination
+    guard let center = locationManager.location?.coordinate else { return}
+    let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    self.mapView.setRegion(region, animated: true)
+    // load custom annotation for destination
     if let destination = challenge {
-      let challengeDestination: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: destination.challengeLat!, longitude: destination.challengeLong!)
+      let challengeDestination: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: destination.destinationLat, longitude: destination.destinationLong)
       let annotation = MKPointAnnotation()
       annotation.coordinate = challengeDestination
       mapView.addAnnotation(annotation)
     }
   }
   
-  fileprivate func startTracking() {
+  /// Grab user coordinates each seconds and convert it to a graphic point
+  fileprivate func shouldStartTracking() {
+    // every ten meters grab a point
+    self.locationManager.distanceFilter = 10
     // start tracking
+    self.locationManager.startUpdatingLocation()
     // initialize the timer
     seconds = 0
     // initialize distance
@@ -170,11 +203,12 @@ class ProgressViewController: UIViewController {
     timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
       self.seconds += 1
       // draw path
-      self.drawTrack()
+      self.handleDrawTrack()
     }
   }
   
-  private func drawTrack()  {
+  /// Grab user coordinates and convert it to a polyline track overlay forMapview
+  private func handleDrawTrack() {
     // convert coodinates to draw path
     let coords: [CLLocationCoordinate2D] = locationList.map { location in
       return CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
@@ -183,7 +217,4 @@ class ProgressViewController: UIViewController {
     mapView.add(MKPolyline(coordinates: coords, count: coords.count))
   }
   
-  
-  
 }
-

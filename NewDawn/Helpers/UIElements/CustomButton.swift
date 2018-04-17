@@ -15,8 +15,6 @@ enum CustomUIButtonForUIToolbarStyle {
 /// Custom button than can change image when selected
 class CustomUIButtonForUIToolbar: UIButton, SwitchableImage {
 
-  
-  
   @IBInspectable var imageName: String = ""
   /// Sets the button state. if the button has alrready been selected
   var choosen: Bool = false

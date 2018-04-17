@@ -9,9 +9,10 @@ Copyright (c) 2018 Mathieu Janneau
 import Foundation
 import MapKit
 
-extension ProgressViewController : MKMapViewDelegate{
+// MARK: - MKMApViewDelegate
+extension ProgressViewController: MKMapViewDelegate {
   
-  // Set Flag image for destination
+  /// Sets Flag image for destination and handle path overlay drawing
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     
     // Customize annotation

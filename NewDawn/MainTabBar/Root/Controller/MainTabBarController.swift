@@ -13,8 +13,8 @@ import UIKit
  This class handles the main tab bar inititailization and behaviours
  */
 class MainTabBarController: UITabBarController {
-  let tutoView = TutorialView()
-  let isFirstLaunch = UserDefaults.isFirstLaunch()
+ 
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -22,9 +22,7 @@ class MainTabBarController: UITabBarController {
     
   }
   override func viewWillAppear(_ animated: Bool) {
-    print(isFirstLaunch)
-    if isFirstLaunch
-    {tutoView.showSettings()}
+
   }
   
   /**
@@ -55,7 +53,9 @@ class MainTabBarController: UITabBarController {
   /**
    This method initialize tabBar item and insert them in a navigationController
    */
-  func createTabBarItem(_ title: String, imageName: String, for controller: UIViewController) -> UINavigationController {
+  func createTabBarItem(_ title: String,
+                        imageName: String,
+                        for controller: UIViewController) -> UINavigationController {
     /// Navigontion controller embedded in tabBar
     let navController = UINavigationController(rootViewController: controller)
     // Set title

@@ -9,14 +9,20 @@
 
 import UIKit
 
-class ObjectiveViewController: UIViewController,ChallengeControllerDelegate {
+class ObjectiveViewController: UIViewController, ChallengeControllerDelegate {
   
+  // ///////////////////////// //
+  // MARK: - PROPERTIES        //
+  // ///////////////////////// //
   let data = Category.getCategories()
   let reuseId = "my cell"
   var categoryTitle: ChallengeType?
 
   @IBOutlet weak var collectionView: UICollectionView!
   
+  // ///////////////////////// //
+  // MARK: - LIFECYCLE METHODS //
+  // ///////////////////////// //
   override func viewDidLoad() {
     super.viewDidLoad()
     collectionView.dataSource = self
@@ -31,7 +37,7 @@ class ObjectiveViewController: UIViewController,ChallengeControllerDelegate {
   
 }
 
-extension ObjectiveViewController: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ObjectiveViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return data.count
@@ -45,19 +51,16 @@ extension ObjectiveViewController: UICollectionViewDelegate,UICollectionViewData
     return cell!
   }
   
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-  {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     return CGSize(width: self.view.frame.width, height: 130.0)
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     categoryTitle = data[indexPath.row].title
     
-    let challengeVc = ChallengeController(nibName:nil, bundle: nil)
+    let challengeVc = ChallengeController(nibName: nil, bundle: nil)
     challengeVc.delegate = self
     self.navigationController?.pushViewController(challengeVc, animated: true)
     
   }
 }
-
-

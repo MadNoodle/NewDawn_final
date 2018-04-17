@@ -10,10 +10,9 @@ import UIKit
 
 class PulsatingCirclesView: UIView {
 
-  var radius: [CGFloat] = [1,0.80,0.60,0.40,0.24]
+  var radius: [CGFloat] = [1, 0.80, 0.60, 0.40, 0.24]
   var circles = [CAShapeLayer]()
   
-
   override func draw(_ rect: CGRect) {
   
     // Define Common center for all the circles
@@ -68,8 +67,5 @@ class PulsatingCirclesView: UIView {
         self.transform = CGAffineTransform.identity
       })
     }
-
-  
- 
 
 }

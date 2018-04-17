@@ -11,12 +11,12 @@ import Foundation
 extension Int {
 
   func secondsToMinutesSeconds() -> String {
-    return String(format: UIConfig.timerFormat , ((self % 3600) / 60), ((self % 3600) % 60))
+    return String(format: UIConfig.timerFormat, ((self % 3600) / 60), ((self % 3600) % 60))
   }
 }
 extension Date {
-  
-  func convertToString( format:DateFormat) -> String {
+
+  func convertToString(format: DateFormat) -> String {
     let formatter = DateFormatter()
     formatter.timeZone = .current
     formatter.dateFormat = format.rawValue

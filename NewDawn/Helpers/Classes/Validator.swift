@@ -63,7 +63,10 @@ class Validator: NSObject {
           return tempValue
         }
       case .stringWithFirstLetterCaps:
-        if let tempValue = isValidString((valueToBeChecked.inputValue, .alphabeticStringFirstLetterCaps, .emptyFirstLetterCaps, .invalidFirstLetterCaps)) {
+        if let tempValue = isValidString((valueToBeChecked.inputValue,
+                                          .alphabeticStringFirstLetterCaps,
+                                          .emptyFirstLetterCaps,
+                                          .invalidFirstLetterCaps)) {
           return tempValue
         }
       case .phoneNo:
@@ -71,7 +74,10 @@ class Validator: NSObject {
           return tempValue
         }
       case .alphabeticString:
-        if let tempValue = isValidString((valueToBeChecked.inputValue, .alphabeticStringWithSpace, .emptyAlphabeticString, .invalidAlphabeticString)) {
+        if let tempValue = isValidString((valueToBeChecked.inputValue,
+                                          .alphabeticStringWithSpace,
+                                          .emptyAlphabeticString,
+                                          .invalidAlphabeticString)) {
           return tempValue
         }
       case .password:
@@ -93,7 +99,7 @@ class Validator: NSObject {
   }
   
   func isValidRegEx(_ testStr: String, _ regex: RegEx) -> Bool {
-    let stringTest = NSPredicate(format:"SELF MATCHES %@", regex.rawValue)
+    let stringTest = NSPredicate(format: "SELF MATCHES %@", regex.rawValue)
     let result = stringTest.evaluate(with: testStr)
     return result
   }

@@ -11,6 +11,7 @@ import MapKit
 
 class DestinationViewController: UIViewController, UISearchBarDelegate,MKMapViewDelegate {
   
+  /// Data of challenge final destination
   var challengeLocation : (lat: Double,long: Double,place: String)?
   
   // MARK: - OUTLETS

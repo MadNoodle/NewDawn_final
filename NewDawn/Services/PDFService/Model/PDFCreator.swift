@@ -17,9 +17,9 @@ enum Layouts {
   case homepage
 }
 
-class PDFCreator{
+class PDFCreator {
   /// Array of views to be rendered in Pdf
-  var pages : [UIView] = []
+  var pages: [UIView] = []
   /// Property that allows to iterate and generate multiple cells/pages in pdf
   var increment = 0
   var outputAsData: Bool = false
@@ -39,28 +39,28 @@ class PDFCreator{
       
       // display in viewer
       controller = openPDFViewer(dst)
-    } catch (let e) {
-      print(e.localizedDescription)
+    } catch let error {
+      print(error.localizedDescription)
+      /// TODO--> SHOW ALERT
     }
     return controller
   }
   
-  fileprivate func openPDFViewer(_ pdfPath: URL) -> PDFPreviewViewController{
-    let vc = PDFPreviewViewController(nibName: nil, bundle: nil)
-    vc.setupWithURL(pdfPath)
-    return vc
+  fileprivate func openPDFViewer(_ pdfPath: URL) -> PDFPreviewViewController {
+    let controller = PDFPreviewViewController(nibName: nil, bundle: nil)
+    controller.setupWithURL(pdfPath)
+    return controller
   }
-  
 
-  func pdfLayout(for challenges: [MockChallenge],mapView: MKMapView?,display: Layouts) -> [UIView]{
+  func pdfLayout(for challenges: [Challenge], mapView: MKMapView?, display: Layouts) -> [UIView] {
     generatePages(challenges, mapView, &pages, display: display)
     return pages
   }
 
-  func generatePages(_ challenges: [MockChallenge], _ mapView: MKMapView?, _ pages: inout [UIView], display: Layouts) {
+  func generatePages(_ challenges: [Challenge], _ mapView: MKMapView?, _ pages: inout [UIView], display: Layouts) {
     // split array of challenges every x item
     
-    let pagesItems: [[MockChallenge]] = challenges.chunks(5)
+    let pagesItems: [[Challenge]] = challenges.chunks(5)
     
     // generate cells for each page
     for item in pagesItems {
@@ -69,13 +69,13 @@ class PDFCreator{
      
       pageView.backgroundColor = .white
       // dans cette vue je met 5 cells
-      for id in item {
-        var report : UIView?
+      for idType in item {
+        var report: UIView?
         switch display {
         case .singleReport:
-          report = generateDetail(for: id, in: pageView, with: mapView)
+          report = generateDetail(for: idType, in: pageView, with: mapView)
         case .multipleSummariesReport:
-         report = generateCell(for: id, in: pageView, with: mapView)
+         report = generateCell(for: idType, in: pageView, with: mapView)
         case .homepage:
           break
         }
@@ -87,34 +87,33 @@ class PDFCreator{
     }
   }
   
-  func generateDetail(for id: MockChallenge, in pageView: UIView,with mapView: MKMapView?) -> UIView {
+  func generateDetail(for challenge: Challenge, in pageView: UIView, with mapView: MKMapView?) -> UIView {
     // Instantiate Detail View
     let detailDisplay =  SingleChallengeExportView()
     
     // set frame full page
-    detailDisplay.frame = CGRect(x: 0, y: 0 , width: pageView.frame.width, height: pageView.frame.height)
+    detailDisplay.frame = CGRect(x: 0, y: 0, width: pageView.frame.width, height: pageView.frame.height)
     // Populate with info
-    
-   
-    detailDisplay.titleLabel.text = id.title
-    detailDisplay.dateLabel.text = id.date.convertToString(format: .day)
-    detailDisplay.anxietyLvl.text = "Anxiety level: \(String(id.anxietyLevel))"
-    detailDisplay.benefit.text = "Benefit level: \(String(id.benefitLevel))"
+    detailDisplay.titleLabel.text = challenge.name
+    let date = Date(timeIntervalSince1970: challenge.dueDate)
+    detailDisplay.dateLabel.text = date.convertToString(format: .day)
+    detailDisplay.anxietyLvl.text = "Anxiety level: \(String(challenge.anxietyLevel))"
+    detailDisplay.benefit.text = "Benefit level: \(String(challenge.benefitLevel))"
 
-    if id.comment != nil {
-      detailDisplay.comments.text = id.comment
+    if challenge.comment != nil {
+      detailDisplay.comments.text = challenge.comment
     } else {
       detailDisplay.comments.text = "No comment"
     }
 
     if let track = mapView {
-      detailDisplay.map.image = UIImage(view:track)
+      detailDisplay.map.image = UIImage(view: track)
 
     }
     return detailDisplay
   }
   
-  func generateCell(for id: MockChallenge, in pageView: UIView,with mapView: MKMapView?) -> UIView {
+  func generateCell(for challenge: Challenge, in pageView: UIView, with mapView: MKMapView?) -> UIView {
     
     // Instantitate Cell
     let cell = ReportCellView()
@@ -127,19 +126,20 @@ class PDFCreator{
     cell.frame = CGRect(x: 0, y: CGFloat(increment) * cellHeigth + ( 2 * offset), width: pageView.frame.width, height: cellHeigth)
     
     // populate
-    cell.titleLabel.text = id.title
-    cell.dateLabel.text = id.date.convertToString(format: .day)
-    cell.anxietyLvl.text = "Anxiety level: \(String(id.anxietyLevel))"
-    cell.benefit.text = "Benefit level: \(String(id.benefitLevel))"
+    cell.titleLabel.text = challenge.name
+     let date = Date(timeIntervalSince1970: challenge.dueDate)
+    cell.dateLabel.text = date.convertToString(format: .day)
+    cell.anxietyLvl.text = "Anxiety level: \(String(challenge.anxietyLevel))"
+    cell.benefit.text = "Benefit level: \(String(challenge.benefitLevel))"
    
-    if id.comment != nil {
-      cell.comments.text = id.comment
+    if challenge.comment != nil {
+      cell.comments.text = challenge.comment
     } else {
       cell.comments.text = "No comment"
     }
     
     if let track = mapView {
-      cell.map.image = UIImage(view:track)
+      cell.map.image = UIImage(view: track)
       
     }
    return cell

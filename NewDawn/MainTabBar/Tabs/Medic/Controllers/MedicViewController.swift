@@ -11,13 +11,13 @@ import MapKit
 import CoreLocation
 
 class MedicViewController: UIViewController {
-  
+
   // //////////// //
   // MARK: - DATA //
   // //////////// //
-  
+
   var medics =  Therapist.getTherapist()
-  
+
   // ////////////////////////////////// //
   // MARK: - Map Properties and outlets //
   // ////////////////////////////////// //
@@ -30,7 +30,7 @@ class MedicViewController: UIViewController {
   // ////////////////////////////////////////// //
   // MARK: - Detail View Properties and outlets //
   // ////////////////////////////////////////// //
-  
+
   let identity: CGFloat = 0
   @IBOutlet weak var constraint: NSLayoutConstraint!
   @IBOutlet weak var infoStack: UIStackView!
@@ -38,7 +38,7 @@ class MedicViewController: UIViewController {
   @IBOutlet weak var detailAddress: UILabel!
   @IBOutlet weak var detailJob: UILabel!
   @IBOutlet weak var detailPhone: UILabel!
-  
+
   // ///////////////////////// //
   // MARK: - LifeCycle Methods //
   // ///////////////////////// //
@@ -49,11 +49,11 @@ class MedicViewController: UIViewController {
     loadMedicAnnotations()
     infoStack.isHidden = true
   }
-  
+
   // ///////////////////////// //
   // MARK: - Location methods  //
   // ///////////////////////// //
-  
+
   fileprivate func locationServiceSetup() {
     self.locationManager.delegate = self
     map.delegate = self
@@ -62,52 +62,54 @@ class MedicViewController: UIViewController {
     self.locationManager.startUpdatingLocation()
     self.map.showsUserLocation = true
   }
-  
 
   func centerMapOnLocation(_ location: CLLocationCoordinate2D) {
     //set center and zoom level
     let coordinateRegion = MKCoordinateRegionMakeWithDistance(location, regionRadius, regionRadius)
     map.setRegion(coordinateRegion, animated: true)
-    
+
   }
- 
+
   fileprivate func loadMedicAnnotations() {
     // create annotaions for all therapist
     for medic in medics {
-      let annotation = MedicAnnotation(lat: medic.lat, lng: medic.lng, name: medic.name, image: "pin", subtitle: medic.adresse,tel: medic.tel, job: medic.profession)
+      let annotation = MedicAnnotation(lat: medic.lat,
+                                       lng: medic.lng,
+                                       name: medic.name,
+                                       image: "pin",
+                                       subtitle: medic.adresse,
+                                       tel: medic.tel,
+                                       job: medic.profession)
       map.addAnnotation(annotation)
     }
   }
-  
+
   // /////////////////////// //
   // MARK: - Callout Methods //
   // /////////////////////// //
-  
+
   func calloutSetup(_ views: [Any]?, _ medicAnnotation: MedicAnnotation, _ view: MKAnnotationView) {
     // Instantiate Custom CallOut
-    let calloutView = views?[0] as! CustomCalloutView
-    calloutView.nameLabel.text = medicAnnotation.title
-    calloutView.addressLabel.text = medicAnnotation.subtitle
-    
-    // add detail button
-    let button = UIButton(frame: calloutView.detail.frame)
-    // add action
-    button.addTarget(self,action: #selector(showDetail), for: .touchUpInside)
-    calloutView.addSubview(button)
-    
-    // CallOut position
-    calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height * 0.52)
-    view.addSubview(calloutView)
+    if let calloutView = views?[0] as? CustomCalloutView {
+      calloutView.nameLabel.text = medicAnnotation.title
+      calloutView.addressLabel.text = medicAnnotation.subtitle
+      // add detail button
+      let button = UIButton(frame: calloutView.detail.frame)
+      // add action
+      button.addTarget(self, action: #selector(showDetail), for: .touchUpInside)
+      calloutView.addSubview(button)
+      
+      // CallOut position
+      calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height * 0.52)
+      view.addSubview(calloutView)
+    }
   }
-  
 
-
-  
   // /////////////////////////// //
   // MARK: - Detail View Methods //
   // /////////////////////////// //
   
-  @objc func showDetail(_ vc: UIViewController, sender: Any?) {
+  @objc func showDetail(_ controller: UIViewController, sender: Any?) {
     // initial constraint
     constraint.constant = identity
     
@@ -123,7 +125,7 @@ class MedicViewController: UIViewController {
   }
   func loadMedicDetails(_ view: MKAnnotationView) {
     // grab info from annotations
-    let detail = view.annotation as! MedicAnnotation
+    guard let detail = view.annotation as? MedicAnnotation else { return}
     // populate detail view
     detailName.text = detail.title
     detailAddress.text = detail.subtitle
@@ -169,10 +171,13 @@ class MedicViewController: UIViewController {
   
   @IBAction func getDirection(_ sender: UIButton) {
     // set zoom level
-    let regionDistance:CLLocationDistance = 1000;
+    let regionDistance: CLLocationDistance = 1000;
     let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates!, regionDistance, regionDistance)
     
-    let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)]
+    let options = [
+      MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                   MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+    ]
     
     // convert coordinates in placemeark for maps
     let placemark = MKPlacemark(coordinate: coordinates!)
@@ -181,10 +186,5 @@ class MedicViewController: UIViewController {
     mapItem.openInMaps(launchOptions: options)
     
   }
-  
 
 }
-
-
-
-

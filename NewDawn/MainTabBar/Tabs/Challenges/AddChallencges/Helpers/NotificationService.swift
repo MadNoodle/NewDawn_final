@@ -56,7 +56,7 @@ struct NotificationService {
   }
   
   // Get Notification from center
-  private static func getNotifications() -> [String]{
+  private static func getNotifications() -> [String] {
     var notifications: [String] = []
     center.getPendingNotificationRequests(completionHandler: { requests in
       for request in requests {
@@ -84,7 +84,7 @@ struct NotificationService {
     
     calendar.timeZone = .autoupdatingCurrent
     
-    let componentsFromDate = calendar.dateComponents([.hour, .minute, .day, .month,.year], from: date)
+    let componentsFromDate = calendar.dateComponents([.hour, .minute, .day, .month, .year], from: date)
     // trigger
     let trigger = UNCalendarNotificationTrigger(dateMatching: componentsFromDate, repeats: false)
     print(trigger)
@@ -97,6 +97,4 @@ struct NotificationService {
     print("notif: \(date)")
     
   }
-  
-  
 }

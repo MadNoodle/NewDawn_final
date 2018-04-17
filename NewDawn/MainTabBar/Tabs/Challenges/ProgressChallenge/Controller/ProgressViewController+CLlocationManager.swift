@@ -10,8 +10,10 @@ import Foundation
 import CoreLocation
 import MapKit
 
+// MARK: - CLLocationManagerDelegate
 extension ProgressViewController: CLLocationManagerDelegate {
   
+  /// handles what happens whe the user's location is updated
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     
     // TRACKING FEATURE
@@ -22,7 +24,7 @@ extension ProgressViewController: CLLocationManagerDelegate {
       
       if let lastLocation = locationList.last {
         let delta = newLocation.distance(from: lastLocation)
-        distance = distance + Measurement(value: delta, unit: UnitLength.meters)
+        distance = self.distance + Measurement(value: delta, unit: UnitLength.meters)
       }
       locationList.append(newLocation)
     }

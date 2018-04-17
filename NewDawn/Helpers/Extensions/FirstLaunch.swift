@@ -4,10 +4,8 @@ NewDawn
 Created by: Mathieu Janneau on 13/04/2018
 Copyright (c) 2018 Mathieu Janneau
 */
-// swiftlint:disable trailing_whitespace
 
 import Foundation
-
 
 extension UserDefaults {
   // check for is first launch - only true on first invocation after app install, false on all further invocations
@@ -15,7 +13,7 @@ extension UserDefaults {
   static func isFirstLaunch() -> Bool {
     let hasBeenLaunchedBeforeFlag = "hasBeenLaunchedBeforeFlag"
     let isFirstLaunch = !UserDefaults.standard.bool(forKey: hasBeenLaunchedBeforeFlag)
-    if (isFirstLaunch) {
+    if isFirstLaunch {
       UserDefaults.standard.set(true, forKey: hasBeenLaunchedBeforeFlag)
       UserDefaults.standard.synchronize()
     }

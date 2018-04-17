@@ -5,18 +5,9 @@ Created by: Mathieu Janneau on 07/04/2018
 Copyright (c) 2018 Mathieu Janneau
 */
 // swiftlint:disable trailing_whitespace
-
-
 import UIKit
 
-
 class Congratulation: NSObject {
-  
-  // ////////////////// //
-  // MARK: - PROPERTIES //
-  // ////////////////// //
-  
-
   
   // ///////////// //
   // MARK: - VIEWS //
@@ -24,7 +15,7 @@ class Congratulation: NSObject {
   
   let blackView = UIView()
   
-  let container : UIView = {
+  let container: UIView = {
     let stack = UIView()
     stack.backgroundColor = .white
     return stack
@@ -52,8 +43,6 @@ class Congratulation: NSObject {
     return imageView
   }()
   
-  
-  
   // /////////////// //
   // MARK: - METHODS //
   // /////////////// //
@@ -69,17 +58,20 @@ class Congratulation: NSObject {
       self.container.alpha = 0
       
       // animate to show the Picker
-      UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+      UIView.animate(withDuration: 0.5,
+                     delay: 0,
+                     usingSpringWithDamping: 1,
+                     initialSpringVelocity: 1,
+                     options: .curveEaseOut,
+                     animations: {
         
         self.blackView.alpha = 1
         self.container.alpha = 1
       }, completion: nil)
     }
-    
-    
   }
   
-  func instantiateViews(_ window: UIWindow){
+  func instantiateViews(_ window: UIWindow) {
     blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
     blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
     
@@ -97,8 +89,8 @@ class Congratulation: NSObject {
     // FRAMES
     let newOrigin: CGPoint = CGPoint(x: window.frame.width / 6, y: window.frame.height / 3)
     container.frame = CGRect(x: window.frame.width / 6, y: window.frame.height / 3, width: window.frame.width / 1.5, height: window.frame.height / 2.5)
-    titleLabel.frame = CGRect(x: newOrigin.x, y: newOrigin.y + 16.0, width: self.container.frame.width, height:30)
-    subTitleLabel.frame = CGRect(x: newOrigin.x, y: newOrigin.y + 54.0, width: self.container.frame.width, height:20)
+    titleLabel.frame = CGRect(x: newOrigin.x, y: newOrigin.y + 16.0, width: self.container.frame.width, height: 30)
+    subTitleLabel.frame = CGRect(x: newOrigin.x, y: newOrigin.y + 54.0, width: self.container.frame.width, height: 20)
     reward.frame = CGRect(x: newOrigin.x - thumbSize / 2 + self.container.frame.width / 2, y: newOrigin.y + 95, width: thumbSize, height: thumbSize)
   }
  
@@ -106,7 +98,6 @@ class Congratulation: NSObject {
   // MARK: - SELECTORS //
   // ///////////////// //
   
- 
   @objc func handleDismiss() {
     print("boom")
     UIView.animate(withDuration: 0.5) {
@@ -119,8 +110,7 @@ class Congratulation: NSObject {
       
     }
   }
-
-  
+ 
   // //////////// //
   // MARK: - INIT //
   // //////////// //
@@ -130,4 +120,3 @@ class Congratulation: NSObject {
     
   }
 }
-

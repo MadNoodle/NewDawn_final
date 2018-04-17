@@ -4,10 +4,10 @@ NewDawn
 Created by: Mathieu Janneau on 27/03/2018
 Copyright (c) 2018 Mathieu Janneau
 */
-// swiftlint:disable trailing_whitespace
 
 import UIKit
 
+/// Cell template to present Objectives category
 class ObjectiveCollectionViewCell: UICollectionViewCell {
 
   @IBOutlet weak var thumbnail: UIImageView!

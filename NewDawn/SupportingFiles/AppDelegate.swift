@@ -5,31 +5,28 @@
 //  Created by Mathieu Janneau on 13/03/2018.
 //  Copyright © 2018 Mathieu Janneau. All rights reserved.
 //
-
+// swiftlint:disable trailing_whitespace
 import UIKit
 import CoreData
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
   var window: UIWindow?
-  
+
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-    
+    // Set the first view controller to appear
     window = UIWindow(frame: UIScreen.main.bounds)
-    
     window!.rootViewController = LoginViewController()
     window!.makeKeyAndVisible()
-   
-
+    // Globally set Navigation and status bar scheme
     statusBarSetup()
     navigationBarSetup()
-    // set tabBAr Seleccted color
+    // Globally set tabBAr Seleccted color
     UITabBar.appearance().tintColor = UIConfig.lightGreen
-   
     NotificationService.setupNotificationCenter()
     NotificationService.center.delegate = self
     return true
@@ -92,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     UINavigationBar.appearance().barTintColor = UIConfig.lightGreen
     UINavigationBar.appearance().tintColor = .white
-    UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+    UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
   }
   
   fileprivate func statusBarSetup() {
@@ -105,13 +102,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     UIApplication.shared.statusBarStyle = .lightContent
   }
   
-  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-    // EZAlertController.alert("you have new meeting ")
-    
+  func userNotificationCenter(_ center: UNUserNotificationCenter,
+                              
+                              willPresent notification: UNNotification,
+                              
+                              withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
     completionHandler( [.alert, .badge, .sound])
   }
   
-  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+  func userNotificationCenter(_ center: UNUserNotificationCenter,
+                              didReceive response: UNNotificationResponse,
+                              withCompletionHandler completionHandler: @escaping () -> Void) {
     completionHandler()
   }
 }

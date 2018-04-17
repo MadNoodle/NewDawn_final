@@ -11,8 +11,10 @@ import UserNotifications
 
 class CreateChallengeViewController: UIViewController {
 
-
+  var destination = ChallengeDestination(locationName: "", lat: 0, long: 0)
   var tableViewTitle: String?
+  var isNotified: Bool = false
+  var objective: String?
   // /////////////// //
   // MARK: - OUTLETS //
   // /////////////// //
@@ -38,12 +40,12 @@ class CreateChallengeViewController: UIViewController {
          print("authorization successful")
       }
     }
+print(objective)
     guard let challenge = tableViewTitle else { return}
       titleLabel.text = challenge
-
-    
     }
   
+
   override func viewWillAppear(_ animated: Bool) {
     NotificationCenter.default.addObserver(self, selector:#selector(didUpdateDate), name: NSNotification.Name(rawValue: "ValueChanged"), object: nil)
     NotificationCenter.default.addObserver(self, selector:#selector(didUpdateLocation), name: NSNotification.Name(rawValue: "LocationChanged"), object: nil)
@@ -89,10 +91,10 @@ class CreateChallengeViewController: UIViewController {
     
     if sender.isOn {
       if challengeDate != nil {
-        
+        isNotified = true
         // create notification
         notification() { (success) in
-          if success { print("yahoo")}
+          if success { print("success")}
         }
         print("notif")
       }
@@ -103,24 +105,20 @@ class CreateChallengeViewController: UIViewController {
       }
       
     } else {
+      isNotified = false
       // purge notification
       NotificationService.removeNotification(notificationId)
-     // NotificationService.scheduleNotification(notificationId,to: challengeDate!, challenge: titleLabel.text!)
     }
   }
   
   func notification( completion:@escaping (_ success: Bool) ->()) {
-    
-    
-    
     if let date = challengeDate {
       var calendar = Calendar.current
       calendar.timeZone = .autoupdatingCurrent
       let componentsFromDate = calendar.dateComponents([.hour, .minute, .day, .month,.year], from: date)
     // trigger
     let trigger = UNCalendarNotificationTrigger(dateMatching: componentsFromDate, repeats: false)
-      
-    //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: inSeconds, repeats: false)
+
     let content = UNMutableNotificationContent()
       content.title = "it's Challenge Time"
       if let message = titleLabel.text
@@ -147,14 +145,24 @@ class CreateChallengeViewController: UIViewController {
   }
   
   @objc func didUpdateLocation(notif:NSNotification) {
-    if let location = notif.userInfo!["Location"] as? (Double,Double, String){
+    if let location = notif.userInfo!["Location"] as? (Double, Double, String) {
+    
+      destination.locationName = location.2
+      destination.lat = location.0
+      destination.long = location.1
+     
       locationLabel.text = location.2
       
     }
   }
   
-  @IBAction func CreateChallenge(_ sender: GradientButton) {
+  @IBAction func createChallenge(_ sender: GradientButton) {
+    let dueDate = challengeDate?.timeIntervalSince1970
     
-  
+    CoreDataService.createChallenge(name: titleLabel.text!, dueDate: dueDate!, isNotified: isNotified , anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), objective: objective!, location: destination)
+    let mainVc = MainTabBarController()
+    mainVc.selectedIndex = 1
+    present(mainVc,animated: true)
+
   }
 }

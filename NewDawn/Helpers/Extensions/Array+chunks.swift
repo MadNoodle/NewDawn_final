@@ -15,7 +15,7 @@ extension Array {
     }
   }
   
-  func getLast(_ numberOfItem: Int) -> [Element]{
+  func getLast(_ numberOfItem: Int) -> [Element] {
  
   let range = self.index(self.endIndex, offsetBy: -numberOfItem)... 
   let arraySlice = self[range]

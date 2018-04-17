@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class PostPoneLauncher: NSObject {
   
   // ////////////////// //
@@ -23,7 +22,7 @@ class PostPoneLauncher: NSObject {
   
   let blackView = UIView()
   
-  let container : UIView = {
+  let container: UIView = {
     let stack = UIView()
     stack.backgroundColor = .white
     return stack
@@ -48,18 +47,14 @@ class PostPoneLauncher: NSObject {
     return picker
   }()
   
-  
   let button: GradientButton = {
     let button = GradientButton()
     return button
   }()
   
-  
-  
   // /////////////// //
   // MARK: - METHODS //
   // /////////////// //
-  
   
   func showSettings() {
     //show menu
@@ -74,24 +69,26 @@ class PostPoneLauncher: NSObject {
       button.setTitle("validate new date for challenge", for: .normal)
       button.titleLabel?.font = UIFont(name: UIConfig.lightFont, size: 16)
       
-      
-      
       blackView.frame = window.frame
       blackView.alpha = 0
       self.container.alpha = 0
       
       // animate to show the Picker
-      UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+      UIView.animate(withDuration: 0.5,
+                     delay: 0,
+                     usingSpringWithDamping: 1,
+                     initialSpringVelocity: 1,
+                     options: .curveEaseOut,
+                     animations: {
         
         self.blackView.alpha = 1
         self.container.alpha = 1
       }, completion: nil)
     }
     
-    
   }
   
-  func instantiateViews(_ window: UIWindow){
+  func instantiateViews(_ window: UIWindow) {
     blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
     blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
     
@@ -106,29 +103,38 @@ class PostPoneLauncher: NSObject {
     
     container.layer.cornerRadius = 10.0
     container.layer.masksToBounds = true
-   
-    
     
     // FRAMES
     let newOrigin: CGPoint = CGPoint(x: window.frame.width / 6, y: window.frame.height / 3)
-    container.frame = CGRect(x: window.frame.width / 6, y: window.frame.height / 3, width: window.frame.width / 1.5, height: window.frame.height / 2.5)
-    titleLabel.frame = CGRect(x: newOrigin.x, y: newOrigin.y + 16.0, width: self.container.frame.width, height:30)
-    divider.frame = CGRect(x: newOrigin.x + (self.container.frame.width / 2) - 55, y: newOrigin.y + 55, width: 110, height: 1)
-    datePicker.frame = CGRect(x: newOrigin.x + 16, y: newOrigin.y + 32 + self.titleLabel.frame.height, width: self.titleLabel.frame.width - 32, height: 150)
+    container.frame = CGRect(x: window.frame.width / 6,
+                             y: window.frame.height / 3,
+                             width: window.frame.width / 1.5,
+                             height: window.frame.height / 2.5)
+    titleLabel.frame = CGRect(x: newOrigin.x,
+                              y: newOrigin.y + 16.0,
+                              width: self.container.frame.width,
+                              height: 30)
+    divider.frame = CGRect(x: newOrigin.x + (self.container.frame.width / 2) - 55,
+                           y: newOrigin.y + 55,
+                           width: 110,
+                           height: 1)
+    datePicker.frame = CGRect(x: newOrigin.x + 16,
+                              y: newOrigin.y + 32 + self.titleLabel.frame.height,
+                              width: self.titleLabel.frame.width - 32,
+                              height: 150)
     
-    button.frame = CGRect(x: newOrigin.x + 32, y: newOrigin.y + self.container.frame.height - 66, width: self.container.frame.width - 64, height: 50 )
+    button.frame = CGRect(x: newOrigin.x + 32,
+                          y: newOrigin.y + self.container.frame.height - 66,
+                          width: self.container.frame.width - 64,
+                          height: 50 )
   }
-  
-  
-  
-  
   
   // ///////////////// //
   // MARK: - SELECTORS //
   // ///////////////// //
   
-  @objc func changeDate(){
-    NotificationCenter.default.post(Notification(name:Notification.Name(rawValue: "DateValueChanged"), object: nil, userInfo: ["Key":"key", "Date" : datePicker.date]))
+  @objc func changeDate() {
+    NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "DateValueChanged"), object: nil, userInfo: ["Key": "key", "Date": datePicker.date]))
     print("button tapped")
     handleDismiss()
   }
@@ -150,7 +156,7 @@ class PostPoneLauncher: NSObject {
   @objc func userDidSelectDate() {
     
     // send data back to controller
-    NotificationCenter.default.post(Notification(name:Notification.Name(rawValue: "ValueChanged"), object: nil, userInfo: ["Key":"key", "Date" : datePicker.date]))
+    NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "ValueChanged"), object: nil, userInfo: ["Key": "key", "Date": datePicker.date]))
     
     handleDismiss()
     print("Done")

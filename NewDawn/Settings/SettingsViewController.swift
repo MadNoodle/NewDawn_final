@@ -16,7 +16,7 @@ class SettingsViewController: UIViewController {
     return bar
   }()
   
-  let backButton:UIButton = {
+  let backButton: UIButton = {
     let button = UIButton()
     button.setTitle("back", for: .normal)
     button.setTitleColor(.white, for: .normal)
@@ -24,7 +24,6 @@ class SettingsViewController: UIViewController {
     return button
   }()
   
- 
     override func viewDidLoad() {
         super.viewDidLoad()
       self.view.addSubview(navBar)
@@ -34,11 +33,9 @@ class SettingsViewController: UIViewController {
       backButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
      
       self.view.backgroundColor = .blue
-     
-    
     }
 
-  @objc func handleDismiss(){
+  @objc func handleDismiss() {
     self.dismiss(animated: true, completion: nil)
   }
     override func didReceiveMemoryWarning() {
@@ -49,6 +46,4 @@ class SettingsViewController: UIViewController {
   @IBAction func back(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }
-  
-
 }

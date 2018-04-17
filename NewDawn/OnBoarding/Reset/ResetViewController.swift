@@ -36,16 +36,13 @@ class ResetViewController: UIViewController {
     case .success:
       print("sucess")
       // check if user is registered in bdd
-      break
     case .failure(_, let message):
       // if not valid display error
       print(message.localized())
-      UserAlert.show(title: "Error", message: message.localized(), vc: self)
+      UserAlert.show(title: "Error", message: message.localized(), controller: self)
     }
     // send mail with password cf firebase
     let loginVc = LoginViewController()
-    self.present(loginVc,animated:true)
+    self.present(loginVc, animated: true)
   }
-
-
 }

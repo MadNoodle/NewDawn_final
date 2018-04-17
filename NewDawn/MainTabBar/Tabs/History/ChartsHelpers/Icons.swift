@@ -4,12 +4,13 @@ NewDawn
 Created by: Mathieu Janneau on 29/03/2018
 Copyright (c) 2018 Mathieu Janneau
 */
-// swiftlint:disable trailing_whitespace
 
 import Foundation
 import UIKit
 
-enum Icons : String {
+/// Enumeration that stores all the possible mood icons to be
+/// displayed on y axis of a chart
+enum Icons: String {
   case superHappy = "happy-1"
   case happy = "happy"
   case neutral = "surprised"
@@ -17,7 +18,9 @@ enum Icons : String {
   case dead = "dead"
 }
 
-enum Offset : CGFloat {
+/// Enumeration that stores the ratio to position icons
+/// according to the rigth values of chart
+enum Offset: CGFloat {
   case step1 = 1
   case step2 = 3.25
   case step3 = 5.5

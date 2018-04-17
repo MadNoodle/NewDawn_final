@@ -8,7 +8,6 @@ Copyright (c) 2018 Mathieu Janneau
 
 import Foundation
 
-
 struct Category {
   var title: ChallengeType
   var imageName: String
@@ -18,7 +17,7 @@ struct Category {
              Category(title: .walk, imageName: UIConfig.walkThumbnail),
              Category(title: .party, imageName: UIConfig.partyThumbnail),
              Category(title: .transport, imageName: UIConfig.transportThumbnail),
-             Category(title: .travel, imageName: UIConfig.travelThumbnail),
+             Category(title: .travel, imageName: UIConfig.travelThumbnail)
       ]
   }
 }

@@ -51,7 +51,7 @@ class DateLauncher: NSObject {
     
     if let window = UIApplication.shared.keyWindow {
       let height: CGFloat = 200
-      let y = window.frame.height - height
+      let yValue = window.frame.height - height
       
       // Add views
       insantiateViewIn(window)
@@ -68,9 +68,9 @@ class DateLauncher: NSObject {
       UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
         
         self.blackView.alpha = 1
-        self.datePicker.frame = CGRect(x: 0,y: y, width: self.datePicker.frame.width,height: self.datePicker.frame.height)
-        self.container.frame = CGRect(x: 0,y: y - 30, width: self.container.frame.width,height: self.container.frame.height)
-        self.doneButton.frame = CGRect(x: self.container.frame.width - 100 ,y: y - 30, width: 100,height:30)
+        self.datePicker.frame = CGRect(x: 0,y: yValue, width: self.datePicker.frame.width,height: self.datePicker.frame.height)
+        self.container.frame = CGRect(x: 0,y: yValue - 30, width: self.container.frame.width,height: self.container.frame.height)
+        self.doneButton.frame = CGRect(x: self.container.frame.width - 100 ,y: yValue - 30, width: 100,height:30)
       }, completion: nil)
     }
   }

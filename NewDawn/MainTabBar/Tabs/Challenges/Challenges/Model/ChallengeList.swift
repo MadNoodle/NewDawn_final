@@ -19,19 +19,19 @@ struct ChallengeList {
   static let drivingSeven = "Drive on the highway"
   static let drivingEight = "Take a trip in car"
   
-  static func getChallenges(for category: ChallengeType ) -> [String]{
+  static func getChallenges(for category: ChallengeType ) -> [String] {
     
     switch category {
     case .drive:
-      return [drivingOne, drivingTwo,drivingThree ,drivingFour , drivingFive, drivingSix, drivingSeven, drivingEight]
+      return [drivingOne, drivingTwo, drivingThree ,drivingFour , drivingFive, drivingSix, drivingSeven, drivingEight]
     case .travel:
-      return [drivingOne, drivingTwo,drivingThree ,drivingFour , drivingFive, drivingSix, drivingSeven, drivingEight]
+      return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
     case .walk:
-      return [drivingOne, drivingTwo,drivingThree ,drivingFour , drivingFive, drivingSix, drivingSeven, drivingEight]
+      return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
     case .transport:
-      return [drivingOne, drivingTwo,drivingThree ,drivingFour , drivingFive, drivingSix, drivingSeven, drivingEight]
+      return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
     case .party:
-      return [drivingOne, drivingTwo,drivingThree ,drivingFour , drivingFive, drivingSix, drivingSeven, drivingEight]
+      return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
     }
     
   }

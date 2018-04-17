@@ -36,13 +36,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emZ-n7-9Lx">
-                        <rect key="frame" x="66" y="39" width="147" height="23"/>
+                        <rect key="frame" x="66" y="42" width="147" height="17.5"/>
                         <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="15"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXb-qr-KS5">
-                        <rect key="frame" x="221" y="31" width="75" height="38"/>
+                        <rect key="frame" x="221" y="34" width="75" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="75" id="bPT-qR-Kcl"/>
                         </constraints>

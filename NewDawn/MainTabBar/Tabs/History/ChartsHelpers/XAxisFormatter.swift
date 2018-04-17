@@ -9,6 +9,7 @@ Copyright (c) 2018 Mathieu Janneau
 import Foundation
 import Charts
 
+/// Handles the display of date formatted X axis on a chart
 class XAxisFormatter: NSObject, IAxisValueFormatter {
   
   func stringForValue(_ value: Double, axis: AxisBase?) -> String {

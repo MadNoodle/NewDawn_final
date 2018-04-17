@@ -41,25 +41,27 @@ class RegisteringViewController: UIViewController {
     // check if fields are valid
     let response = Validator.shared.validate(values:
       (ValidationType.email, emailTextField.text!),
-      (ValidationType.password,passwordTextField.text!),
-      (ValidationType.password,repeatPasswordTexfield.text!),
-      (ValidationType.alphabeticString,lastNameTextfield.text!),
-      (ValidationType.alphabeticString,firstNameTextfield.text!))
+      (ValidationType.password, passwordTextField.text!),
+      (ValidationType.password, repeatPasswordTexfield.text!),
+      (ValidationType.alphabeticString, lastNameTextfield.text!),
+      (ValidationType.alphabeticString, firstNameTextfield.text!))
     switch response {
     case .success:
       print("sucess")
+      
       // check if user is registered in bdd
-      break
+  
+      // save in core data
+      CoreDataService.saveUser(lastName: lastNameTextfield.text!, firstName: firstNameTextfield.text!, email: emailTextField.text!, password: passwordTextField.text!)
     case .failure(_, let message):
       // if not valid display error
       print(message.localized())
-      UserAlert.show(title: "Error", message: message.localized(), vc: self)
+      UserAlert.show(title: "Error", message: message.localized(), controller: self)
     }
-   
 
     let newHomeVc = MainTabBarController()
     newHomeVc.selectedIndex = 1
    
-    self.present(newHomeVc,animated:true)
+    self.present(newHomeVc, animated: true)
   }
 }

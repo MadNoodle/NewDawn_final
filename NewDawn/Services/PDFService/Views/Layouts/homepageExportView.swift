@@ -9,11 +9,11 @@ Copyright (c) 2018 Mathieu Janneau
 import Foundation
 import UIKit
 
-class homepageExportView: UIView {
+class HomepageExportView: UIView {
   @IBOutlet weak var contentView: UIView!
-  @IBOutlet weak var capture:UIImageView!
+  @IBOutlet weak var capture: UIImageView!
   
-  override init(frame:CGRect){
+  override init(frame: CGRect) {
     super.init(frame: frame)
     commonInit()
   }

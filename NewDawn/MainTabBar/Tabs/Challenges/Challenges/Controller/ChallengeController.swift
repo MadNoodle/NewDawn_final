@@ -10,52 +10,62 @@ import UIKit
 
 class ChallengeController: UIViewController {
   
+  // ////////////////// //
+  // MARK: - PROPERTIES //
+  // ////////////////// //
+  
   let window = UIApplication.shared.keyWindow
   var data = [String]()
-  var delegate: ChallengeControllerDelegate?
-  var category : ChallengeType?
+  weak var delegate: ChallengeControllerDelegate?
+  var category: ChallengeType?
   let reuseId = "myCell"
  
-  
-  
   private var divider: UIView = {
     let view = UIView()
     view.backgroundColor = UIConfig.lightGreen
     return view
   }()
 
+  // ////////////////// //
+  // MARK: - OUTLETS    //
+  // ////////////////// //
+  
   @IBOutlet weak var tableView: UITableView!
-
   @IBOutlet weak var titleLabel: UILabel!
   
+  // ///////////////////////// //
+  // MARK: - LIFECYCLE METHODS //
+  // ///////////////////////// //
   override func viewDidLoad() {
     super.viewDidLoad()
-    // receive data from objecctive controller
+    
+    // receive data from objective controller
     if let category = delegate?.sendCategory() {
       data = ChallengeList.getChallenges(for: category)
       titleLabel.text = category.rawValue
     }
     
     // Setup views
-    setupUI()
-    tableViewSetup()
+    shouldDisplayUI()
+    shouldDisplayTableView()
   }
   
-  private func tableViewSetup() {
+  // ////////////////// //
+  // MARK: - METHODS    //
+  // ////////////////// //
+  
+  private func shouldDisplayTableView() {
     // declare cell
-    tableView.register(UINib(nibName: "ChallengeTwo",bundle: nil), forCellReuseIdentifier: reuseId)
+    tableView.register(UINib(nibName: "ChallengeTwo", bundle: nil), forCellReuseIdentifier: reuseId)
     tableView.delegate = self
     tableView.dataSource = self
     tableView.reloadData()
   }
   
-  private func setupUI(){
+  private func shouldDisplayUI() {
     self.navigationController?.navigationBar.tintColor = .white
     titleLabel.addSubview(divider)
     divider.frame = CGRect(x: 0, y: titleLabel.frame.height - 2, width: titleLabel.frame.width + 50, height: 1)
   }
   
-
 }
-
-
