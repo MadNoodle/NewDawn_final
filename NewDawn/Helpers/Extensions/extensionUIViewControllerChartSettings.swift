@@ -1,9 +1,9 @@
 ///**
 /**
-NewDawn
-Created by: Mathieu Janneau on 24/03/2018
-Copyright (c) 2018 Mathieu Janneau
-*/
+ NewDawn
+ Created by: Mathieu Janneau on 24/03/2018
+ Copyright (c) 2018 Mathieu Janneau
+ */
 // swiftlint:disable trailing_whitespace
 
 import UIKit
@@ -28,8 +28,9 @@ extension UIViewController {
     chart.setScaleEnabled(true)
     
     // Y Axis properties
-    chart.leftAxis.granularity = 1.0
+    chart.leftAxis.granularity = 1
     chart.rightAxis.enabled = false
+    chart.leftAxis.granularityEnabled = true
     
     // Custom Y axis values
     chart.leftAxis.drawLabelsEnabled = true
@@ -41,7 +42,9 @@ extension UIViewController {
     chart.xAxis.centerAxisLabelsEnabled = false
     let XLabel = XAxisFormatter()
     chart.xAxis.valueFormatter = XLabel
-     
+    
+    
+    
     
     // Reveal animation
     chart.animate(xAxisDuration: 0.5)

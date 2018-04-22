@@ -212,25 +212,36 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     }
 
     // Populate data in BarChart matrix
-    var dataEntries = [BarChartDataEntry]()
+    var dataEntries: [BarChartDataEntry] = []
     for index in 0..<annotedChallenges.count {
-      let value = BarChartDataEntry(x: annotedChallenges[index].0, y: annotedChallenges[index].1)
+      let value = BarChartDataEntry(x: annotedChallenges[index].0  , y: annotedChallenges[index].1 - 0.6)
       dataEntries.append(value)
+
     }
-    
+   
     // Bars setup
     let chartDataSet = BarChartDataSet(values: dataEntries, label: "")
     chartDataSet.colors = [UIConfig.lightGreen]
     chartDataSet.drawValuesEnabled = false
     chartDataSet.barBorderColor = UIConfig.lightGreen
-    chartDataSet.barBorderWidth = 20
-    
+    chartDataSet.barBorderWidth = 50
+   
     // injectData in chart
-    let chartData = BarChartData( dataSet: chartDataSet)
+    let chartData = BarChartData(dataSet: chartDataSet)
     barChart.data = chartData
     chartSettings(chart: barChart)
-    barChart.xAxis.granularity = 86400
-    barChart.xAxis.axisMinimum = annotedChallenges[0].0 - 86400
+    barChart.leftAxis.axisMinimum = 0
+    barChart.leftAxis.axisMaximum = 4
+    barChart.leftAxis.granularity = 1
+    let leftAxisFormatter = NumberFormatter()
+    leftAxisFormatter.minimumFractionDigits = 0
+    leftAxisFormatter.maximumFractionDigits = 0
+     barChart.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
+   
+    
+    barChart.xAxis.granularity = 43200
+    barChart.xAxis.granularityEnabled = true
+    barChart.xAxis.axisMinimum = annotedChallenges[0].0 - 43200
     barChart.xAxis.axisMaximum = (annotedChallenges.last?.0)! + 86400
     
     
@@ -243,7 +254,11 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     // reset data
     dataPoints = CoreDataService.loadData(for: currentUser)
     // update data according to selected time range
-    dataPoints = dataPoints.getLast(index)
+    if index >= dataPoints.count {
+      dataPoints = dataPoints.getLast(dataPoints.count)
+    } else {
+      dataPoints = dataPoints.getLast(index)
+    }
     // redraw chart
     self.lineChart.notifyDataSetChanged()
     shouldDisplayBarChart(with: dataPoints)
