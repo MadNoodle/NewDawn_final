@@ -29,10 +29,12 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   // ////////////////// //
   
   // Get data
-  private var dataSet = MoodPlot.getMockData()
-  private var dataPoints = MoodPlot.getMockData()
+  private var dataSet = [Mood]()
+  private var dataPoints = [Challenge]()
   private let progressData = MoodPlot.getChallenges()
-  
+  var amountOfSucceededChallenge = 0
+  var progress = 0.0
+  var currentUser = ""
   // /////////////// //
   // MARK: - OUTLETS //
   // /////////////// //
@@ -49,7 +51,18 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    // UI Setup
     setupButtons()
+    
+    // load logged user
+    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
+      currentUser = user
+    }
+    
+    // Data Setup
+    dataSet = CoreDataService.loadData(for: currentUser)
+    dataPoints = CoreDataService.loadData(for: currentUser)
+    amountOfSucceededChallenge = CoreDataService.loadSuccessChallengesCount(for: currentUser)
     
     // Set up delegation
     lineChart.delegate = self
@@ -57,9 +70,11 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    dataSet = CoreDataService.loadData(for: currentUser)
     shouldDisplayLineGraph(with: dataSet)
     shouldDisplayBarChart(with: dataPoints)
-    shouldAnimateCircleProgress(progress: progressData.2)
+    progress = Double(amountOfSucceededChallenge) / (Double(dataPoints.count) / 100.0)
+    self.shouldAnimateCircleProgress(progress: Float(self.progress))
   }
   
   // /////////////// //
@@ -132,17 +147,74 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   // MARK: - BARCHART SETUP //
   // ////////////////////// //
   
+  
+  //////////////////////:REFACTOR TO MODEL
+  func getSucceededChallengeByDate(data: [Challenge]) -> [(Double, Double)] {
+    
+    var formattedChallenges = [FormattedChallenge]()
+    
+    // convert
+    for point in data {
+      let newFormatChallenge = FormattedChallenge(challenge: point)
+      formattedChallenges.append(newFormatChallenge)
+    }
+    
+    // sort
+    formattedChallenges.sort(by: { $0.formattedDate.compare($1.formattedDate) == .orderedAscending})
+    
+    // sort them by date
+    var succeededChallengeDictionary = [String: Int]()
+    for challenge in formattedChallenges {
+      
+      if let count = succeededChallengeDictionary[challenge.formattedDate] {
+        succeededChallengeDictionary[challenge.formattedDate] = count + 1
+      } else {
+        succeededChallengeDictionary[challenge.formattedDate] = 1
+      }
+    }
+    
+    let tuples = succeededChallengeDictionary.sorted{
+      return $0.key < $1.key
+    }
+    
+    var myArrayOfTuples = [(Double, Double)]()
+    
+    let dateTimeFormatter = DateFormatter()
+    dateTimeFormatter.timeZone = .current
+    dateTimeFormatter.dateFormat = DateFormat.sortingFormat.rawValue
+    
+    for tuple in tuples {
+      if let dateConverted = dateTimeFormatter.date(from: tuple.0) {
+        let newDate = dateConverted.timeIntervalSince1970
+        let newtuple = (newDate, Double(tuple.1))
+        myArrayOfTuples.append(newtuple)
+      }
+      
+    }
+    return myArrayOfTuples
+  }
+  
+  //////////////////////:REFACTOR TO MODEL
+  
+  
   /// Allows the user to display a set of data in a Bar chart with
   /// a time based X axis and a value Y axis
-  /// - Parameter data: [MoodPlot]
-  private func shouldDisplayBarChart(with data: [MoodPlot]) {
+  /// - Parameter data: [Challenge]
+  private func shouldDisplayBarChart(with data: [Challenge]) {
+    // grab succeeded challenges
     
-    if data.isEmpty { handleNoData()}
-    var dataEntries: [BarChartDataEntry] = []
-    
+   
+    let annotedChallenges = getSucceededChallengeByDate(data:data)
+    print(annotedChallenges)
+    // if no data display a message
+    if data.isEmpty {
+      handleNoData()
+    }
+
     // Populate data in BarChart matrix
-    for index in 0..<data.count {
-      let value = BarChartDataEntry(x: dataSet[index].date, y: dataSet[index].value)
+    var dataEntries = [BarChartDataEntry]()
+    for index in 0..<annotedChallenges.count {
+      let value = BarChartDataEntry(x: annotedChallenges[index].0, y: annotedChallenges[index].1)
       dataEntries.append(value)
     }
     
@@ -151,12 +223,17 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     chartDataSet.colors = [UIConfig.lightGreen]
     chartDataSet.drawValuesEnabled = false
     chartDataSet.barBorderColor = UIConfig.lightGreen
-    chartDataSet.barBorderWidth = 5
+    chartDataSet.barBorderWidth = 20
     
     // injectData in chart
     let chartData = BarChartData( dataSet: chartDataSet)
     barChart.data = chartData
     chartSettings(chart: barChart)
+    barChart.xAxis.granularity = 86400
+    barChart.xAxis.axisMinimum = annotedChallenges[0].0 - 86400
+    barChart.xAxis.axisMaximum = (annotedChallenges.last?.0)! + 86400
+    
+    
   }
   
   /// Handles data update and charts redrawinf when user
@@ -164,9 +241,9 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   /// - Parameter index: Int number of days user wants to display data
   private func handleBarChartRedraw(for index: Int) {
     // reset data
-    dataPoints = MoodPlot.getMockData()
+    dataPoints = CoreDataService.loadData(for: currentUser)
     // update data according to selected time range
-    dataPoints = dataSet.getLast(index)
+    dataPoints = dataPoints.getLast(index)
     // redraw chart
     self.lineChart.notifyDataSetChanged()
     shouldDisplayBarChart(with: dataPoints)
@@ -185,7 +262,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   /// handles data loading and display of the data in a linechart
   ///
   /// - Parameter dataToDraw: [MoodPlot] set of data user wants to display
-  private func shouldDisplayLineGraph(with dataToDraw: [MoodPlot]) {
+  private func shouldDisplayLineGraph(with dataToDraw: [Mood]) {
     chartSettings(chart: lineChart)
     // Custom Y axis values
     lineChart.leftAxis.drawLabelsEnabled = false
@@ -211,7 +288,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   
   /// allows the user to zoom on a defined time range on all the charts
   private func shouldZoom(onLast index: Int) {
-    dataSet = MoodPlot.getMockData()
+    dataSet = CoreDataService.loadData(for: currentUser)
     // Define max range of data to users max data amount if there is not enougth
     // data to be displayed
     if index >= dataSet.count {
@@ -242,10 +319,10 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   private func leftAxisIconSetup() {
     // left labels images
     let icons: [(Icons, Offset)] = [(.superHappy, .step1),
-                                   (.happy, .step2),
-                                   (.neutral, .step3),
-                                   (.sad, .step4),
-                                   (.dead, .step5)]
+                                    (.happy, .step2),
+                                    (.neutral, .step3),
+                                    (.sad, .step4),
+                                    (.dead, .step5)]
     // place icons according to chart
     for icon in icons {
       loadImageLabels(imageName: icon.0.rawValue, multiplier: icon.1.rawValue)
@@ -266,7 +343,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     // remove values above line
     line.drawValuesEnabled = false
     // Curvature option
-    line.mode = .cubicBezier
+    line.mode = .linear
     // Line weigth
     line.lineWidth = 3.0
     //Fill color under the linechart
@@ -279,11 +356,11 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   ///
   /// - Parameter data: Raw Data
   /// - Returns: [ChartDataEntry] formatted data
-  private func handleDataConvert(data: [MoodPlot]) -> [ChartDataEntry] {
+  private func handleDataConvert(data: [Mood]) -> [ChartDataEntry] {
     var lineChartEntry = [ChartDataEntry]()
     // send data to chart
     for index in 0..<data.count {
-      let value = ChartDataEntry(x: data[index].date, y: data[index].value)
+      let value = ChartDataEntry(x: data[index].date, y: Double(data[index].state))
       lineChartEntry.append(value)
     }
     return lineChartEntry
@@ -320,18 +397,20 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   ///
   /// - Parameter progress: CGFloat target amount
   private func shouldAnimateCircleProgress(progress: Float) {
+    
     // Common Center
     let center = CGPoint(x: progressCircle.frame.width / 2, y: progressCircle.frame.height / 2)
     // Reference circle
     let insideCircle = shouldDrawCircle(center: center, offset: 15, color: UIConfig.ultraDarkGreen.cgColor)
     progressCircle.layer.addSublayer(insideCircle)
-    
     // progress circle
     let outsideCircle = self.shouldDrawCircle(center: center, offset: 8, color: UIConfig.lightGreen.cgColor)
     progressCircle.layer.addSublayer(outsideCircle)
     // initial state
     outsideCircle.strokeEnd = 0
-    progressLabel.text = "\(Int(progressData.2)) %"
+    // update label
+    let roundedProgress = Int(self.progress)
+    self.progressLabel.text = "\(String(roundedProgress)) %"
     // Animation
     let animation = CABasicAnimation(keyPath: "strokeEnd")
     animation.toValue = progress / 100
@@ -351,7 +430,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     // instantiate pdfCreator
     let pdfCreator = PDFCreator()
     
-    let pages = pdfCreator.pdfLayout(for: CoreDataService.loadData(filter: nil),
+    let pages = pdfCreator.pdfLayout(for: CoreDataService.loadData(for: currentUser),
                                      mapView: nil,
                                      display: .multipleSummariesReport)
     // Instantiate the PDF previewer

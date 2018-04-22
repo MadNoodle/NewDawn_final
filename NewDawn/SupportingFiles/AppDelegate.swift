@@ -25,10 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // Globally set Navigation and status bar scheme
     statusBarSetup()
     navigationBarSetup()
-    // Globally set tabBAr Seleccted color
+    // Globally set tabBar Seleccted color
     UITabBar.appearance().tintColor = UIConfig.lightGreen
     NotificationService.setupNotificationCenter()
     NotificationService.center.delegate = self
+    
+    UserDefaults.standard.set("admin", forKey: "currentUser")
     return true
   }
 

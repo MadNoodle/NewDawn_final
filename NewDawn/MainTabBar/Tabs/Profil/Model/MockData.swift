@@ -8,12 +8,7 @@
 // swiftlint:disable trailing_whitespace
 
 import Foundation
-enum DateFormat: String {
-  case hourMinute = "HH:mm"
-  case day = "dd/MM"
-  case dayHourMinute = "MM/dd/yyyy hh:mm a"
-  
-}
+
 struct MockChallenge {
   var date: Date
   var state: Bool = false

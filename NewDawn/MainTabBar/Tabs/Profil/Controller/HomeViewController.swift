@@ -12,11 +12,12 @@ import UIKit
 /// Profil view controller which displays a user summary
 /// and let him access to his personnal data
 class HomeViewController: UIViewController {
-  
+  var currentUser = ""
   // ////////////////// //
   // MARK: - PROPERTIES //
   // ////////////////// //
-  let mockData = MockChallenge.getMockChallenges()
+  var data = [Challenge]()
+  // let mockData = MockChallenge.getMockChallenges()
   /// Reuse id for challenge table view cells
   let reuseId = "myCell"
   
@@ -33,6 +34,12 @@ class HomeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
+      currentUser = user
+    }
+    
+    data = CoreDataService.loadData(for: currentUser)
     // set up of mood button color behavior on tap
     for button in moodButtons {
       button.typeOfButton = .imageButton
@@ -52,6 +59,8 @@ class HomeViewController: UIViewController {
   /// - Parameter sender: CustomUIButtonForUIToolbar
   @IBAction func moodButtonTapped(_ sender: CustomUIButtonForUIToolbar) {
     evaluateMoodButtonState()
+
+    CoreDataService.saveMood(user: currentUser, date: Date(), value: sender.tag)
     sender.userDidSelect()
     // ToDo: Store selected state in BDD
   }

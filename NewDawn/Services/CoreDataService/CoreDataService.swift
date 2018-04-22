@@ -31,11 +31,12 @@ class CoreDataService {
     print(user)
   }
   
-  static func createChallenge(name: String, dueDate: Double, isNotified: Bool, anxietyLevel: Int, benefitLevel: Int, objective: String, location: ChallengeDestination?) {
+  static func createChallenge(user:String, name: String, dueDate: Double, isNotified: Bool, anxietyLevel: Int, benefitLevel: Int, objective: String, location: ChallengeDestination?) {
     
     // Create entity
     
     let challenge = NSEntityDescription.insertNewObject(forEntityName: "Challenge", into: managedContext!) as! Challenge
+    challenge.user = user
     challenge.objective = objective
     challenge.name = name
     challenge.dueDate = dueDate
@@ -54,7 +55,28 @@ class CoreDataService {
  
     print(challenge)
   }
+  
+  static func saveMood(user:String,date: Date, value: Int) {
+    let data: [Mood] = loadData(for: user)
+    let formerMood = data.last
+    let saveDate = date.timeIntervalSince1970
+    // Replace former Mood if under 5 hour
+    if ( (formerMood?.date)! - saveDate) <= 19200 {
+      deleteMood(formerMood!)
+      print("Mood deleted for unity sake")
+    }
+    // Create entity
     
+    let mood = NSEntityDescription.insertNewObject(forEntityName: "Mood", into: managedContext!) as! Mood
+    mood.user = user
+    
+    mood.date = saveDate
+    mood.state = Int32(value)
+    save()
+    print(mood)
+  }
+  
+
   static func saveImage(_ map: UIView) {    
     // Define entity
     let challenge = NSEntityDescription.insertNewObject(forEntityName: "Challenge", into: managedContext!) as! Challenge
@@ -70,11 +92,11 @@ class CoreDataService {
     print(challenge)
   }
   
-  static func loadData(filter: NSPredicate?) -> [Challenge] {
+  static func loadData(for user: String) -> [Challenge] {
     var challenges: [Challenge]?
     let fetchRequest: NSFetchRequest<Challenge> = Challenge.fetchRequest()
     //3
-    if let predicate = filter {
+    let predicate = NSPredicate(format: "user = %@", user)
       fetchRequest.predicate = predicate
   
     do {
@@ -83,7 +105,46 @@ class CoreDataService {
       print("Could not fetch. \(error), \(error.userInfo)")
       return []
     }
+    
+    return challenges!
+  }
+  
+  static func loadSuccessChallengesCount(for user: String) -> Int {
+   
+    var result = 0
+    let fetchRequest: NSFetchRequest<Challenge> = Challenge.fetchRequest()
+    //3
+    let statePredicate = NSPredicate(format: "isDone == %@", NSNumber(value: true))
+    let userPredicate = NSPredicate(format: "user = %@", user)
+    let predicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [statePredicate, userPredicate])
+    fetchRequest.predicate = predicate
+    
+    do {
+      guard let challenges = try managedContext?.fetch(fetchRequest) else { return 0}
+      result = challenges.count
+    } catch let error as NSError {
+      print("Could not fetch. \(error), \(error.userInfo)")
+      return 0
     }
+    
+    return result
+    
+  }
+  static func loadData(for user: String) -> [Mood] {
+    var challenges: [Mood]?
+    let fetchRequest: NSFetchRequest<Mood> = Mood.fetchRequest()
+    //3
+    let predicate = NSPredicate(format: "user = %@", user)
+    fetchRequest.predicate = predicate
+    let sort = NSSortDescriptor(key: #keyPath(Mood.date), ascending: true)
+    fetchRequest.sortDescriptors = [sort]
+    do {
+      challenges = try managedContext?.fetch(fetchRequest)
+    } catch let error as NSError {
+      print("Could not fetch. \(error), \(error.userInfo)")
+      return []
+    }
+    
     return challenges!
   }
   
@@ -92,6 +153,16 @@ class CoreDataService {
     do { //3
       try managedContext?.save()
        print("delete")
+    } catch let error as NSError {
+      print("Saving error: \(error) description: \(error.userInfo)")
+    }
+  }
+  
+  static func deleteMood(_ object: Mood) {
+    managedContext?.delete(object)
+    do { //3
+      try managedContext?.save()
+      print("mood deleted")
     } catch let error as NSError {
       print("Saving error: \(error) description: \(error.userInfo)")
     }

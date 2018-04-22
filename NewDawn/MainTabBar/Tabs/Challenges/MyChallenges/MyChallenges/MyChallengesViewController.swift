@@ -16,7 +16,7 @@ class MyChallengesViewController: UITableViewController {
   // ////////////////// //
   // MARK: - PROPERTIES //
   // ////////////////// //
-  
+  var currentUser = ""
   var data: [Challenge] = []
   
   lazy var fetchedResultsController: NSFetchedResultsController<Challenge> = {
@@ -28,7 +28,11 @@ class MyChallengesViewController: UITableViewController {
     let sort = NSSortDescriptor(key: #keyPath(Challenge.dueDate),
                                 ascending: true)
     fetchRequest.sortDescriptors = [sort]
-    let predicate = NSPredicate(format: "isDone == %@", NSNumber(value: false))
+    
+    let statePredicate = NSPredicate(format: "isDone == %@", NSNumber(value: false))
+    let userPredicate = NSPredicate(format: "user = %@", currentUser)
+    let predicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [statePredicate, userPredicate])
+    
     fetchRequest.predicate = predicate
     let fetchedResultsController = NSFetchedResultsController(
       fetchRequest: fetchRequest,
@@ -53,7 +57,9 @@ class MyChallengesViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
+      currentUser = user
+    }
     do {
       try fetchedResultsController.performFetch()
     } catch let error as NSError {

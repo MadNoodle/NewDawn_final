@@ -14,10 +14,13 @@ import UIKit
  */
 class MainTabBarController: UITabBarController {
  
-
+  var currentUser: String = ""
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
+      currentUser = user
+    }
+    print(currentUser)
     setupTabBar()
     
   }

@@ -46,3 +46,11 @@ struct UIConfig {
   // MARK: - CHART DISPLAY SETUP
   static let chartDateFormat = DateFormat.day
 }
+
+enum DateFormat: String {
+  case hourMinute = "HH:mm"
+  case day = "dd/MM"
+  case dayHourMinute = "MM/dd/yyyy hh:mm a"
+  case sortingFormat = "yyyy-MM-dd"
+  
+}

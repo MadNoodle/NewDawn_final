@@ -1,7 +1,7 @@
 ///**
 /**
 NewDawn
-Created by: Mathieu Janneau on 16/04/2018
+Created by: Mathieu Janneau on 19/04/2018
 Copyright (c) 2018 Mathieu Janneau
 */
 // swiftlint:disable trailing_whitespace
@@ -17,8 +17,8 @@ extension Mood {
         return NSFetchRequest<Mood>(entityName: "Mood")
     }
 
-    @NSManaged public var state: Int32
     @NSManaged public var date: Double
-    @NSManaged public var user: User?
+    @NSManaged public var state: Int32
+    @NSManaged public var user: String?
 
 }

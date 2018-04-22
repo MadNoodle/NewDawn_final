@@ -11,6 +11,7 @@ import UserNotifications
 
 class CreateChallengeViewController: UIViewController {
 
+  var currentUser = ""
   var destination = ChallengeDestination(locationName: "", lat: 0, long: 0)
   var tableViewTitle: String?
   var isNotified: Bool = false
@@ -33,6 +34,9 @@ class CreateChallengeViewController: UIViewController {
   
   override func viewDidLoad() {
         super.viewDidLoad()
+    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
+      currentUser = user
+    }
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
       if error != nil {
         print("authorization Unsuccessful")
@@ -40,7 +44,7 @@ class CreateChallengeViewController: UIViewController {
          print("authorization successful")
       }
     }
-print(objective)
+
     guard let challenge = tableViewTitle else { return}
       titleLabel.text = challenge
     }
@@ -159,7 +163,7 @@ print(objective)
   @IBAction func createChallenge(_ sender: GradientButton) {
     let dueDate = challengeDate?.timeIntervalSince1970
     
-    CoreDataService.createChallenge(name: titleLabel.text!, dueDate: dueDate!, isNotified: isNotified , anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), objective: objective!, location: destination)
+    CoreDataService.createChallenge(user: currentUser, name: titleLabel.text!, dueDate: dueDate!, isNotified: isNotified , anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), objective: objective!, location: destination)
     let mainVc = MainTabBarController()
     mainVc.selectedIndex = 1
     present(mainVc,animated: true)

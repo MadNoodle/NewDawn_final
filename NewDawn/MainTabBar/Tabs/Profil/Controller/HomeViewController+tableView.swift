@@ -13,7 +13,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
   
   /// Challenge table view data count ti display
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return mockData.count
+    return data.count
   }
   
   /// Cell configuration
@@ -23,20 +23,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as? ChallengeCell
     
     // Data for cell
-    let currentChallenge = mockData[indexPath.row]
-    
-    cell?.challengeTime.text = currentChallenge.date.convertToString(format: .hourMinute)
+    let currentChallenge = data[indexPath.row]
+    let date = Date(timeIntervalSince1970: currentChallenge.dueDate)
+    cell?.challengeTime.text = date.convertToString(format: .hourMinute)
     
     // Change cell status image according to challenge completion or not
-    if currentChallenge.state {
+    if currentChallenge.isDone {
       cell?.challengeState.image = UIImage(named: "circle_green")
     } else {
       cell?.challengeState.image = UIImage(named: "circle")
     }
     // Challenge title
-    cell?.challengeDescription.text = currentChallenge.title
+    cell?.challengeDescription.text = currentChallenge.name
     // Challenge Category image
-    cell?.objectiveIcon.image = UIImage(named: currentChallenge.icon)
+    //"cell?.objectiveIcon.image = UIImage(named: currentChallenge.icon)
     
     return cell!
   }
@@ -48,6 +48,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
   
   /// handle selection behavior of cells
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print("Selected cell : \(mockData[indexPath.row].title)")
+    print("Selected cell : \(data[indexPath.row].name ?? "")")
   }
 }

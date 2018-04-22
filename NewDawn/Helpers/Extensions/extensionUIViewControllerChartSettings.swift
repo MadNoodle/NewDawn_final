@@ -35,12 +35,13 @@ extension UIViewController {
     chart.leftAxis.drawLabelsEnabled = true
     
     // X Axis properties Label
-    chart.xAxis.granularity = 86400
+    chart.xAxis.granularity = 100
     chart.xAxis.labelPosition = .bottom
     chart.xAxis.drawGridLinesEnabled = false
     chart.xAxis.centerAxisLabelsEnabled = false
     let XLabel = XAxisFormatter()
     chart.xAxis.valueFormatter = XLabel
+     
     
     // Reveal animation
     chart.animate(xAxisDuration: 0.5)
