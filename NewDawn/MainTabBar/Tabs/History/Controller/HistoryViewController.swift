@@ -31,7 +31,6 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   // Get data
   private var dataSet = [Mood]()
   private var dataPoints = [Challenge]()
-  private let progressData = MoodPlot.getChallenges()
   var amountOfSucceededChallenge = 0
   var progress = 0.0
   var currentUser = ""

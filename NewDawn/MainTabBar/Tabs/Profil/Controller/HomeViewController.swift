@@ -20,36 +20,74 @@ class HomeViewController: UIViewController {
   // let mockData = MockChallenge.getMockChallenges()
   /// Reuse id for challenge table view cells
   let reuseId = "myCell"
-  
+  let calenderView: CalenderView = {
+    let v = CalenderView(theme: MyTheme.light)
+    v.translatesAutoresizingMaskIntoConstraints=false
+    return v
+  }()
   // ////////////////// //
   // MARK: - OUTLETS    //
   // ////////////////// //
   
   @IBOutlet var moodButtons: [CustomUIButtonForUIToolbar]!
-  @IBOutlet weak var challengesTableView: UITableView!
+//  @IBOutlet weak var challengesTableView: UITableView!
   
+  @IBOutlet weak var calendarContainer: UIView!
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
   // ///////////////////////// //
+
+  
+
   
   override func viewDidLoad() {
+
     super.viewDidLoad()
-    
-    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
-      currentUser = user
-    }
-    
+    shouldDisplayCalendarView()
+    shouldDisplayPlusButton()
+    NotificationCenter.default.addObserver(self, selector:#selector(addChallenge), name: NSNotification.Name(rawValue: "calendarActive"), object: nil)
     data = CoreDataService.loadData(for: currentUser)
     // set up of mood button color behavior on tap
     for button in moodButtons {
       button.typeOfButton = .imageButton
     }
-    // set up delegation
-    challengesTableView.delegate = self
-    challengesTableView.dataSource = self
-    challengesTableView.register(UINib(nibName: "ChallengeCell", bundle: nil), forCellReuseIdentifier: reuseId)
   }
   
+  @objc func addChallenge() {
+    let alert = UIAlertController(title: "Add a New Challenge", message: "", preferredStyle: .actionSheet) // 1
+    let firstAction = UIAlertAction(title: "New Challenge", style: .default) { (alert: UIAlertAction!) -> Void in
+      let objVc = ObjectiveViewController()
+      // Renvoyer la date
+      self.navigationController?.pushViewController(objVc, animated: true)
+    } // 2
+    
+    let secondAction = UIAlertAction(title: "Cancel", style: .default) { (alert: UIAlertAction!) -> Void in
+      NSLog("You pressed button two")
+    } // 3
+    
+    alert.addAction(firstAction) // 4
+    alert.addAction(secondAction) // 5
+    present(alert, animated: true, completion:nil) // 6
+  }
+  
+  fileprivate func shouldDisplayPlusButton() {
+    let rightButton: UIBarButtonItem = UIBarButtonItem(
+      barButtonSystemItem: .add,
+      target: self,
+      action: #selector(addChallenge))
+    self.navigationItem.rightBarButtonItem = rightButton
+    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
+      currentUser = user
+    }
+  }
+  
+  fileprivate func shouldDisplayCalendarView() {
+    calendarContainer.addSubview(calenderView)
+    calenderView.topAnchor.constraint(equalTo: calendarContainer.topAnchor, constant: 0).isActive = true
+    calenderView.rightAnchor.constraint(equalTo: calendarContainer.rightAnchor, constant: 0).isActive=true
+    calenderView.leftAnchor.constraint(equalTo: calendarContainer.leftAnchor, constant: 0).isActive=true
+    calenderView.heightAnchor.constraint(equalToConstant: calendarContainer.frame.height).isActive=true
+  }
   // ////////////////// //
   // MARK: - ACTIONS    //
   // ////////////////// //

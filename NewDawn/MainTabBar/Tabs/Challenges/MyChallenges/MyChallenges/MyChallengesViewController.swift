@@ -66,7 +66,7 @@ class MyChallengesViewController: UITableViewController {
       print("Fetching error: \(error), \(error.userInfo)")
     }
     
-   /////////
+   
     let rightButton: UIBarButtonItem = UIBarButtonItem(
                                   barButtonSystemItem: .add,
                                   target: self,

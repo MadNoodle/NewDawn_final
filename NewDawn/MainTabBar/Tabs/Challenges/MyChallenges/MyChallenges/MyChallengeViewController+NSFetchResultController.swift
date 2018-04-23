@@ -33,7 +33,7 @@ extension MyChallengesViewController: NSFetchedResultsControllerDelegate {
     case .delete:
       tableView.deleteRows(at: [indexPath!], with: .automatic)
     case .update:
-      let cell = tableView.cellForRow(at: indexPath!)
+      _ = tableView.cellForRow(at: indexPath!)
       print("update")
     case .move:
       tableView.deleteRows(at: [indexPath!], with: .automatic)
