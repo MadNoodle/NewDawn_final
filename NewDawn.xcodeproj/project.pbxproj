@@ -119,6 +119,7 @@
 		B9C565932093271C008FE4A8 /* headerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C565912093271C008FE4A8 /* headerView.swift */; };
 		B9C565942093271C008FE4A8 /* headerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C565922093271C008FE4A8 /* headerView.xib */; };
 		B9C5659620933411008FE4A8 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5659520933411008FE4A8 /* CalendarCell.swift */; };
+		B9C56598209347FE008FE4A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9C56597209347FE008FE4A8 /* GoogleService-Info.plist */; };
 		B9D4A84020631CCF00313DAB /* XAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D4A83F20631CCF00313DAB /* XAxisFormatter.swift */; };
 		B9D4A84A2064591800313DAB /* smilf___.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9D4A8492064591800313DAB /* smilf___.ttf */; };
 		B9D4A8502065C3B200313DAB /* extensionUIViewControllerChartSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D4A84F2065C3B200313DAB /* extensionUIViewControllerChartSettings.swift */; };
@@ -259,8 +260,9 @@
 		B9C565912093271C008FE4A8 /* headerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headerView.swift; sourceTree = "<group>"; };
 		B9C565922093271C008FE4A8 /* headerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = headerView.xib; sourceTree = "<group>"; };
 		B9C5659520933411008FE4A8 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		B9C56597209347FE008FE4A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B9D4A83F20631CCF00313DAB /* XAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAxisFormatter.swift; sourceTree = "<group>"; };
-		B9D4A8492064591800313DAB /* smilf___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "smilf___.ttf"; sourceTree = "<group>"; };
+		B9D4A8492064591800313DAB /* smilf___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = smilf___.ttf; sourceTree = "<group>"; };
 		B9D4A84F2065C3B200313DAB /* extensionUIViewControllerChartSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIViewControllerChartSettings.swift; sourceTree = "<group>"; };
 		B9DE7B8C2088E5F40008D81F /* Mood+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mood+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B9DE7B8D2088E5F40008D81F /* Mood+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mood+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -789,6 +791,7 @@
 		B97A57F420585D2100473581 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				B9C56597209347FE008FE4A8 /* GoogleService-Info.plist */,
 				B97A57C6205856A800473581 /* LaunchScreen.storyboard */,
 				B97A57C4205856A800473581 /* Assets.xcassets */,
 				B97A57BA205856A800473581 /* AppDelegate.swift */,
@@ -1117,6 +1120,7 @@
 				B9409830207FE85A00AB3535 /* ResetViewController.xib in Resources */,
 				B91FD16A206AF25400EF4E5C /* ChallengeController.xib in Resources */,
 				B9A43E2D205EA8BF000FDDEE /* MainTabBarController.xib in Resources */,
+				B9C56598209347FE008FE4A8 /* GoogleService-Info.plist in Resources */,
 				B97A57F32058598F00473581 /* TitilliumWeb-ExtraLightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1137,9 +1141,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn-resources.sh",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterShareExtensionUIResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1204,15 +1213,31 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/PDFGenerator/PDFGenerator.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PDFGenerator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

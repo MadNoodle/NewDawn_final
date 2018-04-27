@@ -7,6 +7,8 @@ Copyright (c) 2018 Mathieu Janneau
 // swiftlint:disable trailing_whitespace
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
   
@@ -40,13 +42,27 @@ class LoginViewController: UIViewController {
       case .success:
         print("sucess")
          // check if user is registered in bdd
- 
+        Auth.auth().signIn(withEmail: loginTextfield.text!, password: passwordTextfield.text!) { (user, error) in
+          // check if error
+          if error != nil {
+            // if so display alert
+            UserAlert.show(title: "Sorry", message:error!.localizedDescription, controller: self)
+          } else{
+            if let u = user {
+              // set current user
+             UserDefaults.standard.set(u.email!, forKey: "currentUser")
+              print(u)
+              self.present(self.mainVc, animated: true)
+            }}
+            
+          
+        }
       case .failure(_, let message):
         // if not valid display error
         print(message.localized())
         UserAlert.show(title: "Error", message: message.localized(), controller: self)
       } 
-      self.present(mainVc, animated: true)
+    
 
   }
   

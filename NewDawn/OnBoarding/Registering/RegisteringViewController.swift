@@ -7,6 +7,8 @@
 // swiftlint:disable trailing_whitespace
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class RegisteringViewController: UIViewController {
   
@@ -49,20 +51,28 @@ class RegisteringViewController: UIViewController {
     switch response {
     case .success:
       print("sucess")
-      
-      // check if user is registered in bdd
+      Auth.auth().createUser(withEmail: emailTextField.text!, password: repeatPasswordTexfield.text!) { (user, error) in
+        
+        if error != nil {
+         
+          UserAlert.show(title: "Sorry", message: error!.localizedDescription, controller: self)
+        } else {
+       if let u = user {
+        UserDefaults.standard.set(u.email!, forKey: "currentUser")
+        let newHomeVc = MainTabBarController()
+        newHomeVc.selectedIndex = 1
+        
+        self.present(newHomeVc, animated: true)
+        }}
+        
+      }
   
-      // save in core data
-      CoreDataService.saveUser(lastName: lastNameTextfield.text!, firstName: firstNameTextfield.text!, email: emailTextField.text!, password: passwordTextField.text!)
     case .failure(_, let message):
       // if not valid display error
       print(message.localized())
       UserAlert.show(title: "Error", message: message.localized(), controller: self)
     }
 
-    let newHomeVc = MainTabBarController()
-    newHomeVc.selectedIndex = 1
-   
-    self.present(newHomeVc, animated: true)
+    
   }
 }

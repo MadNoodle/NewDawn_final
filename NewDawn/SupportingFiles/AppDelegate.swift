@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import UserNotifications
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -17,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+    // initialize firebase
+    FirebaseApp.configure()
     // Set the first view controller to appear
     window = UIWindow(frame: UIScreen.main.bounds)
     window!.rootViewController = LoginViewController()

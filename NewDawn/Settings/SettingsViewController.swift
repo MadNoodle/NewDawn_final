@@ -7,6 +7,8 @@ Copyright (c) 2018 Mathieu Janneau
 // swiftlint:disable trailing_whitespace
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class SettingsViewController: UIViewController {
 var currentUser = ""
@@ -44,6 +46,16 @@ var currentUser = ""
     CoreDataService.resetCoreDataStack(for: currentUser)
   }
   @IBAction func logOut(_ sender: UIButton) {
+    let firebaseAuth = Auth.auth()
+    do {
+      try firebaseAuth.signOut()
+      UserDefaults.standard.set("", forKey: "currentUser")
+      let loginVc = LoginViewController()
+      self.present(loginVc,animated: true)
+    } catch let signOutError as NSError {
+      print ("Error signing out: %@", signOutError)
+    }
+    
   }
   @objc func handleDismiss() {
     self.dismiss(animated: true, completion: nil)
