@@ -9,7 +9,7 @@ Copyright (c) 2018 Mathieu Janneau
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+var currentUser = ""
   var navBar: UIView = {
     let bar = UIView()
      bar.backgroundColor = UIConfig.lightGreen
@@ -26,15 +26,25 @@ class SettingsViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
+        currentUser = user
+      }
+    
       self.view.addSubview(navBar)
       navBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64)
       navBar.addSubview(backButton)
       backButton.frame = CGRect(x: 8, y: 28, width: 100, height: 34)
       backButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
      
-      self.view.backgroundColor = .blue
+    
     }
 
+  @IBAction func resetData(_ sender: UIButton) {
+    CoreDataService.resetCoreDataStack(for: currentUser)
+  }
+  @IBAction func logOut(_ sender: UIButton) {
+  }
   @objc func handleDismiss() {
     self.dismiss(animated: true, completion: nil)
   }

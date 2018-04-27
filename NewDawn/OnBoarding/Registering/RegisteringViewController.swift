@@ -33,9 +33,10 @@ class RegisteringViewController: UIViewController {
   // /////////////// //
   // MARK: - ACTIONS //
   // /////////////// //
-  @IBAction func changeProfilPicture(_ sender: UIButton) {
+
+  @IBAction func back(_ sender: UIButton) {
+    dismiss(animated: true)
   }
-  
   @IBAction func createAccount(_ sender: UIButton) {
     
     // check if fields are valid

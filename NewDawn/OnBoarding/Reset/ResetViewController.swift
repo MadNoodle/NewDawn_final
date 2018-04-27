@@ -27,6 +27,9 @@ class ResetViewController: UIViewController {
   // /////////////// //
   // MARK: - ACTIONS //
   // /////////////// //
+  @IBAction func back(_ sender: UIButton) {
+    dismiss(animated: true)
+  }
   
   @IBAction func reset(_ sender: UIButton) {
     // check if fields are valid

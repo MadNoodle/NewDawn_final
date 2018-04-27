@@ -11,7 +11,21 @@ import CoreData
 
 /// TableView Controller that presents all the current challenge for the user
 /// It allows the user to add new challenges
-class MyChallengesViewController: UITableViewController {
+class MyChallengesViewController: UITableViewController, EditableChallenge {
+  var storedDate: Date?
+  
+  var storedTitle: String?
+  
+  var storedNotificationState: Bool?
+  
+  var storedLocation: String?
+  
+  var storedAnxiety: Int?
+  
+  var storedBenefit: Int?
+  
+  var storedObjective: String?
+  
   
   // ////////////////// //
   // MARK: - PROPERTIES //

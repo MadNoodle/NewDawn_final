@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     NotificationService.center.delegate = self
     
     UserDefaults.standard.set("admin", forKey: "currentUser")
+   // CoreDataService.resetCoreDataStack(for: "admin")
     return true
   }
 

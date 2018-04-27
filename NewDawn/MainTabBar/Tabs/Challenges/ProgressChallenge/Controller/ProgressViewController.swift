@@ -10,12 +10,35 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
+protocol EditableChallenge {
+  var storedDate: Date? {get set}
+  var storedTitle: String? {get set}
+  var storedNotificationState: Bool? {get set}
+  var storedLocation: String? {get set}
+  var storedAnxiety: Int? {get set}
+  var storedBenefit: Int? {get set}
+  var storedObjective: String? {get set}
+}
+
 /// This class handles a challenge progess. It allows
 /// the user to declare a challenge done or failed,
 /// a track is gps position during the challenge, write comments,
 /// and share a pdf report via email
-class ProgressViewController: UIViewController {
+class ProgressViewController: UIViewController, EditableChallenge {
+  var storedAnxiety: Int?
   
+  var storedBenefit: Int?
+  
+  var storedDate: Date?
+  
+  var storedTitle: String?
+  
+  var storedNotificationState: Bool?
+  
+  var storedLocation: String?
+  
+  var storedObjective: String?
   // ////////////////// //
   // MARK: - PROPERTIES //
   // ////////////////// //
@@ -132,6 +155,24 @@ class ProgressViewController: UIViewController {
     }
   }
   
+  @objc func editChallenge() {
+    guard let mission = challenge else {return}
+    let editVc = CreateChallengeViewController()
+    editVc.delegate = self
+    storedDate = Date(timeIntervalSince1970: mission.dueDate)
+    storedTitle = mission.name
+    if mission.isNotified {
+      storedNotificationState = true
+    } else {
+    storedNotificationState = false
+    }
+    storedLocation = mission.destination
+    storedAnxiety = Int(mission.anxietyLevel)
+    storedBenefit = Int(mission.benefitLevel)
+    storedObjective = mission.objective
+    self.navigationController?.pushViewController(editVc, animated: true)
+  }
+  
   // ////////////////// //
   // MARK: - UI METHODS //
   // ////////////////// //
@@ -154,9 +195,14 @@ class ProgressViewController: UIViewController {
     
     // add share button to navigation
     let rightButton: UIBarButtonItem =
+      UIBarButtonItem(image: UIImage(named: "edit"), style: .plain, target: self, action: #selector(editChallenge))
+
+  
+    // add share button to navigation
+    let rightButton2: UIBarButtonItem =
       UIBarButtonItem(image: #imageLiteral(resourceName: "upload"), style: .plain, target: self, action: #selector(shareChallenge))
     self.navigationController?.navigationBar.tintColor = .white
-    self.navigationItem.rightBarButtonItem = rightButton
+    self.navigationItem.rightBarButtonItems = [rightButton2, rightButton]
   }
   
   // //////////////////////// //

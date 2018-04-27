@@ -106,9 +106,6 @@
 		B9A43E41205EA99D000FDDEE /* MedicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A43E3F205EA99D000FDDEE /* MedicViewController.xib */; };
 		B9AE1832208A83C400A53E3D /* FormattedChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AE1831208A83C400A53E3D /* FormattedChallenge.swift */; };
 		B9AE1834208BEB4A00A53E3D /* SortingDateDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AE1833208BEB4A00A53E3D /* SortingDateDictionary.swift */; };
-		B9AE1836208D192200A53E3D /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AE1835208D192200A53E3D /* CalendarView.swift */; };
-		B9AE1838208D194D00A53E3D /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AE1837208D194D00A53E3D /* MonthView.swift */; };
-		B9AE183A208D196D00A53E3D /* WeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AE1839208D196D00A53E3D /* WeekDaysView.swift */; };
 		B9B933D5207530080011B1F9 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B933D4207530080011B1F9 /* NotificationService.swift */; };
 		B9B933DA20756AFA0011B1F9 /* ChallengeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B933D820756AFA0011B1F9 /* ChallengeDetailCell.swift */; };
 		B9B933DB20756AFA0011B1F9 /* ChallengeDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9B933D920756AFA0011B1F9 /* ChallengeDetailCell.xib */; };
@@ -117,6 +114,11 @@
 		B9BA5D39206061CD00301EAB /* ObjectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA5D37206061CD00301EAB /* ObjectiveViewController.swift */; };
 		B9BA5D3A206061CD00301EAB /* ObjectiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BA5D38206061CD00301EAB /* ObjectiveViewController.xib */; };
 		B9BA5D3D20616D7000301EAB /* TimeInterval + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA5D3C20616D7000301EAB /* TimeInterval + extensions.swift */; };
+		B9C5658C2091C66E008FE4A8 /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C5658A2091C66E008FE4A8 /* CalendarCell.xib */; };
+		B9C5658E20922ECB008FE4A8 /* HomeViewControlle+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5658D20922ECB008FE4A8 /* HomeViewControlle+Calendar.swift */; };
+		B9C565932093271C008FE4A8 /* headerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C565912093271C008FE4A8 /* headerView.swift */; };
+		B9C565942093271C008FE4A8 /* headerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C565922093271C008FE4A8 /* headerView.xib */; };
+		B9C5659620933411008FE4A8 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5659520933411008FE4A8 /* CalendarCell.swift */; };
 		B9D4A84020631CCF00313DAB /* XAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D4A83F20631CCF00313DAB /* XAxisFormatter.swift */; };
 		B9D4A84A2064591800313DAB /* smilf___.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9D4A8492064591800313DAB /* smilf___.ttf */; };
 		B9D4A8502065C3B200313DAB /* extensionUIViewControllerChartSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D4A84F2065C3B200313DAB /* extensionUIViewControllerChartSettings.swift */; };
@@ -244,9 +246,6 @@
 		B9A43E3F205EA99D000FDDEE /* MedicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicViewController.xib; sourceTree = "<group>"; };
 		B9AE1831208A83C400A53E3D /* FormattedChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedChallenge.swift; sourceTree = "<group>"; };
 		B9AE1833208BEB4A00A53E3D /* SortingDateDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingDateDictionary.swift; sourceTree = "<group>"; };
-		B9AE1835208D192200A53E3D /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		B9AE1837208D194D00A53E3D /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
-		B9AE1839208D196D00A53E3D /* WeekDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDaysView.swift; sourceTree = "<group>"; };
 		B9B933D4207530080011B1F9 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		B9B933D820756AFA0011B1F9 /* ChallengeDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailCell.swift; sourceTree = "<group>"; };
 		B9B933D920756AFA0011B1F9 /* ChallengeDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeDetailCell.xib; sourceTree = "<group>"; };
@@ -255,8 +254,13 @@
 		B9BA5D37206061CD00301EAB /* ObjectiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveViewController.swift; sourceTree = "<group>"; };
 		B9BA5D38206061CD00301EAB /* ObjectiveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ObjectiveViewController.xib; sourceTree = "<group>"; };
 		B9BA5D3C20616D7000301EAB /* TimeInterval + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval + extensions.swift"; sourceTree = "<group>"; };
+		B9C5658A2091C66E008FE4A8 /* CalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarCell.xib; sourceTree = "<group>"; };
+		B9C5658D20922ECB008FE4A8 /* HomeViewControlle+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewControlle+Calendar.swift"; sourceTree = "<group>"; };
+		B9C565912093271C008FE4A8 /* headerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headerView.swift; sourceTree = "<group>"; };
+		B9C565922093271C008FE4A8 /* headerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = headerView.xib; sourceTree = "<group>"; };
+		B9C5659520933411008FE4A8 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		B9D4A83F20631CCF00313DAB /* XAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAxisFormatter.swift; sourceTree = "<group>"; };
-		B9D4A8492064591800313DAB /* smilf___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = smilf___.ttf; sourceTree = "<group>"; };
+		B9D4A8492064591800313DAB /* smilf___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "smilf___.ttf"; sourceTree = "<group>"; };
 		B9D4A84F2065C3B200313DAB /* extensionUIViewControllerChartSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIViewControllerChartSettings.swift; sourceTree = "<group>"; };
 		B9DE7B8C2088E5F40008D81F /* Mood+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mood+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B9DE7B8D2088E5F40008D81F /* Mood+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mood+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -439,7 +443,10 @@
 			isa = PBXGroup;
 			children = (
 				B97A57F6205874C700473581 /* HomeViewController.xib */,
-				B9AE183B208D19A000A53E3D /* CalendarViews */,
+				B9C5659520933411008FE4A8 /* CalendarCell.swift */,
+				B9C5658A2091C66E008FE4A8 /* CalendarCell.xib */,
+				B9C565912093271C008FE4A8 /* headerView.swift */,
+				B9C565922093271C008FE4A8 /* headerView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -448,6 +455,7 @@
 			isa = PBXGroup;
 			children = (
 				B97A57F5205874C700473581 /* HomeViewController.swift */,
+				B9C5658D20922ECB008FE4A8 /* HomeViewControlle+Calendar.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -740,12 +748,12 @@
 				B95BA062207EA48F00943DA5 /* ProfilTableViewCell.xib */,
 				B9A43E2E205EA930000FDDEE /* MainTabBar */,
 				B9409828207FD80F00AB3535 /* OnBoarding */,
+				B93822922080EB2700E07762 /* Settings */,
 				B9083E45206D9D5000A64587 /* ConfigFiles */,
 				B95BA046207E5BBF00943DA5 /* Helpers */,
 				B97A57F420585D2100473581 /* SupportingFiles */,
 				B97A57C9205856A800473581 /* Info.plist */,
 				B93BDF31207946AE000D4E97 /* Services */,
-				B93822922080EB2700E07762 /* Settings */,
 			);
 			path = NewDawn;
 			sourceTree = "<group>";
@@ -899,16 +907,6 @@
 				B91BCA612067E599000841D1 /* Views */,
 			);
 			path = Medic;
-			sourceTree = "<group>";
-		};
-		B9AE183B208D19A000A53E3D /* CalendarViews */ = {
-			isa = PBXGroup;
-			children = (
-				B9AE1835208D192200A53E3D /* CalendarView.swift */,
-				B9AE1837208D194D00A53E3D /* MonthView.swift */,
-				B9AE1839208D196D00A53E3D /* WeekDaysView.swift */,
-			);
-			path = CalendarViews;
 			sourceTree = "<group>";
 		};
 		B9B933D620756ACE0011B1F9 /* View */ = {
@@ -1091,12 +1089,14 @@
 				B94098342080A47B00AB3535 /* RegisteringViewController.xib in Resources */,
 				B97A57E92058598F00473581 /* TitilliumWeb-Italic.ttf in Resources */,
 				B975AC75207D290600B7C128 /* SingleChallengeExportView.xib in Resources */,
+				B9C565942093271C008FE4A8 /* headerView.xib in Resources */,
 				B97A57F8205874C700473581 /* HomeViewController.xib in Resources */,
 				B910501D2077AE3600CE6B3E /* ProgressViewController.xib in Resources */,
 				B9A43E37205EA96D000FDDEE /* CrisisViewController.xib in Resources */,
 				B9A43E41205EA99D000FDDEE /* MedicViewController.xib in Resources */,
 				B9E888D9206FB672009A242F /* DestinationViewController.xib in Resources */,
 				B91FD15C206AAEF700EF4E5C /* ObjectiveCollectionViewCell.xib in Resources */,
+				B9C5658C2091C66E008FE4A8 /* CalendarCell.xib in Resources */,
 				B97A57F02058598F00473581 /* TitilliumWeb-LightItalic.ttf in Resources */,
 				B9BA5D3A206061CD00301EAB /* ObjectiveViewController.xib in Resources */,
 				B93BDF43207A7440000D4E97 /* reportCellView.xib in Resources */,
@@ -1264,8 +1264,9 @@
 				B9083E47206D9D8700A64587 /* LocalisationString.swift in Sources */,
 				B97A57C3205856A800473581 /* NewDawn.xcdatamodeld in Sources */,
 				B974079E2078D0A80034333E /* Walk.swift in Sources */,
-				B9AE1838208D194D00A53E3D /* MonthView.swift in Sources */,
 				B95BA045207E520E00943DA5 /* homepageExportView.swift in Sources */,
+				B9C5659620933411008FE4A8 /* CalendarCell.swift in Sources */,
+				B9C565932093271C008FE4A8 /* headerView.swift in Sources */,
 				B93BDF2E2079126F000D4E97 /* ProgressViewController+CLlocationManager.swift in Sources */,
 				B9A43E40205EA99D000FDDEE /* MedicViewController.swift in Sources */,
 				B93BDF3D207A164B000D4E97 /* UIImage+snapshot.swift in Sources */,
@@ -1280,7 +1281,6 @@
 				B98C32CF20850C8500577B5A /* ChallengeDestination.swift in Sources */,
 				B9A43E36205EA96D000FDDEE /* CrisisViewController.swift in Sources */,
 				B91FD15B206AAEF700EF4E5C /* ObjectiveCollectionViewCell.swift in Sources */,
-				B9AE1836208D192200A53E3D /* CalendarView.swift in Sources */,
 				B94098332080A47B00AB3535 /* RegisteringViewController.swift in Sources */,
 				B98C32CD2084D04600577B5A /* CoreDataService.swift in Sources */,
 				B93BDF3F207A3049000D4E97 /* PDFCreator.swift in Sources */,
@@ -1323,6 +1323,7 @@
 				B9D4A8502065C3B200313DAB /* extensionUIViewControllerChartSettings.swift in Sources */,
 				B9083E39206D99D800A64587 /* ChalllengeController+tableView.swift in Sources */,
 				B9B933DF2076480E0011B1F9 /* MyChallengesViewController+tableView.swift in Sources */,
+				B9C5658E20922ECB008FE4A8 /* HomeViewControlle+Calendar.swift in Sources */,
 				B9BA5D3D20616D7000301EAB /* TimeInterval + extensions.swift in Sources */,
 				B97A57F7205874C700473581 /* HomeViewController.swift in Sources */,
 				B9B933D5207530080011B1F9 /* NotificationService.swift in Sources */,
@@ -1331,7 +1332,6 @@
 				B9083E49206DA53D00A64587 /* MedicViewController+MapKit.swift in Sources */,
 				B940982B207FD83800AB3535 /* LoginViewController.swift in Sources */,
 				B97A580720595A1C00473581 /* customTextField.swift in Sources */,
-				B9AE183A208D196D00A53E3D /* WeekDaysView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

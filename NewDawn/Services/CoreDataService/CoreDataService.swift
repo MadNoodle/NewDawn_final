@@ -31,8 +31,16 @@ class CoreDataService {
     print(user)
   }
   
-  static func createChallenge(user:String, name: String, dueDate: Double, isNotified: Bool, anxietyLevel: Int, benefitLevel: Int, objective: String, location: ChallengeDestination?) {
+  static func saveChallenge(user:String, name: String, dueDate: Double, isNotified: Bool, anxietyLevel: Int, benefitLevel: Int, objective: String, location: ChallengeDestination?) {
     
+    let data: [Challenge] = loadData(for: user)
+    print(data)
+    for chall in data where name == chall.name && dueDate == dueDate {
+      delete(chall)
+      print("duplicate deleted")
+      
+    }
+    print(data)
     // Create entity
     
     let challenge = NSEntityDescription.insertNewObject(forEntityName: "Challenge", into: managedContext!) as! Challenge
@@ -45,15 +53,15 @@ class CoreDataService {
     challenge.benefitLevel = Int32(benefitLevel)
     challenge.isDone = false
     if let targetLocation = location {
-      print(targetLocation.lat)
+     
       challenge.destination = targetLocation.locationName
       challenge.destinationLat = targetLocation.lat
       challenge.destinationLong = targetLocation.long
     }
     
     save()
- 
-    print(challenge)
+     let data2: [Challenge] = loadData(for: user)
+    print(data2)
   }
   
   static func saveMood(user:String,date: Date, value: Int) {
@@ -61,9 +69,11 @@ class CoreDataService {
     let formerMood = data.last
     let saveDate = date.timeIntervalSince1970
     // Replace former Mood if under 5 hour
-    if ( (formerMood?.date)! - saveDate) <= 19200 {
+    // optionnel déballage former mood
+    if let previousMood = formerMood{
+    if ( previousMood.date - saveDate) <= 19200 {
       deleteMood(formerMood!)
-      print("Mood deleted for unity sake")
+      }
     }
     // Create entity
     
@@ -88,8 +98,6 @@ class CoreDataService {
     
       challenge.map = mapImage
       save()
-    
-    print(challenge)
   }
   
   static func loadData(for user: String) -> [Challenge] {
@@ -148,7 +156,21 @@ class CoreDataService {
     return challenges!
   }
   
-  static func delete(_ object: Challenge) {
+  static func resetCoreDataStack(for user : String) {
+    var challenges: [Challenge] = loadData(for: user)
+    for challenge in challenges {
+      delete(challenge)
+    }
+    let moods: [Mood] = loadData(for: user)
+    for mood in moods {
+      delete(mood)
+    }
+    save()
+    challenges = loadData(for: user)
+    print(challenges)
+  }
+  
+  static func delete(_ object: NSManagedObject) {
     managedContext?.delete(object)
     do { //3
       try managedContext?.save()

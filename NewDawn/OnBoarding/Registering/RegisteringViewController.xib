@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +24,6 @@
                 <outlet property="firstNameTextfield" destination="FEX-yU-hGt" id="vjW-6x-FBq"/>
                 <outlet property="lastNameTextfield" destination="lsv-V1-33d" id="n69-Eg-zQC"/>
                 <outlet property="passwordTextField" destination="kgm-SA-M4z" id="fV7-1q-YqA"/>
-                <outlet property="profilPicture" destination="IB3-8e-UIM" id="hSE-gW-oZO"/>
                 <outlet property="repeatPasswordTexfield" destination="UnE-M8-IHp" id="b6L-AS-ygZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -35,16 +33,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happy" translatesAutoresizingMaskIntoConstraints="NO" id="IB3-8e-UIM" customClass="RoundedImage" customModule="NewDawn" customModuleProvider="target">
-                    <rect key="frame" x="137" y="70" width="100" height="100"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="100" id="Rdn-5U-592"/>
-                        <constraint firstAttribute="width" secondItem="IB3-8e-UIM" secondAttribute="height" multiplier="1:1" id="iM5-zX-lMM"/>
-                        <constraint firstAttribute="height" constant="100" id="w5r-Tl-sMk"/>
-                    </constraints>
-                </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h4G-aa-605">
-                    <rect key="frame" x="50" y="220" width="275" height="250"/>
+                    <rect key="frame" x="50" y="208.5" width="275" height="250"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Firstname" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="lsv-V1-33d" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="275" height="50"/>
@@ -106,32 +96,31 @@
                         <action selector="createAccount:" destination="-1" eventType="touchUpInside" id="14c-8W-erh"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lO-cq-VuE">
-                    <rect key="frame" x="202" y="135" width="35" height="35"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNR-vz-c8k">
+                    <rect key="frame" x="8" y="16" width="36" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="5lO-cq-VuE" secondAttribute="height" multiplier="1:1" id="EZT-8K-PWz"/>
-                        <constraint firstAttribute="width" constant="35" id="iY0-s9-MPg"/>
-                        <constraint firstAttribute="height" constant="35" id="yYJ-c6-RDF"/>
+                        <constraint firstAttribute="width" constant="36" id="NVr-LQ-ND9"/>
+                        <constraint firstAttribute="height" constant="30" id="OPI-8q-6i5"/>
                     </constraints>
-                    <state key="normal" image="plusButton"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="back">
+                        <color key="titleColor" red="0.25882352939999997" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
                     <connections>
-                        <action selector="changeProfilPicture:" destination="-1" eventType="touchUpInside" id="9XJ-go-sAh"/>
+                        <action selector="back:" destination="-1" eventType="touchUpInside" id="ce2-Z2-Ilu"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="d5U-ur-aFF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="1u1-Yb-n01"/>
+                <constraint firstItem="cNR-vz-c8k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="3Sb-7c-1k4"/>
+                <constraint firstItem="cNR-vz-c8k" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="FFf-bd-hlJ"/>
                 <constraint firstItem="h4G-aa-605" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="P9f-7X-CYG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="h4G-aa-605" secondAttribute="trailing" constant="50" id="RCX-i5-o6e"/>
-                <constraint firstItem="IB3-8e-UIM" firstAttribute="trailing" secondItem="5lO-cq-VuE" secondAttribute="trailing" id="Rda-Nw-qll"/>
-                <constraint firstItem="IB3-8e-UIM" firstAttribute="bottom" secondItem="5lO-cq-VuE" secondAttribute="bottom" id="aYw-wi-rF1"/>
-                <constraint firstItem="IB3-8e-UIM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bib-gl-Me3"/>
-                <constraint firstItem="d5U-ur-aFF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="h4G-aa-605" secondAttribute="bottom" constant="50" id="c1a-EK-WNr"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d5U-ur-aFF" secondAttribute="trailing" constant="50" id="hE8-54-Qrl"/>
-                <constraint firstItem="IB3-8e-UIM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="sWd-1v-p04"/>
+                <constraint firstItem="h4G-aa-605" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="heh-6x-xnn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="d5U-ur-aFF" secondAttribute="bottom" constant="30" id="wZe-go-0W7"/>
-                <constraint firstItem="h4G-aa-605" firstAttribute="top" secondItem="IB3-8e-UIM" secondAttribute="bottom" constant="50" id="yZV-1E-pMw"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
@@ -141,8 +130,4 @@
             <state key="normal" title="Button"/>
         </button>
     </objects>
-    <resources>
-        <image name="happy" width="40" height="40"/>
-        <image name="plusButton" width="35" height="35"/>
-    </resources>
 </document>

@@ -72,7 +72,12 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     dataSet = CoreDataService.loadData(for: currentUser)
     shouldDisplayLineGraph(with: dataSet)
     shouldDisplayBarChart(with: dataPoints)
-    progress = Double(amountOfSucceededChallenge) / (Double(dataPoints.count) / 100.0)
+    if dataPoints.isEmpty { progress = 0
+      
+      } else {
+      progress = Double(amountOfSucceededChallenge) / (Double(dataPoints.count) / 100.0)
+      
+    }
     self.shouldAnimateCircleProgress(progress: Float(self.progress))
   }
   
@@ -228,20 +233,27 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     // injectData in chart
     let chartData = BarChartData(dataSet: chartDataSet)
     barChart.data = chartData
+    // General chart Settings
     chartSettings(chart: barChart)
-    barChart.leftAxis.axisMinimum = 0
-    barChart.leftAxis.axisMaximum = 4
-    barChart.leftAxis.granularity = 1
+    // Remove decimal for left axis tags
     let leftAxisFormatter = NumberFormatter()
     leftAxisFormatter.minimumFractionDigits = 0
     leftAxisFormatter.maximumFractionDigits = 0
-     barChart.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
-   
+    // define range and interval for left axis
+    barChart.leftAxis.axisMinimum = 0
+    barChart.leftAxis.axisMaximum = 4
+    barChart.leftAxis.granularity = 1
     
+    barChart.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
+    // Set interval between point around 1 day
     barChart.xAxis.granularity = 43200
     barChart.xAxis.granularityEnabled = true
+    // Sets visible range if there is data
+    if !annotedChallenges.isEmpty{
     barChart.xAxis.axisMinimum = annotedChallenges[0].0 - 43200
     barChart.xAxis.axisMaximum = (annotedChallenges.last?.0)! + 86400
+      
+    }
     
     
   }

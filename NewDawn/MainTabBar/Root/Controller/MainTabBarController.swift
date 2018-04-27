@@ -22,6 +22,7 @@ class MainTabBarController: UITabBarController {
     }
     print(currentUser)
     setupTabBar()
+    self.tabBar.isTranslucent = false
     
   }
   override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +52,7 @@ class MainTabBarController: UITabBarController {
       createTabBarItem(LocalisationString.historyVcTitle, imageName: UIConfig.historyIcon, for: historyVc),
       createTabBarItem(LocalisationString.medicVcTitle, imageName: UIConfig.medicIcon, for: medicVc)
     ]
+    
   }
   
   /**

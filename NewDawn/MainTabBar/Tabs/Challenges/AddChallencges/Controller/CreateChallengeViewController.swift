@@ -16,6 +16,8 @@ class CreateChallengeViewController: UIViewController {
   var tableViewTitle: String?
   var isNotified: Bool = false
   var objective: String?
+  var challengeDate: Date?
+  var delegate: EditableChallenge?
   // /////////////// //
   // MARK: - OUTLETS //
   // /////////////// //
@@ -30,30 +32,49 @@ class CreateChallengeViewController: UIViewController {
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
   // ///////////////////////// //
-
   
   override func viewDidLoad() {
         super.viewDidLoad()
+    
+    NotificationCenter.default.addObserver(self, selector:#selector(didUpdateDate), name: NSNotification.Name(rawValue: "ValueChanged"), object: nil)
+    NotificationCenter.default.addObserver(self, selector:#selector(didUpdateLocation), name: NSNotification.Name(rawValue: "LocationChanged"), object: nil)
     if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
       currentUser = user
     }
-    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
-      if error != nil {
-        print("authorization Unsuccessful")
-      } else {
-         print("authorization successful")
-      }
-    }
+   
+    if delegate != nil {
 
-    guard let challenge = tableViewTitle else { return}
-      titleLabel.text = challenge
+      titleLabel.text = delegate?.storedTitle
+      dateLabel.text = delegate?.storedDate?.convertToString(format: .dayHourMinute)
+      //// REFACTOR MODEL
+     challengeDate = delegate?.storedDate
+
+      /////
+      objective = delegate?.storedObjective
+      locationLabel.text = delegate?.storedLocation
+      if let state = delegate?.storedNotificationState {
+        notificationSwitch.isOn = state
+      }
+      if let anxiety = delegate?.storedAnxiety {
+      anxietySlider.value = Float(anxiety)
+      }
+      if let benefit = delegate?.storedBenefit {
+        benefitSlider.value = Float(benefit)
+
     }
-  
+    } else {
+      guard let challenge = tableViewTitle else { return}
+      titleLabel.text = challenge
+}
+    shouldAskNotificationPermission()
+    self.edgesForExtendedLayout = []
+
+    
+  }
 
   override func viewWillAppear(_ animated: Bool) {
-    NotificationCenter.default.addObserver(self, selector:#selector(didUpdateDate), name: NSNotification.Name(rawValue: "ValueChanged"), object: nil)
-    NotificationCenter.default.addObserver(self, selector:#selector(didUpdateLocation), name: NSNotification.Name(rawValue: "LocationChanged"), object: nil)
-
+    self.view.setNeedsDisplay()
+    self.dateLabel.setNeedsDisplay()
     
   }
   
@@ -62,7 +83,7 @@ class CreateChallengeViewController: UIViewController {
   // /////////////////////// //
   
   let launcher = DateLauncher()
-  var challengeDate: Date?
+  
   
   
   @IBAction func addDate(_ sender: UIButton) {
@@ -72,9 +93,10 @@ class CreateChallengeViewController: UIViewController {
   @objc func didUpdateDate(notif:NSNotification){
     print ("received notification")
     // receive data from Picker
-    challengeDate = notif.userInfo?["Date"] as? Date
     
-    if let dateToRemind = challengeDate{
+    
+    challengeDate = notif.userInfo?["Date"] as? Date
+    if let dateToRemind = challengeDate {
     // Create date formatter
     let dateFormatter: DateFormatter = DateFormatter()
      dateFormatter.timeZone = TimeZone.current
@@ -82,8 +104,11 @@ class CreateChallengeViewController: UIViewController {
       dateFormatter.dateFormat = DateFormat.dayHourMinute.rawValue
     
     // Apply date format
-    dateLabel.text = dateFormatter.string(from: dateToRemind )}
+    dateLabel.text = dateFormatter.string(from: dateToRemind )
   }
+    }
+    
+  
   
   // ////////////////////// //
   // MARK: - NOTIFICATIONS  //
@@ -103,7 +128,7 @@ class CreateChallengeViewController: UIViewController {
         print("notif")
       }
       else {
-        // show an alert
+        // Show alert
         print("entre une date")
         
       }
@@ -154,19 +179,36 @@ class CreateChallengeViewController: UIViewController {
       destination.locationName = location.2
       destination.lat = location.0
       destination.long = location.1
-     
       locationLabel.text = location.2
       
     }
   }
   
   @IBAction func createChallenge(_ sender: GradientButton) {
-    let dueDate = challengeDate?.timeIntervalSince1970
+    print("boom")
+    if let dueDate = challengeDate?.timeIntervalSince1970{
     
-    CoreDataService.createChallenge(user: currentUser, name: titleLabel.text!, dueDate: dueDate!, isNotified: isNotified , anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), objective: objective!, location: destination)
+    CoreDataService.saveChallenge(user: currentUser, name: titleLabel.text!, dueDate: dueDate, isNotified: isNotified , anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), objective: objective!, location: destination)
     let mainVc = MainTabBarController()
     mainVc.selectedIndex = 1
     present(mainVc,animated: true)
+    } else {
+      
+      // enter a date Alert
+    }
+    
 
   }
+
+
+
+fileprivate func shouldAskNotificationPermission() {
+  UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
+    if error != nil {
+      print("authorization Unsuccessful")
+    } else {
+      print("authorization successful")
+    }
+  }
+}
 }

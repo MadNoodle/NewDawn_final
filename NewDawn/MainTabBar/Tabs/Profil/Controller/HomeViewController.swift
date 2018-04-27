@@ -8,7 +8,7 @@
 // swiftlint:disable trailing_whitespace
 
 import UIKit
-
+import JTAppleCalendar
 /// Profil view controller which displays a user summary
 /// and let him access to his personnal data
 class HomeViewController: UIViewController {
@@ -17,40 +17,141 @@ class HomeViewController: UIViewController {
   // MARK: - PROPERTIES //
   // ////////////////// //
   var data = [Challenge]()
-  // let mockData = MockChallenge.getMockChallenges()
+  var selectedChallenge: Challenge?
   /// Reuse id for challenge table view cells
   let reuseId = "myCell"
-  let calenderView: CalenderView = {
-    let v = CalenderView(theme: MyTheme.light)
-    v.translatesAutoresizingMaskIntoConstraints=false
-    return v
-  }()
+  let dateFormatter = DateFormatter()
+  var iii: Date?
+  open var events: [String] = []
   // ////////////////// //
   // MARK: - OUTLETS    //
   // ////////////////// //
   
+
   @IBOutlet var moodButtons: [CustomUIButtonForUIToolbar]!
-//  @IBOutlet weak var challengesTableView: UITableView!
-  
-  @IBOutlet weak var calendarContainer: UIView!
+  @IBOutlet weak var calendarView: JTAppleCalendarView!
+  @IBOutlet weak var montDisplay: UILabel!
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
   // ///////////////////////// //
 
-  
-
-  
   override func viewDidLoad() {
 
     super.viewDidLoad()
-    shouldDisplayCalendarView()
-    shouldDisplayPlusButton()
-    NotificationCenter.default.addObserver(self, selector:#selector(addChallenge), name: NSNotification.Name(rawValue: "calendarActive"), object: nil)
+    // load logged user
+    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
+      currentUser = user
+    }
+    
+    // load Challenges for current User
     data = CoreDataService.loadData(for: currentUser)
+    for item in data {
+    dateFormatter.dateFormat = DateFormat.annual.rawValue
+      let eventDate = dateFormatter.string(from: Date(timeIntervalSince1970: item.dueDate))
+      events.append(eventDate)
+    }
+    print(events)
+    // set up notification observers
+    handleNotifications()
+    shouldDisplayUI()
+    print(data)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    data = CoreDataService.loadData(for: currentUser)
+    calendarView.reloadData()
+  }
+  // ////////////////// //
+  // MARK: - UI         //
+  // ////////////////// //
+  
+  fileprivate func shouldDisplayUI() {
+  
     // set up of mood button color behavior on tap
     for button in moodButtons {
       button.typeOfButton = .imageButton
     }
+    
+    let rightButton: UIBarButtonItem = UIBarButtonItem(
+      barButtonSystemItem: .add,
+      target: self,
+      action: #selector(addChallenge))
+    self.navigationItem.rightBarButtonItem = rightButton
+    setupCalendarView()
+  }
+  func setupCalendarView() {
+    // register cell
+    let nib = UINib(nibName: "CalendarCell", bundle: nil)
+    let headerNib = UINib(nibName: "headerView", bundle: nil)
+    calendarView.register(nib, forCellWithReuseIdentifier: "dateCell")
+    calendarView.register(headerNib, forSupplementaryViewOfKind: "header", withReuseIdentifier: "header")
+    // UI appearance settings
+    calendarView.minimumLineSpacing = 0
+    calendarView.minimumInteritemSpacing = 0
+    calendarView.backgroundColor = .clear
+    // delegation attribtution
+    calendarView.ibCalendarDelegate = self
+    calendarView.ibCalendarDataSource = self
+    calendarView.isScrollEnabled = false
+    calendarView.scrollToDate(Date(),animateScroll: false)
+    calendarView.selectDates([Date()])
+    calendarView.scrollingMode = .stopAtEachCalendarFrame
+    self.calendarView.visibleDates {[unowned self] (visibleDates: DateSegmentInfo) in
+      self.setupViewsOfCalendar(from: visibleDates)
+    }
+   
+    
+  }
+  
+  fileprivate func handleNotifications() {
+    NotificationCenter.default.addObserver(self, selector:#selector(addChallenge), name: NSNotification.Name(rawValue: "calendarActive"), object: nil)
+
+    print(currentUser)
+  }
+  // ////////////////// //
+  // MARK: - ACTIONS    //
+  // ////////////////// //
+  
+  /// handle the color display behavior when user tap a button
+  ///
+  /// - Parameter sender: CustomUIButtonForUIToolbar
+  @IBAction func moodButtonTapped(_ sender: CustomUIButtonForUIToolbar) {
+    evaluateMoodButtonState()
+
+    CoreDataService.saveMood(user: currentUser, date: Date(), value: sender.tag)
+    sender.userDidSelect()
+  }
+  
+  @IBAction func previousMonth(_ sender: UIButton) {
+    calendarView.scrollToSegment(.previous)
+    calendarView.reloadData()
+  }
+  @IBAction func nextMonth(_ sender: UIButton) {
+    calendarView.scrollToSegment(.next)
+    calendarView.reloadData()
+  }
+  
+
+  /// Iterate throught all mood buttons state and reset to
+  /// initial color to allow user to to color the last selected Mood
+  fileprivate func evaluateMoodButtonState() {
+    for moodButton in moodButtons where moodButton.choosen {  
+      moodButton.reset()
+    }
+  }
+  
+  
+  
+  // ////////////////// //
+  // MARK: - SELECTORS  //
+  // ////////////////// //
+ func showChallenge() {
+    if let challengeToPresent = selectedChallenge{
+      let challengeVc = ProgressViewController()
+      challengeVc.challenge = challengeToPresent
+      self.navigationController?.pushViewController(challengeVc, animated: true)
+      }
+    
   }
   
   @objc func addChallenge() {
@@ -69,46 +170,4 @@ class HomeViewController: UIViewController {
     alert.addAction(secondAction) // 5
     present(alert, animated: true, completion:nil) // 6
   }
-  
-  fileprivate func shouldDisplayPlusButton() {
-    let rightButton: UIBarButtonItem = UIBarButtonItem(
-      barButtonSystemItem: .add,
-      target: self,
-      action: #selector(addChallenge))
-    self.navigationItem.rightBarButtonItem = rightButton
-    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
-      currentUser = user
-    }
-  }
-  
-  fileprivate func shouldDisplayCalendarView() {
-    calendarContainer.addSubview(calenderView)
-    calenderView.topAnchor.constraint(equalTo: calendarContainer.topAnchor, constant: 0).isActive = true
-    calenderView.rightAnchor.constraint(equalTo: calendarContainer.rightAnchor, constant: 0).isActive=true
-    calenderView.leftAnchor.constraint(equalTo: calendarContainer.leftAnchor, constant: 0).isActive=true
-    calenderView.heightAnchor.constraint(equalToConstant: calendarContainer.frame.height).isActive=true
-  }
-  // ////////////////// //
-  // MARK: - ACTIONS    //
-  // ////////////////// //
-  
-  /// handle the color display behavior when user tap a button
-  ///
-  /// - Parameter sender: CustomUIButtonForUIToolbar
-  @IBAction func moodButtonTapped(_ sender: CustomUIButtonForUIToolbar) {
-    evaluateMoodButtonState()
-
-    CoreDataService.saveMood(user: currentUser, date: Date(), value: sender.tag)
-    sender.userDidSelect()
-    // ToDo: Store selected state in BDD
-  }
-  
-  /// Iterate throught all mood buttons state and reset to
-  /// initial color to allow user to to color the last selected Mood
-  fileprivate func evaluateMoodButtonState() {
-    for moodButton in moodButtons where moodButton.choosen {  
-      moodButton.reset()
-    }
-  }
-  
 }

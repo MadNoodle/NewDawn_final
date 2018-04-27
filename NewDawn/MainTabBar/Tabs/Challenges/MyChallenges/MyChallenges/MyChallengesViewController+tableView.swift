@@ -109,9 +109,22 @@ extension MyChallengesViewController {
     }
     done.backgroundColor = UIConfig.darkGreen
     
-    let postPone = UITableViewRowAction(style: .normal, title: "Postpone") { _, _ in
-      self.currentCell = indexPath
-      self.postPoneLauncher.showSettings()
+    let postPone = UITableViewRowAction(style: .normal, title: "Edit") { _, _ in
+      let mission = self.fetchedResultsController.object(at: indexPath)
+      let editVc = CreateChallengeViewController()
+      editVc.delegate = self
+      self.storedDate = Date(timeIntervalSince1970: mission.dueDate)
+      self.storedTitle = mission.name
+      if mission.isNotified {
+        self.storedNotificationState = true
+      } else {
+        self.storedNotificationState = false
+      }
+      self.storedLocation = mission.destination
+      self.storedAnxiety = Int(mission.anxietyLevel)
+      self.storedBenefit = Int(mission.benefitLevel)
+      self.storedObjective = mission.objective
+      self.navigationController?.pushViewController(editVc, animated: true)
     }
     postPone.backgroundColor = UIConfig.lightGreen
     

@@ -51,6 +51,9 @@ enum DateFormat: String {
   case hourMinute = "HH:mm"
   case day = "dd/MM"
   case dayHourMinute = "MM/dd/yyyy hh:mm a"
+  case display = "EEEE, MMMM dd,yyyy"
   case sortingFormat = "yyyy-MM-dd"
+  case month = "MMMM yyyy"
+  case annual = "yyyy MM dd"
   
 }
