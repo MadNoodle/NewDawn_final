@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import UserNotifications
 import Firebase
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -20,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                    didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // initialize firebase
     FirebaseApp.configure()
+    // initialize Facebook Login
     // Set the first view controller to appear
     window = UIWindow(frame: UIScreen.main.bounds)
     window!.rootViewController = LoginViewController()
@@ -37,6 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     return true
   }
 
+  
+  func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+    
+    return handled
+  }
+  
+  
   func applicationWillResignActive(_ application: UIApplication) {
 
   }
