@@ -93,6 +93,7 @@
 		B98C32CD2084D04600577B5A /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C32CC2084D04600577B5A /* CoreDataService.swift */; };
 		B98C32CF20850C8500577B5A /* ChallengeDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C32CE20850C8500577B5A /* ChallengeDestination.swift */; };
 		B98C330720865D7300577B5A /* MyChallengeViewController+NSFetchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C330620865D7300577B5A /* MyChallengeViewController+NSFetchResultController.swift */; };
+		B98EF47020945B1C00B366D2 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EF46F20945B1C00B366D2 /* LoginService.swift */; };
 		B9A43E1F205C45D2000FDDEE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A43E1E205C45D2000FDDEE /* CustomButton.swift */; };
 		B9A43E22205C6409000FDDEE /* SwitchableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A43E21205C6409000FDDEE /* SwitchableImage.swift */; };
 		B9A43E29205D33FE000FDDEE /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A43E28205D33FE000FDDEE /* MockData.swift */; };
@@ -234,6 +235,8 @@
 		B98C32CC2084D04600577B5A /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		B98C32CE20850C8500577B5A /* ChallengeDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDestination.swift; sourceTree = "<group>"; };
 		B98C330620865D7300577B5A /* MyChallengeViewController+NSFetchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyChallengeViewController+NSFetchResultController.swift"; sourceTree = "<group>"; };
+		B98EF46F20945B1C00B366D2 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		B98EF4712094782900B366D2 /* NewDawn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NewDawn-Bridging-Header.h"; sourceTree = "<group>"; };
 		B9A43E1E205C45D2000FDDEE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B9A43E21205C6409000FDDEE /* SwitchableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchableImage.swift; sourceTree = "<group>"; };
 		B9A43E28205D33FE000FDDEE /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
@@ -578,6 +581,7 @@
 			children = (
 				B9409829207FD83800AB3535 /* LoginViewController.swift */,
 				B940982A207FD83800AB3535 /* LoginViewController.xib */,
+				B98EF46F20945B1C00B366D2 /* LoginService.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -796,6 +800,7 @@
 				B97A57C4205856A800473581 /* Assets.xcassets */,
 				B97A57BA205856A800473581 /* AppDelegate.swift */,
 				B97A57DD2058596800473581 /* Fonts */,
+				B98EF4712094782900B366D2 /* NewDawn-Bridging-Header.h */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -1043,6 +1048,7 @@
 				TargetAttributes = {
 					B97A57B6205856A800473581 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1314,6 +1320,7 @@
 				B93BDF45207A7465000D4E97 /* reportCellView.swift in Sources */,
 				B9BA5D39206061CD00301EAB /* ObjectiveViewController.swift in Sources */,
 				B98C330720865D7300577B5A /* MyChallengeViewController+NSFetchResultController.swift in Sources */,
+				B98EF47020945B1C00B366D2 /* LoginService.swift in Sources */,
 				B9A43E31205EA954000FDDEE /* HistoryViewController.swift in Sources */,
 				B96C1080206E769200C64CDA /* CreateChallengeViewController.swift in Sources */,
 				B91FD16E206BC84700EF4E5C /* ChallengeType.swift in Sources */,
@@ -1506,12 +1513,15 @@
 			baseConfigurationReference = E49A3E688642F9F5A270C400 /* Pods-NewDawn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V8A9QAD896;
 				INFOPLIST_FILE = NewDawn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathieujanneau.NewDawn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NewDawn/SupportingFiles/NewDawn-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1522,12 +1532,14 @@
 			baseConfigurationReference = C32A402A1A01F687FFE1372D /* Pods-NewDawn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V8A9QAD896;
 				INFOPLIST_FILE = NewDawn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathieujanneau.NewDawn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NewDawn/SupportingFiles/NewDawn-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

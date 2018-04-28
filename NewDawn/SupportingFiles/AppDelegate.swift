@@ -12,6 +12,7 @@ import UserNotifications
 import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
+import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -23,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // initialize firebase
     FirebaseApp.configure()
     // initialize Facebook Login
+    
+    // iniatlize twitter Login
+    TWTRTwitter.sharedInstance().start(withConsumerKey:"onGHxAuY5Sctf1gbt3Wo1GZLg", consumerSecret:"9E7pl4JWwi8ZOhcJPCrV2oBozDK96REvrp8fsyQfiP9kYvA1VO")
     // Set the first view controller to appear
     window = UIWindow(frame: UIScreen.main.bounds)
     window!.rootViewController = LoginViewController()
@@ -43,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
   
   func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
     let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+    TWTRTwitter.sharedInstance().application(app, open: url, options: options)
     
     return handled
   }

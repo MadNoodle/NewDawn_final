@@ -21,7 +21,6 @@ class ResetViewController: UIViewController {
   // ///////////////////////// //
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
   
   // /////////////// //
@@ -37,14 +36,12 @@ class ResetViewController: UIViewController {
       (ValidationType.email, inputEmail.text!))
     switch response {
     case .success:
-      print("sucess")
-      // check if user is registered in bdd
+      LoginService.resetPassword(for: inputEmail.text!, in: self)
     case .failure(_, let message):
       // if not valid display error
-      print(message.localized())
       UserAlert.show(title: "Error", message: message.localized(), controller: self)
     }
-    // send mail with password cf firebase
+    // send mail with password firebase & present lofgin Vc
     let loginVc = LoginViewController()
     self.present(loginVc, animated: true)
   }

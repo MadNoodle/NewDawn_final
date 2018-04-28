@@ -11,7 +11,21 @@
         <string>fb160948581243141</string>
       </array>
     </dict>
+    <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>twitterkit-onGHxAuY5Sctf1gbt3Wo1GZLg</string>
+        </array>
+      </dict>
   </array>
+    
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>twitter</string>
+      <string>twitterauth</string>
+    </array>
+    
+    
   <key>FacebookAppID</key>
   <string>160948581243141</string>
   <key>FacebookDisplayName</key>
