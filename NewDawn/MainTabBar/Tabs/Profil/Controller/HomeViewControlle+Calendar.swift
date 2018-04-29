@@ -17,10 +17,6 @@ extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDat
     configureCell(view: cell, cellState: cellState)
   }
 
-  
-  
-  
-  
   func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
     let formatter = DateFormatter()
     formatter.dateFormat = DateFormat.annual.rawValue

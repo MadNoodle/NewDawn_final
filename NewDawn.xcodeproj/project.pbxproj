@@ -94,9 +94,13 @@
 		B98C32CF20850C8500577B5A /* ChallengeDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C32CE20850C8500577B5A /* ChallengeDestination.swift */; };
 		B98C330720865D7300577B5A /* MyChallengeViewController+NSFetchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C330620865D7300577B5A /* MyChallengeViewController+NSFetchResultController.swift */; };
 		B98EF47020945B1C00B366D2 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EF46F20945B1C00B366D2 /* LoginService.swift */; };
+		B98EF4782094BE0500B366D2 /* BackUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EF4772094BE0500B366D2 /* BackUpManager.swift */; };
+		B98EF47A2094C24A00B366D2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EF4792094C24A00B366D2 /* Reachability.swift */; };
+		B98EF47C20962C1600B366D2 /* TempChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EF47B20962C1600B366D2 /* TempChallenge.swift */; };
+		B98EF47E209637CE00B366D2 /* TempMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EF47D209637CE00B366D2 /* TempMood.swift */; };
+		B98EF48020963AFB00B366D2 /* TempUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EF47F20963AFB00B366D2 /* TempUser.swift */; };
 		B9A43E1F205C45D2000FDDEE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A43E1E205C45D2000FDDEE /* CustomButton.swift */; };
 		B9A43E22205C6409000FDDEE /* SwitchableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A43E21205C6409000FDDEE /* SwitchableImage.swift */; };
-		B9A43E29205D33FE000FDDEE /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A43E28205D33FE000FDDEE /* MockData.swift */; };
 		B9A43E2C205EA8BF000FDDEE /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A43E2A205EA8BE000FDDEE /* MainTabBarController.swift */; };
 		B9A43E2D205EA8BF000FDDEE /* MainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A43E2B205EA8BE000FDDEE /* MainTabBarController.xib */; };
 		B9A43E31205EA954000FDDEE /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A43E2F205EA954000FDDEE /* HistoryViewController.swift */; };
@@ -237,9 +241,13 @@
 		B98C330620865D7300577B5A /* MyChallengeViewController+NSFetchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyChallengeViewController+NSFetchResultController.swift"; sourceTree = "<group>"; };
 		B98EF46F20945B1C00B366D2 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		B98EF4712094782900B366D2 /* NewDawn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NewDawn-Bridging-Header.h"; sourceTree = "<group>"; };
+		B98EF4772094BE0500B366D2 /* BackUpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpManager.swift; sourceTree = "<group>"; };
+		B98EF4792094C24A00B366D2 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		B98EF47B20962C1600B366D2 /* TempChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempChallenge.swift; sourceTree = "<group>"; };
+		B98EF47D209637CE00B366D2 /* TempMood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempMood.swift; sourceTree = "<group>"; };
+		B98EF47F20963AFB00B366D2 /* TempUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUser.swift; sourceTree = "<group>"; };
 		B9A43E1E205C45D2000FDDEE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B9A43E21205C6409000FDDEE /* SwitchableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchableImage.swift; sourceTree = "<group>"; };
-		B9A43E28205D33FE000FDDEE /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		B9A43E2A205EA8BE000FDDEE /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		B9A43E2B205EA8BE000FDDEE /* MainTabBarController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTabBarController.xib; sourceTree = "<group>"; };
 		B9A43E2F205EA954000FDDEE /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -375,6 +383,7 @@
 			children = (
 				B912AB8D2081613B0065D1A1 /* Validator.swift */,
 				B912AB8F20824A9F0065D1A1 /* UserAlert.swift */,
+				B98EF4792094C24A00B366D2 /* Reachability.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -463,14 +472,6 @@
 				B9C5658D20922ECB008FE4A8 /* HomeViewControlle+Calendar.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		B91FD152206A62B200EF4E5C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B9A43E28205D33FE000FDDEE /* MockData.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		B91FD153206A62C100EF4E5C /* Model */ = {
@@ -579,9 +580,8 @@
 		B93822942080EB4D00E07762 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				B9409829207FD83800AB3535 /* LoginViewController.swift */,
-				B940982A207FD83800AB3535 /* LoginViewController.xib */,
-				B98EF46F20945B1C00B366D2 /* LoginService.swift */,
+				B98EF47620947CF600B366D2 /* View */,
+				B98EF47520947CEE00B366D2 /* Controller */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -598,7 +598,6 @@
 		B93BDF31207946AE000D4E97 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				B98C330820868B4200577B5A /* CoreDataService */,
 				B95BA040207E4CEA00943DA5 /* PDFService */,
 			);
 			path = Services;
@@ -607,6 +606,7 @@
 		B9409828207FD80F00AB3535 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				B98EF47420947CE600B366D2 /* Model */,
 				B93822932080EB2F00E07762 /* Registering */,
 				B93822942080EB4D00E07762 /* Login */,
 				B93822952080EB5500E07762 /* Reset */,
@@ -635,6 +635,7 @@
 		B95BA046207E5BBF00943DA5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B93BDF31207946AE000D4E97 /* Services */,
 				B912AB9120824B390065D1A1 /* Classes */,
 				B9A43E20205C63BA000FDDEE /* Protocols */,
 				B97A57FC2058813B00473581 /* Extensions */,
@@ -646,11 +647,13 @@
 		B95BA047207E5BD800943DA5 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				B98C330820868B4200577B5A /* Model */,
 				B9A43E23205C7EA0000FDDEE /* Profil */,
 				B9A43E33205EA959000FDDEE /* History */,
 				B9083E3F206D9AFA00A64587 /* Challenges */,
 				B9A43E38205EA972000FDDEE /* Crisis */,
 				B9A43E42205EA9A2000FDDEE /* Medic */,
+				B93822922080EB2700E07762 /* Settings */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -754,12 +757,14 @@
 				B95BA062207EA48F00943DA5 /* ProfilTableViewCell.xib */,
 				B9A43E2E205EA930000FDDEE /* MainTabBar */,
 				B9409828207FD80F00AB3535 /* OnBoarding */,
-				B93822922080EB2700E07762 /* Settings */,
 				B9083E45206D9D5000A64587 /* ConfigFiles */,
 				B95BA046207E5BBF00943DA5 /* Helpers */,
 				B97A57F420585D2100473581 /* SupportingFiles */,
 				B97A57C9205856A800473581 /* Info.plist */,
-				B93BDF31207946AE000D4E97 /* Services */,
+				B98EF47F20963AFB00B366D2 /* TempUser.swift */,
+				B98EF47D209637CE00B366D2 /* TempMood.swift */,
+				B98EF4772094BE0500B366D2 /* BackUpManager.swift */,
+				B98EF47B20962C1600B366D2 /* TempChallenge.swift */,
 			);
 			path = NewDawn;
 			sourceTree = "<group>";
@@ -830,12 +835,36 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		B98C330820868B4200577B5A /* CoreDataService */ = {
+		B98C330820868B4200577B5A /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				B98C32CC2084D04600577B5A /* CoreDataService.swift */,
 			);
-			path = CoreDataService;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B98EF47420947CE600B366D2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B98EF46F20945B1C00B366D2 /* LoginService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B98EF47520947CEE00B366D2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B9409829207FD83800AB3535 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B98EF47620947CF600B366D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B940982A207FD83800AB3535 /* LoginViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B9936C912077AC1300EFBF44 /* ProgressChallenge */ = {
@@ -860,7 +889,6 @@
 		B9A43E23205C7EA0000FDDEE /* Profil */ = {
 			isa = PBXGroup;
 			children = (
-				B91FD152206A62B200EF4E5C /* Model */,
 				B91FD150206A62A500EF4E5C /* View */,
 				B91FD151206A62AA00EF4E5C /* Controller */,
 			);
@@ -1148,11 +1176,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterShareExtensionUIResources.bundle",
 			);
@@ -1223,12 +1253,14 @@
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/PDFGenerator/PDFGenerator.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1237,12 +1269,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PDFGenerator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1316,7 +1350,6 @@
 				B98C32CD2084D04600577B5A /* CoreDataService.swift in Sources */,
 				B93BDF3F207A3049000D4E97 /* PDFCreator.swift in Sources */,
 				B9AE1832208A83C400A53E3D /* FormattedChallenge.swift in Sources */,
-				B9A43E29205D33FE000FDDEE /* MockData.swift in Sources */,
 				B93BDF45207A7465000D4E97 /* reportCellView.swift in Sources */,
 				B9BA5D39206061CD00301EAB /* ObjectiveViewController.swift in Sources */,
 				B98C330720865D7300577B5A /* MyChallengeViewController+NSFetchResultController.swift in Sources */,
@@ -1335,6 +1368,7 @@
 				B975AC6D207CF89200B7C128 /* MailPresenterViewController.swift in Sources */,
 				B9D4A84020631CCF00313DAB /* XAxisFormatter.swift in Sources */,
 				B93BDF2C20791211000D4E97 /* ProgressViewController+MapViewDelegate.swift in Sources */,
+				B98EF47C20962C1600B366D2 /* TempChallenge.swift in Sources */,
 				B940982F207FE85A00AB3535 /* ResetViewController.swift in Sources */,
 				B97A57BB205856A800473581 /* AppDelegate.swift in Sources */,
 				B93BDF41207A3AA2000D4E97 /* Array+chunks.swift in Sources */,
@@ -1348,9 +1382,11 @@
 				B93BDF3A20796A1A000D4E97 /* PDFPreviewViewController.swift in Sources */,
 				B96C1083206ECCBC00C64CDA /* DateLauncher.swift in Sources */,
 				B9083E35206D708B00A64587 /* Icons.swift in Sources */,
+				B98EF4782094BE0500B366D2 /* BackUpManager.swift in Sources */,
 				B9AE1834208BEB4A00A53E3D /* SortingDateDictionary.swift in Sources */,
 				B9DE7B932088E5F40008D81F /* Challenge+CoreDataProperties.swift in Sources */,
 				B91FD169206AF25400EF4E5C /* ChallengeController.swift in Sources */,
+				B98EF48020963AFB00B366D2 /* TempUser.swift in Sources */,
 				B93BDF30207915B8000D4E97 /* CongratulationView.swift in Sources */,
 				B9D4A8502065C3B200313DAB /* extensionUIViewControllerChartSettings.swift in Sources */,
 				B9083E39206D99D800A64587 /* ChalllengeController+tableView.swift in Sources */,
@@ -1363,6 +1399,8 @@
 				B975AC74207D290600B7C128 /* SingleChallengeExportView.swift in Sources */,
 				B9083E49206DA53D00A64587 /* MedicViewController+MapKit.swift in Sources */,
 				B940982B207FD83800AB3535 /* LoginViewController.swift in Sources */,
+				B98EF47A2094C24A00B366D2 /* Reachability.swift in Sources */,
+				B98EF47E209637CE00B366D2 /* TempMood.swift in Sources */,
 				B97A580720595A1C00473581 /* customTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

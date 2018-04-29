@@ -8,6 +8,8 @@ Copyright (c) 2018 Mathieu Janneau
 
 import UIKit
 import UserNotifications
+import Firebase
+import FirebaseDatabase
 
 class CreateChallengeViewController: UIViewController {
 
@@ -184,17 +186,25 @@ class CreateChallengeViewController: UIViewController {
     }
   }
   
+  var databaseRef : DatabaseReference = {
+    return Database.database().reference()
+  }()
   @IBAction func createChallenge(_ sender: GradientButton) {
     print("boom")
     if let dueDate = challengeDate?.timeIntervalSince1970{
     
     CoreDataService.saveChallenge(user: currentUser, name: titleLabel.text!, dueDate: dueDate, isNotified: isNotified , anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), objective: objective!, location: destination)
+      
+      let challengeRef = databaseRef.child("challenges").childByAutoId()
+      let challengeToStore = TempChallenge(user: currentUser, name: titleLabel.text!, objective: objective!, dueDate: dueDate, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isNotified: isNotified, destination: destination.locationName, destinationLat: destination.lat, destinationLong: destination.long)
+      challengeRef.setValue(challengeToStore.toAnyObject())
+      
     let mainVc = MainTabBarController()
     mainVc.selectedIndex = 1
     present(mainVc,animated: true)
     } else {
       
-      // enter a date Alert
+      UserAlert.show(title: "Error", message: "Please enter a date for challenge", controller: self)
     }
     
 

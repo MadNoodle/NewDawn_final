@@ -9,9 +9,12 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class RegisteringViewController: UIViewController {
-  
+  var databaseRef : DatabaseReference = {
+    return Database.database().reference()
+  }()
   // /////////////// //
   // MARK: - OUTLETS //
   // /////////////// //
@@ -59,6 +62,9 @@ class RegisteringViewController: UIViewController {
         } else {
        if let u = user {
         UserDefaults.standard.set(u.email!, forKey: "currentUser")
+        let userRef = self.databaseRef.child("users").childByAutoId()
+        let userToStore = TempUser(username: self.emailTextField.text!, password: self.passwordTextField.text!, lastName: self.lastNameTextfield.text!, firstName: self.firstNameTextfield.text!)
+        userRef.setValue(userToStore.toAnyObject())
         let newHomeVc = MainTabBarController()
         newHomeVc.selectedIndex = 1
         

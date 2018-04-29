@@ -9,6 +9,8 @@
 
 import UIKit
 import JTAppleCalendar
+import Firebase
+import FirebaseDatabase
 /// Profil view controller which displays a user summary
 /// and let him access to his personnal data
 class HomeViewController: UIViewController {
@@ -23,6 +25,11 @@ class HomeViewController: UIViewController {
   let dateFormatter = DateFormatter()
   var iii: Date?
   open var events: [String] = []
+  
+  var databaseRef : DatabaseReference = {
+    return Database.database().reference()
+  }()
+  
   // ////////////////// //
   // MARK: - OUTLETS    //
   // ////////////////// //
@@ -50,11 +57,11 @@ class HomeViewController: UIViewController {
       let eventDate = dateFormatter.string(from: Date(timeIntervalSince1970: item.dueDate))
       events.append(eventDate)
     }
-    print(events)
+   
     // set up notification observers
     handleNotifications()
     shouldDisplayUI()
-    print(data)
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -117,8 +124,11 @@ class HomeViewController: UIViewController {
   /// - Parameter sender: CustomUIButtonForUIToolbar
   @IBAction func moodButtonTapped(_ sender: CustomUIButtonForUIToolbar) {
     evaluateMoodButtonState()
-
+    
     CoreDataService.saveMood(user: currentUser, date: Date(), value: sender.tag)
+    let moodRef = databaseRef.child("moods").childByAutoId()
+    let moodToStore = TempMood(user: currentUser, state: sender.tag, date: Date().timeIntervalSince1970)
+    moodRef.setValue(moodToStore.toAnyObject())
     sender.userDidSelect()
   }
   

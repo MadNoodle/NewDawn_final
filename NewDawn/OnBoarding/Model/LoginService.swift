@@ -26,6 +26,7 @@ class LoginService {
       case .email:
         guard let connectors = infos else {return}
         LoginService.handleMailLogin(login: connectors.0, password: connectors.1, in: controller)
+        
       case .facebook:
         LoginService.handleFBLogin(in: controller)
       case .twitter:
@@ -96,6 +97,9 @@ class LoginService {
       } else{
         if let u = user {
           validateUser(u.email!, goto: controller)
+          DispatchQueue.main.async {
+            FirebaseManager.createUser(u.email!, with: password)
+          }
         }}
       
       
@@ -103,6 +107,7 @@ class LoginService {
   }
   static func validateUser(_ userId: String, goto controller: UIViewController) {
     UserDefaults.standard.set(userId, forKey: "currentUser")
+   
     controller.present(self.mainVc, animated: true)
   }
   

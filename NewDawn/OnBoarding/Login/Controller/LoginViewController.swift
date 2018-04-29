@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
   // ///////////////////////// //
   override func viewDidLoad() {
     super.viewDidLoad()
+    
   }
   
   // /////////////// //
@@ -41,6 +42,8 @@ class LoginViewController: UIViewController {
     case .success:
       // Verify connection with Firebase
      LoginService.Source.connect(with: .email, in: self, infos: (loginTextfield.text!,passwordTextfield.text!))
+    
+      
     case .failure(_, let message):
       // if not valid display error
       UserAlert.show(title: "Error", message: message.localized(), controller: self)

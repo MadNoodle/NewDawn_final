@@ -36,9 +36,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     navigationBarSetup()
     // Globally set tabBar Seleccted color
     UITabBar.appearance().tintColor = UIConfig.lightGreen
+    // initialize Notification
     NotificationService.setupNotificationCenter()
     NotificationService.center.delegate = self
     
+    do {
+      Network.reachability = try Reachability(hostname: "www.google.com")
+      do {
+        try Network.reachability?.start()
+      } catch let error as Network.Error {
+        print(error)
+      } catch {
+        print(error)
+      }
+    } catch {
+      print(error)
+    }
+    
+    let cors = NetworkConnexion.checkAvailableNetwork()
+    print(cors)
     UserDefaults.standard.set("admin", forKey: "currentUser")
    // CoreDataService.resetCoreDataStack(for: "admin")
     return true
@@ -58,7 +74,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
   }
 
   func applicationDidEnterBackground(_ application: UIApplication) {
-
+    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
+     
+      print("saved")
+    }
   }
 
   func applicationWillEnterForeground(_ application: UIApplication) {
@@ -72,6 +91,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // Called when the application is about to terminate. Save data if appropriate.
     //See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
+    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
+      
+      print("saved")
+    }
+    
     self.saveContext()
   }
 
