@@ -21,63 +21,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    // initialize firebase
-    FirebaseApp.configure()
-    // initialize Facebook Login
-    
-    // iniatlize twitter Login
-    TWTRTwitter.sharedInstance().start(withConsumerKey:"onGHxAuY5Sctf1gbt3Wo1GZLg", consumerSecret:"9E7pl4JWwi8ZOhcJPCrV2oBozDK96REvrp8fsyQfiP9kYvA1VO")
-    // Set the first view controller to appear
-    window = UIWindow(frame: UIScreen.main.bounds)
-    window!.rootViewController = LoginViewController()
-    window!.makeKeyAndVisible()
-    // Globally set Navigation and status bar scheme
-    statusBarSetup()
-    navigationBarSetup()
-    // Globally set tabBar Seleccted color
-    UITabBar.appearance().tintColor = UIConfig.lightGreen
+    handleFirebaseInitialization()
+    handleUISetup()
     // initialize Notification
     NotificationService.setupNotificationCenter()
     NotificationService.center.delegate = self
-    
-    do {
-      Network.reachability = try Reachability(hostname: "www.google.com")
-      do {
-        try Network.reachability?.start()
-      } catch let error as Network.Error {
-        print(error)
-      } catch {
-        print(error)
-      }
-    } catch {
-      print(error)
-    }
-    
-    let cors = NetworkConnexion.checkAvailableNetwork()
-    print(cors)
     UserDefaults.standard.set("admin", forKey: "currentUser")
-   // CoreDataService.resetCoreDataStack(for: "admin")
     return true
   }
 
-  
   func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
     let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
     TWTRTwitter.sharedInstance().application(app, open: url, options: options)
-    
     return handled
   }
   
   
   func applicationWillResignActive(_ application: UIApplication) {
-
   }
 
   func applicationDidEnterBackground(_ application: UIApplication) {
-    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
-     
-      print("saved")
-    }
   }
 
   func applicationWillEnterForeground(_ application: UIApplication) {
@@ -160,4 +123,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                               withCompletionHandler completionHandler: @escaping () -> Void) {
     completionHandler()
   }
+  
+  fileprivate func handleUISetup() {
+    // Set the first view controller to appear
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window!.rootViewController = LoginViewController()
+    window!.makeKeyAndVisible()
+    // Globally set Navigation and status bar scheme
+    statusBarSetup()
+    navigationBarSetup()
+    // Globally set tabBar Seleccted color
+    UITabBar.appearance().tintColor = UIConfig.lightGreen
+  }
+  
+  fileprivate func handleFirebaseInitialization() {
+    // initialize firebase
+    FirebaseApp.configure()
+    // initialize Firebase offline persistence
+    Database.database().isPersistenceEnabled = true
+    let userRef = Database.database().reference(withPath: "users")
+    userRef.keepSynced(true)
+    let moodRef = Database.database().reference(withPath: "moods")
+    moodRef.keepSynced(true)
+    let challengeRef = Database.database().reference(withPath: "challenges")
+    challengeRef.keepSynced(true)
+    // iniatlize twitter Login
+    TWTRTwitter.sharedInstance().start(withConsumerKey:"onGHxAuY5Sctf1gbt3Wo1GZLg", consumerSecret:"9E7pl4JWwi8ZOhcJPCrV2oBozDK96REvrp8fsyQfiP9kYvA1VO")
+  }
+  
 }
