@@ -17,18 +17,18 @@ extension MyChallengesViewController {
   // MARK: - CELL DATA
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as? ChallengeDetailCell
-    //let currentChallenge = fetchedResultsController.object(at: indexPath)
+   
     let currentChallenge = data[indexPath.row]
      cell?.titleLabel.text = currentChallenge.name
     let date = Date(timeIntervalSince1970: currentChallenge.dueDate)
     cell?.dateLabel.text = date.convertToString(format: .dayHourMinute)
     print(currentChallenge)
-    if let status = currentChallenge.isDone{
-    if status {
+    
+    if currentChallenge.isDone == 1 {
       cell?.statusIndicator.image = UIImage(named: "circle_green")
     } else {
       cell?.statusIndicator.image = UIImage(named: "circle")
-    }}
+    }
    
       
     
@@ -37,7 +37,7 @@ extension MyChallengesViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //let currentChallenge = fetchedResultsController.object(at: indexPath)
+   
     let currentChallenge = data[indexPath.row]
     // instantiate progress controller
     let progressVc = ProgressViewController(nibName: nil, bundle: nil)

@@ -64,21 +64,7 @@ struct FirebaseService {
     }
   }
   
-  func loadChallenge(for user:String) -> [TempChallenge] {
-   var newItems = [TempChallenge]()
-  
-        database.child("challenges").observe(.value, with: { (snapshot) in
-          for item in snapshot.children {
-            let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
-            if newChallenge.user == user {
-            newItems.insert(newChallenge, at: 0)
-            }
-          }
-        }) { (error) in
-          print(error.localizedDescription)
-        }
-    return newItems
-  }
+
 
   func saveMood(for user: String, state: Int, date: Double) {
     let moodRef = database.child("moods").childByAutoId()

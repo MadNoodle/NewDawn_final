@@ -40,6 +40,7 @@ class HomeViewController: UIViewController {
   // MARK: - LIFECYCLE METHODS //
   // ///////////////////////// //
 
+  
   override func viewDidLoad() {
 
     super.viewDidLoad()
@@ -50,24 +51,10 @@ class HomeViewController: UIViewController {
     // set up notification observers
     handleNotifications()
     shouldDisplayUI()
-    DispatchQueue.main.async {
-      self.databaseRef = Database.database().reference().child("challenges")
-      self.databaseRef.observe(.value, with: { (snapshot) in
-        var newItems = [TempChallenge]()
-        for item in snapshot.children {
-          let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
-          newItems.insert(newChallenge, at: 0)
-        }
-        for item in newItems where item.user == self.currentUser {
-          self.data.insert(item, at: 0)
-          self.events.insert(self.dateFormatter.string(from: Date(timeIntervalSince1970: item.dueDate!)), at: 0)
-        }
-        
-        print("DATA: \(self.data)")
-        
-      })
+
+    loadEventsDatabase()
       self.calendarView.reloadData()
-    }
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -80,8 +67,9 @@ class HomeViewController: UIViewController {
           newItems.insert(newChallenge, at: 0)
         }
         for item in newItems where item.user == self.currentUser {
-          self.data.insert(item, at: 0)
-           self.events.insert(self.dateFormatter.string(from: Date(timeIntervalSince1970: item.dueDate!)), at: 0)
+          self.dateFormatter.dateFormat = DateFormat.annual.rawValue
+          let eventDate = self.dateFormatter.string(from: Date(timeIntervalSince1970: item.dueDate))
+          self.events.append(eventDate)
         }
         
         
@@ -198,4 +186,24 @@ class HomeViewController: UIViewController {
     alert.addAction(secondAction) // 5
     present(alert, animated: true, completion:nil) // 6
   }
+  
+  fileprivate func loadEventsDatabase() {
+    self.databaseRef = Database.database().reference().child("challenges")
+    self.databaseRef.observe(.value, with: { (snapshot) in
+      var newItems = [TempChallenge]()
+      for item in snapshot.children {
+        let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
+        newItems.insert(newChallenge, at: 0)
+      }
+      for item in newItems where item.user == self.currentUser {
+        self.dateFormatter.dateFormat = DateFormat.annual.rawValue
+        let eventDate = self.dateFormatter.string(from: Date(timeIntervalSince1970: item.dueDate))
+        self.events.append(eventDate)
+      }
+      
+      print("DATA: \(self.data)")
+      
+    })
+  }
+  
 }

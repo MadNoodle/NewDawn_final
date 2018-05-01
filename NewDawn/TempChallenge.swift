@@ -18,9 +18,9 @@ struct TempChallenge {
   var name: String!
   var objective: String!
   var dueDate: Double!
-  var isDone: Bool!
-  var isNotified: Bool!
-  var isSuccess: Bool!
+  var isDone: Int!
+  var isNotified: Int!
+  var isSuccess: Int!
   var anxietyLevel: Int!
   var benefitLevel: Int!
   var comment: String?
@@ -40,9 +40,9 @@ struct TempChallenge {
     self.dueDate = dueDate
     self.anxietyLevel = anxietyLevel
     self.benefitLevel = benefitLevel
-    self.isNotified = isNotified
-    self.isDone = isDone
-    self.isSuccess = isSuccess
+    if isNotified {self.isNotified = 1} else {self.isNotified = 0}
+    if isDone {self.isDone = 1} else {self.isDone = 0}
+    if isSuccess {self.isSuccess = 1} else {self.isSuccess = 0}
     self.comment = "No comment"
     if let location = destination {
       self.destination = location
@@ -64,9 +64,9 @@ struct TempChallenge {
     self.dueDate = dict["dueDate"] as! Double
     self.anxietyLevel = dict["anxietyLevel"] as! Int
     self.benefitLevel = dict["benefitLevel"] as! Int
-    self.isNotified = dict["isNotified"] as! Bool
-    self.isDone = dict["isdone"] as? Bool
-    self.isSuccess = dict["isSuccess"] as? Bool
+    self.isNotified = dict["isNotified"] as! Int
+    self.isDone = dict["isdone"] as? Int
+    self.isSuccess = dict["isSuccess"] as? Int
     self.comment = dict["comment"] as? String
     self.destinationLat = dict["latitude"] as? Double
     self.destinationLong = dict["longitude"] as? Double

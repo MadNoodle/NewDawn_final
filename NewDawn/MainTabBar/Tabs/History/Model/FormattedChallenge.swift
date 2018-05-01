@@ -9,35 +9,42 @@ Copyright (c) 2018 Mathieu Janneau
 import Foundation
 
 struct FormattedChallenge {
-   var anxietyLevel: Int32
-   var benefitLevel: Int32
+   var anxietyLevel: Int?
+   var benefitLevel: Int?
    var comment: String?
    var destination: String?
-   var destinationLat: Double
-   var destinationLong: Double
-   var dueDate: Double
-   var felt: Int32
-   var isDone: Bool
-   var isNotified: Bool
-   var isSuccess: Bool
+   var destinationLat: Double?
+   var destinationLong: Double?
+   var dueDate: Double?
+   var felt: Int?
+   var isDone: Bool?
+   var isNotified: Bool?
+   var isSuccess: Bool?
    var map: NSData?
    var name: String?
    var objective: String?
   var user: String?
-   var formattedDate: String
+   var formattedDate: String?
   
-  init (challenge: Challenge) {
+  init (challenge: TempChallenge) {
     self.anxietyLevel = challenge.anxietyLevel
     self.benefitLevel = challenge.benefitLevel
     self.comment = challenge.comment
     self.destination = challenge.destination
-    self.destinationLat = challenge.destinationLat
-    self.destinationLong = challenge.destinationLong
+    if let latitude = challenge.destinationLat {
+      self.destinationLat = latitude
+    }
+    if let longitude = challenge.destinationLong {
+    self.destinationLong = longitude
+    }
     self.dueDate = challenge.dueDate
-    self.felt = challenge.felt
-    self.isDone = challenge.isDone
-    self.isNotified = challenge.isNotified
-    self.isSuccess = challenge.isSuccess
+    if let feltAnxiety = challenge.felt {
+    self.felt = feltAnxiety
+    }
+    if challenge.isDone == 1 {self.isDone = true} else {self.isDone = false}
+     if challenge.isNotified == 1 {self.isNotified = true} else {self.isNotified = false}
+     if challenge.isSuccess == 1 {self.isSuccess = true} else {self.isSuccess = false}
+    
     self.map = challenge.map
     self.name = challenge.name
     self.objective = challenge.objective

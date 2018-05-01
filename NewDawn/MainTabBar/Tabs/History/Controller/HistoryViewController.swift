@@ -9,6 +9,8 @@
 
 import UIKit
 import Charts
+import Firebase
+import FirebaseDatabase
 
 /// Time range that user can select to display challenges
 enum HistoryRange: Int {
@@ -27,10 +29,11 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   // ////////////////// //
   // MARK: - PROPERTIES //
   // ////////////////// //
-  
+  var firebaseService = FirebaseService()
+  var databaseRef: DatabaseReference!
   // Get data
-  private var dataSet = [Mood]()
-  private var dataPoints = [Challenge]()
+  private var dataSet = [TempMood]()
+  private var dataPoints = [TempChallenge]()
   var amountOfSucceededChallenge = 0
   var progress = 0.0
   var currentUser = ""
@@ -59,8 +62,12 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     }
     
     // Data Setup
-    dataSet = CoreDataService.loadData(for: currentUser)
-    dataPoints = CoreDataService.loadData(for: currentUser)
+    loadChallenges(for: currentUser, in: dataPoints)
+    loadMoods(for: currentUser, in: dataSet)
+    //dataSet = CoreDataService.loadData(for: currentUser)
+    // dataPoints = CoreDataService.loadData(for: currentUser)
+    
+    
     amountOfSucceededChallenge = CoreDataService.loadSuccessChallengesCount(for: currentUser)
     
     // Set up delegation
@@ -68,8 +75,39 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     barChart.delegate = self
   }
   
+  func loadChallenges(for user: String, in data: [TempChallenge]) {
+    databaseRef = Database.database().reference().child("challenges")
+    databaseRef.observe(.value, with: { (snapshot) in
+      var newItems = [TempChallenge]()
+      for item in snapshot.children {
+        let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
+        newItems.insert(newChallenge, at: 0)
+      }
+      for item in newItems where item.user == self.currentUser {
+        self.dataPoints.insert(item, at: 0)
+      }
+      
+  })
+  }
+  
+  func loadMoods(for user: String, in data: [TempMood]) {
+    databaseRef = Database.database().reference().child("moods")
+    databaseRef.observe(.value, with: { (snapshot) in
+      var newItems = [TempMood]()
+      for item in snapshot.children {
+        let newMood = TempMood(snapshot: item as! DataSnapshot)
+        newItems.insert(newMood, at: 0)
+      }
+      for item in newItems where item.user == self.currentUser {
+        self.dataSet.insert(item, at: 0)
+      }
+      
+    })
+  }
+  
   override func viewWillAppear(_ animated: Bool) {
-    dataSet = CoreDataService.loadData(for: currentUser)
+    loadMoods(for: currentUser, in: dataSet)
+    loadChallenges(for: currentUser, in: dataPoints)
     shouldDisplayLineGraph(with: dataSet)
     shouldDisplayBarChart(with: dataPoints)
     if dataPoints.isEmpty { progress = 0
@@ -153,7 +191,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   
   
   //////////////////////:REFACTOR TO MODEL
-  func getSucceededChallengeByDate(data: [Challenge]) -> [(Double, Double)] {
+  func getSucceededChallengeByDate(data: [TempChallenge]) -> [(Double, Double)] {
     
     var formattedChallenges = [FormattedChallenge]()
     
@@ -164,16 +202,16 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     }
     
     // sort
-    formattedChallenges.sort(by: { $0.formattedDate.compare($1.formattedDate) == .orderedAscending})
+    formattedChallenges.sort(by: { $0.formattedDate?.compare($1.formattedDate!) == .orderedAscending})
     
     // sort them by date
     var succeededChallengeDictionary = [String: Int]()
     for challenge in formattedChallenges {
       
-      if let count = succeededChallengeDictionary[challenge.formattedDate] {
-        succeededChallengeDictionary[challenge.formattedDate] = count + 1
+      if let count = succeededChallengeDictionary[challenge.formattedDate!] {
+        succeededChallengeDictionary[challenge.formattedDate!] = count + 1
       } else {
-        succeededChallengeDictionary[challenge.formattedDate] = 1
+        succeededChallengeDictionary[challenge.formattedDate!] = 1
       }
     }
     
@@ -204,7 +242,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   /// Allows the user to display a set of data in a Bar chart with
   /// a time based X axis and a value Y axis
   /// - Parameter data: [Challenge]
-  private func shouldDisplayBarChart(with data: [Challenge]) {
+  private func shouldDisplayBarChart(with data: [TempChallenge]) {
     // grab succeeded challenges
     
    
@@ -263,7 +301,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   /// - Parameter index: Int number of days user wants to display data
   private func handleBarChartRedraw(for index: Int) {
     // reset data
-    dataPoints = CoreDataService.loadData(for: currentUser)
+    //dataPoints = CoreDataService.loadData(for: currentUser)
     // update data according to selected time range
     if index >= dataPoints.count {
       dataPoints = dataPoints.getLast(dataPoints.count)
@@ -288,7 +326,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   /// handles data loading and display of the data in a linechart
   ///
   /// - Parameter dataToDraw: [MoodPlot] set of data user wants to display
-  private func shouldDisplayLineGraph(with dataToDraw: [Mood]) {
+  private func shouldDisplayLineGraph(with dataToDraw: [TempMood]) {
     chartSettings(chart: lineChart)
     // Custom Y axis values
     lineChart.leftAxis.drawLabelsEnabled = false
@@ -314,7 +352,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   
   /// allows the user to zoom on a defined time range on all the charts
   private func shouldZoom(onLast index: Int) {
-    dataSet = CoreDataService.loadData(for: currentUser)
+    loadMoods(for: currentUser, in: dataSet)
     // Define max range of data to users max data amount if there is not enougth
     // data to be displayed
     if index >= dataSet.count {
@@ -382,7 +420,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   ///
   /// - Parameter data: Raw Data
   /// - Returns: [ChartDataEntry] formatted data
-  private func handleDataConvert(data: [Mood]) -> [ChartDataEntry] {
+  private func handleDataConvert(data: [TempMood]) -> [ChartDataEntry] {
     var lineChartEntry = [ChartDataEntry]()
     // send data to chart
     for index in 0..<data.count {
