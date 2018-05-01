@@ -27,7 +27,6 @@ class LoginService {
       case .email:
         guard let connectors = infos else {return}
         LoginService.handleMailLogin(login: connectors.0, password: connectors.1, in: controller)
-        
       case .facebook:
         LoginService.handleFBLogin(in: controller)
       case .twitter:
@@ -35,7 +34,9 @@ class LoginService {
       }
     }
   }
+  
   static let firebaseService = FirebaseService()
+  
   static let mainVc = MainTabBarController()
   
   static func handleTwitterLogin(in controller: UIViewController) {
@@ -92,17 +93,7 @@ class LoginService {
               return
             }
             if let u = user {
-              firebaseService.database.queryOrdered(byChild: "email").queryEqual(toValue: "\(u.email!)")
-                .observe(.value) { (snapshot) in
-                  
-                  if ( snapshot.value is NSNull ) {
-                    print("not found)")
-                    firebaseService.saveInfo(user: u, username: u.email!, password: u.uid)
-                     validateUser(u.email!, goto: controller)
-                  } else {
-                    
-                    validateUser(u.email!, goto: controller)
-                  }
+              validateUser(u.email!, goto: controller)
               }
             
             }
@@ -112,7 +103,7 @@ class LoginService {
         
       }
     }
-  }
+  
   static func handleMailLogin(login: String, password: String, in controller: UIViewController) {
     
     firebaseService.database.queryOrdered(byChild: "email").queryEqual(toValue: "\(login)")

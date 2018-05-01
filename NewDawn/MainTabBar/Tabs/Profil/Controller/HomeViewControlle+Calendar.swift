@@ -46,9 +46,10 @@ extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDat
     if !validCell.eventDotView.isHidden{
       print("challenge at this date")
       let dateToCheck = dateFormatter.string(from: cellState.date)
-
+      print(dateToCheck)
       for item in data {
-        let dateForItem = dateFormatter.string(from: Date(timeIntervalSince1970: item.dueDate))
+        let dateForItem = dateFormatter.string(from: Date(timeIntervalSince1970: item.dueDate!))
+        print("BING: \(dateForItem)")
         if dateForItem == dateToCheck {
           print("search CoreData")
           selectedChallenge = item

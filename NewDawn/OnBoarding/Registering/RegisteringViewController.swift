@@ -59,6 +59,7 @@ class RegisteringViewController: UIViewController {
         // set username
         let fullName = "\(lastNameTextfield.text!) \(firstNameTextfield.text!)"
         // signup & add to bdd
+        
         firebaseService.signUp(email: emailTextField.text!, username: fullName, password: passwordTextField.text!, in: self)
         // set current user
         UserDefaults.standard.set(emailTextField.text!, forKey: "currentUser")

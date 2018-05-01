@@ -34,32 +34,8 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
   // ////////////////// //
   var currentUser = ""
   var data: [TempChallenge] = []
+  var firebaseService = FirebaseService()
   var databaseRef: DatabaseReference!
-//  lazy var fetchedResultsController: NSFetchedResultsController<Challenge> = {
-//    // Initialize Fetch Request
-//    // 1
-//    let fetchRequest: NSFetchRequest<Challenge> = Challenge.fetchRequest()
-//    // 2
-//
-//    let sort = NSSortDescriptor(key: #keyPath(Challenge.dueDate),
-//                                ascending: true)
-//    fetchRequest.sortDescriptors = [sort]
-//
-//    let statePredicate = NSPredicate(format: "isDone == %@", NSNumber(value: false))
-//    let userPredicate = NSPredicate(format: "user = %@", currentUser)
-//    let predicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [statePredicate, userPredicate])
-//
-//    fetchRequest.predicate = predicate
-//    let fetchedResultsController = NSFetchedResultsController(
-//      fetchRequest: fetchRequest,
-//      managedObjectContext: CoreDataService.managedContext!,
-//      sectionNameKeyPath: #keyPath(Challenge.objective),
-//      cacheName: "challengeStack")
-//    // Configure Fetched Results Controller
-//    fetchedResultsController.delegate = self
-//
-//    return fetchedResultsController
-//  }()
   
   let postPoneLauncher = PostPoneLauncher()
   let reuseId = "myCell"
@@ -73,7 +49,13 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // initialize database
+
+    
+    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
+      currentUser = user
+     
+    }
+  
     databaseRef = Database.database().reference().child("challenges")
     databaseRef.observe(.value, with: { (snapshot) in
       var newItems = [TempChallenge]()
@@ -81,21 +63,17 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
         let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
         newItems.insert(newChallenge, at: 0)
       }
-      self.data = newItems
-      print(newItems)
+      for item in newItems where item.user == self.currentUser {
+        self.data.insert(item, at: 0)
+      }
+      
+      
       self.tableView.reloadData()
     }) { (error) in
       print(error.localizedDescription)
     }
-    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
-      currentUser = user
-    }
-//    do {
-//      try fetchedResultsController.performFetch()
-//    } catch let error as NSError {
-//      print("Fetching error: \(error), \(error.userInfo)")
-//    }
     
+
    
     let rightButton: UIBarButtonItem = UIBarButtonItem(
                                   barButtonSystemItem: .add,

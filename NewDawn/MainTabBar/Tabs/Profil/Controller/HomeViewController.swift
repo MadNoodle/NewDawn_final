@@ -18,17 +18,15 @@ class HomeViewController: UIViewController {
   // ////////////////// //
   // MARK: - PROPERTIES //
   // ////////////////// //
-  var data = [Challenge]()
-  var selectedChallenge: Challenge?
+  var data: [TempChallenge] = []
+  var selectedChallenge: TempChallenge?
   /// Reuse id for challenge table view cells
   let reuseId = "myCell"
   let dateFormatter = DateFormatter()
   var iii: Date?
   open var events: [String] = []
-  
-  var databaseRef : DatabaseReference = {
-    return Database.database().reference()
-  }()
+  var firebaseService = FirebaseService()
+  var databaseRef: DatabaseReference!
   
   // ////////////////// //
   // MARK: - OUTLETS    //
@@ -48,25 +46,49 @@ class HomeViewController: UIViewController {
     // load logged user
     if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
       currentUser = user
-    }
-    
-    // load Challenges for current User
-    data = CoreDataService.loadData(for: currentUser)
-    for item in data {
-    dateFormatter.dateFormat = DateFormat.annual.rawValue
-      let eventDate = dateFormatter.string(from: Date(timeIntervalSince1970: item.dueDate))
-      events.append(eventDate)
-    }
-   
+      }
     // set up notification observers
     handleNotifications()
     shouldDisplayUI()
-    
+    DispatchQueue.main.async {
+      self.databaseRef = Database.database().reference().child("challenges")
+      self.databaseRef.observe(.value, with: { (snapshot) in
+        var newItems = [TempChallenge]()
+        for item in snapshot.children {
+          let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
+          newItems.insert(newChallenge, at: 0)
+        }
+        for item in newItems where item.user == self.currentUser {
+          self.data.insert(item, at: 0)
+          self.events.insert(self.dateFormatter.string(from: Date(timeIntervalSince1970: item.dueDate!)), at: 0)
+        }
+        
+        print("DATA: \(self.data)")
+        
+      })
+      self.calendarView.reloadData()
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    data = CoreDataService.loadData(for: currentUser)
-    calendarView.reloadData()
+    print("DATA2: \(self.data)")
+      databaseRef = Database.database().reference().child("challenges")
+      databaseRef.observe(.value, with: { (snapshot) in
+        var newItems = [TempChallenge]()
+        for item in snapshot.children {
+          let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
+          newItems.insert(newChallenge, at: 0)
+        }
+        for item in newItems where item.user == self.currentUser {
+          self.data.insert(item, at: 0)
+           self.events.insert(self.dateFormatter.string(from: Date(timeIntervalSince1970: item.dueDate!)), at: 0)
+        }
+        
+        
+        self.calendarView.reloadData()
+      })
+   print("DATA3: \(self.data)")
+    
   }
   // ////////////////// //
   // MARK: - UI         //
@@ -86,6 +108,7 @@ class HomeViewController: UIViewController {
     self.navigationItem.rightBarButtonItem = rightButton
     setupCalendarView()
   }
+  
   func setupCalendarView() {
     // register cell
     let nib = UINib(nibName: "CalendarCell", bundle: nil)
@@ -112,7 +135,6 @@ class HomeViewController: UIViewController {
   
   fileprivate func handleNotifications() {
     NotificationCenter.default.addObserver(self, selector:#selector(addChallenge), name: NSNotification.Name(rawValue: "calendarActive"), object: nil)
-
     print(currentUser)
   }
   // ////////////////// //
@@ -124,11 +146,7 @@ class HomeViewController: UIViewController {
   /// - Parameter sender: CustomUIButtonForUIToolbar
   @IBAction func moodButtonTapped(_ sender: CustomUIButtonForUIToolbar) {
     evaluateMoodButtonState()
-    
-    CoreDataService.saveMood(user: currentUser, date: Date(), value: sender.tag)
-    let moodRef = databaseRef.child("moods").childByAutoId()
-    let moodToStore = TempMood(user: currentUser, state: sender.tag, date: Date().timeIntervalSince1970)
-    moodRef.setValue(moodToStore.toAnyObject())
+    firebaseService.saveMood(for: currentUser, state: sender.tag, date: Date().timeIntervalSince1970)
     sender.userDidSelect()
   }
   
@@ -158,7 +176,7 @@ class HomeViewController: UIViewController {
  func showChallenge() {
     if let challengeToPresent = selectedChallenge{
       let challengeVc = ProgressViewController()
-      challengeVc.challenge = challengeToPresent
+     // challengeVc.challenge = challengeToPresent
       self.navigationController?.pushViewController(challengeVc, animated: true)
       }
     
