@@ -43,7 +43,6 @@ class LoginViewController: UIViewController {
       // Verify connection with Firebase
      LoginService.Source.connect(with: .email, in: self, infos: (loginTextfield.text!,passwordTextfield.text!))
     
-      
     case .failure(_, let message):
       // if not valid display error
       UserAlert.show(title: "Error", message: message.localized(), controller: self)

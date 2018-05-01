@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Firebase
+import FirebaseDatabase
 
 /// TableView Controller that presents all the current challenge for the user
 /// It allows the user to add new challenges
@@ -31,33 +33,33 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
   // MARK: - PROPERTIES //
   // ////////////////// //
   var currentUser = ""
-  var data: [Challenge] = []
-  
-  lazy var fetchedResultsController: NSFetchedResultsController<Challenge> = {
-    // Initialize Fetch Request
-    // 1
-    let fetchRequest: NSFetchRequest<Challenge> = Challenge.fetchRequest()
-    // 2
-    
-    let sort = NSSortDescriptor(key: #keyPath(Challenge.dueDate),
-                                ascending: true)
-    fetchRequest.sortDescriptors = [sort]
-    
-    let statePredicate = NSPredicate(format: "isDone == %@", NSNumber(value: false))
-    let userPredicate = NSPredicate(format: "user = %@", currentUser)
-    let predicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [statePredicate, userPredicate])
-    
-    fetchRequest.predicate = predicate
-    let fetchedResultsController = NSFetchedResultsController(
-      fetchRequest: fetchRequest,
-      managedObjectContext: CoreDataService.managedContext!,
-      sectionNameKeyPath: #keyPath(Challenge.objective),
-      cacheName: "challengeStack")
-    // Configure Fetched Results Controller
-    fetchedResultsController.delegate = self
-    
-    return fetchedResultsController
-  }()
+  var data: [TempChallenge] = []
+  var databaseRef: DatabaseReference!
+//  lazy var fetchedResultsController: NSFetchedResultsController<Challenge> = {
+//    // Initialize Fetch Request
+//    // 1
+//    let fetchRequest: NSFetchRequest<Challenge> = Challenge.fetchRequest()
+//    // 2
+//
+//    let sort = NSSortDescriptor(key: #keyPath(Challenge.dueDate),
+//                                ascending: true)
+//    fetchRequest.sortDescriptors = [sort]
+//
+//    let statePredicate = NSPredicate(format: "isDone == %@", NSNumber(value: false))
+//    let userPredicate = NSPredicate(format: "user = %@", currentUser)
+//    let predicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [statePredicate, userPredicate])
+//
+//    fetchRequest.predicate = predicate
+//    let fetchedResultsController = NSFetchedResultsController(
+//      fetchRequest: fetchRequest,
+//      managedObjectContext: CoreDataService.managedContext!,
+//      sectionNameKeyPath: #keyPath(Challenge.objective),
+//      cacheName: "challengeStack")
+//    // Configure Fetched Results Controller
+//    fetchedResultsController.delegate = self
+//
+//    return fetchedResultsController
+//  }()
   
   let postPoneLauncher = PostPoneLauncher()
   let reuseId = "myCell"
@@ -71,14 +73,28 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    // initialize database
+    databaseRef = Database.database().reference().child("challenges")
+    databaseRef.observe(.value, with: { (snapshot) in
+      var newItems = [TempChallenge]()
+      for item in snapshot.children {
+        let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
+        newItems.insert(newChallenge, at: 0)
+      }
+      self.data = newItems
+      print(newItems)
+      self.tableView.reloadData()
+    }) { (error) in
+      print(error.localizedDescription)
+    }
     if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
       currentUser = user
     }
-    do {
-      try fetchedResultsController.performFetch()
-    } catch let error as NSError {
-      print("Fetching error: \(error), \(error.userInfo)")
-    }
+//    do {
+//      try fetchedResultsController.performFetch()
+//    } catch let error as NSError {
+//      print("Fetching error: \(error), \(error.userInfo)")
+//    }
     
    
     let rightButton: UIBarButtonItem = UIBarButtonItem(
@@ -90,6 +106,7 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    tableView.reloadData()
     NotificationCenter.default.addObserver(self,
                                            selector: #selector(didUpdateDate(notif:)), name: NSNotification.Name(rawValue: "DateValueChanged"),
                                            object: nil)
@@ -101,14 +118,14 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
   }
   
   @objc func didUpdateDate(notif: NSNotification) {
-    if let cell = currentCell {
-   let currentChallenge = self.fetchedResultsController.object(at: cell)
-    
-    let date = (notif.userInfo?["Date"] as? Date)!.timeIntervalSince1970
-    currentChallenge.dueDate = date
-  
-    tableView.reloadData()
-      
-    }
+//    if let cell = currentCell {
+//   let currentChallenge = self.fetchedResultsController.object(at: cell)
+//    
+//    let date = (notif.userInfo?["Date"] as? Date)!.timeIntervalSince1970
+//    currentChallenge.dueDate = date
+//  
+//    tableView.reloadData()
+//      
+//    }
   }
 }

@@ -13,30 +13,6 @@ import CoreData
 
 // 2 types of connexions
 
-enum NetworkConnexion {
-  case local
-  case remote
-  
-  static func checkAvailableNetwork() -> NetworkConnexion {
-    
-    var network: NetworkConnexion = .local
-    guard let status = Network.reachability?.status else { return .local }
-    switch status {
-    case .unreachable:
-     network = .local
-    case .wifi:
-     network = .remote
-    case .wwan:
-       network = .local
-    }
-    print("Reachability Summary")
-    print("Status:", status)
-    print("HostName:", Network.reachability?.hostname ?? "nil")
-    print("Reachable:", Network.reachability?.isReachable ?? "nil")
-    print("Wifi:", Network.reachability?.isReachableViaWiFi ?? "nil")
-    return network
-  }
-}
 
 class FirebaseManager {
   

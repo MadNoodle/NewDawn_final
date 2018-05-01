@@ -31,7 +31,7 @@ struct TempChallenge {
   var map: NSData?
   
   
-  init(user: String, name: String, objective: String, dueDate: Double, anxietyLevel: Int, benefitLevel: Int, isNotified: Bool, destination: String?, destinationLat: Double?, destinationLong: Double?, key: String = "") {
+  init(user: String, name: String, objective: String, dueDate: Double, anxietyLevel: Int, benefitLevel: Int, isNotified: Bool,isDone: Bool,isSuccess:Bool, destination: String?, destinationLat: Double?, destinationLong: Double?, key: String = "") {
     self.ref =  Database.database().reference()
     self.key = key
     self.user = user
@@ -41,8 +41,8 @@ struct TempChallenge {
     self.anxietyLevel = anxietyLevel
     self.benefitLevel = benefitLevel
     self.isNotified = isNotified
-    self.isDone = false
-    self.isSuccess = false
+    self.isDone = isDone
+    self.isSuccess = isSuccess
     self.comment = "No comment"
     if let location = destination {
       self.destination = location
@@ -58,13 +58,13 @@ struct TempChallenge {
   
   init(snapshot: DataSnapshot) {
     guard let dict = snapshot.value as? [String:Any] else { return}
-    self.user = dict["user"] as? String
-    self.name = dict["name"] as? String
-    self.objective = dict["objective"] as? String
-    self.dueDate = dict["dueDate"] as? Double
-    self.anxietyLevel = dict["anxietyLevel"] as? Int
-    self.benefitLevel = dict["benefitLevel"] as? Int
-    self.isNotified = dict["isNotified"] as? Bool
+    self.user = dict["user"] as! String
+    self.name = dict["name"] as! String
+    self.objective = dict["objective"] as! String
+    self.dueDate = dict["dueDate"] as! Double
+    self.anxietyLevel = dict["anxietyLevel"] as! Int
+    self.benefitLevel = dict["benefitLevel"] as! Int
+    self.isNotified = dict["isNotified"] as! Bool
     self.isDone = dict["isdone"] as? Bool
     self.isSuccess = dict["isSuccess"] as? Bool
     self.comment = dict["comment"] as? String

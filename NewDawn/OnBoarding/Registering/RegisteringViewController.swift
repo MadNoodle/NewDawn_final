@@ -12,9 +12,7 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class RegisteringViewController: UIViewController {
-  var databaseRef : DatabaseReference = {
-    return Database.database().reference()
-  }()
+  let firebaseService = FirebaseService()
   // /////////////// //
   // MARK: - OUTLETS //
   // /////////////// //
@@ -38,7 +36,7 @@ class RegisteringViewController: UIViewController {
   // /////////////// //
   // MARK: - ACTIONS //
   // /////////////// //
-
+  
   @IBAction func back(_ sender: UIButton) {
     dismiss(animated: true)
   }
@@ -47,38 +45,34 @@ class RegisteringViewController: UIViewController {
     // check if fields are valid
     let response = Validator.shared.validate(values:
       (ValidationType.email, emailTextField.text!),
-      (ValidationType.password, passwordTextField.text!),
-      (ValidationType.password, repeatPasswordTexfield.text!),
-      (ValidationType.alphabeticString, lastNameTextfield.text!),
-      (ValidationType.alphabeticString, firstNameTextfield.text!))
+                                             (ValidationType.password, passwordTextField.text!),
+                                             (ValidationType.password, repeatPasswordTexfield.text!),
+                                             (ValidationType.alphabeticString, lastNameTextfield.text!),
+                                             (ValidationType.alphabeticString, firstNameTextfield.text!))
     switch response {
     case .success:
-      print("sucess")
-      Auth.auth().createUser(withEmail: emailTextField.text!, password: repeatPasswordTexfield.text!) { (user, error) in
-        
-        if error != nil {
-         
-          UserAlert.show(title: "Sorry", message: error!.localizedDescription, controller: self)
-        } else {
-       if let u = user {
-        UserDefaults.standard.set(u.email!, forKey: "currentUser")
-        let userRef = self.databaseRef.child("users").childByAutoId()
-        let userToStore = TempUser(username: self.emailTextField.text!, password: self.passwordTextField.text!, lastName: self.lastNameTextfield.text!, firstName: self.firstNameTextfield.text!)
-        userRef.setValue(userToStore.toAnyObject())
+      if passwordTextField.text! != repeatPasswordTexfield.text! {
+        // show alert if conditions are not fulfilled
+        UserAlert.show(title: "Error", message: "the two passords are differents, please retry", controller: self)
+      } else{
+        print("success")
+        // set username
+        let fullName = "\(lastNameTextfield.text!) \(firstNameTextfield.text!)"
+        // signup & add to bdd
+        firebaseService.signUp(email: emailTextField.text!, username: fullName, password: passwordTextField.text!, in: self)
+        // set current user
+        UserDefaults.standard.set(emailTextField.text!, forKey: "currentUser")
+        // present controller
         let newHomeVc = MainTabBarController()
         newHomeVc.selectedIndex = 1
-        
-        self.present(newHomeVc, animated: true)
-        }}
-        
-      }
-  
+        self.present(newHomeVc, animated: true)}
+      
+      
     case .failure(_, let message):
       // if not valid display error
-      print(message.localized())
       UserAlert.show(title: "Error", message: message.localized(), controller: self)
     }
-
+    
     
   }
 }

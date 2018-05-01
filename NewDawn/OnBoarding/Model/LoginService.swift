@@ -11,6 +11,7 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 import TwitterKit
 import TwitterCore
 
@@ -34,7 +35,7 @@ class LoginService {
       }
     }
   }
-  
+  static let firebaseService = FirebaseService()
   static let mainVc = MainTabBarController()
   
   static func handleTwitterLogin(in controller: UIViewController) {
@@ -51,7 +52,19 @@ class LoginService {
             return
           }
           if let u = user {
-            validateUser(u.uid, goto: controller)
+            firebaseService.database.queryOrdered(byChild: "email").queryEqual(toValue: "\(u.uid)")
+              .observe(.value) { (snapshot) in
+                
+                if ( snapshot.value is NSNull ) {
+                  print("not found)")
+                  firebaseService.saveInfo(user: u, username: u.uid, password: u.uid)
+                  validateUser(u.uid, goto: controller)
+                } else {
+                  
+                  validateUser(u.uid, goto: controller)
+                }
+            }
+           
           }
         }
         } else {
@@ -79,7 +92,19 @@ class LoginService {
               return
             }
             if let u = user {
-              validateUser(u.email!, goto: controller)
+              firebaseService.database.queryOrdered(byChild: "email").queryEqual(toValue: "\(u.email!)")
+                .observe(.value) { (snapshot) in
+                  
+                  if ( snapshot.value is NSNull ) {
+                    print("not found)")
+                    firebaseService.saveInfo(user: u, username: u.email!, password: u.uid)
+                     validateUser(u.email!, goto: controller)
+                  } else {
+                    
+                    validateUser(u.email!, goto: controller)
+                  }
+              }
+            
             }
             
           }
@@ -89,21 +114,19 @@ class LoginService {
     }
   }
   static func handleMailLogin(login: String, password: String, in controller: UIViewController) {
-    Auth.auth().signIn(withEmail: login, password: password) { (user, error) in
-      // check if error
-      if error != nil {
-        // if so display alert
-        UserAlert.show(title: "Sorry", message:error!.localizedDescription, controller: controller)
-      } else{
-        if let u = user {
-          validateUser(u.email!, goto: controller)
-          DispatchQueue.main.async {
-            FirebaseManager.createUser(u.email!, with: password)
-          }
-        }}
+    
+    firebaseService.database.queryOrdered(byChild: "email").queryEqual(toValue: "\(login)")
+    .observe(.value) { (snapshot) in
       
-      
-  }
+      if ( snapshot.value is NSNull ) {
+        print("not found)")
+        UserAlert.show(title: "This user does not exists", message: "please register", controller: controller)
+      } else {
+        firebaseService.signIn(email: login, password: password, in: controller)
+        validateUser(login, goto: controller)
+      }
+    }
+    
   }
   static func validateUser(_ userId: String, goto controller: UIViewController) {
     UserDefaults.standard.set(userId, forKey: "currentUser")

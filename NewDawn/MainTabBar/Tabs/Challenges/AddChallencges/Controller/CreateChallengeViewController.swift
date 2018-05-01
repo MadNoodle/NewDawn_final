@@ -196,7 +196,7 @@ class CreateChallengeViewController: UIViewController {
     CoreDataService.saveChallenge(user: currentUser, name: titleLabel.text!, dueDate: dueDate, isNotified: isNotified , anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), objective: objective!, location: destination)
       
       let challengeRef = databaseRef.child("challenges").childByAutoId()
-      let challengeToStore = TempChallenge(user: currentUser, name: titleLabel.text!, objective: objective!, dueDate: dueDate, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isNotified: isNotified, destination: destination.locationName, destinationLat: destination.lat, destinationLong: destination.long)
+      let challengeToStore = TempChallenge(user: currentUser, name: titleLabel.text!, objective: objective!, dueDate: dueDate, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isNotified: isNotified, isDone: false, isSuccess: false, destination: destination.locationName, destinationLat: destination.lat, destinationLong: destination.long)
       challengeRef.setValue(challengeToStore.toAnyObject())
       
     let mainVc = MainTabBarController()

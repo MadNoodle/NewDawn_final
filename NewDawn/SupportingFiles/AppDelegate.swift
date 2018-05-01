@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import UserNotifications
 import Firebase
+import FirebaseDatabase
 import FBSDKCoreKit
 import FBSDKLoginKit
 import TwitterKit
@@ -136,7 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     UITabBar.appearance().tintColor = UIConfig.lightGreen
   }
   
-  fileprivate func handleFirebaseInitialization() {
+  func handleFirebaseInitialization() {
     // initialize firebase
     FirebaseApp.configure()
     // initialize Firebase offline persistence
