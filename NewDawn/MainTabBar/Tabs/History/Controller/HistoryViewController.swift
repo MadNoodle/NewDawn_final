@@ -29,8 +29,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   // ////////////////// //
   // MARK: - PROPERTIES //
   // ////////////////// //
-  var firebaseService = FirebaseService()
-  var databaseRef: DatabaseReference!
+
   // Get data
   private var dataSet = [TempMood]()
   private var dataPoints = [TempChallenge]()
@@ -64,11 +63,10 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     // Data Setup
     loadChallenges(for: currentUser, in: dataPoints)
     loadMoods(for: currentUser, in: dataSet)
-    //dataSet = CoreDataService.loadData(for: currentUser)
-    // dataPoints = CoreDataService.loadData(for: currentUser)
+
     
-    
-    amountOfSucceededChallenge = CoreDataService.loadSuccessChallengesCount(for: currentUser)
+    /// Todo amount of success
+    //amountOfSucceededChallenge = CoreDataService.loadSuccessChallengesCount(for: currentUser)
     
     // Set up delegation
     lineChart.delegate = self
@@ -76,8 +74,8 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   }
   
   func loadChallenges(for user: String, in data: [TempChallenge]) {
-    databaseRef = Database.database().reference().child("challenges")
-    databaseRef.observe(.value, with: { (snapshot) in
+    
+    DatabaseService.shared.challengeRef.observe(.value, with: { (snapshot) in
       var newItems = [TempChallenge]()
       for item in snapshot.children {
         let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
@@ -88,11 +86,12 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
       }
       
   })
+    self.dataPoints.sort(by: {$0.dueDate < $1.dueDate})
   }
   
   func loadMoods(for user: String, in data: [TempMood]) {
-    databaseRef = Database.database().reference().child("moods")
-    databaseRef.observe(.value, with: { (snapshot) in
+  
+   DatabaseService.shared.moodRef.observe(.value, with: { (snapshot) in
       var newItems = [TempMood]()
       for item in snapshot.children {
         let newMood = TempMood(snapshot: item as! DataSnapshot)
@@ -101,8 +100,9 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
       for item in newItems where item.user == self.currentUser {
         self.dataSet.insert(item, at: 0)
       }
-      
+    
     })
+    self.dataSet.sort(by: {$0.date < $1.date})
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -493,8 +493,20 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     //send comment from text view to model
     // instantiate pdfCreator
     let pdfCreator = PDFCreator()
+    var array = [TempChallenge]()
     
-    let pages = pdfCreator.pdfLayout(for: CoreDataService.loadData(for: currentUser),
+    DatabaseService.shared.challengeRef.observe(.value, with: { (snapshot) in
+      var newItems = [TempChallenge]()
+      for item in snapshot.children {
+        let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
+        newItems.insert(newChallenge, at: 0)
+      }
+      for item in newItems where item.user == self.currentUser {
+        array.insert(item, at: 0)
+      }
+    })
+    array.sort(by: {$0.dueDate < $1.dueDate})
+    let pages = pdfCreator.pdfLayout(for: array,
                                      mapView: nil,
                                      display: .multipleSummariesReport)
     // Instantiate the PDF previewer

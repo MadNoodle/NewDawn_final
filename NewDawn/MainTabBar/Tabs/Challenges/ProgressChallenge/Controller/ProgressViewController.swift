@@ -9,16 +9,13 @@
 import UIKit
 import MapKit
 import CoreLocation
-
+import Firebase
+import FirebaseDatabase
+import FirebaseStorage
 
 protocol EditableChallenge {
-  var storedDate: Date? {get set}
-  var storedTitle: String? {get set}
-  var storedNotificationState: Bool? {get set}
-  var storedLocation: String? {get set}
-  var storedAnxiety: Int? {get set}
-  var storedBenefit: Int? {get set}
-  var storedObjective: String? {get set}
+  var challengeToSend: TempChallenge? {get set}
+  var challengeKey: String? {get set}
 }
 
 /// This class handles a challenge progess. It allows
@@ -26,29 +23,17 @@ protocol EditableChallenge {
 /// a track is gps position during the challenge, write comments,
 /// and share a pdf report via email
 class ProgressViewController: UIViewController, EditableChallenge {
-  var storedAnxiety: Int?
+  var challengeKey: String?
   
-  var storedBenefit: Int?
-  
-  var storedDate: Date?
-  
-  var storedTitle: String?
-  
-  var storedNotificationState: Bool?
-  
-  var storedLocation: String?
-  
-  var storedObjective: String?
+  var challengeToSend: TempChallenge?
+
   // ////////////////// //
   // MARK: - PROPERTIES //
   // ////////////////// //
   var outputAsData: Bool = false
   // grab the challenge
-  var challenge: Challenge?
-  let context = CoreDataService.managedContext
-  // initiate walk for tracking route
-  let walk = Walk()
-  
+  var challenge: TempChallenge?
+
   // Initiate location functionnality
   let locationManager = CLLocationManager()
   
@@ -110,7 +95,7 @@ class ProgressViewController: UIViewController, EditableChallenge {
   
   /// Used to stop the challenge progress and declare it failed
   @IBAction func invalidateChallenge(_ sender: UIButton) {
-    challenge?.isDone = false
+    challenge?.isDone = 0
     timer?.invalidate()
     locationManager.stopUpdatingLocation()
     mapView.showsUserLocation = false
@@ -124,16 +109,22 @@ class ProgressViewController: UIViewController, EditableChallenge {
     // change state of challenge
     congratulation.showSettings()
     
-    challenge?.isDone = true
+    challenge?.isDone = 1
     challenge?.comment = textView.text
     let screenshot = UIImage(view:mapView)
     // convert image to data
-    let mapImage = UIImagePNGRepresentation(screenshot) as NSData?
-    // store in core data
-    
+    if let mapImage = UIImagePNGRepresentation(screenshot){
+    // store in firebase
+    let storageRef = Storage.storage().reference().child("myImage.png")
+    storageRef.putData(mapImage, metadata: nil) { (metadata, error) in
+      if error != nil {
+        print(error!.localizedDescription)
+      }
+    }
     challenge?.map = mapImage
-    CoreDataService.save()
-    print(challenge!)
+    }
+
+    
     locationManager.stopUpdatingLocation()
     mapView.showsUserLocation = false
   }
@@ -156,20 +147,13 @@ class ProgressViewController: UIViewController, EditableChallenge {
   }
   
   @objc func editChallenge() {
-    guard let mission = challenge else {return}
-    let editVc = CreateChallengeViewController()
+   // guard let mission = challenge else {return}
+    let editVc = EditChallengeViewController()
     editVc.delegate = self
-    storedDate = Date(timeIntervalSince1970: mission.dueDate)
-    storedTitle = mission.name
-    if mission.isNotified {
-      storedNotificationState = true
-    } else {
-    storedNotificationState = false
-    }
-    storedLocation = mission.destination
-    storedAnxiety = Int(mission.anxietyLevel)
-    storedBenefit = Int(mission.benefitLevel)
-    storedObjective = mission.objective
+    challengeToSend = challenge
+   challengeKey = challenge?.key
+    print(challengeKey!)
+
     self.navigationController?.pushViewController(editVc, animated: true)
   }
   
@@ -225,7 +209,8 @@ class ProgressViewController: UIViewController, EditableChallenge {
     self.mapView.setRegion(region, animated: true)
     // load custom annotation for destination
     if let destination = challenge {
-      let challengeDestination: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: destination.destinationLat, longitude: destination.destinationLong)
+      guard let latitude = destination.destinationLat, let longitude = destination.destinationLong else { return}
+      let challengeDestination: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude:latitude , longitude: longitude)
       let annotation = MKPointAnnotation()
       annotation.coordinate = challengeDestination
       mapView.addAnnotation(annotation)

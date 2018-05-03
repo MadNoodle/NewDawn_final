@@ -1,22 +1,23 @@
 ///**
 /**
-NewDawn
-Created by: Mathieu Janneau on 26/04/2018
-Copyright (c) 2018 Mathieu Janneau
-*/
+ NewDawn
+ Created by: Mathieu Janneau on 26/04/2018
+ Copyright (c) 2018 Mathieu Janneau
+ */
 // swiftlint:disable trailing_whitespace
 
 import Foundation
 import UIKit
 import JTAppleCalendar
-
+import Firebase
+import FirebaseDatabase
 
 extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDataSource {
   
   func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
     configureCell(view: cell, cellState: cellState)
   }
-
+  
   func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
     let formatter = DateFormatter()
     formatter.dateFormat = DateFormat.annual.rawValue
@@ -42,19 +43,23 @@ extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDat
   
   func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
     configureCell(view: cell, cellState: cellState)
+    // Initialize cell
     guard let validCell = cell as? CalendarCell else { return}
-    if !validCell.eventDotView.isHidden{
-      print("challenge at this date")
+    // if there is an event do something
+    if !validCell.eventDotView.isHidden {
       let dateToCheck = dateFormatter.string(from: cellState.date)
-      print(dateToCheck)
-      for item in data {
-        let dateForItem = dateFormatter.string(from: Date(timeIntervalSince1970: item.dueDate!))
-        print("BING: \(dateForItem)")
-        if dateForItem == dateToCheck {
-          print("search CoreData")
-          selectedChallenge = item
-           showChallenge()
+      // Grab challenges
+      DatabaseService.shared.challengeRef.observe(.value, with: { (snap) in
+        for item in snap.children {
+          let challenge = TempChallenge(snapshot: item as! DataSnapshot)
+          // set the current challenge according to the seleccted date
+          if let eventDate = challenge.dueDate {
+            if self.dateFormatter.string(from: Date(timeIntervalSince1970: eventDate)) == dateToCheck {
+            self.selectedChallenge = challenge
+          }}
         }
+      }) { (error) in
+        print(error.localizedDescription)
       }
     }
   }
@@ -74,18 +79,17 @@ extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDat
   func calendarSizeForMonths(_ calendar: JTAppleCalendarView?) -> MonthSize? {
     return MonthSize(defaultSize: 50)
   }
-
+  
   func setupViewsOfCalendar(from visibleDates: DateSegmentInfo) {
     guard let startDate = visibleDates.monthDates.first?.date else {
       return
     }
     let month = Calendar.current.dateComponents([.month], from: startDate).month!
     let monthName = DateFormatter().monthSymbols[(month-1) % 12]
-    // 0 indexed array
     let year = Calendar.current.component(.year, from: startDate)
     montDisplay.text = monthName + " " + String(year)
   }
-
+  
   func handleCellEvent(for cell: CalendarCell, with state : CellState) {
     cell.eventDotView.isHidden = !events.contains {$0 == dateFormatter.string(for: state.date)}
     
@@ -112,22 +116,22 @@ extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDat
       }
     }
   }
+  
   func handleCellSelected(for cell: CalendarCell, with state : CellState) {
-    
     if state.isSelected {
       cell.selectedView.isHidden = false
+      if !cell.eventDotView.isHidden { showChallenge()}
     } else {
       cell.selectedView.isHidden = true
     }
+    
+    
   }
   
   func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
-    
     let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! CalendarCell
-    
     cell.dateLabel.text = cellState.text
     configureCell(view: cell, cellState: cellState)
-    
     return cell
   }
   

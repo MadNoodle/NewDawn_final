@@ -10,7 +10,7 @@
 import UIKit
 import JTAppleCalendar
 import Firebase
-import FirebaseDatabase
+
 /// Profil view controller which displays a user summary
 /// and let him access to his personnal data
 class HomeViewController: UIViewController {
@@ -25,65 +25,47 @@ class HomeViewController: UIViewController {
   let dateFormatter = DateFormatter()
   var iii: Date?
   open var events: [String] = []
-  var firebaseService = FirebaseService()
-  var databaseRef: DatabaseReference!
+
   
   // ////////////////// //
   // MARK: - OUTLETS    //
   // ////////////////// //
   
-
+  
   @IBOutlet var moodButtons: [CustomUIButtonForUIToolbar]!
   @IBOutlet weak var calendarView: JTAppleCalendarView!
   @IBOutlet weak var montDisplay: UILabel!
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
   // ///////////////////////// //
-
+  
   
   override func viewDidLoad() {
-
+    
     super.viewDidLoad()
     // load logged user
     if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
       currentUser = user
-      }
+    }
     // set up notification observers
     handleNotifications()
     shouldDisplayUI()
-
+    
     loadEventsDatabase()
-      self.calendarView.reloadData()
+    self.calendarView.reloadData()
     
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    print("DATA2: \(self.data)")
-      databaseRef = Database.database().reference().child("challenges")
-      databaseRef.observe(.value, with: { (snapshot) in
-        var newItems = [TempChallenge]()
-        for item in snapshot.children {
-          let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
-          newItems.insert(newChallenge, at: 0)
-        }
-        for item in newItems where item.user == self.currentUser {
-          self.dateFormatter.dateFormat = DateFormat.annual.rawValue
-          let eventDate = self.dateFormatter.string(from: Date(timeIntervalSince1970: item.dueDate))
-          self.events.append(eventDate)
-        }
-        
-        
-        self.calendarView.reloadData()
-      })
-   print("DATA3: \(self.data)")
-    
+    loadEventsDatabase()
+    self.calendarView.reloadData()
   }
   // ////////////////// //
   // MARK: - UI         //
   // ////////////////// //
   
   fileprivate func shouldDisplayUI() {
-  
+    
     // set up of mood button color behavior on tap
     for button in moodButtons {
       button.typeOfButton = .imageButton
@@ -117,13 +99,12 @@ class HomeViewController: UIViewController {
     self.calendarView.visibleDates {[unowned self] (visibleDates: DateSegmentInfo) in
       self.setupViewsOfCalendar(from: visibleDates)
     }
-   
+    
     
   }
   
   fileprivate func handleNotifications() {
     NotificationCenter.default.addObserver(self, selector:#selector(addChallenge), name: NSNotification.Name(rawValue: "calendarActive"), object: nil)
-    print(currentUser)
   }
   // ////////////////// //
   // MARK: - ACTIONS    //
@@ -134,7 +115,11 @@ class HomeViewController: UIViewController {
   /// - Parameter sender: CustomUIButtonForUIToolbar
   @IBAction func moodButtonTapped(_ sender: CustomUIButtonForUIToolbar) {
     evaluateMoodButtonState()
-    firebaseService.saveMood(for: currentUser, state: sender.tag, date: Date().timeIntervalSince1970)
+    let newMood = ["user": currentUser,
+                   "state": sender.tag,
+                   "date": Date().timeIntervalSince1970] as [String : Any]
+    DatabaseService.shared.moodRef.childByAutoId().setValue(newMood)
+  
     sender.userDidSelect()
   }
   
@@ -147,7 +132,7 @@ class HomeViewController: UIViewController {
     calendarView.reloadData()
   }
   
-
+  
   /// Iterate throught all mood buttons state and reset to
   /// initial color to allow user to to color the last selected Mood
   fileprivate func evaluateMoodButtonState() {
@@ -161,12 +146,13 @@ class HomeViewController: UIViewController {
   // ////////////////// //
   // MARK: - SELECTORS  //
   // ////////////////// //
- func showChallenge() {
-    if let challengeToPresent = selectedChallenge{
+  func showChallenge() {
+    print("bababbababba")
+    if let challengeToPresent = selectedChallenge {
       let challengeVc = ProgressViewController()
-     // challengeVc.challenge = challengeToPresent
+      challengeVc.challenge = challengeToPresent
       self.navigationController?.pushViewController(challengeVc, animated: true)
-      }
+    }
     
   }
   
@@ -188,8 +174,7 @@ class HomeViewController: UIViewController {
   }
   
   fileprivate func loadEventsDatabase() {
-    self.databaseRef = Database.database().reference().child("challenges")
-    self.databaseRef.observe(.value, with: { (snapshot) in
+    DatabaseService.shared.challengeRef.observe(.value, with: { (snapshot) in
       var newItems = [TempChallenge]()
       for item in snapshot.children {
         let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
@@ -200,9 +185,6 @@ class HomeViewController: UIViewController {
         let eventDate = self.dateFormatter.string(from: Date(timeIntervalSince1970: item.dueDate))
         self.events.append(eventDate)
       }
-      
-      print("DATA: \(self.data)")
-      
     })
   }
   

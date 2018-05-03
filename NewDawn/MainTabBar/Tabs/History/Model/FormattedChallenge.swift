@@ -20,7 +20,7 @@ struct FormattedChallenge {
    var isDone: Bool?
    var isNotified: Bool?
    var isSuccess: Bool?
-   var map: NSData?
+   var map: Data?
    var name: String?
    var objective: String?
   var user: String?

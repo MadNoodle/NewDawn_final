@@ -7,6 +7,8 @@
 // swiftlint:disable trailing_whitespace
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 extension MyChallengesViewController {
   
@@ -42,7 +44,9 @@ extension MyChallengesViewController {
     // instantiate progress controller
     let progressVc = ProgressViewController(nibName: nil, bundle: nil)
     // pass data to the controller
-    //progressVc.challenge = currentChallenge
+    progressVc.challenge = currentChallenge
+    challengeKey = currentChallenge.key
+    progressVc.challengeKey = challengeKey
     // present controller
     self.navigationController?.pushViewController(progressVc, animated: true)
   }
@@ -58,32 +62,51 @@ extension MyChallengesViewController {
   
   // MARK: - SLIDE OPTIONS
   
+
+  
   override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     
+    // Done action
     let done = UITableViewRowAction(style: .normal, title: "Done") { _, _ in
-     
-      tableView.reloadData()
+      let updatedChallenge = ["isdone": true]
+      // remove cell
+      self.data.remove(at: indexPath.row)
+      
+      // update DB
+      let ref = self.data[indexPath.row].ref
+      ref?.updateChildValues(updatedChallenge, withCompletionBlock: { (error, ref) in
+        if error != nil {
+          print(error!.localizedDescription)
+        }
+        // update table
+        self.tableView.reloadData()
+      })
     }
     done.backgroundColor = UIConfig.darkGreen
     
-    let postPone = UITableViewRowAction(style: .normal, title: "Edit") { _, _ in
-     
-      let editVc = CreateChallengeViewController()
-      editVc.delegate = self
-
-    }
-    postPone.backgroundColor = UIConfig.lightGreen
-    
     let delete = UITableViewRowAction(style: .normal, title: "Delete") { _, _ in
-    
-      let ref = self.data[indexPath.row].ref
-      ref?.removeValue()
-      self.tableView.reloadData()
+     let ref = self.data[indexPath.row].ref
+      ref?.removeValue(completionBlock: { (error, ref) in
+        if error != nil {
+          print(error!.localizedDescription)
+        }
+        self.data.remove(at: indexPath.row)
+         self.tableView.deleteRows(at: [indexPath], with: .automatic)
+      })
+        
       
+      
+        
+    
       
     }
     delete.backgroundColor = .red
     
-    return [delete, postPone, done]
+    return [delete, done]
+  }
+  
+  fileprivate func updateCellChallenge(_ currentChallenge: TempChallenge) {
+    
+   
   }
 }

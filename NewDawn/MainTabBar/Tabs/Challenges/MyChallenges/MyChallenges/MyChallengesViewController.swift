@@ -14,19 +14,10 @@ import FirebaseDatabase
 /// TableView Controller that presents all the current challenge for the user
 /// It allows the user to add new challenges
 class MyChallengesViewController: UITableViewController, EditableChallenge {
-  var storedDate: Date?
+  var challengeKey: String?
   
-  var storedTitle: String?
-  
-  var storedNotificationState: Bool?
-  
-  var storedLocation: String?
-  
-  var storedAnxiety: Int?
-  
-  var storedBenefit: Int?
-  
-  var storedObjective: String?
+  var challengeToSend: TempChallenge?
+
   
   
   // ////////////////// //
@@ -34,8 +25,8 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
   // ////////////////// //
   var currentUser = ""
   var data: [TempChallenge] = []
-  var firebaseService = FirebaseService()
-  var databaseRef: DatabaseReference!
+//  var firebaseService = FirebaseService()
+//  var databaseRef: DatabaseReference!
   
   let postPoneLauncher = PostPoneLauncher()
   let reuseId = "myCell"
@@ -55,24 +46,21 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
       currentUser = user
      
     }
-  
-    databaseRef = Database.database().reference().child("challenges")
-    databaseRef.observe(.value, with: { (snapshot) in
+    
+    DatabaseService.shared.challengeRef.observe(.value) { (snapshot) in
       var newItems = [TempChallenge]()
       for item in snapshot.children {
+       
         let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
+        print("KEY:\(newChallenge.key!)")
         newItems.insert(newChallenge, at: 0)
       }
       for item in newItems where item.user == self.currentUser {
         self.data.insert(item, at: 0)
       }
-      
-      
       self.tableView.reloadData()
-    }) { (error) in
-      print(error.localizedDescription)
     }
-    
+
 
    
     let rightButton: UIBarButtonItem = UIBarButtonItem(

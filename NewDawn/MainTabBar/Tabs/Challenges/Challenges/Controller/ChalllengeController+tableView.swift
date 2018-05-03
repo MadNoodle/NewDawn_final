@@ -22,10 +22,11 @@ extension ChallengeController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let cellTitle = data[indexPath.row]
-    let createVc = CreateChallengeViewController(nibName: nil, bundle: nil)
+    let createVc = EditChallengeViewController()
     createVc.objective = titleLabel.text
     createVc.tableViewTitle = cellTitle
- self.navigationController?.pushViewController(createVc, animated: true)
+    createVc.source = "create"
+    self.navigationController?.pushViewController(createVc, animated: true)
    
   }
   

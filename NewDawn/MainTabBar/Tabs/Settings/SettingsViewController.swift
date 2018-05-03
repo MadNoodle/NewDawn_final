@@ -43,7 +43,7 @@ var currentUser = ""
     }
 
   @IBAction func resetData(_ sender: UIButton) {
-    CoreDataService.resetCoreDataStack(for: currentUser)
+    //CoreDataService.resetCoreDataStack(for: currentUser)
   }
   @IBAction func logOut(_ sender: UIButton) {
     let firebaseAuth = Auth.auth()

@@ -28,7 +28,7 @@ struct TempChallenge {
   var destinationLat: Double?
   var destinationLong: Double?
   var felt: Int?
-  var map: NSData?
+  var map: Data?
   
   
   init(user: String, name: String, objective: String, dueDate: Double, anxietyLevel: Int, benefitLevel: Int, isNotified: Bool,isDone: Bool,isSuccess:Bool, destination: String?, destinationLat: Double?, destinationLong: Double?, key: String = "") {
