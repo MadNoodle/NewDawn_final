@@ -18,8 +18,8 @@ class HomeViewController: UIViewController {
   // ////////////////// //
   // MARK: - PROPERTIES //
   // ////////////////// //
-  var data: [TempChallenge] = []
-  var selectedChallenge: TempChallenge?
+  var data: [Challenge] = []
+  var selectedChallenge: Challenge?
   /// Reuse id for challenge table view cells
   let reuseId = "myCell"
   let dateFormatter = DateFormatter()
@@ -50,7 +50,7 @@ class HomeViewController: UIViewController {
     // set up notification observers
     handleNotifications()
     shouldDisplayUI()
-    
+
     loadEventsDatabase()
     self.calendarView.reloadData()
     
@@ -110,15 +110,13 @@ class HomeViewController: UIViewController {
   // MARK: - ACTIONS    //
   // ////////////////// //
   
+  
   /// handle the color display behavior when user tap a button
   ///
   /// - Parameter sender: CustomUIButtonForUIToolbar
   @IBAction func moodButtonTapped(_ sender: CustomUIButtonForUIToolbar) {
     evaluateMoodButtonState()
-    let newMood = ["user": currentUser,
-                   "state": sender.tag,
-                   "date": Date().timeIntervalSince1970] as [String : Any]
-    DatabaseService.shared.moodRef.childByAutoId().setValue(newMood)
+    DatabaseService.shared.saveMood(user: currentUser, state: sender.tag, date: Date().timeIntervalSince1970)
   
     sender.userDidSelect()
   }
@@ -175,9 +173,9 @@ class HomeViewController: UIViewController {
   
   fileprivate func loadEventsDatabase() {
     DatabaseService.shared.challengeRef.observe(.value, with: { (snapshot) in
-      var newItems = [TempChallenge]()
+      var newItems = [Challenge]()
       for item in snapshot.children {
-        let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
+        let newChallenge = Challenge(snapshot: item as! DataSnapshot)
         newItems.insert(newChallenge, at: 0)
       }
       for item in newItems where item.user == self.currentUser {

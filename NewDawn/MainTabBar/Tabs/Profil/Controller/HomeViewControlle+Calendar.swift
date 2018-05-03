@@ -51,7 +51,7 @@ extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDat
       // Grab challenges
       DatabaseService.shared.challengeRef.observe(.value, with: { (snap) in
         for item in snap.children {
-          let challenge = TempChallenge(snapshot: item as! DataSnapshot)
+          let challenge = Challenge(snapshot: item as! DataSnapshot)
           // set the current challenge according to the seleccted date
           if let eventDate = challenge.dueDate {
             if self.dateFormatter.string(from: Date(timeIntervalSince1970: eventDate)) == dateToCheck {
@@ -120,7 +120,10 @@ extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDat
   func handleCellSelected(for cell: CalendarCell, with state : CellState) {
     if state.isSelected {
       cell.selectedView.isHidden = false
-      if !cell.eventDotView.isHidden { showChallenge()}
+      if !cell.eventDotView.isHidden {
+        showChallenge()
+        
+      }
     } else {
       cell.selectedView.isHidden = true
     }

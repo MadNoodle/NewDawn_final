@@ -14,7 +14,7 @@ import FirebaseDatabase
 import FirebaseStorage
 
 protocol EditableChallenge {
-  var challengeToSend: TempChallenge? {get set}
+  var challengeToSend: Challenge? {get set}
   var challengeKey: String? {get set}
 }
 
@@ -25,14 +25,14 @@ protocol EditableChallenge {
 class ProgressViewController: UIViewController, EditableChallenge {
   var challengeKey: String?
   
-  var challengeToSend: TempChallenge?
+  var challengeToSend: Challenge?
 
   // ////////////////// //
   // MARK: - PROPERTIES //
   // ////////////////// //
   var outputAsData: Bool = false
   // grab the challenge
-  var challenge: TempChallenge?
+  var challenge: Challenge?
 
   // Initiate location functionnality
   let locationManager = CLLocationManager()
@@ -108,20 +108,19 @@ class ProgressViewController: UIViewController, EditableChallenge {
   @IBAction func validateChallenge(_ sender: UIButton) {
     // change state of challenge
     congratulation.showSettings()
-    
-    challenge?.isDone = 1
-    challenge?.comment = textView.text
-    let screenshot = UIImage(view:mapView)
-    // convert image to data
-    if let mapImage = UIImagePNGRepresentation(screenshot){
-    // store in firebase
-    let storageRef = Storage.storage().reference().child("myImage.png")
-    storageRef.putData(mapImage, metadata: nil) { (metadata, error) in
-      if error != nil {
-        print(error!.localizedDescription)
+      if let key = challenge?.key{
+      challenge?.isDone = 1
+      challenge?.comment = textView.text
+      let screenshot = UIImage(view:mapView)
+      print(screenshot)
+      // convert image to data
+      
+      if let mapImage = UIImagePNGRepresentation(screenshot){
+        
+        DatabaseService.shared.uploadImagePic(data: mapImage,for: key, isDone: 1, isSuccess: 1, comment: textView.text)
+        challenge?.map = mapImage
       }
-    }
-    challenge?.map = mapImage
+    
     }
 
     

@@ -26,7 +26,7 @@ struct FormattedChallenge {
   var user: String?
    var formattedDate: String?
   
-  init (challenge: TempChallenge) {
+  init (challenge: Challenge) {
     self.anxietyLevel = challenge.anxietyLevel
     self.benefitLevel = challenge.benefitLevel
     self.comment = challenge.comment

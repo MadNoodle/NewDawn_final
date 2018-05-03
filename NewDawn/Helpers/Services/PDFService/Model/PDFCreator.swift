@@ -52,15 +52,15 @@ class PDFCreator {
     return controller
   }
 
-  func pdfLayout(for challenges: [TempChallenge], mapView: MKMapView?, display: Layouts) -> [UIView] {
+  func pdfLayout(for challenges: [Challenge], mapView: MKMapView?, display: Layouts) -> [UIView] {
     generatePages(challenges, mapView, &pages, display: display)
     return pages
   }
 
-  func generatePages(_ challenges: [TempChallenge], _ mapView: MKMapView?, _ pages: inout [UIView], display: Layouts) {
+  func generatePages(_ challenges: [Challenge], _ mapView: MKMapView?, _ pages: inout [UIView], display: Layouts) {
     // split array of challenges every x item
     
-    let pagesItems: [[TempChallenge]] = challenges.chunks(5)
+    let pagesItems: [[Challenge]] = challenges.chunks(5)
     
     // generate cells for each page
     for item in pagesItems {
@@ -87,7 +87,7 @@ class PDFCreator {
     }
   }
   
-  func generateDetail(for challenge: TempChallenge, in pageView: UIView, with mapView: MKMapView?) -> UIView {
+  func generateDetail(for challenge: Challenge, in pageView: UIView, with mapView: MKMapView?) -> UIView {
     // Instantiate Detail View
     let detailDisplay =  SingleChallengeExportView()
     
@@ -113,7 +113,7 @@ class PDFCreator {
     return detailDisplay
   }
   
-  func generateCell(for challenge: TempChallenge, in pageView: UIView, with mapView: MKMapView?) -> UIView {
+  func generateCell(for challenge: Challenge, in pageView: UIView, with mapView: MKMapView?) -> UIView {
     
     // Instantitate Cell
     let cell = ReportCellView()

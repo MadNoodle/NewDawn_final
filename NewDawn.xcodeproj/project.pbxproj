@@ -88,13 +88,11 @@
 		B97A5805205930B800473581 /* roundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A5804205930B800473581 /* roundedImage.swift */; };
 		B97A580720595A1C00473581 /* customTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A580620595A1C00473581 /* customTextField.swift */; };
 		B97A580B20595FC700473581 /* nStopSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A580A20595FC700473581 /* nStopSlider.swift */; };
-		B98C32CD2084D04600577B5A /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C32CC2084D04600577B5A /* CoreDataService.swift */; };
 		B98C32CF20850C8500577B5A /* ChallengeDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C32CE20850C8500577B5A /* ChallengeDestination.swift */; };
 		B98C330720865D7300577B5A /* MyChallengeViewController+NSFetchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C330620865D7300577B5A /* MyChallengeViewController+NSFetchResultController.swift */; };
 		B98EF47020945B1C00B366D2 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EF46F20945B1C00B366D2 /* LoginService.swift */; };
-		B98EF4782094BE0500B366D2 /* BackUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EF4772094BE0500B366D2 /* BackUpManager.swift */; };
-		B98EF47C20962C1600B366D2 /* TempChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EF47B20962C1600B366D2 /* TempChallenge.swift */; };
-		B98EF47E209637CE00B366D2 /* TempMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EF47D209637CE00B366D2 /* TempMood.swift */; };
+		B98EF47C20962C1600B366D2 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EF47B20962C1600B366D2 /* Challenge.swift */; };
+		B98EF47E209637CE00B366D2 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EF47D209637CE00B366D2 /* Mood.swift */; };
 		B9A43E1F205C45D2000FDDEE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A43E1E205C45D2000FDDEE /* CustomButton.swift */; };
 		B9A43E22205C6409000FDDEE /* SwitchableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A43E21205C6409000FDDEE /* SwitchableImage.swift */; };
 		B9A43E2C205EA8BF000FDDEE /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A43E2A205EA8BE000FDDEE /* MainTabBarController.swift */; };
@@ -124,7 +122,7 @@
 		B9D4A84020631CCF00313DAB /* XAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D4A83F20631CCF00313DAB /* XAxisFormatter.swift */; };
 		B9D4A84A2064591800313DAB /* smilf___.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9D4A8492064591800313DAB /* smilf___.ttf */; };
 		B9D4A8502065C3B200313DAB /* extensionUIViewControllerChartSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D4A84F2065C3B200313DAB /* extensionUIViewControllerChartSettings.swift */; };
-		B9E6A0D1209B3D030013623C /* DatabseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E6A0D0209B3D030013623C /* DatabseService.swift */; };
+		B9E6A0D1209B3D030013623C /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E6A0D0209B3D030013623C /* DatabaseService.swift */; };
 		B9E6A0D3209B4AAD0013623C /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E6A0D2209B4AAD0013623C /* FirebaseService.swift */; };
 		B9E888D8206FB672009A242F /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E888D6206FB672009A242F /* DestinationViewController.swift */; };
 		B9E888D9206FB672009A242F /* DestinationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E888D7206FB672009A242F /* DestinationViewController.xib */; };
@@ -228,14 +226,12 @@
 		B97A5804205930B800473581 /* roundedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundedImage.swift; sourceTree = "<group>"; };
 		B97A580620595A1C00473581 /* customTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTextField.swift; sourceTree = "<group>"; };
 		B97A580A20595FC700473581 /* nStopSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nStopSlider.swift; sourceTree = "<group>"; };
-		B98C32CC2084D04600577B5A /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		B98C32CE20850C8500577B5A /* ChallengeDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDestination.swift; sourceTree = "<group>"; };
 		B98C330620865D7300577B5A /* MyChallengeViewController+NSFetchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyChallengeViewController+NSFetchResultController.swift"; sourceTree = "<group>"; };
 		B98EF46F20945B1C00B366D2 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		B98EF4712094782900B366D2 /* NewDawn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NewDawn-Bridging-Header.h"; sourceTree = "<group>"; };
-		B98EF4772094BE0500B366D2 /* BackUpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpManager.swift; sourceTree = "<group>"; };
-		B98EF47B20962C1600B366D2 /* TempChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempChallenge.swift; sourceTree = "<group>"; };
-		B98EF47D209637CE00B366D2 /* TempMood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempMood.swift; sourceTree = "<group>"; };
+		B98EF47B20962C1600B366D2 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		B98EF47D209637CE00B366D2 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		B9A43E1E205C45D2000FDDEE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B9A43E21205C6409000FDDEE /* SwitchableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchableImage.swift; sourceTree = "<group>"; };
 		B9A43E2A205EA8BE000FDDEE /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -265,7 +261,7 @@
 		B9D4A83F20631CCF00313DAB /* XAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAxisFormatter.swift; sourceTree = "<group>"; };
 		B9D4A8492064591800313DAB /* smilf___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "smilf___.ttf"; sourceTree = "<group>"; };
 		B9D4A84F2065C3B200313DAB /* extensionUIViewControllerChartSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIViewControllerChartSettings.swift; sourceTree = "<group>"; };
-		B9E6A0D0209B3D030013623C /* DatabseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabseService.swift; sourceTree = "<group>"; };
+		B9E6A0D0209B3D030013623C /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		B9E6A0D2209B4AAD0013623C /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		B9E888D6206FB672009A242F /* DestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 		B9E888D7206FB672009A242F /* DestinationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DestinationViewController.xib; sourceTree = "<group>"; };
@@ -588,7 +584,7 @@
 			children = (
 				B9E6A0D2209B4AAD0013623C /* FirebaseService.swift */,
 				B95BA040207E4CEA00943DA5 /* PDFService */,
-				B9E6A0D0209B3D030013623C /* DatabseService.swift */,
+				B9E6A0D0209B3D030013623C /* DatabaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -762,9 +758,6 @@
 				B95BA046207E5BBF00943DA5 /* Helpers */,
 				B97A57F420585D2100473581 /* SupportingFiles */,
 				B97A57C9205856A800473581 /* Info.plist */,
-				B98EF47D209637CE00B366D2 /* TempMood.swift */,
-				B98EF4772094BE0500B366D2 /* BackUpManager.swift */,
-				B98EF47B20962C1600B366D2 /* TempChallenge.swift */,
 			);
 			path = NewDawn;
 			sourceTree = "<group>";
@@ -838,7 +831,6 @@
 		B98C330820868B4200577B5A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B98C32CC2084D04600577B5A /* CoreDataService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -898,6 +890,8 @@
 		B9A43E2E205EA930000FDDEE /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				B98EF47D209637CE00B366D2 /* Mood.swift */,
+				B98EF47B20962C1600B366D2 /* Challenge.swift */,
 				B95BA047207E5BD800943DA5 /* Tabs */,
 				B95BA048207E5BEE00943DA5 /* Root */,
 			);
@@ -1318,7 +1312,6 @@
 				B9A43E36205EA96D000FDDEE /* CrisisViewController.swift in Sources */,
 				B91FD15B206AAEF700EF4E5C /* ObjectiveCollectionViewCell.swift in Sources */,
 				B94098332080A47B00AB3535 /* RegisteringViewController.swift in Sources */,
-				B98C32CD2084D04600577B5A /* CoreDataService.swift in Sources */,
 				B93BDF3F207A3049000D4E97 /* PDFCreator.swift in Sources */,
 				B9AE1832208A83C400A53E3D /* FormattedChallenge.swift in Sources */,
 				B93BDF45207A7465000D4E97 /* reportCellView.swift in Sources */,
@@ -1334,12 +1327,12 @@
 				B91BCA6A20681096000841D1 /* CustomCalloutView.swift in Sources */,
 				B97A58022058863E00473581 /* UIConfig.swift in Sources */,
 				B9083E4B206DA56800A64587 /* MedicViewController+CLLocation.swift in Sources */,
-				B9E6A0D1209B3D030013623C /* DatabseService.swift in Sources */,
+				B9E6A0D1209B3D030013623C /* DatabaseService.swift in Sources */,
 				B975AC6D207CF89200B7C128 /* MailPresenterViewController.swift in Sources */,
 				B9D4A84020631CCF00313DAB /* XAxisFormatter.swift in Sources */,
 				B93BDF2C20791211000D4E97 /* ProgressViewController+MapViewDelegate.swift in Sources */,
 				B9E6A0D3209B4AAD0013623C /* FirebaseService.swift in Sources */,
-				B98EF47C20962C1600B366D2 /* TempChallenge.swift in Sources */,
+				B98EF47C20962C1600B366D2 /* Challenge.swift in Sources */,
 				B940982F207FE85A00AB3535 /* ResetViewController.swift in Sources */,
 				B97A57BB205856A800473581 /* AppDelegate.swift in Sources */,
 				B93BDF41207A3AA2000D4E97 /* Array+chunks.swift in Sources */,
@@ -1352,7 +1345,6 @@
 				B93BDF3A20796A1A000D4E97 /* PDFPreviewViewController.swift in Sources */,
 				B96C1083206ECCBC00C64CDA /* DateLauncher.swift in Sources */,
 				B9083E35206D708B00A64587 /* Icons.swift in Sources */,
-				B98EF4782094BE0500B366D2 /* BackUpManager.swift in Sources */,
 				B9AE1834208BEB4A00A53E3D /* SortingDateDictionary.swift in Sources */,
 				B91FD169206AF25400EF4E5C /* ChallengeController.swift in Sources */,
 				B93BDF30207915B8000D4E97 /* CongratulationView.swift in Sources */,
@@ -1368,7 +1360,7 @@
 				B9083E49206DA53D00A64587 /* MedicViewController+MapKit.swift in Sources */,
 				B954F6A8209A07360099A5DB /* Location.swift in Sources */,
 				B940982B207FD83800AB3535 /* LoginViewController.swift in Sources */,
-				B98EF47E209637CE00B366D2 /* TempMood.swift in Sources */,
+				B98EF47E209637CE00B366D2 /* Mood.swift in Sources */,
 				B97A580720595A1C00473581 /* customTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

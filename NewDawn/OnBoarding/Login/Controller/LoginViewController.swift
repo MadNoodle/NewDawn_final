@@ -56,13 +56,28 @@ class LoginViewController: UIViewController {
   
   @IBAction func loginWithTwitter(_ sender: UIButton) {
     LoginService.Source.connect(with: .twitter, in: self, infos: nil)
+     showLoader()
   }
+ 
   @IBAction func loginWithFB(_ sender: UIButton) {
     LoginService.Source.connect(with: .facebook, in: self, infos: nil)
+    showLoader()
   }
   
   @IBAction func createAccount(_ sender: GradientButton) {
     let registerVc = RegisteringViewController()
     self.present(registerVc, animated: true)
   }
+  
+  fileprivate func showLoader() {
+    let bgView = UIImageView()
+    bgView.frame = self.view.frame
+    bgView.image = UIImage(named: "bg")
+    let indicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+    indicator.frame = self.view.frame
+    self.view.addSubview(bgView)
+    self.view.addSubview(indicator)
+    indicator.startAnimating()
+  }
+  
 }

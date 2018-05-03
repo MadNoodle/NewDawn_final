@@ -16,7 +16,7 @@ import FirebaseDatabase
 class MyChallengesViewController: UITableViewController, EditableChallenge {
   var challengeKey: String?
   
-  var challengeToSend: TempChallenge?
+  var challengeToSend: Challenge?
 
   
   
@@ -24,7 +24,7 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
   // MARK: - PROPERTIES //
   // ////////////////// //
   var currentUser = ""
-  var data: [TempChallenge] = []
+  var data: [Challenge] = []
 //  var firebaseService = FirebaseService()
 //  var databaseRef: DatabaseReference!
   
@@ -48,11 +48,10 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
     }
     
     DatabaseService.shared.challengeRef.observe(.value) { (snapshot) in
-      var newItems = [TempChallenge]()
+      var newItems = [Challenge]()
       for item in snapshot.children {
        
-        let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
-        print("KEY:\(newChallenge.key!)")
+        let newChallenge = Challenge(snapshot: item as! DataSnapshot)
         newItems.insert(newChallenge, at: 0)
       }
       for item in newItems where item.user == self.currentUser {

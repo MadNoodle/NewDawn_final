@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
-struct Mood {
+struct TempMood {
   
   var user: String!
   var state: Int!

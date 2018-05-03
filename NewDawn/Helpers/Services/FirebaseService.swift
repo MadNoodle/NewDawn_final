@@ -45,10 +45,6 @@ struct FirebaseService {
     }
   }
   
-  
-  
-  
-  
   func signUp(email: String, username: String, password: String, in controller: UIViewController) {
     Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
       if error != nil {

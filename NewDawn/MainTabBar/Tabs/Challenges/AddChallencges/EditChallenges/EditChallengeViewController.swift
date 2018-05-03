@@ -1,9 +1,9 @@
 ///**
 /**
-NewDawn
-Created by: Mathieu Janneau on 02/05/2018
-Copyright (c) 2018 Mathieu Janneau
-*/
+ NewDawn
+ Created by: Mathieu Janneau on 02/05/2018
+ Copyright (c) 2018 Mathieu Janneau
+ */
 // swiftlint:disable trailing_whitespace
 
 import UIKit
@@ -12,14 +12,14 @@ import Firebase
 import FirebaseDatabase
 
 class EditChallengeViewController: UIViewController {
-
+  
   var currentUser = ""
   var destination = ChallengeDestination(locationName: "", lat: 0, long: 0)
   var tableViewTitle: String?
   var isNotified: Bool = false
   var objective: String?
   var challengeDate: Date?
-  var challenge: TempChallenge?
+  var challenge: Challenge?
   var challengeKey: String?
   var delegate: EditableChallenge?
   var source: String?
@@ -55,7 +55,7 @@ class EditChallengeViewController: UIViewController {
       challengeDate = Date(timeIntervalSince1970: challenge.dueDate)
       objective = challenge.objective
       if let location = challenge.destination{
-      locationLabel.text = location}
+        locationLabel.text = location}
       if let state = challenge.isNotified {
         if state == 1 {
           notificationSwitch.isOn = true }
@@ -88,7 +88,7 @@ class EditChallengeViewController: UIViewController {
   // /////////////////////// //
   
   let launcher = DateLauncher()
-
+  
   @IBAction func addDate(_ sender: UIButton) {
     launcher.showSettings()
   }
@@ -178,54 +178,44 @@ class EditChallengeViewController: UIViewController {
   
   @objc func didUpdateLocation(notif:NSNotification) {
     if let location = notif.userInfo!["Location"] as? (Double, Double, String) {
-      
       destination.locationName = location.2
       destination.lat = location.0
       destination.long = location.1
       locationLabel.text = location.2
-      
     }
   }
   
-  var databaseRef : DatabaseReference = {
-    return Database.database().reference()
-  }()
+ 
+
+  
+
   
   @IBAction func updateChallenge(_ sender: GradientButton) {
-     databaseRef = Database.database().reference()
-   
-
+    
     if let dueDate = challengeDate?.timeIntervalSince1970{
       
       if source != nil {
-        print(dueDate)
-
-        let challengeToStore = ["user":currentUser,"name": titleLabel.text!, "objective": objective!, "dueDate": dueDate, "anxietyLevel": Int(anxietySlider.value), "benefitLevel": Int(benefitSlider.value), "isNotified": isNotified, "isDone": false, "isSuccess": false, "destination": destination.locationName, "destinationLat": destination.lat, "destinationLong": destination.long, "comment": ""] as [String : Any]
-        DatabaseService.shared.challengeRef.childByAutoId().setValue(challengeToStore)
-        print("create")
+        
+        DatabaseService.shared.createChallenge(dueDate: dueDate, user: currentUser, name: titleLabel.text!, objective: objective!, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isDone: false, isNotified: isNotified, isSuccess: false,destination: destination.locationName,destinationLat: destination.lat, destinationLong: destination.long )
+      
         
       } else {
-        print("update")
+      
         if delegate != nil {
-        let key = delegate?.challengeKey
-        print("------------------------\(key)")
-       
-        
-        let updatedChallenge = ["user":currentUser,"name": titleLabel.text!, "objective": objective!, "dueDate": dueDate, "anxietyLevel": Int(anxietySlider.value), "benefitLevel": Int(benefitSlider.value), "isNotified": isNotified, "isDone": false, "isSuccess": false, "destination": destination.locationName, "destinationLat": destination.lat, "destinationLong": destination.long, "comment": ""] as [String : Any]
-        
-        DatabaseService.shared.challengeRef.child(key!).updateChildValues(updatedChallenge)
+          // grab uid for challenge
+          let key = delegate?.challengeKey
+          
+          DatabaseService.shared.updateChallenge(dueDate: dueDate,key: key, user: currentUser, name: titleLabel.text!, objective: objective!, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isDone: false, isNotified: isNotified, isSuccess: false,destination: destination.locationName,destinationLat: destination.lat, destinationLong: destination.long )
           
         }
-      // update DB
-     
-
-      let mainVc = MainTabBarController()
-      mainVc.selectedIndex = 1
-      self.present(mainVc,animated: true)
-    }
+        let mainVc = MainTabBarController()
+        mainVc.selectedIndex = 1
+        self.present(mainVc,animated: true)
+      }
     } else {
+      // show an alert if no date is entered
       UserAlert.show(title: "Error", message: "Please enter a valid date", controller: self)}
-      
+    
   }
   
   
@@ -238,5 +228,5 @@ class EditChallengeViewController: UIViewController {
       }
     }
   }
-
+  
 }

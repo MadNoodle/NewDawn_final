@@ -31,10 +31,7 @@ extension MyChallengesViewController {
     } else {
       cell?.statusIndicator.image = UIImage(named: "circle")
     }
-   
-      
-    
-    
+
     return cell!
   }
   
@@ -68,19 +65,16 @@ extension MyChallengesViewController {
     
     // Done action
     let done = UITableViewRowAction(style: .normal, title: "Done") { _, _ in
-      let updatedChallenge = ["isdone": true]
-      // remove cell
-      self.data.remove(at: indexPath.row)
-      
+ 
       // update DB
-      let ref = self.data[indexPath.row].ref
-      ref?.updateChildValues(updatedChallenge, withCompletionBlock: { (error, ref) in
-        if error != nil {
-          print(error!.localizedDescription)
-        }
-        // update table
-        self.tableView.reloadData()
-      })
+      let ref = self.data[indexPath.row]
+      DatabaseService.shared.updateChallenge(dueDate: ref.dueDate, key: ref.key, user: self.currentUser, name: ref.name, objective: ref.objective, anxietyLevel: ref.anxietyLevel, benefitLevel: ref.benefitLevel, isDone: true, isNotified: false, isSuccess: true, destination: "", destinationLat: 0, destinationLong:0)
+      
+      // remove entry in local data
+      self.data.remove(at: indexPath.row)
+       // remove cell
+      self.tableView.deleteRows(at: [indexPath], with: .automatic)
+      
     }
     done.backgroundColor = UIConfig.darkGreen
     
@@ -93,20 +87,10 @@ extension MyChallengesViewController {
         self.data.remove(at: indexPath.row)
          self.tableView.deleteRows(at: [indexPath], with: .automatic)
       })
-        
-      
-      
-        
-    
       
     }
     delete.backgroundColor = .red
-    
     return [delete, done]
   }
   
-  fileprivate func updateCellChallenge(_ currentChallenge: TempChallenge) {
-    
-   
-  }
 }

@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
-struct TempChallenge {
+struct Challenge {
   
   var ref: DatabaseReference!
   var key: String!

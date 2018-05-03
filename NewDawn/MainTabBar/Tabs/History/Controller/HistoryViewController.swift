@@ -32,7 +32,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
 
   // Get data
   private var dataSet = [TempMood]()
-  private var dataPoints = [TempChallenge]()
+  private var dataPoints = [Challenge]()
   var amountOfSucceededChallenge = 0
   var progress = 0.0
   var currentUser = ""
@@ -50,6 +50,25 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   // MARK: - LIFECYCLE METHODS //
   // ///////////////////////// //
   
+  // Model
+  func loadSuccessChallengesCount() -> Int {
+        var result = 0
+    var doneChallenges = [Challenge]()
+    DatabaseService.shared.challengeRef.observe(.value, with: { (snapshot) in
+      var newItems = [Challenge]()
+      for item in snapshot.children {
+        let newChallenge = Challenge(snapshot: item as! DataSnapshot)
+        newItems.insert(newChallenge, at: 0)
+      }
+      for item in newItems where item.user == self.currentUser && item.isDone == 1{
+        doneChallenges.append(item)
+        result = doneChallenges.count
+      }
+    })
+        return result
+      }
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // UI Setup
@@ -66,19 +85,19 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
 
     
     /// Todo amount of success
-    //amountOfSucceededChallenge = CoreDataService.loadSuccessChallengesCount(for: currentUser)
+    amountOfSucceededChallenge = loadSuccessChallengesCount()
     
     // Set up delegation
     lineChart.delegate = self
     barChart.delegate = self
   }
   
-  func loadChallenges(for user: String, in data: [TempChallenge]) {
+  func loadChallenges(for user: String, in data: [Challenge]) {
     
     DatabaseService.shared.challengeRef.observe(.value, with: { (snapshot) in
-      var newItems = [TempChallenge]()
+      var newItems = [Challenge]()
       for item in snapshot.children {
-        let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
+        let newChallenge = Challenge(snapshot: item as! DataSnapshot)
         newItems.insert(newChallenge, at: 0)
       }
       for item in newItems where item.user == self.currentUser {
@@ -191,7 +210,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   
   
   //////////////////////:REFACTOR TO MODEL
-  func getSucceededChallengeByDate(data: [TempChallenge]) -> [(Double, Double)] {
+  func getSucceededChallengeByDate(data: [Challenge]) -> [(Double, Double)] {
     
     var formattedChallenges = [FormattedChallenge]()
     
@@ -242,7 +261,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   /// Allows the user to display a set of data in a Bar chart with
   /// a time based X axis and a value Y axis
   /// - Parameter data: [Challenge]
-  private func shouldDisplayBarChart(with data: [TempChallenge]) {
+  private func shouldDisplayBarChart(with data: [Challenge]) {
     // grab succeeded challenges
     
    
@@ -493,12 +512,12 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     //send comment from text view to model
     // instantiate pdfCreator
     let pdfCreator = PDFCreator()
-    var array = [TempChallenge]()
+    var array = [Challenge]()
     
     DatabaseService.shared.challengeRef.observe(.value, with: { (snapshot) in
-      var newItems = [TempChallenge]()
+      var newItems = [Challenge]()
       for item in snapshot.children {
-        let newChallenge = TempChallenge(snapshot: item as! DataSnapshot)
+        let newChallenge = Challenge(snapshot: item as! DataSnapshot)
         newItems.insert(newChallenge, at: 0)
       }
       for item in newItems where item.user == self.currentUser {
