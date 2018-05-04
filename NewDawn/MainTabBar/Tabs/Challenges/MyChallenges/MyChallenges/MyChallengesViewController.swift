@@ -70,11 +70,9 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
     tableView.register(UINib(nibName: "ChallengeDetailCell", bundle: nil), forCellReuseIdentifier: reuseId)
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    tableView.reloadData()
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(didUpdateDate(notif:)), name: NSNotification.Name(rawValue: "DateValueChanged"),
-                                           object: nil)
+
+  override func viewWillDisappear(_ animated: Bool) {
+    self.data.removeAll()
   }
   
   @objc func addChallenge() {
@@ -82,15 +80,4 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
     self.navigationController?.pushViewController(objectiveVc, animated: true)
   }
   
-  @objc func didUpdateDate(notif: NSNotification) {
-//    if let cell = currentCell {
-//   let currentChallenge = self.fetchedResultsController.object(at: cell)
-//    
-//    let date = (notif.userInfo?["Date"] as? Date)!.timeIntervalSince1970
-//    currentChallenge.dueDate = date
-//  
-//    tableView.reloadData()
-//      
-//    }
-  }
 }

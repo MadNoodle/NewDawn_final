@@ -7,12 +7,12 @@ Copyright (c) 2018 Mathieu Janneau
 // swiftlint:disable trailing_whitespace
 import UIKit
 
-class Congratulation: NSObject {
+class Popup: NSObject {
   
   // ///////////// //
   // MARK: - VIEWS //
   // ///////////// //
-  
+
   let blackView = UIView()
   
   let container: UIView = {
@@ -23,7 +23,7 @@ class Congratulation: NSObject {
   
   let titleLabel: UILabel = {
     let label = UILabel()
-    label.text = "CONGRATULATIONS !"
+    
     label.font = UIFont(name: UIConfig.lightFont, size: 24)
     label.textAlignment = .center
     return label
@@ -31,7 +31,7 @@ class Congratulation: NSObject {
   
   let subTitleLabel: UILabel = {
     let label = UILabel()
-    label.text = "You did it"
+    
     label.font = UIFont(name: UIConfig.lightFont, size: 18)
     label.textAlignment = .center
     return label
@@ -39,7 +39,7 @@ class Congratulation: NSObject {
   
   let reward: UIImageView = {
     let imageView = UIImageView()
-    imageView.image = UIImage(named: "thumbsUp")
+    // imageView.image = UIImage(named: "thumbsUp")
     return imageView
   }()
   
@@ -90,7 +90,7 @@ class Congratulation: NSObject {
     let newOrigin: CGPoint = CGPoint(x: window.frame.width / 6, y: window.frame.height / 3)
     container.frame = CGRect(x: window.frame.width / 6, y: window.frame.height / 3, width: window.frame.width / 1.5, height: window.frame.height / 2.5)
     titleLabel.frame = CGRect(x: newOrigin.x, y: newOrigin.y + 16.0, width: self.container.frame.width, height: 30)
-    subTitleLabel.frame = CGRect(x: newOrigin.x, y: newOrigin.y + 54.0, width: self.container.frame.width, height: 20)
+    subTitleLabel.frame = CGRect(x: newOrigin.x, y: newOrigin.y + 54.0, width: self.container.frame.width, height: 30)
     reward.frame = CGRect(x: newOrigin.x - thumbSize / 2 + self.container.frame.width / 2, y: newOrigin.y + 95, width: thumbSize, height: thumbSize)
   }
  
@@ -99,7 +99,6 @@ class Congratulation: NSObject {
   // ///////////////// //
   
   @objc func handleDismiss() {
-    print("boom")
     UIView.animate(withDuration: 0.5) {
       self.blackView.alpha = 0
       self.container.alpha = 0
@@ -115,8 +114,13 @@ class Congratulation: NSObject {
   // MARK: - INIT //
   // //////////// //
   
-  override init() {
-    super.init()
+  init(title: String, message: String, image: UIImage) {
     
+    titleLabel.text = title
+    // label.text = "CONGRATULATIONS !"
+    subTitleLabel.text = message
+    // "You did it"
+    reward.image = image
+    super.init()
   }
 }

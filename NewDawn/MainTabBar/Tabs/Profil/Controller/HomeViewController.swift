@@ -70,11 +70,8 @@ class HomeViewController: UIViewController {
     for button in moodButtons {
       button.typeOfButton = .imageButton
     }
-    
-    let rightButton: UIBarButtonItem = UIBarButtonItem(
-      barButtonSystemItem: .add,
-      target: self,
-      action: #selector(addChallenge))
+   
+    let rightButton: UIBarButtonItem =  UIBarButtonItem(title: "add challenge", style: .done, target: self, action: #selector(addChallenge))
     self.navigationItem.rightBarButtonItem = rightButton
     setupCalendarView()
   }
@@ -95,7 +92,7 @@ class HomeViewController: UIViewController {
     calendarView.isScrollEnabled = false
     calendarView.scrollToDate(Date(),animateScroll: false)
     calendarView.selectDates([Date()])
-    calendarView.scrollingMode = .stopAtEachCalendarFrame
+    //calendarView.scrollingMode = .stopAtEachCalendarFrame
     self.calendarView.visibleDates {[unowned self] (visibleDates: DateSegmentInfo) in
       self.setupViewsOfCalendar(from: visibleDates)
     }
@@ -145,7 +142,6 @@ class HomeViewController: UIViewController {
   // MARK: - SELECTORS  //
   // ////////////////// //
   func showChallenge() {
-    print("bababbababba")
     if let challengeToPresent = selectedChallenge {
       let challengeVc = ProgressViewController()
       challengeVc.challenge = challengeToPresent
@@ -156,26 +152,27 @@ class HomeViewController: UIViewController {
   
   @objc func addChallenge() {
     let alert = UIAlertController(title: "Add a New Challenge", message: "", preferredStyle: .actionSheet) // 1
-    let firstAction = UIAlertAction(title: "New Challenge", style: .default) { (alert: UIAlertAction!) -> Void in
+    let firstAction = UIAlertAction(title: "New Challenge", style: .default) { (_) -> Void in
       let objVc = ObjectiveViewController()
       // Renvoyer la date
       self.navigationController?.pushViewController(objVc, animated: true)
     } // 2
     
-    let secondAction = UIAlertAction(title: "Cancel", style: .default) { (alert: UIAlertAction!) -> Void in
+    let secondAction = UIAlertAction(title: "Cancel", style: .default) { (_) -> Void in
       NSLog("You pressed button two")
     } // 3
     
     alert.addAction(firstAction) // 4
     alert.addAction(secondAction) // 5
-    present(alert, animated: true, completion:nil) // 6
+    present(alert, animated: true, completion: nil) // 6
   }
   
   fileprivate func loadEventsDatabase() {
     DatabaseService.shared.challengeRef.observe(.value, with: { (snapshot) in
       var newItems = [Challenge]()
       for item in snapshot.children {
-        let newChallenge = Challenge(snapshot: item as! DataSnapshot)
+        guard let challenge = item as? DataSnapshot else { return}
+        let newChallenge = Challenge(snapshot: challenge)
         newItems.insert(newChallenge, at: 0)
       }
       for item in newItems where item.user == self.currentUser {

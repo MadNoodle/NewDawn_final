@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
     switch response {
     case .success:
       // Verify connection with Firebase
-     LoginService.Source.connect(with: .email, in: self, infos: (loginTextfield.text!,passwordTextfield.text!))
+     LoginService.shared.connect(with: .email, in: self, infos: (loginTextfield.text!,passwordTextfield.text!))
     
     case .failure(_, let message):
       // if not valid display error
@@ -55,12 +55,12 @@ class LoginViewController: UIViewController {
   }
   
   @IBAction func loginWithTwitter(_ sender: UIButton) {
-    LoginService.Source.connect(with: .twitter, in: self, infos: nil)
+    LoginService.shared.connect(with: .twitter, in: self, infos: nil)
      showLoader()
   }
  
   @IBAction func loginWithFB(_ sender: UIButton) {
-    LoginService.Source.connect(with: .facebook, in: self, infos: nil)
+    LoginService.shared.connect(with: .facebook, in: self, infos: nil)
     showLoader()
   }
   

@@ -93,8 +93,10 @@ class ProgressViewController: UIViewController, EditableChallenge {
     }
   }
   
+  let sorryPop = Popup(title: "NICE TRY", message: "You are making progresses", image: UIImage(named: "tryAgain")!)
   /// Used to stop the challenge progress and declare it failed
   @IBAction func invalidateChallenge(_ sender: UIButton) {
+    sorryPop.showSettings()
     challenge?.isDone = 0
     timer?.invalidate()
     locationManager.stopUpdatingLocation()
@@ -102,12 +104,12 @@ class ProgressViewController: UIViewController, EditableChallenge {
   }
   
   /// Instatiate the challenge helper object
-  let congratulation = Congratulation()
+  let popup = Popup(title: "CONGRATULATIONS", message: "You did it", image: UIImage(named: "thumbsUp")!)
   
   /// Used to stop the current challenge progress and declare it done
   @IBAction func validateChallenge(_ sender: UIButton) {
     // change state of challenge
-    congratulation.showSettings()
+    popup.showSettings()
       if let key = challenge?.key{
       challenge?.isDone = 1
       challenge?.comment = textView.text
@@ -168,7 +170,7 @@ class ProgressViewController: UIViewController, EditableChallenge {
       challengeLabel.text = currentChallenge.name
       // Convert double to date
       let date = Date(timeIntervalSince1970: currentChallenge.dueDate)
-      dateLabel.text = date.convertToString(format: .dayHourMinute)
+      dateLabel.text = date.convertToString(format: .day)
     }
     
     

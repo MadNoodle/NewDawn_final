@@ -43,7 +43,21 @@ var currentUser = ""
     }
 
   @IBAction func resetData(_ sender: UIButton) {
-    //CoreDataService.resetCoreDataStack(for: currentUser)
+    let alert = UIAlertController(title: "Warning", message: "You are about to delete all your data", preferredStyle: .actionSheet) // 1
+    let firstAction = UIAlertAction(title: "Delete", style: .default) { (alert: UIAlertAction!) -> Void in
+      DatabaseService.shared.purgeChallenges(for: self.currentUser)
+      DatabaseService.shared.purgeMoods(for: self.currentUser)
+    } // 2
+    
+    let secondAction = UIAlertAction(title: "Cancel", style: .default) { (alert: UIAlertAction!) -> Void in
+      NSLog("You pressed button two")
+    } // 3
+    
+    alert.addAction(firstAction) // 4
+    alert.addAction(secondAction) // 5
+    present(alert, animated: true, completion:nil) // 6
+    
+   
   }
   @IBAction func logOut(_ sender: UIButton) {
     let firebaseAuth = Auth.auth()

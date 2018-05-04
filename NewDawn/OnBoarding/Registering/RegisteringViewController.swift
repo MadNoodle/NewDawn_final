@@ -17,7 +17,7 @@ class RegisteringViewController: UIViewController {
   // MARK: - OUTLETS //
   // /////////////// //
   
-  @IBOutlet weak var profilPicture: RoundedImage!
+
   @IBOutlet weak var lastNameTextfield: CustomTextField!
   @IBOutlet weak var firstNameTextfield: CustomTextField!
   @IBOutlet weak var emailTextField: CustomTextField!
@@ -30,8 +30,15 @@ class RegisteringViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // Do any additional setup after loading the view.
+   
+    lastNameTextfield.placeholder = "Lastname"
+    firstNameTextfield.placeholder = "Firstname"
+    emailTextField.placeholder = "E-mail"
+    repeatPasswordTexfield.placeholder = "Enter password"
+    passwordTextField.placeholder = "Re-enter password"
   }
+  
+
   
   // /////////////// //
   // MARK: - ACTIONS //

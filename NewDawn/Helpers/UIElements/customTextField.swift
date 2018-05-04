@@ -14,6 +14,7 @@ class CustomTextField: UITextField {
   @IBInspectable var color: UIColor = UIConfig.lightGreen
   
   override func layoutSubviews() {
+    super.layoutSubviews()
     let separator = CAShapeLayer()
     let path = UIBezierPath()
     path.move(to: CGPoint(x: 0, y: self.frame.height - dividerOffset))
@@ -23,5 +24,6 @@ class CustomTextField: UITextField {
     separator.strokeColor = color.cgColor
     self.layer.insertSublayer(separator, at: 0)
     self.borderStyle = .none
+    
   }
 }

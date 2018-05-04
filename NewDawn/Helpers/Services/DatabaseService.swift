@@ -16,7 +16,6 @@ class DatabaseService {
   private init() {}
 
   let challengeRef = Database.database().reference().child("challenges")
-  
   let moodRef = Database.database().reference().child("moods")
   let storageRef = Storage.storage().reference()
   
@@ -154,6 +153,27 @@ class DatabaseService {
     }
   }
     
-    
+  func purgeChallenges(for user: String) {
+    challengeRef.observe(.value) { (snapshot) in
+      for item in snapshot.children {
+        
+        let newChallenge = Challenge(snapshot: item as! DataSnapshot)
+        if newChallenge.user == user {
+          self.challengeRef.child(newChallenge.key).removeValue()
+        }
+      }
+    }
+  }
+
+  func purgeMoods(for user: String) {
+    moodRef.observe(.value) { (snapshot) in
+      for item in snapshot.children {
+        let newMood = TempMood(snapshot: item as! DataSnapshot)
+        if newMood.user == user {
+          self.moodRef.child(newMood.key).removeValue()
+        }
+      }
+    }
+  }
   
 }

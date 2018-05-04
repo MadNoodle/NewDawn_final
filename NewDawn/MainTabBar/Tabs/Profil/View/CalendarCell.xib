@@ -21,10 +21,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a7I-Je-esa">
-                        <rect key="frame" x="7.5" y="7.5" width="35" height="35"/>
+                        <rect key="frame" x="7" y="7" width="36" height="36"/>
                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="35" id="3E0-cn-wat"/>
+                            <constraint firstAttribute="width" constant="36" id="3E0-cn-wat"/>
                             <constraint firstAttribute="width" secondItem="a7I-Je-esa" secondAttribute="height" multiplier="1:1" id="CAs-Ws-C0F"/>
                         </constraints>
                     </view>
@@ -35,10 +35,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot" translatesAutoresizingMaskIntoConstraints="NO" id="CrB-37-9gS">
-                        <rect key="frame" x="23.5" y="34" width="3" height="3"/>
+                        <rect key="frame" x="21" y="34" width="8" height="8"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="3" id="T7i-Yj-KxE"/>
-                            <constraint firstAttribute="height" constant="3" id="fki-Cv-lqg"/>
+                            <constraint firstAttribute="width" constant="8" id="T7i-Yj-KxE"/>
+                            <constraint firstAttribute="height" constant="8" id="fki-Cv-lqg"/>
                         </constraints>
                     </imageView>
                 </subviews>

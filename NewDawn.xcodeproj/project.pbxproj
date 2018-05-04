@@ -36,7 +36,7 @@
 		B91FD16E206BC84700EF4E5C /* ChallengeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91FD16D206BC84700EF4E5C /* ChallengeType.swift */; };
 		B93BDF2C20791211000D4E97 /* ProgressViewController+MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93BDF2B20791211000D4E97 /* ProgressViewController+MapViewDelegate.swift */; };
 		B93BDF2E2079126F000D4E97 /* ProgressViewController+CLlocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93BDF2D2079126F000D4E97 /* ProgressViewController+CLlocationManager.swift */; };
-		B93BDF30207915B8000D4E97 /* CongratulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93BDF2F207915B8000D4E97 /* CongratulationView.swift */; };
+		B93BDF30207915B8000D4E97 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93BDF2F207915B8000D4E97 /* PopupView.swift */; };
 		B93BDF3A20796A1A000D4E97 /* PDFPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93BDF3820796A1A000D4E97 /* PDFPreviewViewController.swift */; };
 		B93BDF3B20796A1A000D4E97 /* PDFPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B93BDF3920796A1A000D4E97 /* PDFPreviewViewController.xib */; };
 		B93BDF3D207A164B000D4E97 /* UIImage+snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93BDF3C207A164B000D4E97 /* UIImage+snapshot.swift */; };
@@ -170,7 +170,7 @@
 		B91FD16D206BC84700EF4E5C /* ChallengeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeType.swift; sourceTree = "<group>"; };
 		B93BDF2B20791211000D4E97 /* ProgressViewController+MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressViewController+MapViewDelegate.swift"; sourceTree = "<group>"; };
 		B93BDF2D2079126F000D4E97 /* ProgressViewController+CLlocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressViewController+CLlocationManager.swift"; sourceTree = "<group>"; };
-		B93BDF2F207915B8000D4E97 /* CongratulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CongratulationView.swift; path = NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/View/CongratulationView.swift; sourceTree = SOURCE_ROOT; };
+		B93BDF2F207915B8000D4E97 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopupView.swift; path = NewDawn/Helpers/UIElements/PopupView.swift; sourceTree = SOURCE_ROOT; };
 		B93BDF3820796A1A000D4E97 /* PDFPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreviewViewController.swift; sourceTree = "<group>"; };
 		B93BDF3920796A1A000D4E97 /* PDFPreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PDFPreviewViewController.xib; sourceTree = "<group>"; };
 		B93BDF3C207A164B000D4E97 /* UIImage+snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+snapshot.swift"; sourceTree = "<group>"; };
@@ -546,8 +546,8 @@
 		B93822922080EB2700E07762 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				B95BA05D207E6B3800943DA5 /* SettingsViewController.swift */,
-				B95BA05E207E6B3800943DA5 /* SettingsViewController.xib */,
+				B9E6A0D4209CD2B10013623C /* View */,
+				B9E6A0D5209CD2BB0013623C /* Controller */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -693,7 +693,6 @@
 			isa = PBXGroup;
 			children = (
 				B910501B2077AE3600CE6B3E /* ProgressViewController.xib */,
-				B93BDF2F207915B8000D4E97 /* CongratulationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -806,6 +805,7 @@
 		B97A57FB2058804A00473581 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				B93BDF2F207915B8000D4E97 /* PopupView.swift */,
 				B97A57FF205881DC00473581 /* Trapezium.swift */,
 				B97A57F9205875AB00473581 /* GradientButton.swift */,
 				B97A5804205930B800473581 /* roundedImage.swift */,
@@ -862,9 +862,9 @@
 		B9936C912077AC1300EFBF44 /* ProgressChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				B974079A2078D07F0034333E /* Model */,
 				B974079C2078D0900034333E /* View */,
 				B974079B2078D0880034333E /* Controller */,
-				B974079A2078D07F0034333E /* Model */,
 			);
 			path = ProgressChallenge;
 			sourceTree = "<group>";
@@ -959,6 +959,38 @@
 			path = MyChallenges;
 			sourceTree = "<group>";
 		};
+		B9E6A0D4209CD2B10013623C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B95BA05E207E6B3800943DA5 /* SettingsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B9E6A0D5209CD2BB0013623C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B95BA05D207E6B3800943DA5 /* SettingsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B9E6A0D6209CD2D50013623C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B9E888D6206FB672009A242F /* DestinationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B9E6A0D7209CD2DD0013623C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B9E888D7206FB672009A242F /* DestinationViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B9E888D1206FB5ED009A242F /* AddChallencges */ = {
 			isa = PBXGroup;
 			children = (
@@ -971,8 +1003,8 @@
 		B9E888D5206FB648009A242F /* SearchLocation */ = {
 			isa = PBXGroup;
 			children = (
-				B9E888D6206FB672009A242F /* DestinationViewController.swift */,
-				B9E888D7206FB672009A242F /* DestinationViewController.xib */,
+				B9E6A0D6209CD2D50013623C /* Controller */,
+				B9E6A0D7209CD2DD0013623C /* View */,
 			);
 			path = SearchLocation;
 			sourceTree = "<group>";
@@ -1347,7 +1379,7 @@
 				B9083E35206D708B00A64587 /* Icons.swift in Sources */,
 				B9AE1834208BEB4A00A53E3D /* SortingDateDictionary.swift in Sources */,
 				B91FD169206AF25400EF4E5C /* ChallengeController.swift in Sources */,
-				B93BDF30207915B8000D4E97 /* CongratulationView.swift in Sources */,
+				B93BDF30207915B8000D4E97 /* PopupView.swift in Sources */,
 				B9D4A8502065C3B200313DAB /* extensionUIViewControllerChartSettings.swift in Sources */,
 				B9083E39206D99D800A64587 /* ChalllengeController+tableView.swift in Sources */,
 				B9B933DF2076480E0011B1F9 /* MyChallengesViewController+tableView.swift in Sources */,

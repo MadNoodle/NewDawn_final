@@ -40,6 +40,8 @@ struct FirebaseService {
         print(error!.localizedDescription)
       } else {
         if let user = user {
+        print(user)
+          
         }
       }
     }

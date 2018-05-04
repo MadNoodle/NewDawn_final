@@ -12,7 +12,7 @@ class LocalisationString {
   
   // MARK: - VC TITLES
   
-  static let profilVcTitle = "Profil"
+  static let profilVcTitle = "Today"
   static let challengesVcTitle = "Challenges"
   static let crisisVcTitle = "Crisis"
   static let historyVcTitle = "History"
@@ -30,4 +30,7 @@ class LocalisationString {
   static let mime = "application/pdf"
   static let attachmentFormat = "pdf"
   static let attachmentName = "NewDawnReport"
+  
+  // MARK: - ALERT MESSAGES
+  static let sorry = "Sorry"
 }

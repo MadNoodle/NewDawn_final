@@ -15,111 +15,136 @@ import FirebaseDatabase
 import TwitterKit
 import TwitterCore
 
-
+/// This service handle all the login process according to the different ways : email, Facebook, Twitter
 class LoginService {
+  
+  /// Public Access Point to the singleton pattern
+  static let shared = LoginService()
+  private init() {}
+  
+  /// Instantiate FirebaseService methods for login
+  let firebaseService = FirebaseService()
+  
+  /// Main View Controller displayed if login succeed
+  let mainVc = MainTabBarController()
+  
+  /// Different kind of login offered to the user
+  ///
+  /// - email: user wants to log with his email
+  /// - facebook: user wants to log with his FB account
+  /// - twitter: user wants to log with his Twitter account
   enum Source {
     case email
     case facebook
     case twitter
-    
-    static func connect( with provider: Source, in controller: UIViewController, infos: (String, String)?) {
-      switch provider {
-      case .email:
-        guard let connectors = infos else {return}
-        LoginService.handleMailLogin(login: connectors.0, password: connectors.1, in: controller)
-      case .facebook:
-        LoginService.handleFBLogin(in: controller)
-      case .twitter:
-        LoginService.handleTwitterLogin(in: controller)
-      }
+  }
+  
+  /// This method handle the connection process with the type and the user infos
+  ///
+  /// - Parameters:
+  ///   - provider: Source Connection type
+  ///   - controller: Controller displaying the login screen
+  ///   - infos: User infos
+  func connect( with provider: Source, in controller: UIViewController, infos: (String, String)?) {
+    switch provider {
+    case .email:
+      // User infos
+      guard let connectors = infos else {return}
+      LoginService.shared.handleMailLogin(login: connectors.0, password: connectors.1, in: controller)
+    case .facebook:
+      LoginService.shared.handleFBLogin(in: controller)
+    case .twitter:
+      LoginService.shared.handleTwitterLogin(in: controller)
     }
   }
   
-  static let firebaseService = FirebaseService()
   
-  static let mainVc = MainTabBarController()
   
-  static func handleTwitterLogin(in controller: UIViewController) {
-    
+  /// This methods calls the Twitter SDK and Firebase to hanfdle user login
+  ///
+  /// - Parameter controller: Controller which displays the login screen
+  func handleTwitterLogin(in controller: UIViewController) {
+    // Calls Twitter SDK login function
     TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
       if session != nil {
+        // check if app receive the user token and allows connection
         guard let authToken = session?.authToken, let authTokenSecret = session?.authTokenSecret else { return}
-        
+        // stores it in credential
         let credential = TwitterAuthProvider.credential(withToken: authToken, secret: authTokenSecret)
-        
+        // Pass it to Firebase Authentication
         Auth.auth().signIn(with: credential) { (user, error) in
           if let error = error {
-            UserAlert.show(title: "Sorry", message: error.localizedDescription, controller: controller)
+            // Shows an alert if error
+            UserAlert.show(title: LocalisationString.sorry, message: error.localizedDescription, controller: controller)
             return
           }
-          if let u = user {
-            firebaseService.database.queryOrdered(byChild: "email").queryEqual(toValue: "\(u.uid)")
+          
+          if let usr = user {
+            // check if user exists in database
+            self.firebaseService.database.queryOrdered(byChild: "email").queryEqual(toValue: "\(usr.uid)")
               .observe(.value) { (snapshot) in
                 
-                if ( snapshot.value is NSNull ) {
-                  print("not found)")
-                  firebaseService.saveInfo(user: u, username: u.uid, password: u.uid)
-                  validateUser(u.uid, goto: controller)
+                if snapshot.value is NSNull {
+                  // if user does not exists in database create a user entry
+                  self.firebaseService.saveInfo(user: usr, username: usr.uid, password: usr.uid)
+                  self.validateUser(usr.uid, goto: controller)
                 } else {
-                  
-                  validateUser(u.uid, goto: controller)
+                  self.validateUser(usr.uid, goto: controller)
                 }
             }
            
           }
         }
         } else {
-        UserAlert.show(title: "Sorry", message: (error?.localizedDescription)!, controller: controller)
+        UserAlert.show(title: LocalisationString.sorry, message: (error?.localizedDescription)!, controller: controller)
       }
     })
   }
   
-  static func handleFBLogin(in controller: UIViewController) {
+  func handleFBLogin(in controller: UIViewController) {
     
-    let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+    let fbLoginManager: FBSDKLoginManager = FBSDKLoginManager()
     fbLoginManager.logIn(withReadPermissions: ["email"], from: controller) { (result, error) -> Void in
-      if (error == nil){
-        let fbloginresult : FBSDKLoginManagerLoginResult = result!
+      if error == nil {
+        let fbloginresult: FBSDKLoginManagerLoginResult = result!
         // if user cancel the login
-        if (result?.isCancelled)!{
+        if (result?.isCancelled)! {
           return
         }
-        if(fbloginresult.grantedPermissions.contains("email"))
-        {
+        if fbloginresult.grantedPermissions.contains("email") {
           let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
           Auth.auth().signIn(with: credential) { (user, error) in
             if let error = error {
               UserAlert.show(title: "Sorry", message: error.localizedDescription, controller: controller)
               return
             }
-            if let u = user {
-              validateUser(u.email!, goto: controller)
+            if let usr = user {
+              self.validateUser(usr.email!, goto: controller)
               }
-            
             }
-            
           }
         }
         
       }
     }
   
-  static func handleMailLogin(login: String, password: String, in controller: UIViewController) {
+  func handleMailLogin(login: String, password: String, in controller: UIViewController) {
     
-    firebaseService.database.queryOrdered(byChild: "email").queryEqual(toValue: "\(login)")
+    firebaseService.database.child("users").queryOrdered(byChild: "email").queryEqual(toValue: "\(login)")
     .observe(.value) { (snapshot) in
       
-      if ( snapshot.value is NSNull ) {
+      if snapshot.value is NSNull {
         print("not found)")
         UserAlert.show(title: "This user does not exists", message: "please register", controller: controller)
       } else {
-        firebaseService.signIn(email: login, password: password, in: controller)
-        validateUser(login, goto: controller)
+        self.firebaseService.signIn(email: login, password: password, in: controller)
+        self.validateUser(login, goto: controller)
       }
     }
     
   }
-  static func validateUser(_ userId: String, goto controller: UIViewController) {
+  
+  func validateUser(_ userId: String, goto controller: UIViewController) {
     UserDefaults.standard.set(userId, forKey: "currentUser")
    
     controller.present(self.mainVc, animated: true)
@@ -127,7 +152,7 @@ class LoginService {
   
   static func resetPassword(for email: String, in controller: UIViewController) {
     Auth.auth().sendPasswordReset(withEmail: email) { error in
-       UserAlert.show(title: "Sorry", message:error!.localizedDescription, controller: controller)
+       UserAlert.show(title: "Sorry", message: error!.localizedDescription, controller: controller)
     }
   }
 }

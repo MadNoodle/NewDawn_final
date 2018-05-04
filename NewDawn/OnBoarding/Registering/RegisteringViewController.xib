@@ -36,7 +36,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h4G-aa-605">
                     <rect key="frame" x="50" y="208.5" width="275" height="250"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Firstname" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="lsv-V1-33d" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lastname" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="lsv-V1-33d" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="275" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="EHH-EE-74J"/>
@@ -45,7 +45,7 @@
                             <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Lastname" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="FEX-yU-hGt" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="FEX-yU-hGt" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="50" width="275" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Asv-5g-qsc"/>
@@ -54,7 +54,7 @@
                             <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="E-mail" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="ah4-Wh-Rhv" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="ah4-Wh-Rhv" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="100" width="275" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Dv4-F8-HJf"/>
@@ -63,7 +63,7 @@
                             <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="14"/>
                             <textInputTraits key="textInputTraits" textContentType="email"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="kgm-SA-M4z" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="kgm-SA-M4z" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="150" width="275" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="vaZ-hV-cul"/>
@@ -72,7 +72,7 @@
                             <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="14"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Repeat Password" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="UnE-M8-IHp" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="UnE-M8-IHp" customClass="CustomTextField" customModule="NewDawn" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="200" width="275" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="VLU-QY-lKm"/>

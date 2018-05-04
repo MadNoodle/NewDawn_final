@@ -9,7 +9,7 @@ Copyright (c) 2018 Mathieu Janneau
 import UIKit
 import MapKit
 
-class DestinationViewController: UIViewController, UISearchBarDelegate,MKMapViewDelegate {
+class DestinationViewController: UIViewController, UISearchBarDelegate {
   
   /// Data of challenge final destination
   var challengeLocation : (lat: Double,long: Double,place: String)?
@@ -25,11 +25,6 @@ class DestinationViewController: UIViewController, UISearchBarDelegate,MKMapView
     
   }
   
-  override func viewWillDisappear(_ animated: Bool) {
-    
-    
-  }
-  
   @objc func searchLocation(_ sender: UIBarButtonItem){
     // instantiate searchBar
     
@@ -39,14 +34,9 @@ class DestinationViewController: UIViewController, UISearchBarDelegate,MKMapView
     navigationItem.searchController = searchController
     definesPresentationContext = true
     searchController.searchBar.delegate = self
-   
-    
     present(searchController, animated: true, completion: nil)
-    
   }
-  
-
-  
+ 
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
     // Ignoring user
     UIApplication.shared.beginIgnoringInteractionEvents()
@@ -96,9 +86,6 @@ class DestinationViewController: UIViewController, UISearchBarDelegate,MKMapView
           // Coordinates
           NotificationCenter.default.post(Notification(name:Notification.Name(rawValue: "LocationChanged"), object: nil, userInfo: ["Key":"key", "Location" : location ]))
           // Place name
-         
-          
-        
         
         ////////////// REFACTOR ///////////////
         // Add annotation to map
@@ -118,7 +105,9 @@ class DestinationViewController: UIViewController, UISearchBarDelegate,MKMapView
     }
     
   }
-  
+}
+
+extension DestinationViewController: MKMapViewDelegate{
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?  {
     
     if annotation is MKPointAnnotation {
@@ -130,12 +119,9 @@ class DestinationViewController: UIViewController, UISearchBarDelegate,MKMapView
         
         //Create a plain MKAnnotationView if using a custom image...
         pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-        
         pinView?.canShowCallout = true
         pinView?.image = UIImage(named: "pin")
-      }
-      else {
-        //Unrelated to the image problem but...
+      } else {
         //Update the annotation reference if re-using a view...
         pinView?.annotation = annotation
       }

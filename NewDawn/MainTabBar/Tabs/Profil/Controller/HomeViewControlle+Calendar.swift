@@ -73,7 +73,7 @@ extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDat
   }
   
   func calendar(_ calendar: JTAppleCalendarView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTAppleCollectionReusableView {
-    let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "header", for: indexPath) as! headerView
+    let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "header", for: indexPath) as! HeaderView
     return header
   }
   func calendarSizeForMonths(_ calendar: JTAppleCalendarView?) -> MonthSize? {
