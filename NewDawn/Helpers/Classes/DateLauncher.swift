@@ -58,7 +58,7 @@ class DateLauncher: NSObject {
       
       // initial State
       blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
-      datePicker.frame = CGRect(x: 0,y: window.frame.height, width: window.frame.width,height: height)
+      datePicker.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: height)
       container.frame = datePicker.frame
       doneButton.frame = datePicker.frame
       blackView.frame = window.frame
@@ -68,13 +68,12 @@ class DateLauncher: NSObject {
       UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
         
         self.blackView.alpha = 1
-        self.datePicker.frame = CGRect(x: 0,y: yValue, width: self.datePicker.frame.width,height: self.datePicker.frame.height)
-        self.container.frame = CGRect(x: 0,y: yValue - 30, width: self.container.frame.width,height: self.container.frame.height)
-        self.doneButton.frame = CGRect(x: self.container.frame.width - 100 ,y: yValue - 30, width: 100,height:30)
+        self.datePicker.frame = CGRect(x: 0, y: yValue, width: self.datePicker.frame.width, height: self.datePicker.frame.height)
+        self.container.frame = CGRect(x: 0, y: yValue - 30, width: self.container.frame.width, height: self.container.frame.height)
+        self.doneButton.frame = CGRect(x: self.container.frame.width - 100, y: yValue - 30, width: 100, height: 30)
       }, completion: nil)
     }
   }
-  
   
   fileprivate func insantiateViewIn(_ window: UIWindow) {
     // add tap gesture to remove launcher when tap outside of frame
@@ -91,9 +90,9 @@ class DateLauncher: NSObject {
   }
   
   fileprivate func closePicker(_ window: UIWindow) {
-    self.datePicker.frame = CGRect(x: 0,y: window.frame.height, width: self.datePicker.frame.width,height: self.datePicker.frame.height)
-    self.container.frame = CGRect(x: 0,y: window.frame.height, width: self.container.frame.width,height: self.container.frame.height)
-    self.doneButton.frame = CGRect(x: 0,y: window.frame.height, width: self.doneButton.frame.width,height: self.doneButton.frame.height)
+    self.datePicker.frame = CGRect(x: 0, y: window.frame.height, width: self.datePicker.frame.width, height: self.datePicker.frame.height)
+    self.container.frame = CGRect(x: 0, y: window.frame.height, width: self.container.frame.width, height: self.container.frame.height)
+    self.doneButton.frame = CGRect(x: 0, y: window.frame.height, width: self.doneButton.frame.width, height: self.doneButton.frame.height)
   }
   
   // ///////////////// //
@@ -112,7 +111,7 @@ class DateLauncher: NSObject {
   @objc func userDidSelectDate() {
     
     // send data back to controller
-    NotificationCenter.default.post(Notification(name:Notification.Name(rawValue: "ValueChanged"), object: nil, userInfo: ["Key":"key", "Date" : datePicker.date]))
+    NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "ValueChanged"), object: nil, userInfo: ["Key": "key", "Date": datePicker.date]))
     
     handleDismiss()
     print("Done")

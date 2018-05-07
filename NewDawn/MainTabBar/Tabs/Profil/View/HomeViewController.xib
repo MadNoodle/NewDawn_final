@@ -120,7 +120,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="lWI-NU-xjL">
                     <rect key="frame" x="55" y="542" width="264" height="40"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrs-yi-vhS" customClass="CustomUIButtonForUIToolbar" customModule="NewDawn" customModuleProvider="target">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrs-yi-vhS" customClass="CustomUIButtonForUIToolbar" customModule="NewDawn" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Lrs-yi-vhS" secondAttribute="height" multiplier="1:1" id="pCe-GD-mD1"/>
@@ -136,7 +136,7 @@
                                 <action selector="moodButtonTapped:" destination="-1" eventType="touchUpInside" id="mEu-Av-B12"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67K-jT-4FK" customClass="CustomUIButtonForUIToolbar" customModule="NewDawn" customModuleProvider="target">
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67K-jT-4FK" customClass="CustomUIButtonForUIToolbar" customModule="NewDawn" customModuleProvider="target">
                             <rect key="frame" x="56" y="0.0" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="67K-jT-4FK" secondAttribute="height" multiplier="1:1" id="ux8-0Y-p6M"/>
@@ -152,7 +152,7 @@
                                 <action selector="moodButtonTapped:" destination="-1" eventType="touchUpInside" id="iPF-vM-UMf"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DV-q4-udF" customClass="CustomUIButtonForUIToolbar" customModule="NewDawn" customModuleProvider="target">
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DV-q4-udF" customClass="CustomUIButtonForUIToolbar" customModule="NewDawn" customModuleProvider="target">
                             <rect key="frame" x="112" y="0.0" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="8DV-q4-udF" secondAttribute="height" multiplier="1:1" id="T83-DD-3Mj"/>
@@ -168,7 +168,7 @@
                                 <action selector="moodButtonTapped:" destination="-1" eventType="touchUpInside" id="1Bt-Je-Z9o"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STc-jN-0fU" customClass="CustomUIButtonForUIToolbar" customModule="NewDawn" customModuleProvider="target">
+                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STc-jN-0fU" customClass="CustomUIButtonForUIToolbar" customModule="NewDawn" customModuleProvider="target">
                             <rect key="frame" x="168" y="0.0" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="STc-jN-0fU" secondAttribute="height" multiplier="1:1" id="zZs-GB-TNF"/>
@@ -184,7 +184,7 @@
                                 <action selector="moodButtonTapped:" destination="-1" eventType="touchUpInside" id="Gi4-kT-Cea"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdl-bf-8n0" customClass="CustomUIButtonForUIToolbar" customModule="NewDawn" customModuleProvider="target">
+                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdl-bf-8n0" customClass="CustomUIButtonForUIToolbar" customModule="NewDawn" customModuleProvider="target">
                             <rect key="frame" x="224" y="0.0" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Xdl-bf-8n0" secondAttribute="height" multiplier="1:1" id="8qr-BV-FBG"/>

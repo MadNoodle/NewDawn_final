@@ -8,7 +8,7 @@ Copyright (c) 2018 Mathieu Janneau
 import UIKit
 import MapKit
 
-class CustomCalloutView : UIView {
+class CustomCalloutView: UIView {
   @IBOutlet var nameLabel: UILabel!
   @IBOutlet var addressLabel: UILabel!
   @IBOutlet var detail: UILabel!

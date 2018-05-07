@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Mood {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Mood> {

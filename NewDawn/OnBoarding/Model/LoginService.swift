@@ -49,16 +49,14 @@ class LoginService {
     switch provider {
     case .email:
       // User infos
-      guard let connectors = infos else {return}
-      LoginService.shared.handleMailLogin(login: connectors.0, password: connectors.1, in: controller)
+      guard let userInfos = infos else {return}
+      LoginService.shared.handleMailLogin(login: userInfos.0, password: userInfos.1, in: controller)
     case .facebook:
       LoginService.shared.handleFBLogin(in: controller)
     case .twitter:
       LoginService.shared.handleTwitterLogin(in: controller)
     }
   }
-  
-  
   
   /// This methods calls the Twitter SDK and Firebase to hanfdle user login
   ///
@@ -89,21 +87,26 @@ class LoginService {
                   self.firebaseService.saveInfo(user: usr, username: usr.uid, password: usr.uid)
                   self.validateUser(usr.uid, goto: controller)
                 } else {
+                  // directly login
                   self.validateUser(usr.uid, goto: controller)
                 }
             }
-           
           }
         }
         } else {
+        // show alert
         UserAlert.show(title: LocalisationString.sorry, message: (error?.localizedDescription)!, controller: controller)
       }
     })
   }
   
+  /// This methods calls the FAceBook SDK and Firebase to hanfdle user login
+  ///
+  /// - Parameter controller: Controller which displays the login screen
   func handleFBLogin(in controller: UIViewController) {
-    
+    // instantiate FBSDK Manager
     let fbLoginManager: FBSDKLoginManager = FBSDKLoginManager()
+    // Login with lowest level .email ( could add publicProfil)
     fbLoginManager.logIn(withReadPermissions: ["email"], from: controller) { (result, error) -> Void in
       if error == nil {
         let fbloginresult: FBSDKLoginManagerLoginResult = result!
@@ -111,6 +114,7 @@ class LoginService {
         if (result?.isCancelled)! {
           return
         }
+        // Access Granted
         if fbloginresult.grantedPermissions.contains("email") {
           let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
           Auth.auth().signIn(with: credential) { (user, error) in
@@ -124,33 +128,53 @@ class LoginService {
             }
           }
         }
-        
       }
     }
   
+  /// This methods handle user login with an email
+  ///
+  /// - Parameters:
+  ///   - login: String Login character String
+  ///   - password: String password character String
+  ///   - controller: Controller which displays the login screen
   func handleMailLogin(login: String, password: String, in controller: UIViewController) {
     
+    // Verify if users is in Firebase Authentication database
     firebaseService.database.child("users").queryOrdered(byChild: "email").queryEqual(toValue: "\(login)")
     .observe(.value) { (snapshot) in
-      
+      // check if user exists
       if snapshot.value is NSNull {
-        print("not found)")
+        // show alert
         UserAlert.show(title: "This user does not exists", message: "please register", controller: controller)
       } else {
+        // sign In
         self.firebaseService.signIn(email: login, password: password, in: controller)
+        // present app
         self.validateUser(login, goto: controller)
       }
     }
     
   }
   
+  /// This Methods enters the current logged user username in User Default and show the app
+  ///
+  /// - Parameters:
+  ///   - userId: String Username
+  ///   - controller: Main app Controller
   func validateUser(_ userId: String, goto controller: UIViewController) {
+    // store in user default
     UserDefaults.standard.set(userId, forKey: "currentUser")
-   
-    controller.present(self.mainVc, animated: true)
+    // change the rootviewController to avoid modally presented in other hierarchy error
+    guard let app = UIApplication.shared.delegate as? AppDelegate else { return}
+    app.window!.rootViewController = MainTabBarController()
   }
   
-  static func resetPassword(for email: String, in controller: UIViewController) {
+ /// Allows the user to reset password with firebase
+ ///
+ /// - Parameters:
+ ///   - email: String email entered by user
+ ///   - controller: Controller that display the info
+ func resetPassword(for email: String, in controller: UIViewController) {
     Auth.auth().sendPasswordReset(withEmail: email) { error in
        UserAlert.show(title: "Sorry", message: error!.localizedDescription, controller: controller)
     }

@@ -19,6 +19,10 @@ struct UIConfig {
   static let neutralGreen = #colorLiteral(red: 0.2588235294, green: 0.8039215686, blue: 0.768627451, alpha: 1)
   static let blueGray = UIColor(red: 108.0/255.0, green: 123.0/255.0, blue: 138.0/255.0, alpha: 1)
 
+  // MARK: - ONBOARDING SETTINGS
+  static let currentUserKey = "currentUser"
+  static let loaderBg = "bg"
+  
   // MARK: - TAB BAR ICONS
 
   static let profilIcon = "Profil"
@@ -41,13 +45,25 @@ struct UIConfig {
   static let travelThumbnail = "voyager"
 
   // MARK: - CRISIS TIMER DISPLAY SETUP
-  static let timerFormat = "%02d:%02d"
+  static let timerFormat = DateFormat.timer
 
   // MARK: - CHART DISPLAY SETUP
   static let chartDateFormat = DateFormat.day
+  
+  
+  
+ 
+  
+  // MARK: - CALENDAR SETUP
+  static let calendarStartDate = "2018 01 01"
+  static let calendarCellId = "dateCell"
+  static let calendarNibName = "CalendarCell"
+  static let calendarHeaderId = "header"
+  static let calendarHeaderNib = "headerView"
 }
 
 enum DateFormat: String {
+  case timer = "%02d:%02d"
   case hourMinute = "HH:mm"
   case day = "dd/MM"
   case dayHourMinute = "MM/dd/yyyy hh:mm a"
@@ -55,5 +71,6 @@ enum DateFormat: String {
   case sortingFormat = "yyyy-MM-dd"
   case month = "MMMM yyyy"
   case annual = "yyyy MM dd"
-  
 }
+
+

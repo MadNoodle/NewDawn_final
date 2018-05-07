@@ -27,7 +27,8 @@ class ObjectiveViewController: UIViewController, ChallengeControllerDelegate {
     super.viewDidLoad()
     collectionView.dataSource = self
     collectionView.delegate = self
-    collectionView.register(UINib(nibName: "ObjectiveCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseId)
+    collectionView.register(UINib(nibName: "ObjectiveCollectionViewCell", bundle: nil),
+                            forCellWithReuseIdentifier: reuseId)
     collectionView.reloadData()
   }
   

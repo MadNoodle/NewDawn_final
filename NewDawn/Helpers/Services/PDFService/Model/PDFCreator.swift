@@ -41,7 +41,6 @@ class PDFCreator {
       controller = openPDFViewer(dst)
     } catch let error {
       print(error.localizedDescription)
-      /// TODO--> SHOW ALERT
     }
     return controller
   }

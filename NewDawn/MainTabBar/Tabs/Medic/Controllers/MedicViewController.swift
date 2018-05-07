@@ -21,12 +21,12 @@ class MedicViewController: UIViewController {
   // ////////////////////////////////// //
   // MARK: - Map Properties and outlets //
   // ////////////////////////////////// //
-  
+
   @IBOutlet weak var map: MKMapView!
   let locationManager = CLLocationManager()
   let regionRadius: CLLocationDistance = 100
   var coordinates: CLLocationCoordinate2D?
-  
+
   // ////////////////////////////////////////// //
   // MARK: - Detail View Properties and outlets //
   // ////////////////////////////////////////// //
@@ -108,11 +108,11 @@ class MedicViewController: UIViewController {
   // /////////////////////////// //
   // MARK: - Detail View Methods //
   // /////////////////////////// //
-  
+
   @objc func showDetail(_ controller: UIViewController, sender: Any?) {
     // initial constraint
     constraint.constant = identity
-    
+
     UIView.animate(withDuration: 0.5) {
       // depliy detailView
       self.constraint.constant = self.infoStack.frame.height + 50
@@ -132,7 +132,7 @@ class MedicViewController: UIViewController {
     detailJob.text = detail.job
     detailPhone.text = detail.tel
   }
-  
+
   @IBAction func closeDetail(_ sender: UIButton) {
     // animate to initial
     UIView.animate(withDuration: 0.5) {
@@ -141,37 +141,30 @@ class MedicViewController: UIViewController {
       self.locationManager.startUpdatingLocation()
     }
   }
-  
+
   @IBAction func callTherapist(_ sender: UIButton) {
-    
     // remove unwanted characters to conform phone number string
     var formattedNumber = detailPhone.text!
     let forbiddenCharacters = [" ", "-", "."]
     for char in forbiddenCharacters {
-      formattedNumber = formattedNumber.replacingOccurrences(of: char , with: "")
-      
+      formattedNumber = formattedNumber.replacingOccurrences(of: char, with: "")
     }
     // Open phone app and send number
     guard let number = URL(string: "tel://" + formattedNumber) else { return }
     UIApplication.shared.open(number)
   }
-  
   @IBAction func shareDetail(_ sender: UIButton) {
-    
     // text to share
     let text = "\(String(describing: detailName.text!)) \n \(String(describing: detailAddress.text!)) \n \(String(describing: detailJob.text!)) \n \(String(describing: detailPhone.text!))"
-    
     // set up activity view controller
     let textToShare = [ text ]
     let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
     activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-    
-    
   }
-  
+
   @IBAction func getDirection(_ sender: UIButton) {
     // set zoom level
-    let regionDistance: CLLocationDistance = 1000;
+    let regionDistance: CLLocationDistance = 1000
     let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates!, regionDistance, regionDistance)
     
     let options = [
@@ -184,7 +177,6 @@ class MedicViewController: UIViewController {
     let mapItem = MKMapItem(placemark: placemark)
     mapItem.name = detailName.text!
     mapItem.openInMaps(launchOptions: options)
-    
   }
 
 }

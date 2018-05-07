@@ -12,7 +12,7 @@ import MapKit
 class DestinationViewController: UIViewController, UISearchBarDelegate {
   
   /// Data of challenge final destination
-  var challengeLocation : (lat: Double,long: Double,place: String)?
+  var challengeLocation : (lat: Double, long: Double, place: String)?
   
   // MARK: - OUTLETS
   @IBOutlet weak var map: MKMapView!
@@ -25,7 +25,7 @@ class DestinationViewController: UIViewController, UISearchBarDelegate {
     
   }
   
-  @objc func searchLocation(_ sender: UIBarButtonItem){
+  @objc func searchLocation(_ sender: UIBarButtonItem) {
     // instantiate searchBar
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -37,7 +37,7 @@ class DestinationViewController: UIViewController, UISearchBarDelegate {
     present(searchController, animated: true, completion: nil)
   }
  
-  func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     // Ignoring user
     UIApplication.shared.beginIgnoringInteractionEvents()
     
@@ -56,7 +56,7 @@ class DestinationViewController: UIViewController, UISearchBarDelegate {
     searchRequest.naturalLanguageQuery = searchBar.text
     
     let activeSearch = MKLocalSearch(request: searchRequest)
-    activeSearch.start { (response, error) in
+    activeSearch.start { (response, _) in
       indicator.stopAnimating()
       UIApplication.shared.endIgnoringInteractionEvents()
       if response == nil {
@@ -67,24 +67,22 @@ class DestinationViewController: UIViewController, UISearchBarDelegate {
         let annotations = self.map.annotations
         self.map.removeAnnotations(annotations)
         // fetching data
-        if let latitude = response?.boundingRegion.center.latitude
-        { if let longitude = response?.boundingRegion.center.longitude
-       {
+        if let latitude = response?.boundingRegion.center.latitude {
+          if let longitude = response?.boundingRegion.center.longitude {
         // create Annotation
         let annotation = MKPointAnnotation()
         // grap name from searchBar
         annotation.title = searchBar.text
         // send coordinate for the annotation
         annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        
-        ////////////// REFACTOR ///////////////
-        // Temporary store location in order to pass data
-       
-        
         // Send data back to the challengeCreator controller
-        let location: (Double,Double,String) = (annotation.coordinate.latitude , annotation.coordinate.longitude,searchBar.text!)
+        let location: (Double, Double, String) = (annotation.coordinate.latitude,
+                                                  annotation.coordinate.longitude,
+                                                  searchBar.text!)
           // Coordinates
-          NotificationCenter.default.post(Notification(name:Notification.Name(rawValue: "LocationChanged"), object: nil, userInfo: ["Key":"key", "Location" : location ]))
+          NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "LocationChanged"),
+                                                       object: nil,
+                                                       userInfo: ["Key": "key", "Location": location ]))
           // Place name
         
         ////////////// REFACTOR ///////////////
@@ -96,19 +94,15 @@ class DestinationViewController: UIViewController, UISearchBarDelegate {
         let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region: MKCoordinateRegion = MKCoordinateRegion(center: coordinate, span: span)
         self.map.setRegion(region, animated: true)
-        
           }
-          
         }
       }
-      
     }
-    
   }
 }
 
-extension DestinationViewController: MKMapViewDelegate{
-  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?  {
+extension DestinationViewController: MKMapViewDelegate {
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     
     if annotation is MKPointAnnotation {
       
@@ -125,7 +119,6 @@ extension DestinationViewController: MKMapViewDelegate{
         //Update the annotation reference if re-using a view...
         pinView?.annotation = annotation
       }
-      
       return pinView
     }
     return nil

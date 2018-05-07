@@ -53,6 +53,5 @@ struct FormattedChallenge {
     let formatter = DateFormatter()
     formatter.dateFormat = DateFormat.sortingFormat.rawValue
     self.formattedDate = formatter.string(from: dateFormatted)
-    print(self.formattedDate)
   }
 }

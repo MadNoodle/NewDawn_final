@@ -30,8 +30,7 @@ struct Challenge {
   var felt: Int?
   var map: Data?
   
-  
-  init(user: String, name: String, objective: String, dueDate: Double, anxietyLevel: Int, benefitLevel: Int, isNotified: Bool,isDone: Bool,isSuccess:Bool, destination: String?, destinationLat: Double?, destinationLong: Double?, key: String = "") {
+  init(user: String, name: String, objective: String, dueDate: Double, anxietyLevel: Int, benefitLevel: Int, isNotified: Bool, isDone: Bool, isSuccess: Bool, destination: String?, destinationLat: Double?, destinationLong: Double?, key: String = "") {
     self.ref =  Database.database().reference()
     self.key = key
     self.user = user
@@ -57,14 +56,14 @@ struct Challenge {
   }
   
   init(snapshot: DataSnapshot) {
-    guard let dict = snapshot.value as? [String:Any] else { return}
-    self.user = dict["user"] as! String
-    self.name = dict["name"] as! String
-    self.objective = dict["objective"] as! String
-    self.dueDate = dict["dueDate"] as! Double
-    self.anxietyLevel = dict["anxietyLevel"] as! Int
-    self.benefitLevel = dict["benefitLevel"] as! Int
-    self.isNotified = dict["isNotified"] as! Int
+    guard let dict = snapshot.value as? [String: Any] else { return}
+    self.user = dict["user"] as? String
+    self.name = dict["name"] as? String
+    self.objective = dict["objective"] as? String
+    self.dueDate = dict["dueDate"] as? Double
+    self.anxietyLevel = dict["anxietyLevel"] as? Int
+    self.benefitLevel = dict["benefitLevel"] as? Int
+    self.isNotified = dict["isNotified"] as? Int
     self.isDone = dict["isdone"] as? Int
     self.isSuccess = dict["isSuccess"] as? Int
     self.comment = dict["comment"] as? String
@@ -74,7 +73,7 @@ struct Challenge {
     self.ref = snapshot.ref
   }
   
-  func toAnyObject() -> [String:Any] {
+  func toAnyObject() -> [String: Any] {
     return ["user": user, "name": name, "objective": objective, "dueDate": dueDate, "anxietyLevel": anxietyLevel, "benefitLevel": benefitLevel, "felt": felt as Any, "isNotified": isNotified, "isDone": isDone, "isSuccess": isSuccess, "comment": comment as Any, "destination": destination as Any, "destinationLat": destinationLat as Any, "destinationLong": destinationLong as Any]
   }
 }

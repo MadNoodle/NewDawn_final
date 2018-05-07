@@ -11,13 +11,21 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
+/// This Controller alows the user to create an account by asking
+/// lastName / firstName / email / password
 class RegisteringViewController: UIViewController {
+  
+  // ////////////////// //
+  // MARK: - PROPERTIES //
+  // ////////////////// //
+  
+  /// Instantiate Authentication Service
   let firebaseService = FirebaseService()
+  
   // /////////////// //
   // MARK: - OUTLETS //
   // /////////////// //
   
-
   @IBOutlet weak var lastNameTextfield: CustomTextField!
   @IBOutlet weak var firstNameTextfield: CustomTextField!
   @IBOutlet weak var emailTextField: CustomTextField!
@@ -27,18 +35,13 @@ class RegisteringViewController: UIViewController {
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
   // ///////////////////////// //
+  
+ 
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-   
-    lastNameTextfield.placeholder = "Lastname"
-    firstNameTextfield.placeholder = "Firstname"
-    emailTextField.placeholder = "E-mail"
-    repeatPasswordTexfield.placeholder = "Enter password"
-    passwordTextField.placeholder = "Re-enter password"
+    shouldDisplayPlaceholders()
   }
-  
-
   
   // /////////////// //
   // MARK: - ACTIONS //
@@ -47,11 +50,12 @@ class RegisteringViewController: UIViewController {
   @IBAction func back(_ sender: UIButton) {
     dismiss(animated: true)
   }
+  
   @IBAction func createAccount(_ sender: UIButton) {
     
     // check if fields are valid
     let response = Validator.shared.validate(values:
-      (ValidationType.email, emailTextField.text!),
+                                            (ValidationType.email, emailTextField.text!),
                                              (ValidationType.password, passwordTextField.text!),
                                              (ValidationType.password, repeatPasswordTexfield.text!),
                                              (ValidationType.alphabeticString, lastNameTextfield.text!),
@@ -60,27 +64,36 @@ class RegisteringViewController: UIViewController {
     case .success:
       if passwordTextField.text! != repeatPasswordTexfield.text! {
         // show alert if conditions are not fulfilled
-        UserAlert.show(title: "Error", message: "the two passords are differents, please retry", controller: self)
-      } else{
-        print("success")
+        UserAlert.show(title: LocalisationString.ErrorTitles.error.rawValue, message: LocalisationString.RegisteringAlert.differentPassword.rawValue , controller: self)
+      } else {
+
         // set username
         let fullName = "\(lastNameTextfield.text!) \(firstNameTextfield.text!)"
         // signup & add to bdd
         
         firebaseService.signUp(email: emailTextField.text!, username: fullName, password: passwordTextField.text!, in: self)
         // set current user
-        UserDefaults.standard.set(emailTextField.text!, forKey: "currentUser")
+        UserDefaults.standard.set(emailTextField.text!, forKey: UIConfig.currentUserKey)
         // present controller
         let newHomeVc = MainTabBarController()
         newHomeVc.selectedIndex = 1
         self.present(newHomeVc, animated: true)}
       
-      
     case .failure(_, let message):
       // if not valid display error
-      UserAlert.show(title: "Error", message: message.localized(), controller: self)
+      UserAlert.show(title: LocalisationString.ErrorTitles.error.rawValue, message: message.localized(), controller: self)
     }
-    
-    
+  }
+  
+  // ////////////////// //
+  // MARK: - UI DISPLAY //
+  // ////////////////// //
+  
+  func shouldDisplayPlaceholders() {
+    lastNameTextfield.placeholder = LocalisationString.RegisterString.lastNamePlaceholder.rawValue
+    firstNameTextfield.placeholder = LocalisationString.RegisterString.firstNamePlaceholder.rawValue
+    emailTextField.placeholder = LocalisationString.RegisterString.emailPlaceholder.rawValue
+    passwordTextField.placeholder = LocalisationString.RegisterString.passwordPlaceholder.rawValue
+    repeatPasswordTexfield.placeholder = LocalisationString.RegisterString.repeatPasswordPlaceholder.rawValue
   }
 }

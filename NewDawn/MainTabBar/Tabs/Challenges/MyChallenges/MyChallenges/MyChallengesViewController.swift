@@ -14,20 +14,15 @@ import FirebaseDatabase
 /// TableView Controller that presents all the current challenge for the user
 /// It allows the user to add new challenges
 class MyChallengesViewController: UITableViewController, EditableChallenge {
+  
   var challengeKey: String?
-  
   var challengeToSend: Challenge?
-
-  
-  
+ 
   // ////////////////// //
   // MARK: - PROPERTIES //
   // ////////////////// //
   var currentUser = ""
   var data: [Challenge] = []
-//  var firebaseService = FirebaseService()
-//  var databaseRef: DatabaseReference!
-  
   let postPoneLauncher = PostPoneLauncher()
   let reuseId = "myCell"
   /// Objective category
@@ -37,40 +32,19 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
   // ////////////////////////// //
   // MARK: - LIFECYCLE METHODS //
   // ////////////////////////// //
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    
+    // load current user ( A REFACTOR)
     if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
-      currentUser = user
-     
+      currentUser = user    
     }
     
-    DatabaseService.shared.challengeRef.observe(.value) { (snapshot) in
-      var newItems = [Challenge]()
-      for item in snapshot.children {
-       
-        let newChallenge = Challenge(snapshot: item as! DataSnapshot)
-        newItems.insert(newChallenge, at: 0)
-      }
-      for item in newItems where item.user == self.currentUser {
-        self.data.insert(item, at: 0)
-      }
-      self.tableView.reloadData()
-    }
-
-
-   
-    let rightButton: UIBarButtonItem = UIBarButtonItem(
-                                  barButtonSystemItem: .add,
-                                  target: self,
-                                  action: #selector(addChallenge))
-    self.navigationItem.rightBarButtonItem = rightButton
-    tableView.register(UINib(nibName: "ChallengeDetailCell", bundle: nil), forCellReuseIdentifier: reuseId)
+    shouldLoadTableView()
+    shouldDisplayNavBarItems()
+    
   }
   
-
   override func viewWillDisappear(_ animated: Bool) {
     self.data.removeAll()
   }
@@ -78,6 +52,26 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
   @objc func addChallenge() {
     let objectiveVc = ObjectiveViewController(nibName: nil, bundle: nil)
     self.navigationController?.pushViewController(objectiveVc, animated: true)
+  }
+  
+  
+  
+  fileprivate func shouldLoadTableView() {
+    tableView.register(UINib(nibName: "ChallengeDetailCell", bundle: nil), forCellReuseIdentifier: reuseId)
+    // Load challenges for user from firebase
+    DatabaseService.shared.loadChallenges(for: currentUser) { (challengeArray) in
+      guard let loadedChallenges = challengeArray else { return}
+      self.data = loadedChallenges
+      self.tableView.reloadData()
+    }
+  }
+  
+  fileprivate func shouldDisplayNavBarItems() {
+    let rightButton: UIBarButtonItem = UIBarButtonItem(
+      barButtonSystemItem: .add,
+      target: self,
+      action: #selector(addChallenge))
+    self.navigationItem.rightBarButtonItem = rightButton
   }
   
 }

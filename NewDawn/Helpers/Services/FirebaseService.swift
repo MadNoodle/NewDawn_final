@@ -24,11 +24,10 @@ struct FirebaseService {
     return Storage.storage().reference()
   }()
   
-  
   func saveInfo(user: User!, username: String, password: String) {
     // create the user info dictionary
     
-    let userInfo = ["email": user.email,"username": username, "password": password, "uid": user.uid]
+    let userInfo = ["email": user.email, "username": username, "password": password, "uid": user.uid]
     let userRef = database.ref.child("users").childByAutoId()
     userRef.setValue(userInfo)
   }
@@ -59,8 +58,5 @@ struct FirebaseService {
       }
     }
   }
-  
-  
-  
   
 }

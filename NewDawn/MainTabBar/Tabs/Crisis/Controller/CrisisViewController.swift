@@ -31,7 +31,7 @@ class CrisisViewController: UIViewController {
   @IBOutlet weak var pulsatingCircles: PulsatingCirclesView!
   @IBOutlet weak var breathLabel: UILabel!
   @IBOutlet weak var timerLabel: UILabel!
-  @IBOutlet var timerOptionsButtons: [UIButton]!
+  @IBOutlet weak var segmentedControl: UISegmentedControl!
   
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
@@ -42,7 +42,7 @@ class CrisisViewController: UIViewController {
     timeRemaining = Int(duration)
     setupLabel()
     setupButton()
- 
+  
   }
 
   // /////////////// //
@@ -73,18 +73,25 @@ class CrisisViewController: UIViewController {
     }
   }
 
-  @IBAction func setDuration(_ sender: UIButton) {
-    // grab button title and convert it to duration in min/sec
-    guard let title = sender.titleLabel?.text  else { return }
-    if  let time = Float(title) {
-      duration = time * 60
-      timeRemaining = Int(duration)
-      // Convert
-      let countMS = timeRemaining.secondsToMinutesSeconds()
-      timerLabel.text = "\(countMS)"
+  @IBAction func setBreathDuration(_ sender: UISegmentedControl) {
+    var time: Float = 0.0
+    switch segmentedControl.selectedSegmentIndex {
+    case 0:
+      time = 2.0
+    case 1:
+     time = 5.0
+    case 2:
+      time = 10.0
+    default:
+      break
     }
+    duration = time * 60
+    timeRemaining = Int(duration)
+    // Convert
+    let countMS = timeRemaining.secondsToMinutesSeconds()
+    timerLabel.text = "\(countMS)"
   }
-  
+
   // //////////////// //
   // MARK: - UI SETUP //
   // //////////////// //
@@ -102,11 +109,6 @@ class CrisisViewController: UIViewController {
     startButton.layer.borderColor = UIColor.white.cgColor
     startButton.layer.borderWidth = 2.0
     startButton.layer.cornerRadius = startButton.bounds.width / 2
-    for button in timerOptionsButtons {
-      button.layer.borderColor = UIColor.white.cgColor
-      button.layer.borderWidth = 1.0
-      button.layer.cornerRadius = button.bounds.width / 2
-    }
   }
 
   fileprivate func setupLabel() {

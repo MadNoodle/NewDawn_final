@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Challenge {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Challenge> {

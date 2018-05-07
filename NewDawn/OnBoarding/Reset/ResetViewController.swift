@@ -36,10 +36,10 @@ class ResetViewController: UIViewController {
       (ValidationType.email, inputEmail.text!))
     switch response {
     case .success:
-      LoginService.resetPassword(for: inputEmail.text!, in: self)
+      LoginService.shared.resetPassword(for: inputEmail.text!, in: self)
     case .failure(_, let message):
       // if not valid display error
-      UserAlert.show(title: "Error", message: message.localized(), controller: self)
+      UserAlert.show(title: LocalisationString.ErrorTitles.error.rawValue, message: message.localized(), controller: self)
     }
     // send mail with password firebase & present lofgin Vc
     let loginVc = LoginViewController()

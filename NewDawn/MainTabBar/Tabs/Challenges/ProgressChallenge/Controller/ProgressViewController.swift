@@ -13,7 +13,7 @@ import Firebase
 import FirebaseDatabase
 import FirebaseStorage
 
-protocol EditableChallenge {
+protocol EditableChallenge: class {
   var challengeToSend: Challenge? {get set}
   var challengeKey: String? {get set}
 }
@@ -110,22 +110,20 @@ class ProgressViewController: UIViewController, EditableChallenge {
   @IBAction func validateChallenge(_ sender: UIButton) {
     // change state of challenge
     popup.showSettings()
-      if let key = challenge?.key{
+      if let key = challenge?.key {
       challenge?.isDone = 1
       challenge?.comment = textView.text
-      let screenshot = UIImage(view:mapView)
+      let screenshot = UIImage(view: mapView)
       print(screenshot)
       // convert image to data
       
-      if let mapImage = UIImagePNGRepresentation(screenshot){
+      if let mapImage = UIImagePNGRepresentation(screenshot) {
         
-        DatabaseService.shared.uploadImagePic(data: mapImage,for: key, isDone: 1, isSuccess: 1, comment: textView.text)
+        DatabaseService.shared.uploadImagePic(data: mapImage, for: key, isDone: 1, isSuccess: 1, comment: textView.text)
         challenge?.map = mapImage
       }
-    
     }
-
-    
+  
     locationManager.stopUpdatingLocation()
     mapView.showsUserLocation = false
   }
@@ -173,7 +171,6 @@ class ProgressViewController: UIViewController, EditableChallenge {
       dateLabel.text = date.convertToString(format: .day)
     }
     
-    
     // Set frame border for textView
     textView.layer.borderColor = UIConfig.blueGray.cgColor
     textView.layer.borderWidth = 1
@@ -182,7 +179,6 @@ class ProgressViewController: UIViewController, EditableChallenge {
     let rightButton: UIBarButtonItem =
       UIBarButtonItem(image: UIImage(named: "edit"), style: .plain, target: self, action: #selector(editChallenge))
 
-  
     // add share button to navigation
     let rightButton2: UIBarButtonItem =
       UIBarButtonItem(image: #imageLiteral(resourceName: "upload"), style: .plain, target: self, action: #selector(shareChallenge))
@@ -211,7 +207,7 @@ class ProgressViewController: UIViewController, EditableChallenge {
     // load custom annotation for destination
     if let destination = challenge {
       guard let latitude = destination.destinationLat, let longitude = destination.destinationLong else { return}
-      let challengeDestination: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude:latitude , longitude: longitude)
+      let challengeDestination: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
       let annotation = MKPointAnnotation()
       annotation.coordinate = challengeDestination
       mapView.addAnnotation(annotation)

@@ -17,35 +17,37 @@ class LoginViewController: UIViewController {
   // /////////////// //
   // MARK: - OUTLETS //
   // /////////////// //
+  
   @IBOutlet weak var passwordTextfield: CustomTextField!
   @IBOutlet weak var loginTextfield: CustomTextField!
   
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
   // ///////////////////////// //
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
   }
   
   // /////////////// //
   // MARK: - ACTIONS //
   // /////////////// //
+  
   @IBAction func signIn(_ sender: GradientButton) {
     // check if fields are empty
     
     // check if fields are valid
     let response = Validator.shared.validate(values:
-      (ValidationType.email, loginTextfield.text!),
+                                              (ValidationType.email, loginTextfield.text!),
                                              (ValidationType.password, passwordTextfield.text!))
     switch response {
     case .success:
       // Verify connection with Firebase
-     LoginService.shared.connect(with: .email, in: self, infos: (loginTextfield.text!,passwordTextfield.text!))
+     LoginService.shared.connect(with: .email, in: self, infos: (loginTextfield.text!, passwordTextfield.text!))
     
     case .failure(_, let message):
       // if not valid display error
-      UserAlert.show(title: "Error", message: message.localized(), controller: self)
+      UserAlert.show(title: LocalisationString.ErrorTitles.error.rawValue, message: message.localized(), controller: self)
     }
   }
   
@@ -69,14 +71,19 @@ class LoginViewController: UIViewController {
     self.present(registerVc, animated: true)
   }
   
+  /// Display a loader while fetching data and presenting main App controller
   fileprivate func showLoader() {
+    // create a background
     let bgView = UIImageView()
     bgView.frame = self.view.frame
-    bgView.image = UIImage(named: "bg")
+    // Assign background image
+    bgView.image = UIImage(named: UIConfig.loaderBg)
+    // Create spinner
     let indicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
     indicator.frame = self.view.frame
     self.view.addSubview(bgView)
     self.view.addSubview(indicator)
+    // show & animate
     indicator.startAnimating()
   }
   

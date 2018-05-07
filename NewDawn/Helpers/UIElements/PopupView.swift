@@ -47,7 +47,6 @@ class Popup: NSObject {
   // MARK: - METHODS //
   // /////////////// //
   
-  
   func showSettings() {
     //show menu
     if let window = UIApplication.shared.keyWindow {

@@ -58,6 +58,7 @@
 		B95BA045207E520E00943DA5 /* homepageExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95BA044207E520E00943DA5 /* homepageExportView.swift */; };
 		B95BA05F207E6B3800943DA5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95BA05D207E6B3800943DA5 /* SettingsViewController.swift */; };
 		B95BA060207E6B3800943DA5 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B95BA05E207E6B3800943DA5 /* SettingsViewController.xib */; };
+		B95F8DC120A076B000BAA912 /* HistoryRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95F8DC020A076B000BAA912 /* HistoryRange.swift */; };
 		B96C1083206ECCBC00C64CDA /* DateLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96C1082206ECCBC00C64CDA /* DateLauncher.swift */; };
 		B975AC68207B85F700B7C128 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B975AC67207B85F700B7C128 /* MessageUI.framework */; };
 		B975AC6D207CF89200B7C128 /* MailPresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975AC6C207CF89200B7C128 /* MailPresenterViewController.swift */; };
@@ -192,6 +193,7 @@
 		B95BA044207E520E00943DA5 /* homepageExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homepageExportView.swift; sourceTree = "<group>"; };
 		B95BA05D207E6B3800943DA5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B95BA05E207E6B3800943DA5 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		B95F8DC020A076B000BAA912 /* HistoryRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRange.swift; sourceTree = "<group>"; };
 		B96C1082206ECCBC00C64CDA /* DateLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLauncher.swift; sourceTree = "<group>"; };
 		B975AC67207B85F700B7C128 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B975AC6C207CF89200B7C128 /* MailPresenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailPresenterViewController.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				B9A43E2F205EA954000FDDEE /* HistoryViewController.swift */,
+				B9D4A84F2065C3B200313DAB /* extensionUIViewControllerChartSettings.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 			children = (
 				B9D4A83F20631CCF00313DAB /* XAxisFormatter.swift */,
 				B9083E34206D708B00A64587 /* Icons.swift */,
+				B95F8DC020A076B000BAA912 /* HistoryRange.swift */,
 			);
 			path = ChartsHelpers;
 			sourceTree = "<group>";
@@ -821,7 +825,6 @@
 			children = (
 				B97A57FD2058815A00473581 /* UIView+gradientExtensions.swift */,
 				B9BA5D3C20616D7000301EAB /* TimeInterval + extensions.swift */,
-				B9D4A84F2065C3B200313DAB /* extensionUIViewControllerChartSettings.swift */,
 				B93BDF3C207A164B000D4E97 /* UIImage+snapshot.swift */,
 				B93BDF40207A3AA2000D4E97 /* Array+chunks.swift */,
 			);
@@ -831,6 +834,8 @@
 		B98C330820868B4200577B5A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B98EF47D209637CE00B366D2 /* Mood.swift */,
+				B98EF47B20962C1600B366D2 /* Challenge.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -890,8 +895,6 @@
 		B9A43E2E205EA930000FDDEE /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				B98EF47D209637CE00B366D2 /* Mood.swift */,
-				B98EF47B20962C1600B366D2 /* Challenge.swift */,
 				B95BA047207E5BD800943DA5 /* Tabs */,
 				B95BA048207E5BEE00943DA5 /* Root */,
 			);
@@ -1385,6 +1388,7 @@
 				B9B933DF2076480E0011B1F9 /* MyChallengesViewController+tableView.swift in Sources */,
 				B9C5658E20922ECB008FE4A8 /* HomeViewControlle+Calendar.swift in Sources */,
 				B9BA5D3D20616D7000301EAB /* TimeInterval + extensions.swift in Sources */,
+				B95F8DC120A076B000BAA912 /* HistoryRange.swift in Sources */,
 				B97A57F7205874C700473581 /* HomeViewController.swift in Sources */,
 				B9B933D5207530080011B1F9 /* NotificationService.swift in Sources */,
 				B9083E37206D75C700A64587 /* ChallengeControllerDelegate.swift in Sources */,

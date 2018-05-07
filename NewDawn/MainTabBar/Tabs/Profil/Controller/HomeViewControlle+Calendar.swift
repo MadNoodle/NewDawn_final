@@ -12,7 +12,7 @@ import JTAppleCalendar
 import Firebase
 import FirebaseDatabase
 
-extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDataSource {
+extension HomeViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
   
   func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
     configureCell(view: cell, cellState: cellState)
@@ -24,8 +24,8 @@ extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDat
     formatter.timeZone = Calendar.current.timeZone
     formatter.locale = Calendar.current.locale
     
-    let startDate = formatter.date(from: "2018 01 01")! // You can use date generated from a formatter
-    let endDate = Calendar.current.date(byAdding: .year, value: 2, to: startDate)!// You can also use dates created from this function
+    let startDate = formatter.date(from: UIConfig.calendarStartDate)!
+    let endDate = Calendar.current.date(byAdding: .year, value: 2, to: startDate)!
     let parameters = ConfigurationParameters(startDate: startDate,
                                              endDate: endDate,
                                              numberOfRows: 6, // Only 1, 2, 3, & 6 are allowed
@@ -49,20 +49,22 @@ extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDat
     if !validCell.eventDotView.isHidden {
       let dateToCheck = dateFormatter.string(from: cellState.date)
       // Grab challenges
-      DatabaseService.shared.challengeRef.observe(.value, with: { (snap) in
+      DispatchQueue.main.async {
+        DatabaseService.shared.challengeRef.observe(.value) { (snap) in
         for item in snap.children {
-          let challenge = Challenge(snapshot: item as! DataSnapshot)
+          let challenge = Challenge(snapshot: (item as? DataSnapshot)!)
           // set the current challenge according to the seleccted date
           if let eventDate = challenge.dueDate {
             if self.dateFormatter.string(from: Date(timeIntervalSince1970: eventDate)) == dateToCheck {
             self.selectedChallenge = challenge
+
           }}
         }
-      }) { (error) in
-        print(error.localizedDescription)
-      }
+      }}
     }
   }
+
+  
   
   func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
     configureCell(view: cell, cellState: cellState)
@@ -73,8 +75,8 @@ extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDat
   }
   
   func calendar(_ calendar: JTAppleCalendarView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTAppleCollectionReusableView {
-    let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "header", for: indexPath) as! HeaderView
-    return header
+    let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "header", for: indexPath) as? HeaderView
+    return header!
   }
   func calendarSizeForMonths(_ calendar: JTAppleCalendarView?) -> MonthSize? {
     return MonthSize(defaultSize: 50)
@@ -90,8 +92,10 @@ extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDat
     montDisplay.text = monthName + " " + String(year)
   }
   
-  func handleCellEvent(for cell: CalendarCell, with state : CellState) {
+  func handleCellEvent(for cell: CalendarCell, with state: CellState) {
+    dateFormatter.dateFormat = DateFormat.annual.rawValue
     cell.eventDotView.isHidden = !events.contains {$0 == dateFormatter.string(for: state.date)}
+    print(state.date)
     
   }
   
@@ -101,12 +105,11 @@ extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDat
     handleCellSelected(for: myCustomCell, with: cellState)
     handleCellEvent(for: myCustomCell, with: cellState)
   }
-  func handleCellTextColor(for cell: CalendarCell, with state : CellState) {
+  func handleCellTextColor(for cell: CalendarCell, with state: CellState) {
     
     if state.isSelected {
       cell.dateLabel.textColor = .white
-    }
-    else {
+    } else {
       if state.dateBelongsTo == .thisMonth {
         cell.dateLabel.textColor = .white
       } else {
@@ -117,7 +120,7 @@ extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDat
     }
   }
   
-  func handleCellSelected(for cell: CalendarCell, with state : CellState) {
+  func handleCellSelected(for cell: CalendarCell, with state: CellState) {
     if state.isSelected {
       cell.selectedView.isHidden = false
       if !cell.eventDotView.isHidden {
@@ -128,15 +131,12 @@ extension HomeViewController: JTAppleCalendarViewDelegate,JTAppleCalendarViewDat
       cell.selectedView.isHidden = true
     }
     
-    
   }
   
   func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
-    let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! CalendarCell
-    cell.dateLabel.text = cellState.text
-    configureCell(view: cell, cellState: cellState)
-    return cell
-  }
+    let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as? CalendarCell
+    cell?.dateLabel.text = cellState.text
+    configureCell(view: cell!, cellState: cellState)
+    return cell!  }
   
 }
-

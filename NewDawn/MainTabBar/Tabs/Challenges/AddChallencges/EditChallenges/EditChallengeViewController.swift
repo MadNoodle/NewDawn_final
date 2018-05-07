@@ -21,7 +21,7 @@ class EditChallengeViewController: UIViewController {
   var challengeDate: Date?
   var challenge: Challenge?
   var challengeKey: String?
-  var delegate: EditableChallenge?
+  weak var delegate: EditableChallenge?
   var source: String?
   // /////////////// //
   // MARK: - OUTLETS //
@@ -40,8 +40,14 @@ class EditChallengeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    NotificationCenter.default.addObserver(self, selector:#selector(didUpdateDate), name: NSNotification.Name(rawValue: "ValueChanged"), object: nil)
-    NotificationCenter.default.addObserver(self, selector:#selector(didUpdateLocation), name: NSNotification.Name(rawValue: "LocationChanged"), object: nil)
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(didUpdateDate),
+                                           name: NSNotification.Name(rawValue: "ValueChanged"),
+                                           object: nil)
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(didUpdateLocation),
+                                           name: NSNotification.Name(rawValue: "LocationChanged"),
+                                           object: nil)
     if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
       currentUser = user
     }
@@ -54,12 +60,12 @@ class EditChallengeViewController: UIViewController {
       dateLabel.text = Date(timeIntervalSince1970: challenge.dueDate).convertToString(format: .annual)
       challengeDate = Date(timeIntervalSince1970: challenge.dueDate)
       objective = challenge.objective
-      if let location = challenge.destination{
+      if let location = challenge.destination {
         locationLabel.text = location}
       if let state = challenge.isNotified {
         if state == 1 {
-          notificationSwitch.isOn = true }
-        else {notificationSwitch.isOn = false }
+          notificationSwitch.isOn = true
+        } else {notificationSwitch.isOn = false }
       }
       if let anxiety = challenge.anxietyLevel {
         anxietySlider.value = Float(anxiety)
@@ -73,8 +79,6 @@ class EditChallengeViewController: UIViewController {
     }
     shouldAskNotificationPermission()
     self.edgesForExtendedLayout = []
-    
-    
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -93,10 +97,9 @@ class EditChallengeViewController: UIViewController {
     launcher.showSettings()
   }
   
-  @objc func didUpdateDate(notif:NSNotification){
+  @objc func didUpdateDate(notif: NSNotification) {
     print ("received notification")
     // receive data from Picker
-    
     
     challengeDate = notif.userInfo?["Date"] as? Date
     if let dateToRemind = challengeDate {
@@ -110,8 +113,6 @@ class EditChallengeViewController: UIViewController {
       dateLabel.text = dateFormatter.string(from: dateToRemind )
     }
   }
-  
-  
   
   // ////////////////////// //
   // MARK: - NOTIFICATIONS  //
@@ -129,8 +130,7 @@ class EditChallengeViewController: UIViewController {
           if success { print("success")}
         }
         print("notif")
-      }
-      else {
+      } else {
         // Show alert
         print("entre une date")
         
@@ -143,18 +143,20 @@ class EditChallengeViewController: UIViewController {
     }
   }
   
-  func notification( completion:@escaping (_ success: Bool) ->()) {
+  func notification( completion:@escaping (_ success: Bool) -> Void) {
     if let date = challengeDate {
       var calendar = Calendar.current
       calendar.timeZone = .autoupdatingCurrent
-      let componentsFromDate = calendar.dateComponents([.hour, .minute, .day, .month,.year], from: date)
+      let componentsFromDate = calendar.dateComponents([.hour, .minute, .day, .month, .year], from: date)
       // trigger
       let trigger = UNCalendarNotificationTrigger(dateMatching: componentsFromDate, repeats: false)
       
       let content = UNMutableNotificationContent()
       content.title = "it's Challenge Time"
-      if let message = titleLabel.text
-      { content.body = "here is your challenge: \(message)"}
+      if let message = titleLabel.text {
+        content.body = "here is your challenge: \(message)"
+        
+      }
       content.sound = UNNotificationSound.default()
       let request = UNNotificationRequest(identifier: "customNotification", content: content, trigger: trigger)
       UNUserNotificationCenter.current().add(request) { (error) in
@@ -176,7 +178,7 @@ class EditChallengeViewController: UIViewController {
     self.navigationController?.pushViewController(locVc, animated: true)
   }
   
-  @objc func didUpdateLocation(notif:NSNotification) {
+  @objc func didUpdateLocation(notif: NSNotification) {
     if let location = notif.userInfo!["Location"] as? (Double, Double, String) {
       destination.locationName = location.2
       destination.lat = location.0
@@ -184,43 +186,35 @@ class EditChallengeViewController: UIViewController {
       locationLabel.text = location.2
     }
   }
-  
  
-
-  
-
-  
   @IBAction func updateChallenge(_ sender: GradientButton) {
     
-    if let dueDate = challengeDate?.timeIntervalSince1970{
+    if let dueDate = challengeDate?.timeIntervalSince1970 {
       
       if source != nil {
         
-        DatabaseService.shared.createChallenge(dueDate: dueDate, user: currentUser, name: titleLabel.text!, objective: objective!, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isDone: false, isNotified: isNotified, isSuccess: false,destination: destination.locationName,destinationLat: destination.lat, destinationLong: destination.long )
-      
-        
+        DatabaseService.shared.createChallenge(dueDate: dueDate, user: currentUser, name: titleLabel.text!, objective: objective!, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isDone: false, isNotified: isNotified, isSuccess: false, destination: destination.locationName, destinationLat: destination.lat, destinationLong: destination.long )
       } else {
       
         if delegate != nil {
           // grab uid for challenge
           let key = delegate?.challengeKey
           
-          DatabaseService.shared.updateChallenge(dueDate: dueDate,key: key, user: currentUser, name: titleLabel.text!, objective: objective!, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isDone: false, isNotified: isNotified, isSuccess: false,destination: destination.locationName,destinationLat: destination.lat, destinationLong: destination.long )
+          DatabaseService.shared.updateChallenge(dueDate: dueDate, key: key, user: currentUser, name: titleLabel.text!, objective: objective!, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isDone: false, isNotified: isNotified, isSuccess: false, destination: destination.locationName, destinationLat: destination.lat, destinationLong: destination.long )
           
         }
         let mainVc = MainTabBarController()
         mainVc.selectedIndex = 1
-        self.present(mainVc,animated: true)
+        self.present(mainVc, animated: true)
       }
     } else {
       // show an alert if no date is entered
       UserAlert.show(title: "Error", message: "Please enter a valid date", controller: self)}
     
   }
-  
-  
+ 
   fileprivate func shouldAskNotificationPermission() {
-    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (_, error) in
       if error != nil {
         print("authorization Unsuccessful")
       } else {

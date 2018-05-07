@@ -12,7 +12,6 @@ import FirebaseDatabase
 
 extension MyChallengesViewController {
   
-
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return data.count
   }
@@ -59,8 +58,6 @@ extension MyChallengesViewController {
   
   // MARK: - SLIDE OPTIONS
   
-
-  
   override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     
     // Done action
@@ -68,7 +65,7 @@ extension MyChallengesViewController {
  
       // update DB
       let ref = self.data[indexPath.row]
-      DatabaseService.shared.updateChallenge(dueDate: ref.dueDate, key: ref.key, user: self.currentUser, name: ref.name, objective: ref.objective, anxietyLevel: ref.anxietyLevel, benefitLevel: ref.benefitLevel, isDone: true, isNotified: false, isSuccess: true, destination: "", destinationLat: 0, destinationLong:0)
+      DatabaseService.shared.updateChallenge(dueDate: ref.dueDate, key: ref.key, user: self.currentUser, name: ref.name, objective: ref.objective, anxietyLevel: ref.anxietyLevel, benefitLevel: ref.benefitLevel, isDone: true, isNotified: false, isSuccess: true, destination: "", destinationLat: 0, destinationLong: 0)
       
       // remove entry in local data
       self.data.remove(at: indexPath.row)
@@ -80,7 +77,7 @@ extension MyChallengesViewController {
     
     let delete = UITableViewRowAction(style: .normal, title: "Delete") { _, _ in
      let ref = self.data[indexPath.row].ref
-      ref?.removeValue(completionBlock: { (error, ref) in
+      ref?.removeValue(completionBlock: { (error, _) in
         if error != nil {
           print(error!.localizedDescription)
         }

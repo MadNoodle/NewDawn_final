@@ -23,7 +23,7 @@ struct ChallengeList {
     
     switch category {
     case .drive:
-      return [drivingOne, drivingTwo, drivingThree ,drivingFour , drivingFive, drivingSix, drivingSeven, drivingEight]
+      return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
     case .travel:
       return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
     case .walk:

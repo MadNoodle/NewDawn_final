@@ -38,47 +38,56 @@ var currentUser = ""
       navBar.addSubview(backButton)
       backButton.frame = CGRect(x: 8, y: 28, width: 100, height: 34)
       backButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
-     
-    
+   
     }
 
+  /// This methofs prompts an alert where user can decide
+  /// whether he wants to delete all his data or not.
+  /// there is no recovery for this action
   @IBAction func resetData(_ sender: UIButton) {
-    let alert = UIAlertController(title: "Warning", message: "You are about to delete all your data", preferredStyle: .actionSheet) // 1
-    let firstAction = UIAlertAction(title: "Delete", style: .default) { (alert: UIAlertAction!) -> Void in
+    // instantiate alertController
+    let alert = UIAlertController(title: "Warning",
+                                  message: "You are about to delete all your data",
+                                  preferredStyle: .actionSheet)
+    // delete action
+    let firstAction = UIAlertAction(title: "Delete", style: .default) { _ -> Void in
+      // purge challenges and moods for user
       DatabaseService.shared.purgeChallenges(for: self.currentUser)
       DatabaseService.shared.purgeMoods(for: self.currentUser)
-    } // 2
-    
-    let secondAction = UIAlertAction(title: "Cancel", style: .default) { (alert: UIAlertAction!) -> Void in
+    }
+    // cancel action
+    let secondAction = UIAlertAction(title: "Cancel", style: .default) { (_) -> Void in
       NSLog("You pressed button two")
-    } // 3
+    }
     
-    alert.addAction(firstAction) // 4
-    alert.addAction(secondAction) // 5
-    present(alert, animated: true, completion:nil) // 6
-    
-   
+    alert.addAction(firstAction)
+    alert.addAction(secondAction)
+    present(alert, animated: true, completion: nil)
   }
+  
+  /// Action to logout the user and send him back the login screen
   @IBAction func logOut(_ sender: UIButton) {
     let firebaseAuth = Auth.auth()
     do {
+      // SignOut from firebase
       try firebaseAuth.signOut()
-      UserDefaults.standard.set("", forKey: "currentUser")
+      // reet Current user
+      UserDefaults.standard.set("", forKey: UIConfig.currentUserKey)
+      // send the user to login screen
       let loginVc = LoginViewController()
-      self.present(loginVc,animated: true)
+      self.present(loginVc, animated: true)
+      
     } catch let signOutError as NSError {
-      print ("Error signing out: %@", signOutError)
+      UserAlert.show(title: "Error signing out", message: signOutError.localizedDescription, controller: self)
     }
-    
   }
+  
+  /// This function dismisses the settings screen
   @objc func handleDismiss() {
     self.dismiss(animated: true, completion: nil)
   }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+  
+  /// action triggered when the user wants to go back to the app
   @IBAction func back(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }

@@ -31,12 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     return true
   }
 
-  func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+  func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
     let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
     TWTRTwitter.sharedInstance().application(app, open: url, options: options)
     return handled
   }
-  
   
   func applicationWillResignActive(_ application: UIApplication) {
   }
@@ -149,7 +148,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     let challengeRef = Database.database().reference(withPath: "challenges")
     challengeRef.keepSynced(true)
     // iniatlize twitter Login
-    TWTRTwitter.sharedInstance().start(withConsumerKey:"onGHxAuY5Sctf1gbt3Wo1GZLg", consumerSecret:"9E7pl4JWwi8ZOhcJPCrV2oBozDK96REvrp8fsyQfiP9kYvA1VO")
+    TWTRTwitter.sharedInstance().start(
+      withConsumerKey: "onGHxAuY5Sctf1gbt3Wo1GZLg",
+      consumerSecret: "9E7pl4JWwi8ZOhcJPCrV2oBozDK96REvrp8fsyQfiP9kYvA1VO"
+    )
   }
   
 }

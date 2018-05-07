@@ -12,130 +12,88 @@ import Charts
 import Firebase
 import FirebaseDatabase
 
-/// Time range that user can select to display challenges
-enum HistoryRange: Int {
-  case week = 7
-  case month = 31
-  case trimester = 100
-  case year = 365
-}
-
 /** Handle the User's Challenges Data visualization in different charts
  Rely on Charts Pods https://github.com/danielgindi/Charts. Documentation
  can be found https://github.com/PhilJay/MPAndroidChart/wiki
  **/
-class HistoryViewController: UIViewController, ChartViewDelegate {
+class HistoryViewController: UIViewController, ChartViewDelegate  {
   
   // ////////////////// //
   // MARK: - PROPERTIES //
   // ////////////////// //
 
   // Get data
-  private var dataSet = [TempMood]()
-  private var dataPoints = [Challenge]()
+  internal var dataSet = [TempMood]()
+  internal var dataPoints = [Challenge]()
   var amountOfSucceededChallenge = 0
   var progress = 0.0
   var currentUser = ""
+  
   // /////////////// //
   // MARK: - OUTLETS //
   // /////////////// //
   
+  @IBOutlet weak var rangeSelector: UISegmentedControl!
   @IBOutlet weak var lineChart: LineChartView!
   @IBOutlet weak var barChart: BarChartView!
   @IBOutlet weak var progressCircle: UIView!
   @IBOutlet weak var progressLabel: UILabel!
-  @IBOutlet var buttons: [CustomUIButtonForUIToolbar]!
-  
+ 
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
   // ///////////////////////// //
   
-  // Model
-  func loadSuccessChallengesCount() -> Int {
-        var result = 0
-    var doneChallenges = [Challenge]()
-    DatabaseService.shared.challengeRef.observe(.value, with: { (snapshot) in
-      var newItems = [Challenge]()
-      for item in snapshot.children {
-        let newChallenge = Challenge(snapshot: item as! DataSnapshot)
-        newItems.insert(newChallenge, at: 0)
-      }
-      for item in newItems where item.user == self.currentUser && item.isDone == 1{
-        doneChallenges.append(item)
-        result = doneChallenges.count
-      }
-    })
-        return result
-      }
-  
-  
   override func viewDidLoad() {
     super.viewDidLoad()
+    // Set up delegation
+    lineChart.delegate = self
+    barChart.delegate = self
     // UI Setup
     setupButtons()
     
     // load logged user
-    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
+    if let user = UserDefaults.standard.object(forKey: UIConfig.currentUserKey) as? String {
       currentUser = user
     }
     
-    // Data Setup
-    loadChallenges(for: currentUser, in: dataPoints)
-    loadMoods(for: currentUser, in: dataSet)
-
-    
-    /// Todo amount of success
-    amountOfSucceededChallenge = loadSuccessChallengesCount()
-    
-    // Set up delegation
-    lineChart.delegate = self
-    barChart.delegate = self
-  }
-  
-  func loadChallenges(for user: String, in data: [Challenge]) {
-    
-    DatabaseService.shared.challengeRef.observe(.value, with: { (snapshot) in
-      var newItems = [Challenge]()
-      for item in snapshot.children {
-        let newChallenge = Challenge(snapshot: item as! DataSnapshot)
-        newItems.insert(newChallenge, at: 0)
+    DispatchQueue.main.async {
+      DatabaseService.shared.loadChallenges(for: self.currentUser) { result in
+        if let data = result {
+          self.dataPoints = data
+          print("data= \(self.dataPoints)")
+          self.handleLoadData()
+          self.shouldLoadUI()
+        }
       }
-      for item in newItems where item.user == self.currentUser {
-        self.dataPoints.insert(item, at: 0)
-      }
-      
-  })
-    self.dataPoints.sort(by: {$0.dueDate < $1.dueDate})
-  }
-  
-  func loadMoods(for user: String, in data: [TempMood]) {
-  
-   DatabaseService.shared.moodRef.observe(.value, with: { (snapshot) in
-      var newItems = [TempMood]()
-      for item in snapshot.children {
-        let newMood = TempMood(snapshot: item as! DataSnapshot)
-        newItems.insert(newMood, at: 0)
-      }
-      for item in newItems where item.user == self.currentUser {
-        self.dataSet.insert(item, at: 0)
-      }
-    
-    })
-    self.dataSet.sort(by: {$0.date < $1.date})
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    loadMoods(for: currentUser, in: dataSet)
-    loadChallenges(for: currentUser, in: dataPoints)
-    shouldDisplayLineGraph(with: dataSet)
-    shouldDisplayBarChart(with: dataPoints)
-    if dataPoints.isEmpty { progress = 0
-      
-      } else {
-      progress = Double(amountOfSucceededChallenge) / (Double(dataPoints.count) / 100.0)
-      
     }
-    self.shouldAnimateCircleProgress(progress: Float(self.progress))
+  }
+  
+
+  override func viewWillAppear(_ animated: Bool) {
+    shouldLoadUI()
+  }
+  
+ 
+  fileprivate func handleLoadData() {
+    DatabaseService.shared.loadMoods(for: currentUser) { result in
+      guard let moodData = result else { return}
+      self.dataSet = moodData
+      self.amountOfSucceededChallenge = DatabaseService.shared.loadSuccessChallengesCount(for: self.currentUser)
+    }
+  }
+  
+  private func shouldLoadUI() {
+   
+      shouldDisplayLineGraph(with: dataSet)
+      shouldDisplayBarChart(with: dataPoints)
+      if dataPoints.isEmpty { progress = 0
+      } else {
+        progress = Double(amountOfSucceededChallenge) / (Double(dataPoints.count) / 100.0)
+      }
+      shouldAnimateCircleProgress(progress: Float(progress))
+      shouldZoom(onLast: HistoryRange.week.rawValue)
+    
+    
   }
   
   // /////////////// //
@@ -143,32 +101,25 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   // /////////////// //
   
   /// Displays the former week data visualization
-  @IBAction func viewLastWeek(_ sender: CustomUIButtonForUIToolbar) {
-    evaluateState()
-    sender.userDidSelect()
-    shouldZoom(onLast: HistoryRange.week.rawValue)
-  }
+
   
-  /// Displays the former month data visualization
-  @IBAction func viewLastMonth(_ sender: CustomUIButtonForUIToolbar) {
-    evaluateState()
-    sender.userDidSelect()
-    shouldZoom(onLast: HistoryRange.month.rawValue)
+  @IBAction func chooseRange(_ sender: UISegmentedControl) {
+    switch sender.selectedSegmentIndex
+    {
+    case 0:
+      shouldZoom(onLast: HistoryRange.week.rawValue)
+    case 1:
+      shouldZoom(onLast: HistoryRange.month.rawValue)
+    case 2:
+      shouldZoom(onLast: HistoryRange.trimester.rawValue)
+    case 3:
+      shouldZoom(onLast: HistoryRange.year.rawValue)
+    default:
+      break
+    }
+    
   }
-  
-  /// Displays the former trimester data visualization
-  @IBAction func viewLastTrimester(_ sender: CustomUIButtonForUIToolbar) {
-    evaluateState()
-    sender.userDidSelect()
-    shouldZoom(onLast: HistoryRange.trimester.rawValue)
-  }
-  
-  /// Displays all time data visualization
-  @IBAction func viewAllTime(_ sender: CustomUIButtonForUIToolbar) {
-    evaluateState()
-    sender.userDidSelect()
-    shouldZoom(onLast: HistoryRange.year.rawValue)
-  }
+
   
   // ////////////////// //
   // MARK: - UI METHODS //
@@ -176,19 +127,6 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   
   /// Handles buttons behavior and color scheme
   private func setupButtons() {
-    for button in buttons {
-      button.typeOfButton = .textButton
-      button.layer.borderColor = UIColor(white: 0.5, alpha: 1).cgColor
-      button.layer.borderWidth = 1
-      button.layer.cornerRadius = 5
-      button.layer.masksToBounds = true
-    }
-    
-    // initially select week display
-    buttons[0].choosen = true
-    buttons[0].layer.borderColor = UIConfig.darkGreen.cgColor
-    buttons[0].backgroundColor = UIConfig.darkGreen
-    buttons[0].setTitleColor(.white, for: .normal)
     
     // add share button to navigation
     let rightButton: UIBarButtonItem =
@@ -196,66 +134,12 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     self.navigationController?.navigationBar.tintColor = .white
     self.navigationItem.rightBarButtonItem = rightButton
   }
+
   
-  /// Reset all buttons to initial color scheme
-  private func evaluateState() {
-    for button in buttons where button.choosen {
-      button.reset()
-    }
-  }
   
   // ////////////////////// //
   // MARK: - BARCHART SETUP //
   // ////////////////////// //
-  
-  
-  //////////////////////:REFACTOR TO MODEL
-  func getSucceededChallengeByDate(data: [Challenge]) -> [(Double, Double)] {
-    
-    var formattedChallenges = [FormattedChallenge]()
-    
-    // convert
-    for point in data {
-      let newFormatChallenge = FormattedChallenge(challenge: point)
-      formattedChallenges.append(newFormatChallenge)
-    }
-    
-    // sort
-    formattedChallenges.sort(by: { $0.formattedDate?.compare($1.formattedDate!) == .orderedAscending})
-    
-    // sort them by date
-    var succeededChallengeDictionary = [String: Int]()
-    for challenge in formattedChallenges {
-      
-      if let count = succeededChallengeDictionary[challenge.formattedDate!] {
-        succeededChallengeDictionary[challenge.formattedDate!] = count + 1
-      } else {
-        succeededChallengeDictionary[challenge.formattedDate!] = 1
-      }
-    }
-    
-    let tuples = succeededChallengeDictionary.sorted{
-      return $0.key < $1.key
-    }
-    
-    var myArrayOfTuples = [(Double, Double)]()
-    
-    let dateTimeFormatter = DateFormatter()
-    dateTimeFormatter.timeZone = .current
-    dateTimeFormatter.dateFormat = DateFormat.sortingFormat.rawValue
-    
-    for tuple in tuples {
-      if let dateConverted = dateTimeFormatter.date(from: tuple.0) {
-        let newDate = dateConverted.timeIntervalSince1970
-        let newtuple = (newDate, Double(tuple.1))
-        myArrayOfTuples.append(newtuple)
-      }
-      
-    }
-    return myArrayOfTuples
-  }
-  
-  //////////////////////:REFACTOR TO MODEL
   
   
   /// Allows the user to display a set of data in a Bar chart with
@@ -264,8 +148,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   private func shouldDisplayBarChart(with data: [Challenge]) {
     // grab succeeded challenges
     
-   
-    let annotedChallenges = getSucceededChallengeByDate(data:data)
+    let annotedChallenges = DatabaseService.shared.getSucceededChallengeByDate(data: data)
     print(annotedChallenges)
     // if no data display a message
     if data.isEmpty {
@@ -275,9 +158,8 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     // Populate data in BarChart matrix
     var dataEntries: [BarChartDataEntry] = []
     for index in 0..<annotedChallenges.count {
-      let value = BarChartDataEntry(x: annotedChallenges[index].0  , y: annotedChallenges[index].1 - 0.6)
+      let value = BarChartDataEntry(x: annotedChallenges[index].0, y: annotedChallenges[index].1 - 0.6)
       dataEntries.append(value)
-
     }
    
     // Bars setup
@@ -306,21 +188,18 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     barChart.xAxis.granularity = 43200
     barChart.xAxis.granularityEnabled = true
     // Sets visible range if there is data
-    if !annotedChallenges.isEmpty{
+    if !annotedChallenges.isEmpty {
     barChart.xAxis.axisMinimum = annotedChallenges[0].0 - 43200
     barChart.xAxis.axisMaximum = (annotedChallenges.last?.0)! + 86400
       
     }
-    
-    
   }
   
   /// Handles data update and charts redrawinf when user
   /// select a different time range option
   /// - Parameter index: Int number of days user wants to display data
   private func handleBarChartRedraw(for index: Int) {
-    // reset data
-    //dataPoints = CoreDataService.loadData(for: currentUser)
+ 
     // update data according to selected time range
     if index >= dataPoints.count {
       dataPoints = dataPoints.getLast(dataPoints.count)
@@ -371,18 +250,17 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   
   /// allows the user to zoom on a defined time range on all the charts
   private func shouldZoom(onLast index: Int) {
-    loadMoods(for: currentUser, in: dataSet)
     // Define max range of data to users max data amount if there is not enougth
     // data to be displayed
     if index >= dataSet.count {
       handleLineChartRedraw(for: dataSet.count)
       handleBarChartRedraw(for: dataSet.count)
     } else {
-      
       dataSet = dataSet.getLast(index)
       handleLineChartRedraw(for: index)
-      handleBarChartRedraw(for: index)}
-    
+      handleBarChartRedraw(for: index)
+      
+    }
   }
   
   /// Load Smiley Icons on left axis of LineChart
@@ -399,7 +277,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
   }
   
   /// Display Y axis Icons for LineChart
-  private func leftAxisIconSetup() {
+  func leftAxisIconSetup() {
     // left labels images
     let icons: [(Icons, Offset)] = [(.superHappy, .step1),
                                     (.happy, .step2),
@@ -517,7 +395,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     DatabaseService.shared.challengeRef.observe(.value, with: { (snapshot) in
       var newItems = [Challenge]()
       for item in snapshot.children {
-        let newChallenge = Challenge(snapshot: item as! DataSnapshot)
+        let newChallenge = Challenge(snapshot: (item as? DataSnapshot)!)
         newItems.insert(newChallenge, at: 0)
       }
       for item in newItems where item.user == self.currentUser {
@@ -535,3 +413,4 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     }
   }
 }
+
