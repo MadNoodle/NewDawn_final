@@ -18,12 +18,16 @@ class HomeViewController: UIViewController {
   // ////////////////// //
   // MARK: - PROPERTIES //
   // ////////////////// //
+  /// Array that allows to store and retrieve data from firebase and display it
   var data: [Challenge] = []
+  /// Property that stores a challenge associated with a date
   var selectedChallenge: Challenge?
   /// Reuse id for challenge table view cells
   let reuseId = "myCell"
+  /// date formatter
   let dateFormatter = DateFormatter()
   var iii: Date?
+  /// Array that allows to store and retrieve the dates of every stored challenge
   open var events: [String] = []
   
   // ////////////////// //
@@ -33,6 +37,7 @@ class HomeViewController: UIViewController {
   @IBOutlet var moodButtons: [CustomUIButtonForUIToolbar]!
   @IBOutlet weak var calendarView: JTAppleCalendarView!
   @IBOutlet weak var montDisplay: UILabel!
+  
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
   // ///////////////////////// //
@@ -44,24 +49,18 @@ class HomeViewController: UIViewController {
     if let user = UserDefaults.standard.object(forKey: UIConfig.currentUserKey) as? String {
       currentUser = user
     }
-    
     // set up notification observers
     handleNotifications()
-    
-    DispatchQueue.main.async {
-      DatabaseService.shared.loadEventsDatabase(for: self.currentUser) {result in
-        guard let eventDates = result else { return}
-        self.events = eventDates
-        print(eventDates)
-        self.calendarView.reloadData()
-      }
-    }
+    loadDataInCalendar()
     shouldDisplayUI()
+    
+    //self.calendarView.reloadData()
   }
   
+
   
   override func viewWillAppear(_ animated: Bool) {
-   self.calendarView.reloadData()
+    loadDataInCalendar()
   }
   
   // ////////////////// //
@@ -83,6 +82,15 @@ class HomeViewController: UIViewController {
     setupCalendarView()
   }
   
+  fileprivate func loadDataInCalendar() {
+    DispatchQueue.main.async {
+      DatabaseService.shared.loadEventsDatabase(for: self.currentUser) { result in
+        guard let eventDates = result else { return}
+        self.events = eventDates
+        self.calendarView.reloadData()
+      }
+    }
+  }
   func setupCalendarView() {
     // register cell
     let nib = UINib(nibName: "CalendarCell", bundle: nil)
@@ -119,9 +127,13 @@ class HomeViewController: UIViewController {
   ///
   /// - Parameter sender: CustomUIButtonForUIToolbar
   @IBAction func moodButtonTapped(_ sender: CustomUIButtonForUIToolbar) {
+    // check if a button is already seleccted and reset all buttons to initial state before new selection
     evaluateMoodButtonState()
-    DatabaseService.shared.saveMood(user: currentUser, state: sender.tag, date: Date().timeIntervalSince1970)
-    
+    // save selected mood to database
+    DatabaseService.shared.saveMood(user: currentUser, state: sender.tag, date: Date().timeIntervalSince1970, onCompleted: { status in
+      print(status)
+    })
+    // change the appeance of selected button
     sender.userDidSelect()
   }
   

@@ -16,7 +16,7 @@ class EditChallengeViewController: UIViewController {
   var currentUser = ""
   var destination = ChallengeDestination(locationName: "", lat: 0, long: 0)
   var tableViewTitle: String?
-  var isNotified: Bool = false
+  var isNotified: Int = 0
   var objective: String?
   var challengeDate: Date?
   var challenge: Challenge?
@@ -53,8 +53,7 @@ class EditChallengeViewController: UIViewController {
     }
     
     if delegate != nil {
-      guard let challengeKey = delegate?.challengeKey else {return}
-      print("LA CLE DU BONHEUR: \(challengeKey)")
+     // guard let challengeKey = delegate?.challengeKey else { return}
       guard let challenge = delegate?.challengeToSend else { return}
       titleLabel.text = challenge.name
       dateLabel.text = Date(timeIntervalSince1970: challenge.dueDate).convertToString(format: .annual)
@@ -124,20 +123,20 @@ class EditChallengeViewController: UIViewController {
     
     if sender.isOn {
       if challengeDate != nil {
-        isNotified = true
+        isNotified = 1
         // create notification
         notification() { (success) in
           if success { print("success")}
         }
         print("notif")
       } else {
-        // Show alert
+        isNotified = 0
         print("entre une date")
         
       }
       
     } else {
-      isNotified = false
+      isNotified = 0
       // purge notification
       NotificationService.removeNotification(notificationId)
     }
@@ -193,14 +192,22 @@ class EditChallengeViewController: UIViewController {
       
       if source != nil {
         
-        DatabaseService.shared.createChallenge(dueDate: dueDate, user: currentUser, name: titleLabel.text!, objective: objective!, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isDone: false, isNotified: isNotified, isSuccess: false, destination: destination.locationName, destinationLat: destination.lat, destinationLong: destination.long )
+        DatabaseService.shared.createChallenge(dueDate: dueDate, user: currentUser, name: titleLabel.text!, objective: objective!, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isDone: 0, isNotified: isNotified, isSuccess: 0, destination: destination.locationName, destinationLat: destination.lat, destinationLong: destination.long) {(error) in
+          if error != nil {
+            UserAlert.show(title: "Error", message: error!.localizedDescription, controller: self)
+          }
+        }
       } else {
       
         if delegate != nil {
           // grab uid for challenge
           let key = delegate?.challengeKey
           
-          DatabaseService.shared.updateChallenge(dueDate: dueDate, key: key, user: currentUser, name: titleLabel.text!, objective: objective!, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isDone: false, isNotified: isNotified, isSuccess: false, destination: destination.locationName, destinationLat: destination.lat, destinationLong: destination.long )
+          DatabaseService.shared.updateChallenge(dueDate: dueDate, key: key, user: currentUser, name: titleLabel.text!, objective: objective!, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isDone: 0, isNotified: isNotified, isSuccess: 0, destination: destination.locationName, destinationLat: destination.lat, destinationLong: destination.long) {(error) in
+            if error != nil {
+              UserAlert.show(title: "Error", message: error!.localizedDescription, controller: self)
+            }
+          }
           
         }
         let mainVc = MainTabBarController()

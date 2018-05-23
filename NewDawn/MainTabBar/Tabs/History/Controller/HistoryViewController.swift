@@ -23,9 +23,11 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
   // ////////////////// //
 
   // Get data
-  internal var dataSet = [TempMood]()
-  internal var dataPoints = [Challenge]()
-  var amountOfSucceededChallenge = 0
+  
+  // TO DO OPTIONNEL
+  internal var dataSet: [Mood]?
+  internal var dataPoints: [Challenge]?
+  var amountOfSucceededChallenge: Int = 0
   var progress = 0.0
   var currentUser = ""
   
@@ -56,43 +58,51 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
       currentUser = user
     }
     
+
+   
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    // load challenges
     DispatchQueue.main.async {
-      DatabaseService.shared.loadChallenges(for: self.currentUser) { result in
+      DatabaseService.shared.loadChallenges(for: self.currentUser) { (result) in
+     
         if let data = result {
           self.dataPoints = data
-          print("data= \(self.dataPoints)")
-          self.handleLoadData()
-          self.shouldLoadUI()
+        
         }
+      }
+      // load moods
+      DatabaseService.shared.loadMoods(for: self.currentUser) { (result, error) in
+        if error != nil {
+          UserAlert.show(title: "Error", message: error!.localizedDescription, controller: self)
+        }
+        let moodData = result
+        self.dataSet = moodData
+        DatabaseService.shared.loadSuccessChallengesCount(for: self.currentUser, completion: { (result, error) in
+          if error != nil {
+            UserAlert.show(title: "Error", message: error!.localizedDescription, controller: self)
+          }
+          self.amountOfSucceededChallenge = result
+         self.shouldLoadUI()
+        })
+        // display UI on completion
+        
       }
     }
   }
-  
 
-  override func viewWillAppear(_ animated: Bool) {
-    shouldLoadUI()
-  }
-  
- 
-  fileprivate func handleLoadData() {
-    DatabaseService.shared.loadMoods(for: currentUser) { result in
-      guard let moodData = result else { return}
-      self.dataSet = moodData
-      self.amountOfSucceededChallenge = DatabaseService.shared.loadSuccessChallengesCount(for: self.currentUser)
-    }
-  }
-  
   private func shouldLoadUI() {
-   
-      shouldDisplayLineGraph(with: dataSet)
-      shouldDisplayBarChart(with: dataPoints)
-      if dataPoints.isEmpty { progress = 0
+    guard let linePoints = dataSet, let barValues = dataPoints else { return}
+      shouldDisplayLineGraph(with: linePoints)
+      shouldDisplayBarChart(with: barValues)
+      if barValues.isEmpty { progress = 0
       } else {
-        progress = Double(amountOfSucceededChallenge) / (Double(dataPoints.count) / 100.0)
+        
+        progress = Double(amountOfSucceededChallenge) / (Double(barValues.count) / 100.0)
       }
       shouldAnimateCircleProgress(progress: Float(progress))
       shouldZoom(onLast: HistoryRange.week.rawValue)
-    
     
   }
   
@@ -199,16 +209,16 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
   /// select a different time range option
   /// - Parameter index: Int number of days user wants to display data
   private func handleBarChartRedraw(for index: Int) {
- 
+    guard let barValues = dataPoints else { return}
     // update data according to selected time range
-    if index >= dataPoints.count {
-      dataPoints = dataPoints.getLast(dataPoints.count)
+    if index >= barValues.count {
+      dataPoints = barValues.getLast(barValues.count)
     } else {
-      dataPoints = dataPoints.getLast(index)
+      dataPoints = barValues.getLast(index)
     }
     // redraw chart
     self.lineChart.notifyDataSetChanged()
-    shouldDisplayBarChart(with: dataPoints)
+    shouldDisplayBarChart(with: barValues)
     barChart.setNeedsDisplay()
   }
   
@@ -224,7 +234,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
   /// handles data loading and display of the data in a linechart
   ///
   /// - Parameter dataToDraw: [MoodPlot] set of data user wants to display
-  private func shouldDisplayLineGraph(with dataToDraw: [TempMood]) {
+  private func shouldDisplayLineGraph(with dataToDraw: [Mood]) {
     chartSettings(chart: lineChart)
     // Custom Y axis values
     lineChart.leftAxis.drawLabelsEnabled = false
@@ -243,20 +253,22 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
   
   /// Handles line chart display update when user select a different time Range
   private func handleLineChartRedraw(for index: Int) {
+    guard let linePoints = dataSet else { return}
     self.lineChart.notifyDataSetChanged()
-    shouldDisplayLineGraph(with: dataSet)
+    shouldDisplayLineGraph(with: linePoints)
     lineChart.setNeedsDisplay()
   }
   
   /// allows the user to zoom on a defined time range on all the charts
   private func shouldZoom(onLast index: Int) {
+    guard let linePoints = dataSet else { return}
     // Define max range of data to users max data amount if there is not enougth
     // data to be displayed
-    if index >= dataSet.count {
-      handleLineChartRedraw(for: dataSet.count)
-      handleBarChartRedraw(for: dataSet.count)
+    if index >= linePoints.count {
+      handleLineChartRedraw(for: linePoints.count)
+      handleBarChartRedraw(for: linePoints.count)
     } else {
-      dataSet = dataSet.getLast(index)
+      dataSet = linePoints.getLast(index)
       handleLineChartRedraw(for: index)
       handleBarChartRedraw(for: index)
       
@@ -317,7 +329,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
   ///
   /// - Parameter data: Raw Data
   /// - Returns: [ChartDataEntry] formatted data
-  private func handleDataConvert(data: [TempMood]) -> [ChartDataEntry] {
+  private func handleDataConvert(data: [Mood]) -> [ChartDataEntry] {
     var lineChartEntry = [ChartDataEntry]()
     // send data to chart
     for index in 0..<data.count {

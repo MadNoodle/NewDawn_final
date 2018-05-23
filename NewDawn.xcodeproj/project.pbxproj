@@ -335,6 +335,7 @@
 		B9083E3F206D9AFA00A64587 /* Challenges */ = {
 			isa = PBXGroup;
 			children = (
+				B954F6A1209A03FE0099A5DB /* EditChallenges */,
 				B9936C912077AC1300EFBF44 /* ProgressChallenge */,
 				B9E888D5206FB648009A242F /* SearchLocation */,
 				B9083E40206D9B0C00A64587 /* MyChallenges */,
@@ -997,7 +998,6 @@
 		B9E888D1206FB5ED009A242F /* AddChallencges */ = {
 			isa = PBXGroup;
 			children = (
-				B954F6A1209A03FE0099A5DB /* EditChallenges */,
 				B954F6A6209A04500099A5DB /* Model */,
 			);
 			path = AddChallencges;

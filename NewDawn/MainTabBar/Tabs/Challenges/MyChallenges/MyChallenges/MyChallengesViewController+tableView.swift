@@ -65,7 +65,11 @@ extension MyChallengesViewController {
  
       // update DB
       let ref = self.data[indexPath.row]
-      DatabaseService.shared.updateChallenge(dueDate: ref.dueDate, key: ref.key, user: self.currentUser, name: ref.name, objective: ref.objective, anxietyLevel: ref.anxietyLevel, benefitLevel: ref.benefitLevel, isDone: true, isNotified: false, isSuccess: true, destination: "", destinationLat: 0, destinationLong: 0)
+      DatabaseService.shared.updateChallenge(dueDate: ref.dueDate, key: ref.key, user: self.currentUser, name: ref.name, objective: ref.objective, anxietyLevel: ref.anxietyLevel, benefitLevel: ref.benefitLevel, isDone: 1, isNotified: 0, isSuccess: 1, destination: "", destinationLat: 0, destinationLong: 0) {(error) in
+        if error != nil {
+          UserAlert.show(title: "Error", message: error!.localizedDescription, controller: self)
+        }
+      }
       
       // remove entry in local data
       self.data.remove(at: indexPath.row)

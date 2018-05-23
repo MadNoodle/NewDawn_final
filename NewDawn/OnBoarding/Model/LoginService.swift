@@ -50,7 +50,10 @@ class LoginService {
     case .email:
       // User infos
       guard let userInfos = infos else {return}
-      LoginService.shared.handleMailLogin(login: userInfos.0, password: userInfos.1, in: controller)
+      LoginService.shared.handleMailLogin(login: userInfos.0, password: userInfos.1) {(_, errorMessage) in
+        let loginVc = LoginViewController()
+        UserAlert.show(title: NSLocalizedString("Error", comment: ""), message: errorMessage!, controller: loginVc)
+      }
     case .facebook:
       LoginService.shared.handleFBLogin(in: controller)
     case .twitter:
@@ -70,7 +73,7 @@ class LoginService {
         // stores it in credential
         let credential = TwitterAuthProvider.credential(withToken: authToken, secret: authTokenSecret)
         // Pass it to Firebase Authentication
-        Auth.auth().signIn(with: credential) { (user, error) in
+        Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
           if let error = error {
             // Shows an alert if error
             UserAlert.show(title: LocalisationString.sorry, message: error.localizedDescription, controller: controller)
@@ -79,16 +82,16 @@ class LoginService {
           
           if let usr = user {
             // check if user exists in database
-            self.firebaseService.database.queryOrdered(byChild: "email").queryEqual(toValue: "\(usr.uid)")
+            self.firebaseService.database.queryOrdered(byChild: "email").queryEqual(toValue: "\(usr.user.uid)")
               .observe(.value) { (snapshot) in
                 
                 if snapshot.value is NSNull {
                   // if user does not exists in database create a user entry
-                  self.firebaseService.saveInfo(user: usr, username: usr.uid, password: usr.uid)
-                  self.validateUser(usr.uid, goto: controller)
+                  self.firebaseService.saveInfo(user: usr.user, username: usr.user.uid, password: usr.user.uid)
+                  self.validateUser(usr.user.uid)
                 } else {
                   // directly login
-                  self.validateUser(usr.uid, goto: controller)
+                  self.validateUser(usr.user.uid)
                 }
             }
           }
@@ -117,13 +120,13 @@ class LoginService {
         // Access Granted
         if fbloginresult.grantedPermissions.contains("email") {
           let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-          Auth.auth().signIn(with: credential) { (user, error) in
+          Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
             if let error = error {
               UserAlert.show(title: "Sorry", message: error.localizedDescription, controller: controller)
               return
             }
             if let usr = user {
-              self.validateUser(usr.email!, goto: controller)
+              self.validateUser(usr.user.email!)
               }
             }
           }
@@ -137,21 +140,24 @@ class LoginService {
   ///   - login: String Login character String
   ///   - password: String password character String
   ///   - controller: Controller which displays the login screen
-  func handleMailLogin(login: String, password: String, in controller: UIViewController) {
+  func handleMailLogin(login: String, password: String, completionHandler: @escaping(_ status: String, _ errorMessage: String?) -> Void) {
     
     // Verify if users is in Firebase Authentication database
     firebaseService.database.child("users").queryOrdered(byChild: "email").queryEqual(toValue: "\(login)")
-    .observe(.value) { (snapshot) in
-      // check if user exists
-      if snapshot.value is NSNull {
-        // show alert
-        UserAlert.show(title: "This user does not exists", message: "please register", controller: controller)
-      } else {
-        // sign In
-        self.firebaseService.signIn(email: login, password: password, in: controller)
-        // present app
-        self.validateUser(login, goto: controller)
-      }
+      .observe(.value, with: { (snapshot) in
+          // sign In
+        self.firebaseService.signIn(email: login, password: password) {(error) in
+          if error != nil {
+            completionHandler("failure", error?.localizedDescription)
+          }
+          // present app
+          self.validateUser(login)
+          completionHandler("succes", "")
+        }
+        
+      })
+      { (error) in
+        completionHandler("failure", error.localizedDescription)
     }
     
   }
@@ -161,7 +167,7 @@ class LoginService {
   /// - Parameters:
   ///   - userId: String Username
   ///   - controller: Main app Controller
-  func validateUser(_ userId: String, goto controller: UIViewController) {
+  func validateUser(_ userId: String) {
     // store in user default
     UserDefaults.standard.set(userId, forKey: "currentUser")
     // change the rootviewController to avoid modally presented in other hierarchy error

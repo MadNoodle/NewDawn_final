@@ -32,14 +32,14 @@ struct FirebaseService {
     userRef.setValue(userInfo)
   }
   
-  func signIn(email: String, password: String, in controller: UIViewController) {
+  func signIn(email: String, password: String, completionHandler: @escaping (_ error: Error?) -> Void) {
     
     Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
       if error != nil {
-        print(error!.localizedDescription)
+        completionHandler(error)
       } else {
         if let user = user {
-        print(user)
+        completionHandler(nil)
           
         }
       }
@@ -53,7 +53,7 @@ struct FirebaseService {
         print(error!.localizedDescription)
       } else {
         if let user = user {
-          self.saveInfo(user: user, username: username, password: password)
+          self.saveInfo(user: user.user, username: username, password: password)
         }
       }
     }

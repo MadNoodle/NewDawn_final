@@ -53,7 +53,9 @@ var currentUser = ""
     let firstAction = UIAlertAction(title: "Delete", style: .default) { _ -> Void in
       // purge challenges and moods for user
       DatabaseService.shared.purgeChallenges(for: self.currentUser)
-      DatabaseService.shared.purgeMoods(for: self.currentUser)
+      DatabaseService.shared.purgeMoods(for: self.currentUser, completionHandler: { status in
+        print(status)
+      })
     }
     // cancel action
     let secondAction = UIAlertAction(title: "Cancel", style: .default) { (_) -> Void in

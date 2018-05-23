@@ -14,6 +14,7 @@ import FBSDKCoreKit
 
 class LoginViewController: UIViewController {
 
+  var currentUser = ""
   // /////////////// //
   // MARK: - OUTLETS //
   // /////////////// //
@@ -27,8 +28,21 @@ class LoginViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    // load logged user
+    if let user = UserDefaults.standard.object(forKey: UIConfig.currentUserKey) as? String {
+      currentUser = user
+    }
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    if Auth.auth().currentUser != nil {
+      let mainVc = MainTabBarController()
+      LoginService.shared.validateUser(currentUser)
+    } else {
+      print("no user logged")
+    }
+  }
   // /////////////// //
   // MARK: - ACTIONS //
   // /////////////// //

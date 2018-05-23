@@ -16,7 +16,7 @@ extension HistoryViewController {
     chart.chartDescription?.text = ""
     chart.drawGridBackgroundEnabled = false
     chart.legend.enabled = false
-    
+    chart.autoScaleMinMaxEnabled = false
     // User Interactions
     chart.dragEnabled = true
     chart.pinchZoomEnabled = false

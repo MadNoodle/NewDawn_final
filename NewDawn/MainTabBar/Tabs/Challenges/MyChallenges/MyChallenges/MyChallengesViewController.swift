@@ -35,7 +35,7 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // load current user ( A REFACTOR)
+    // load current user 
     if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
       currentUser = user    
     }
@@ -60,6 +60,7 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
     tableView.register(UINib(nibName: "ChallengeDetailCell", bundle: nil), forCellReuseIdentifier: reuseId)
     // Load challenges for user from firebase
     DatabaseService.shared.loadChallenges(for: currentUser) { (challengeArray) in
+    
       guard let loadedChallenges = challengeArray else { return}
       self.data = loadedChallenges
       self.tableView.reloadData()

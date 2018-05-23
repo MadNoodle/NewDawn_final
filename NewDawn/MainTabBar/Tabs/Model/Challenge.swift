@@ -10,24 +10,41 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
+/// This data model refers to a Challenge object that user can store
 struct Challenge {
-  
+  /// Firebase database reference
   var ref: DatabaseReference!
+  /// Firebase database key
   var key: String!
+  /// user that owns the mood
   var user: String!
+  /// Chalenge title
   var name: String!
+  /// Category in which cchallenge appears
   var objective: String!
+  /// Date chosen by users to process the challenge
   var dueDate: Double!
+  /// This property stores the achievement or not of the task
   var isDone: Int!
+  /// This property stores whether the user wants to be notified or not 10 minutes before due date
   var isNotified: Int!
+  /// This property stores the final state success or failure
   var isSuccess: Int!
+  /// Anticipated anxiety level
   var anxietyLevel: Int!
+  /// Anticipated Benefit level that user is waiting for when achieving task
   var benefitLevel: Int!
-  var comment: String?
-  var destination: String?
-  var destinationLat: Double?
-  var destinationLong: Double?
+  /// Post task felt anxiety
   var felt: Int?
+  /// Property that stores a potential comment
+  var comment: String?
+  /// Location name associated with the task
+  var destination: String?
+  /// Location latitude
+  var destinationLat: Double?
+  /// Location longitude
+  var destinationLong: Double?
+  /// Map image of task
   var map: Data?
   
   init(user: String, name: String, objective: String, dueDate: Double, anxietyLevel: Int, benefitLevel: Int, isNotified: Bool, isDone: Bool, isSuccess: Bool, destination: String?, destinationLat: Double?, destinationLong: Double?, key: String = "") {
@@ -54,7 +71,10 @@ struct Challenge {
       self.destinationLong = longitude
     }
   }
-  
+ 
+  /// Custom init to retrieve a mood from the JSON result from firebase database
+  ///
+  /// - Parameter snapshot: DataSnapshot response from firebase
   init(snapshot: DataSnapshot) {
     guard let dict = snapshot.value as? [String: Any] else { return}
     self.user = dict["user"] as? String
@@ -73,6 +93,9 @@ struct Challenge {
     self.ref = snapshot.ref
   }
   
+  /// Convert data to firebase friendly format for saving
+  ///
+  /// - Returns: [String: Any]
   func toAnyObject() -> [String: Any] {
     return ["user": user, "name": name, "objective": objective, "dueDate": dueDate, "anxietyLevel": anxietyLevel, "benefitLevel": benefitLevel, "felt": felt as Any, "isNotified": isNotified, "isDone": isDone, "isSuccess": isSuccess, "comment": comment as Any, "destination": destination as Any, "destinationLat": destinationLat as Any, "destinationLong": destinationLong as Any]
   }

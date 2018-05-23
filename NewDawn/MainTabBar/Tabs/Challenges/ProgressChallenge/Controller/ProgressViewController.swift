@@ -119,7 +119,9 @@ class ProgressViewController: UIViewController, EditableChallenge {
       
       if let mapImage = UIImagePNGRepresentation(screenshot) {
         
-        DatabaseService.shared.uploadImagePic(data: mapImage, for: key, isDone: 1, isSuccess: 1, comment: textView.text)
+        DatabaseService.shared.uploadImagePic(data: mapImage, for: key, isDone: 1, isSuccess: 1, comment: textView.text) { (_, error) in
+          UserAlert.show(title: "Error", message: error!.localizedDescription, controller: self)
+        }
         challenge?.map = mapImage
       }
     }

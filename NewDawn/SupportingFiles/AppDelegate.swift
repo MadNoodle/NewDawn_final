@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // initialize Notification
     NotificationService.setupNotificationCenter()
     NotificationService.center.delegate = self
-    UserDefaults.standard.set("admin", forKey: "currentUser")
+  
     return true
   }
 
@@ -54,10 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // Called when the application is about to terminate. Save data if appropriate.
     //See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
-    if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
-      
-      print("saved")
-    }
     
     self.saveContext()
   }
