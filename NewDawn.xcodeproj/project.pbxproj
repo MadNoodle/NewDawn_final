@@ -65,7 +65,6 @@
 		B975AC74207D290600B7C128 /* SingleChallengeExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975AC72207D290600B7C128 /* SingleChallengeExportView.swift */; };
 		B975AC75207D290600B7C128 /* SingleChallengeExportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B975AC73207D290600B7C128 /* SingleChallengeExportView.xib */; };
 		B97A57BB205856A800473581 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A57BA205856A800473581 /* AppDelegate.swift */; };
-		B97A57C3205856A800473581 /* NewDawn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B97A57C1205856A800473581 /* NewDawn.xcdatamodeld */; };
 		B97A57C5205856A800473581 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B97A57C4205856A800473581 /* Assets.xcassets */; };
 		B97A57C8205856A800473581 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B97A57C6205856A800473581 /* LaunchScreen.storyboard */; };
 		B97A57D3205856A800473581 /* NewDawnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A57D2205856A800473581 /* NewDawnTests.swift */; };
@@ -105,7 +104,6 @@
 		B9A43E40205EA99D000FDDEE /* MedicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A43E3E205EA99D000FDDEE /* MedicViewController.swift */; };
 		B9A43E41205EA99D000FDDEE /* MedicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A43E3F205EA99D000FDDEE /* MedicViewController.xib */; };
 		B9AE1832208A83C400A53E3D /* FormattedChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AE1831208A83C400A53E3D /* FormattedChallenge.swift */; };
-		B9AE1834208BEB4A00A53E3D /* SortingDateDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AE1833208BEB4A00A53E3D /* SortingDateDictionary.swift */; };
 		B9B933D5207530080011B1F9 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B933D4207530080011B1F9 /* NotificationService.swift */; };
 		B9B933DA20756AFA0011B1F9 /* ChallengeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B933D820756AFA0011B1F9 /* ChallengeDetailCell.swift */; };
 		B9B933DB20756AFA0011B1F9 /* ChallengeDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9B933D920756AFA0011B1F9 /* ChallengeDetailCell.xib */; };
@@ -201,7 +199,6 @@
 		B975AC73207D290600B7C128 /* SingleChallengeExportView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleChallengeExportView.xib; sourceTree = "<group>"; };
 		B97A57B7205856A800473581 /* NewDawn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewDawn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B97A57BA205856A800473581 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B97A57C2205856A800473581 /* NewDawn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewDawn.xcdatamodel; sourceTree = "<group>"; };
 		B97A57C4205856A800473581 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B97A57C7205856A800473581 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B97A57C9205856A800473581 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -245,7 +242,6 @@
 		B9A43E3E205EA99D000FDDEE /* MedicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicViewController.swift; sourceTree = "<group>"; };
 		B9A43E3F205EA99D000FDDEE /* MedicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicViewController.xib; sourceTree = "<group>"; };
 		B9AE1831208A83C400A53E3D /* FormattedChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedChallenge.swift; sourceTree = "<group>"; };
-		B9AE1833208BEB4A00A53E3D /* SortingDateDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingDateDictionary.swift; sourceTree = "<group>"; };
 		B9B933D4207530080011B1F9 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		B9B933D820756AFA0011B1F9 /* ChallengeDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailCell.swift; sourceTree = "<group>"; };
 		B9B933D920756AFA0011B1F9 /* ChallengeDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeDetailCell.xib; sourceTree = "<group>"; };
@@ -410,7 +406,6 @@
 			isa = PBXGroup;
 			children = (
 				B9AE1831208A83C400A53E3D /* FormattedChallenge.swift */,
-				B9AE1833208BEB4A00A53E3D /* SortingDateDictionary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -485,14 +480,6 @@
 				B9A43E34205EA96D000FDDEE /* CrisisViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		B91FD156206A636500EF4E5C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B97A57C1205856A800473581 /* NewDawn.xcdatamodeld */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		B91FD157206A636E00EF4E5C /* View */ = {
@@ -671,7 +658,6 @@
 			children = (
 				B91FD158206A637300EF4E5C /* Controller */,
 				B91FD157206A636E00EF4E5C /* View */,
-				B91FD156206A636500EF4E5C /* Model */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -1328,7 +1314,6 @@
 				B9E888D8206FB672009A242F /* DestinationViewController.swift in Sources */,
 				B91FD161206ABC9A00EF4E5C /* Category.swift in Sources */,
 				B9083E47206D9D8700A64587 /* LocalisationString.swift in Sources */,
-				B97A57C3205856A800473581 /* NewDawn.xcdatamodeld in Sources */,
 				B95BA045207E520E00943DA5 /* homepageExportView.swift in Sources */,
 				B9C5659620933411008FE4A8 /* CalendarCell.swift in Sources */,
 				B9C565932093271C008FE4A8 /* headerView.swift in Sources */,
@@ -1380,7 +1365,6 @@
 				B93BDF3A20796A1A000D4E97 /* PDFPreviewViewController.swift in Sources */,
 				B96C1083206ECCBC00C64CDA /* DateLauncher.swift in Sources */,
 				B9083E35206D708B00A64587 /* Icons.swift in Sources */,
-				B9AE1834208BEB4A00A53E3D /* SortingDateDictionary.swift in Sources */,
 				B91FD169206AF25400EF4E5C /* ChallengeController.swift in Sources */,
 				B93BDF30207915B8000D4E97 /* PopupView.swift in Sources */,
 				B9D4A8502065C3B200313DAB /* extensionUIViewControllerChartSettings.swift in Sources */,
@@ -1646,19 +1630,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		B97A57C1205856A800473581 /* NewDawn.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				B97A57C2205856A800473581 /* NewDawn.xcdatamodel */,
-			);
-			currentVersion = B97A57C2205856A800473581 /* NewDawn.xcdatamodel */;
-			path = NewDawn.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = B97A57AF205856A800473581 /* Project object */;
 }

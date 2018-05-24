@@ -123,6 +123,7 @@ class MedicViewController: UIViewController {
       }
     }
   }
+  
   func loadMedicDetails(_ view: MKAnnotationView) {
     // grab info from annotations
     guard let detail = view.annotation as? MedicAnnotation else { return}

@@ -8,7 +8,7 @@
 // swiftlint:disable trailing_whitespace
 
 import XCTest
-import Firebase
+
 import FirebaseDatabase
 import FirebaseStorage
 
@@ -55,9 +55,25 @@ class NewDawnTests: XCTestCase {
   
   override func setUp() {
     super.setUp()
+    DatabaseService.shared.purgeChallenges(for: username)
     dateToStore = dueDate.timeIntervalSince1970
   }
   
+  // MARK: - USER TEST
+  /// test storing user in user default
+  func testGivenAuserWhenLoggedThenStoreInUserDefault() {
+    // save user in userDefaults
+    LoginService.shared.validateUser(username)
+    
+    // retrieve user from userDefaults
+    let loggedUser = UserDefaults.standard.object(forKey: "currentUser")
+    
+    //Assertion
+    XCTAssert(loggedUser as! String == "mockUser")
+  }
+  // MARK: - CHALLENGES RELATED TEST
+  
+  // MARK: - OBJECT TEST
   /// test challenge model
   func testGivenValuesWhenInitChallengeThenChallengeCreated() {
     
@@ -103,19 +119,26 @@ class NewDawnTests: XCTestCase {
     
   }
   
-  
-  /// test storing user in user default
-  func testGivenAuserWhenLoggedThenStoreInUserDefault() {
-    // save user in userDefaults
-    LoginService.shared.validateUser(username)
-    
-    // retrieve user from userDefaults
-    let loggedUser = UserDefaults.standard.object(forKey: "currentUser")
-    
-    //Assertion
-    XCTAssert(loggedUser as! String == "mockUser")
+  func testGivenAChallengeWhenConvertToJsonThenDict() {
+    // create challenge
+    let newChallenge = Challenge(user: username, name: challengeName, objective: objective, dueDate: dateToStore, anxietyLevel: anxietyLevel, benefitLevel: benefitLevel, isNotified: isNotified, isDone: isDone, isSuccess: isSuccess, destination: destination, destinationLat: destinationLat, destinationLong: destinationLong)
+    let challengeToTest = newChallenge.toAnyObject()
+    XCTAssert(challengeToTest["user"] as? String == "mockUser")
+    XCTAssert(challengeToTest["objective"] as? String == " Objective")
+    XCTAssert(challengeToTest["name"] as? String == "challengeName")
+    XCTAssert(challengeToTest["anxietyLevel"] as? Int == 5)
+    XCTAssert(challengeToTest["benefitLevel"] as? Int == 5)
+    XCTAssert(challengeToTest["isDone"] as? Int == 1)
+    XCTAssert(challengeToTest["isSuccess"] as? Int == 1)
+    XCTAssert(challengeToTest["isNotified"] as? Int == 1)
+    XCTAssert(challengeToTest["destination"] as? String == "Destiantion")
   }
   
+  
+  
+
+  
+  // MARK: - METHOD TEST
   /// test Saving challenge in BDD
   func testGivenAChallengeWhenSavingThenStoredInFB() {
     
@@ -241,7 +264,7 @@ class NewDawnTests: XCTestCase {
     var arrayOfChallenges = [Challenge]()
     // fetch data
     DatabaseService.shared.loadChallenges(for: username){ (result) in
-      guard let data = result else { return XCTAssert(arrayOfChallenges.isEmpty)}
+      guard let data = result else { return }
       for item in data {
         arrayOfChallenges.append(item)
       }
@@ -276,9 +299,7 @@ class NewDawnTests: XCTestCase {
       guard let key = challengeTocheck?.key else { return}
       DatabaseService.shared.uploadImagePic(data: data, for: key, isDone: 1, isSuccess: 1, comment: "test Comment") {(status,error) in
         if error != nil {
-          print(error!.localizedDescription)
-          XCTAssertFalse(error == nil)
-          expectation.fulfill()
+
         } else{
           
           XCTAssert(status == "success")
@@ -287,30 +308,75 @@ class NewDawnTests: XCTestCase {
       
     }
     // async delay !!! Do not go under 20 cause it s an heavy image !!!
-    wait(for: [expectation], timeout: 200.0)
+    wait(for: [expectation], timeout: 30)
   }
+
+  func testWhenUserHasDoneChallengesWhenFetchCountThenReturnsIsDoneCount() {
+
+    var isDoneChallenges = 0
+    let expectations = XCTestExpectation(description: "No data for this user")
   
+    // create 2 mock challenges
+    DatabaseService.shared.createChallenge(dueDate: dateToStore, user: username, name: "testUpdate", objective: objective, anxietyLevel: anxietyLevel, benefitLevel: benefitLevel, isDone: 1, isNotified: 1, isSuccess: 1, destination: destination, destinationLat: destinationLat, destinationLong: destinationLong) {(error) in
+      if error != nil {
+        print(error!)}
+      
+    }
+    
+    DatabaseService.shared.createChallenge(dueDate: dateToStore, user: username, name: "testUpdate2", objective: objective, anxietyLevel: anxietyLevel, benefitLevel: benefitLevel, isDone: 1, isNotified: 1, isSuccess: 1, destination: destination, destinationLat: destinationLat, destinationLong: destinationLong) {(error) in
+      if error != nil {
+        print(error!)}
+    }
+     DatabaseService.shared.loadSuccessChallengesCount(for: self.username) { (result, error) in
+      print("COUNT: \(isDoneChallenges)")
+      if error != nil {
+        print("ERROR")
+      }
+      
+      isDoneChallenges = result
+      
+        XCTAssert(isDoneChallenges == 2)
+      }
+  
+    expectations.fulfill()
+
+    
+    // async delay
+    wait(for: [expectations], timeout: 200)
+  }
   
   /// test challenge purge for one particular user
   func testGivenUserHasChallengesWhenPurgingThenBDDIsEmpty() {
+
+   // unowned let unownedSelf = self
     
-    // delcalre expactions
+    let deadlineTime = DispatchTime.now() + .seconds(10)
+    
     let expectations = XCTestExpectation(description: "No data for this user")
-    
-    // Array to store datas
+
     var arrayOfChallenges: [Challenge] = []
-    DatabaseService.shared.purgeChallenges(for: "paul")
-    DatabaseService.shared.loadChallenges(for: username) { (result) in
-      
-      if let data = result{
-        arrayOfChallenges = data
-        
+    DatabaseService.shared.createChallenge(dueDate: dateToStore, user: "paul", name: challengeName, objective: objective, anxietyLevel: anxietyLevel, benefitLevel: benefitLevel, isDone: 1, isNotified: 1, isSuccess: 1, destination: destination, destinationLat: destinationLat, destinationLong: destinationLong) {(error) in
+      if error != nil {
+        print(error!)
       }
+
+      DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
+
+        // Array to store datas
+        
+        DatabaseService.shared.purgeChallenges(for: "paul")
+        DatabaseService.shared.loadChallenges(for: "paul") { (result) in
+
+          guard let data = result else { return}
+          arrayOfChallenges = data
+
+        }})
       XCTAssert(arrayOfChallenges.isEmpty)
       expectations.fulfill()
-      
     }
+
     // async delay !! Keep large delay to give the time to delete
+    
     wait(for: [expectations], timeout: 200.0)
   }
   
@@ -322,6 +388,16 @@ class NewDawnTests: XCTestCase {
     // test values
     XCTAssert(mood.user == username)
     XCTAssert(mood.state == 0)
+  }
+  
+  /// test json export before firebase Storage
+  func testGivenMoodWhenToJsonTheDict() {
+    // create mood
+    let mood = Mood(user: username, state: 0, date: dateToStore)
+    let dict = mood.toAnyObject()
+    XCTAssert(dict["user"] as? String ==  "mockUser")
+    XCTAssert(dict["state"] as? Int ==  0)
+   
   }
   
   /// test Mood creation on BDD
@@ -347,37 +423,42 @@ class NewDawnTests: XCTestCase {
   func testGivenStoredMoodsWhenFetchThenAreaIsFulfilled() {
     // Declare expectation
     let expectation = XCTestExpectation(description: "load Moods")
-    
+ 
     // Array to locally store moods
     var arrayOfMood = [Mood]()
     // save mood in BDD
-    DatabaseService.shared.saveMood(user: username, state: 0, date: dateToStore, onCompleted: { _ in})
-    
-    // fetch
-    DatabaseService.shared.loadMoods(for: username) { (result, error) in
-      if error != nil {
-        XCTAssertNotNil(error)
+    DatabaseService.shared.saveMood(user: username, state: 0, date: dateToStore, onCompleted: { _ in
+      
+      // fetch
+      DatabaseService.shared.loadMoods(for: self.username) { (result, error) in
+        if error != nil {
+            print(error!)
+        }
+        arrayOfMood = result
+        XCTAssertFalse(arrayOfMood.isEmpty)
         expectation.fulfill()
       }
-      arrayOfMood = result
-      XCTAssertFalse(arrayOfMood.isEmpty)
-      expectation.fulfill()
-    }
+    })
+    
+    
     // Async test
     wait(for: [expectation], timeout: 20)
   }
   
   /// test Deleting moods for user
-  
   func testWhenBDDContainsMoodsForUserWhenUserDeleteThenRemovedFromBDD() {
+    let deadlineTime = DispatchTime.now() + .seconds(10)
     // Declare expectation
     let expectation = XCTestExpectation(description: "load Moods")
     
     // Array to locally store moods
     var arrayOfMood = [Mood]()
     // save mood in BDD
-    DatabaseService.shared.saveMood(user: username, state: 0, date: dateToStore, onCompleted: { status in
+    DatabaseService.shared.saveMood(user: username, state: 0, date: dateToStore) { status in
       print(status)
+    }
+    
+     DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
       // purge moods
       DatabaseService.shared.purgeMoods(for: self.username) { status in
         print(status)
@@ -389,15 +470,18 @@ class NewDawnTests: XCTestCase {
           }
           arrayOfMood = result
         }
+        // make test after completion
+        
       }
-      // make test after completion
       XCTAssert(arrayOfMood.isEmpty)
       expectation.fulfill()
     })
+
     // Async test
     wait(for: [expectation], timeout: 20)
   }
   
+  /// test Fetching events
   func testGivenChallengesWhenFetchEventsThenReturnsDates() {
     let expectation = XCTestExpectation(description: "event no empty")
     var events = [String]()
@@ -417,9 +501,88 @@ class NewDawnTests: XCTestCase {
       expectation.fulfill()
     }
     
-    
     // Async test
     wait(for: [expectation], timeout: 20)
     
   }
+  
+  
+  /// Test Date sorting array of challenge
+  func testGivenAnArrayOfChallengeWhenFilterThenReturnfiltered() {
+  
+    let expectation = XCTestExpectation(description: "Ordered challenges")
+    // init function to test
+    let newChallenge1 = Challenge(user: username, name: challengeName, objective: objective, dueDate: dateToStore, anxietyLevel: anxietyLevel, benefitLevel: benefitLevel, isNotified: isNotified, isDone: isDone, isSuccess: isSuccess, destination: destination, destinationLat: destinationLat, destinationLong: destinationLong)
+    // init function to test
+    let newChallenge2 = Challenge(user: username, name: challengeName, objective: objective, dueDate: (dateToStore + 86400), anxietyLevel: anxietyLevel, benefitLevel: benefitLevel, isNotified: isNotified, isDone: isDone, isSuccess: isSuccess, destination: destination, destinationLat: destinationLat, destinationLong: destinationLong)
+    
+    // init function to test
+    let newChallenge3 = Challenge(user: username, name: challengeName, objective: objective, dueDate: (dateToStore - 86400), anxietyLevel: anxietyLevel, benefitLevel: benefitLevel, isNotified: isNotified, isDone: isDone, isSuccess: isSuccess, destination: destination, destinationLat: destinationLat, destinationLong: destinationLong)
+    
+    let arrayOfChallenge = [newChallenge3,newChallenge2,newChallenge1]
+    
+    var results = [(Double, Double)]()
+    
+    DatabaseService.shared.getSucceededChallengeByDate(data: arrayOfChallenge) { (result) in
+      results = result
+      print(results[0].0 )
+      print(results[1].0 )
+      print(results[2].0 )
+      XCTAssert(results[0].0 < results[1].0)
+      XCTAssert(results[1].0 < results[2].0)
+      expectation.fulfill()}
+    
+    
+    // Async test
+    wait(for: [expectation], timeout: 20)
+  }
+
+  /// Mock Therapist data
+  let mockTherapist: [String: Any] = [ "name":"M ALLARD François","lat":"48.857","lng":"2.40394","adresse":"119 rue des Pyrénées 75020 Paris","tp":"1","s":0,"telephone":"Tel : 01 43 70 64 79    Mob :  06 08 05 49 74","profession":"Psychologue-Psychothérapeute"]
+
+  /// test Therapist Initialization
+  func testGivenDataWhenTherapistInstanceThenCreated() {
+      let medic = Therapist(name: "M ALLARD François", lat: "48.857", lng: "2.40394", adresse: "119 rue des Pyrénées 75020 Paris", tel: "Tel : 01 43 70 64 79    Mob :  06 08 05 49 74", profession: "Psychologue-Psychothérapeute")
+    
+    XCTAssert(medic.name == "M ALLARD François")
+    XCTAssert(medic.lat == "48.857")
+    XCTAssert(medic.lng == "2.40394")
+    XCTAssert(medic.adresse == "119 rue des Pyrénées 75020 Paris" )
+    XCTAssert(medic.tel == "Tel : 01 43 70 64 79    Mob :  06 08 05 49 74")
+    XCTAssert(medic.profession == "Psychologue-Psychothérapeute")
+  }
+  
+  
+  /// test therapist parsing
+  func testGivenTherapistSourceWhengettingThenArrayNotEmpty() {
+    var therapists = [Therapist]()
+   therapists = Therapist.getTherapist()
+    XCTAssertFalse(therapists.isEmpty)
+  }
+  
+  func testGivenAChallengeWhenFormattingThenreturnFormatted() {
+    // init function to test
+    let newChallenge = Challenge(user: username, name: challengeName, objective: objective, dueDate: dateToStore, anxietyLevel: anxietyLevel, benefitLevel: benefitLevel, isNotified: isNotified, isDone: isDone, isSuccess: isSuccess, destination: destination, destinationLat: destinationLat, destinationLong: destinationLong)
+    
+    let formatted = FormattedChallenge(challenge: newChallenge)
+    let formatter = DateFormatter()
+    formatter.dateFormat = DateFormat.sortingFormat.rawValue
+    // Assertions
+    XCTAssert(formatted.user == username)
+    XCTAssert(formatted.name == challengeName)
+    XCTAssert(formatted.objective == objective)
+    XCTAssert(formatted.dueDate == dateToStore)
+    XCTAssert(formatted.anxietyLevel == anxietyLevel)
+    XCTAssert(formatted.benefitLevel == benefitLevel)
+    XCTAssert(formatted.isSuccess == true)
+    XCTAssert(formatted.isDone == true)
+    XCTAssert(formatted.isNotified == true)
+    XCTAssert(formatted.destination == destination)
+    XCTAssert(formatted.destinationLat == destinationLat)
+    XCTAssert(formatted.destinationLong == destinationLong)
+    XCTAssert(formatted.formattedDate == formatter.string(from: Date(timeIntervalSince1970: dateToStore)))
+  }
+  
+
 }
+

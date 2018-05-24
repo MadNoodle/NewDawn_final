@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
+/// Custom Annotation Object for Therapist Map to display Therapist infos
 final class MedicAnnotation: NSObject, MKAnnotation {
   var coordinate: CLLocationCoordinate2D
   var title: String?
@@ -18,6 +19,7 @@ final class MedicAnnotation: NSObject, MKAnnotation {
   var tel: String?
   var job: String?
   
+  // Initailization
   init(lat: String, lng: String, name: String, image: String, subtitle: String, tel: String, job: String) {
     let degLat: CLLocationDegrees = CLLocationDegrees(lat)!
     let degLng: CLLocationDegrees = CLLocationDegrees(lng)!

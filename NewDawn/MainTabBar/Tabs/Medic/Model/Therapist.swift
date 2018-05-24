@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Object that contains all infos about a therapist, used in medic controller
 struct Therapist {
   var name: String
   var lat: String
@@ -16,6 +17,15 @@ struct Therapist {
   var tel: String
   var profession: String
   
+  /// initialization
+  ///
+  /// - Parameters:
+  ///   - name: <#name description#>
+  ///   - lat: <#lat description#>
+  ///   - lng: <#lng description#>
+  ///   - adresse: <#adresse description#>
+  ///   - tel: <#tel description#>
+  ///   - profession: <#profession description#>
   init(name: String, lat: String, lng: String, adresse: String, tel: String, profession: String) {
     self.name = name
     self.lat = lat
@@ -25,6 +35,9 @@ struct Therapist {
     self.profession = profession
   }
   
+  /// Parsing method for therapist Json
+  ///
+  /// - Returns: [Therapist]
   static func getTherapist() -> [Therapist] {
     var therapists: [Therapist] = []
     // Load local Json

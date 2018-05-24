@@ -72,6 +72,16 @@ class RegisteringViewController: UIViewController {
         // signup & add to bdd
         
         firebaseService.signUp(email: emailTextField.text!, username: fullName, password: passwordTextField.text!, in: self)
+        // Format creation date to string
+        let formater = DateFormatter()
+        formater.dateFormat = DateFormat.annual.rawValue
+        let creationDate = formater.string(from: Date())
+        // Store new user in BDD
+        DatabaseService.shared.createUser(date: creationDate, username: emailTextField.text!, password: passwordTextField.text!) { (error) in
+          
+          if error != nil {
+            print("error")
+          }}
         // set current user
         UserDefaults.standard.set(emailTextField.text!, forKey: UIConfig.currentUserKey)
         // present controller

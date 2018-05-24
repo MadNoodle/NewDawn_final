@@ -90,8 +90,18 @@ class LoginService {
                   self.firebaseService.saveInfo(user: usr.user, username: usr.user.uid, password: usr.user.uid)
                   self.validateUser(usr.user.uid)
                 } else {
+                  // Format creation date to string
+                  let formater = DateFormatter()
+                  formater.dateFormat = DateFormat.annual.rawValue
+                  let creationDate = formater.string(from: Date())
+                  // Store new user in BDD
+                  DatabaseService.shared.createUser(date: creationDate, username: usr.user.uid, password: usr.user.uid) { (error) in
+                    
+                    if error != nil {
+                      print("error")
+                    }}
                   // directly login
-                  self.validateUser(usr.user.uid)
+                   self.validateUser(usr.user.uid)
                 }
             }
           }
@@ -126,6 +136,16 @@ class LoginService {
               return
             }
             if let usr = user {
+              // Format creation date to string
+              let formater = DateFormatter()
+              formater.dateFormat = DateFormat.annual.rawValue
+              let creationDate = formater.string(from: Date())
+              // Store new user in BDD
+              DatabaseService.shared.createUser(date: creationDate, username: usr.user.email!, password: usr.user.uid) { (error) in
+                
+                if error != nil {
+                  print("error")
+                }}
               self.validateUser(usr.user.email!)
               }
             }
@@ -150,6 +170,7 @@ class LoginService {
           if error != nil {
             completionHandler("failure", error?.localizedDescription)
           }
+         
           // present app
           self.validateUser(login)
           completionHandler("succes", "")
@@ -170,6 +191,7 @@ class LoginService {
   func validateUser(_ userId: String) {
     // store in user default
     UserDefaults.standard.set(userId, forKey: "currentUser")
+  
     // change the rootviewController to avoid modally presented in other hierarchy error
     guard let app = UIApplication.shared.delegate as? AppDelegate else { return}
     app.window!.rootViewController = MainTabBarController()

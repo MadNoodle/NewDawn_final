@@ -84,7 +84,7 @@ struct Challenge {
     self.anxietyLevel = dict["anxietyLevel"] as? Int
     self.benefitLevel = dict["benefitLevel"] as? Int
     self.isNotified = dict["isNotified"] as? Int
-    self.isDone = dict["isdone"] as? Int
+    self.isDone = dict["isDone"] as? Int
     self.isSuccess = dict["isSuccess"] as? Int
     self.comment = dict["comment"] as? String
     self.destinationLat = dict["latitude"] as? Double

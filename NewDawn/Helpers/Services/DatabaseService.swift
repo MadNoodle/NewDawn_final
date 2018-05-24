@@ -24,7 +24,22 @@ class DatabaseService {
   /// Firebase Reference to access Storage for images
   let storageRef = Storage.storage().reference()
   
+  /// Firebase Reference to access users in database
+  let userRef = Database.database().reference().child("users")
   
+  /// Create a user in the database
+  ///
+  /// - Parameters:
+  ///   - date: String creation date
+  ///   - username: String username
+  ///   - password: String password
+  ///   - completion: return a possible error
+  func createUser(date: String, username: String, password: String, completion: @escaping(_ error: Error?) -> Void) {
+    let userToStore = ["creation": date, "username": username, "password": password]
+    userRef.childByAutoId().setValue(userToStore) { (error, _) in
+      completion(error)
+    }
+  }
   
   /// This methods creates a Challenge entry in the firebase database
   func createChallenge(dueDate: TimeInterval, user: String, name: String, objective: String, anxietyLevel: Int, benefitLevel: Int, isDone: Int, isNotified: Int, isSuccess: Int, destination: String, destinationLat: Double, destinationLong: Double, completionHandler: @escaping(_ error: Error?) -> Void) {
@@ -260,7 +275,7 @@ class DatabaseService {
     })
   }
   
-  func getSucceededChallengeByDate(data: [Challenge]) -> [(Double, Double)] {
+  func getSucceededChallengeByDate(data: [Challenge], completionHandler: @escaping (([(Double, Double)]) -> Void)) {
     
     var formattedChallenges = [FormattedChallenge]()
     
@@ -302,28 +317,31 @@ class DatabaseService {
       }
       
     }
-    return myArrayOfTuples
+    completionHandler(myArrayOfTuples)
   }
   
+  /// Fetch number of succeeded challenges for a user
+  ///
+  /// - Parameters:
+  ///   - user: String username
+  ///   - completion: 
   func loadSuccessChallengesCount(for user: String, completion: @escaping (_ result: Int,_ error :Error?) -> Void)  {
     
     var doneChallenges = [Challenge]()
-    
-    challengeRef.observe(.value, with: { (snapshot) in
-      var newItems = [Challenge]()
-      for item in snapshot.children {
-        let newChallenge = Challenge(snapshot: (item as? DataSnapshot)!)
-        newItems.insert(newChallenge, at: 0)
-      }
-      
-      for item in newItems where item.isDone == 1 {
+    var newItems = [Challenge]()
+    loadChallenges(for: user) { (result) in
+      guard let data = result else { return}
+      newItems = data
+      for item in newItems where item.user == user && item.isDone == 1 {
+        
         doneChallenges.append(item)
-        completion(doneChallenges.count, nil)
       }
-      
-    }, withCancel: { (error) in
-      completion(0, error)
-    })
+     
+      completion(doneChallenges.count, nil)
+    }
     
-  }
+    
+    
+      }
+
 }

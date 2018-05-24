@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     if Auth.auth().currentUser != nil {
-      let mainVc = MainTabBarController()
+      
       LoginService.shared.validateUser(currentUser)
     } else {
       print("no user logged")

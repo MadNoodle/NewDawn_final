@@ -157,9 +157,11 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
   /// - Parameter data: [Challenge]
   private func shouldDisplayBarChart(with data: [Challenge]) {
     // grab succeeded challenges
-    
-    let annotedChallenges = DatabaseService.shared.getSucceededChallengeByDate(data: data)
-    print(annotedChallenges)
+    var annotedChallenges = [(Double,Double)]()
+   DatabaseService.shared.getSucceededChallengeByDate(data: data) {(result) in
+      annotedChallenges = result
+    }
+   
     // if no data display a message
     if data.isEmpty {
       handleNoData()
