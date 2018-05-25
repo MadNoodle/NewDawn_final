@@ -191,28 +191,38 @@ class EditChallengeViewController: UIViewController {
     if let dueDate = challengeDate?.timeIntervalSince1970 {
       
       if source != nil {
-        
+        // create challenge
         DatabaseService.shared.createChallenge(dueDate: dueDate, user: currentUser, name: titleLabel.text!, objective: objective!, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isDone: 0, isNotified: isNotified, isSuccess: 0, destination: destination.locationName, destinationLat: destination.lat, destinationLong: destination.long) {(error) in
           if error != nil {
             UserAlert.show(title: "Error", message: error!.localizedDescription, controller: self)
           }
+          
+          // send back to challenge list
+          let mainVc = MainTabBarController()
+          mainVc.selectedIndex = 1
+          self.present(mainVc, animated: true)
         }
       } else {
       
         if delegate != nil {
           // grab uid for challenge
           let key = delegate?.challengeKey
-          
+          // update challenge
           DatabaseService.shared.updateChallenge(dueDate: dueDate, key: key, user: currentUser, name: titleLabel.text!, objective: objective!, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isDone: 0, isNotified: isNotified, isSuccess: 0, destination: destination.locationName, destinationLat: destination.lat, destinationLong: destination.long) {(error) in
             if error != nil {
               UserAlert.show(title: "Error", message: error!.localizedDescription, controller: self)
             }
+            
+            // send back to challenge list
+            let mainVc = MainTabBarController()
+            mainVc.selectedIndex = 1
+            self.present(mainVc, animated: true)
+            UserAlert.show(title: "Success", message: "Your challenge has been updated", controller: mainVc)
+            
           }
           
         }
-        let mainVc = MainTabBarController()
-        mainVc.selectedIndex = 1
-        self.present(mainVc, animated: true)
+        
       }
     } else {
       // show an alert if no date is entered
@@ -220,6 +230,7 @@ class EditChallengeViewController: UIViewController {
     
   }
  
+  /// Ask permission to use notifications to userx
   fileprivate func shouldAskNotificationPermission() {
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (_, error) in
       if error != nil {

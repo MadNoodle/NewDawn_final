@@ -18,10 +18,7 @@ class ChallengeDetailCell: UITableViewCell {
         // Initialization code
     }
 
-  @IBAction func doChallenge(_ sender: UIButton) {
-    print("button tapped")
-  }
-  
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

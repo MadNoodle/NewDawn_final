@@ -332,7 +332,7 @@ class DatabaseService {
     loadChallenges(for: user) { (result) in
       guard let data = result else { return}
       newItems = data
-      for item in newItems where item.user == user && item.isDone == 1 {
+      for item in newItems where item.user == user && item.isSuccess == 1 {
         
         doneChallenges.append(item)
       }

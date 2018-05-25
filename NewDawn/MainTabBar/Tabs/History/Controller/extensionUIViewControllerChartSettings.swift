@@ -48,5 +48,6 @@ extension HistoryViewController {
     // Reveal animation
     chart.animate(xAxisDuration: 0.5)
     chart.setNeedsDisplay()
+    chart.notifyDataSetChanged()
   }
 }

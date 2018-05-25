@@ -17,9 +17,6 @@
         <array key="TitilliumWeb-Regular.ttf">
             <string>TitilliumWeb-Regular</string>
         </array>
-        <array key="TitilliumWeb-SemiBold.ttf">
-            <string>TitilliumWeb-SemiBold</string>
-        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -32,7 +29,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nHf-Y6-IDM">
-                        <rect key="frame" x="40" y="0.0" width="264" height="43.5"/>
+                        <rect key="frame" x="40" y="0.0" width="264" height="44"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle_green" translatesAutoresizingMaskIntoConstraints="NO" id="GAE-xF-MwQ">
                                 <rect key="frame" x="0.0" y="14.5" width="15" height="15"/>
@@ -43,33 +40,30 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9P4-Fm-0qw">
-                                <rect key="frame" x="23" y="12.5" width="198" height="18.5"/>
+                                <rect key="frame" x="23" y="13" width="213" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="213" id="KcO-ih-zNO"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
                                 <color key="textColor" red="0.23529411764705882" green="0.30980392156862746" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="veJ-Pf-2UT">
-                                <rect key="frame" x="229" y="4.5" width="35" height="34.5"/>
+                                <rect key="frame" x="244" y="14.5" width="20" height="15"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pro-VU-SFO">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="15.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="15"/>
                                         <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="10"/>
                                         <color key="textColor" red="0.23529411759999999" green="0.30980392159999998" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjb-fA-Be5">
-                                        <rect key="frame" x="0.0" y="15.5" width="35" height="19"/>
-                                        <fontDescription key="fontDescription" name="TitilliumWeb-SemiBold" family="Titillium Web" pointSize="12"/>
-                                        <state key="normal" title="Do it " image="Disclosure Indicator">
-                                            <color key="titleColor" red="0.25882352939999997" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="doChallenge:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="U2M-y1-tQU"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="veJ-Pf-2UT" firstAttribute="bottom" secondItem="GAE-xF-MwQ" secondAttribute="bottom" id="R0D-px-DU3"/>
+                            <constraint firstItem="9P4-Fm-0qw" firstAttribute="top" secondItem="nHf-Y6-IDM" secondAttribute="top" constant="13" id="Z28-Wr-nz0"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
@@ -89,7 +83,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Disclosure Indicator" width="8" height="13"/>
         <image name="circle_green" width="15" height="15"/>
     </resources>
 </document>

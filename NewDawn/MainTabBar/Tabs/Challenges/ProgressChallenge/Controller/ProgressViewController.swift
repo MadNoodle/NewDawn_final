@@ -94,6 +94,7 @@ class ProgressViewController: UIViewController, EditableChallenge {
   }
   
   let sorryPop = Popup(title: "NICE TRY", message: "You are making progresses", image: UIImage(named: "tryAgain")!)
+  
   /// Used to stop the challenge progress and declare it failed
   @IBAction func invalidateChallenge(_ sender: UIButton) {
     sorryPop.showSettings()
@@ -123,7 +124,7 @@ class ProgressViewController: UIViewController, EditableChallenge {
           if error != nil {
             UserAlert.show(title: "Error", message: error!.localizedDescription, controller: self)
           }
-          
+ 
         }
         challenge?.map = mapImage
       }
@@ -139,6 +140,7 @@ class ProgressViewController: UIViewController, EditableChallenge {
     //send comment from text view to model
     challenge?.comment = textView.text
     guard let exercise = challenge else {return}
+   
     //send comment from text view to model
     // instantiate pdfCreator
     let pdfCreator = PDFCreator()
@@ -156,7 +158,7 @@ class ProgressViewController: UIViewController, EditableChallenge {
     editVc.delegate = self
     challengeToSend = challenge
    challengeKey = challenge?.key
-    print(challengeKey!)
+ 
 
     self.navigationController?.pushViewController(editVc, animated: true)
   }
@@ -246,8 +248,32 @@ class ProgressViewController: UIViewController, EditableChallenge {
     let coords: [CLLocationCoordinate2D] = locationList.map { location in
       return CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
     }
+    
+    let polyLine = MKPolyline(coordinates: coords, count: coords.count)
     // draw
-    mapView.add(MKPolyline(coordinates: coords, count: coords.count))
+    mapView.add(polyLine)
+    // zoo
+    zoomToPolyLine(map: mapView, polyLine: polyLine, animated: true)
+  }
+  
+  /// Zoom on whole track before saving image
+  private func zoomToPolyLine(map : MKMapView, polyLine : MKPolyline, animated : Bool)
+  {
+    var regionRect = polyLine.boundingMapRect
+    
+    
+    let wPadding = regionRect.size.width * 0.25
+    let hPadding = regionRect.size.height * 0.25
+    
+    //Add padding to the region
+    regionRect.size.width += wPadding
+    regionRect.size.height += hPadding
+    
+    //Center the region on the line
+    regionRect.origin.x -= wPadding / 2
+    regionRect.origin.y -= hPadding / 2
+    
+    map.setRegion(MKCoordinateRegionForMapRect(regionRect), animated: true)
   }
   
 }

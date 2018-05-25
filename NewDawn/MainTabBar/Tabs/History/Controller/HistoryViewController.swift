@@ -11,36 +11,42 @@ import UIKit
 import Charts
 import Firebase
 import FirebaseDatabase
+import PDFGenerator
 
 /** Handle the User's Challenges Data visualization in different charts
  Rely on Charts Pods https://github.com/danielgindi/Charts. Documentation
  can be found https://github.com/PhilJay/MPAndroidChart/wiki
  **/
-class HistoryViewController: UIViewController, ChartViewDelegate  {
+class HistoryViewController: UIViewController, ChartViewDelegate {
   
   // ////////////////// //
   // MARK: - PROPERTIES //
   // ////////////////// //
-
+  
   // Get data
   
   // TO DO OPTIONNEL
   internal var dataSet: [Mood]?
   internal var dataPoints: [Challenge]?
+  internal var history: [Challenge] = []
   var amountOfSucceededChallenge: Int = 0
   var progress = 0.0
   var currentUser = ""
+  let reuseId = "myCell"
   
   // /////////////// //
   // MARK: - OUTLETS //
   // /////////////// //
   
+  @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var rangeSelector: UISegmentedControl!
   @IBOutlet weak var lineChart: LineChartView!
   @IBOutlet weak var barChart: BarChartView!
   @IBOutlet weak var progressCircle: UIView!
   @IBOutlet weak var progressLabel: UILabel!
- 
+  @IBOutlet weak var tableView: UITableView!
+  
+  
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
   // ///////////////////////// //
@@ -50,6 +56,10 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
     // Set up delegation
     lineChart.delegate = self
     barChart.delegate = self
+    scrollView.delegate = self
+    tableView.delegate = self
+    tableView.dataSource = self
+    
     // UI Setup
     setupButtons()
     
@@ -57,21 +67,88 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
     if let user = UserDefaults.standard.object(forKey: UIConfig.currentUserKey) as? String {
       currentUser = user
     }
-    
+    // Display tableView
+    shouldLoadTableView()
 
-   
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    // load challenges
+    loadDataInCharts()
+  }
+  
+  // ////////////////// //
+  // MARK: - UI METHODS //
+  // ////////////////// //
+  
+  fileprivate func shouldLoadTableView() {
+    tableView.register(UINib(nibName: "ChallengeDetailCell", bundle: nil), forCellReuseIdentifier: reuseId)
+    // Load challenges for user from firebase
+    DatabaseService.shared.loadChallenges(for: currentUser) { (challengeArray) in
+      
+      guard let loadedChallenges = challengeArray else { return}
+      self.history = loadedChallenges
+      print(self.history.count)
+      self.tableView.reloadData()
+      self.tableView.reloadData()
+    }
+  }
+  
+  /// Draw all UI bar chart, line Chart and progress circle
+  private func shouldLoadUI() {
+    guard let linePoints = dataSet, let barValues = dataPoints else { return}
+    // display charts
+    shouldDisplayLineGraph(with: linePoints)
+    shouldDisplayBarChart(with: barValues)
+    shouldAnimateCircleProgress(progress: Float(progress))
+    
+    // update charts
+    barChart.setNeedsLayout()
+    lineChart.setNeedsLayout()
+    progressCircle.setNeedsLayout()
+    progressLabel.setNeedsLayout()
+    
+  }
+  
+  
+  /// Load Circle animation to show progress
+  fileprivate func loadDataCircle() {
     DispatchQueue.main.async {
       DatabaseService.shared.loadChallenges(for: self.currentUser) { (result) in
-     
-        if let data = result {
-          self.dataPoints = data
         
+        if let data = result {
+          // Load data for progress circle
+          if data.isEmpty {
+            self.progress = 0
+          } else {
+            self.progress = Double(self.amountOfSucceededChallenge) / (Double(data.count) / 100.0)
+          }
+          self.shouldAnimateCircleProgress(progress: Float(self.progress))
+          self.progressCircle.setNeedsLayout()
+          self.progressLabel.setNeedsLayout()
         }
       }
+    }
+  }
+  
+  /// Inject All data for a user in charts
+  fileprivate func loadDataInCharts() {
+    // load challenges async
+    DispatchQueue.main.async {
+      DatabaseService.shared.loadChallenges(for: self.currentUser) { (result) in
+        
+        if let data = result {
+          // load data for succeed challenge bar chart
+          self.dataPoints = data.filter({$0.isDone == 1})
+          
+          // Load data for progress circle
+          if data.isEmpty {
+            self.progress = 0
+          } else {
+            self.progress = Double(self.amountOfSucceededChallenge) / (Double(data.count) / 100.0)
+          }
+        }
+      }
+      
       // load moods
       DatabaseService.shared.loadMoods(for: self.currentUser) { (result, error) in
         if error != nil {
@@ -84,35 +161,18 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
             UserAlert.show(title: "Error", message: error!.localizedDescription, controller: self)
           }
           self.amountOfSucceededChallenge = result
-         self.shouldLoadUI()
+          self.shouldLoadUI()
         })
-        // display UI on completion
-        
       }
     }
   }
-
-  private func shouldLoadUI() {
-    guard let linePoints = dataSet, let barValues = dataPoints else { return}
-      shouldDisplayLineGraph(with: linePoints)
-      shouldDisplayBarChart(with: barValues)
-      if barValues.isEmpty { progress = 0
-      } else {
-        
-        progress = Double(amountOfSucceededChallenge) / (Double(barValues.count) / 100.0)
-      }
-      shouldAnimateCircleProgress(progress: Float(progress))
-      shouldZoom(onLast: HistoryRange.week.rawValue)
-    
-  }
+  
   
   // /////////////// //
   // MARK: - ACTIONS //
   // /////////////// //
   
   /// Displays the former week data visualization
-
-  
   @IBAction func chooseRange(_ sender: UISegmentedControl) {
     switch sender.selectedSegmentIndex
     {
@@ -127,9 +187,8 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
     default:
       break
     }
-    
   }
-
+  
   
   // ////////////////// //
   // MARK: - UI METHODS //
@@ -144,7 +203,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
     self.navigationController?.navigationBar.tintColor = .white
     self.navigationItem.rightBarButtonItem = rightButton
   }
-
+  
   
   
   // ////////////////////// //
@@ -158,29 +217,29 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
   private func shouldDisplayBarChart(with data: [Challenge]) {
     // grab succeeded challenges
     var annotedChallenges = [(Double,Double)]()
-   DatabaseService.shared.getSucceededChallengeByDate(data: data) {(result) in
+    DatabaseService.shared.getSucceededChallengeByDate(data: data) {(result) in
       annotedChallenges = result
     }
-   
+    
     // if no data display a message
     if data.isEmpty {
       handleNoData()
     }
-
+    
     // Populate data in BarChart matrix
     var dataEntries: [BarChartDataEntry] = []
     for index in 0..<annotedChallenges.count {
-      let value = BarChartDataEntry(x: annotedChallenges[index].0, y: annotedChallenges[index].1 - 0.6)
+      let value = BarChartDataEntry(x: annotedChallenges[index].0, y: annotedChallenges[index].1 )
       dataEntries.append(value)
     }
-   
+    
     // Bars setup
     let chartDataSet = BarChartDataSet(values: dataEntries, label: "")
     chartDataSet.colors = [UIConfig.lightGreen]
     chartDataSet.drawValuesEnabled = false
     chartDataSet.barBorderColor = UIConfig.lightGreen
-    chartDataSet.barBorderWidth = 50
-   
+    chartDataSet.barBorderWidth = 10
+    
     // injectData in chart
     let chartData = BarChartData(dataSet: chartDataSet)
     barChart.data = chartData
@@ -201,8 +260,8 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
     barChart.xAxis.granularityEnabled = true
     // Sets visible range if there is data
     if !annotedChallenges.isEmpty {
-    barChart.xAxis.axisMinimum = annotedChallenges[0].0 - 43200
-    barChart.xAxis.axisMaximum = (annotedChallenges.last?.0)! + 86400
+      barChart.xAxis.axisMinimum = annotedChallenges[0].0 - 43200
+      barChart.xAxis.axisMaximum = (annotedChallenges.last?.0)! + 86400
       
     }
   }
@@ -213,14 +272,11 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
   private func handleBarChartRedraw(for index: Int) {
     guard let barValues = dataPoints else { return}
     // update data according to selected time range
-    if index >= barValues.count {
-      dataPoints = barValues.getLast(barValues.count)
-    } else {
-      dataPoints = barValues.getLast(index)
-    }
+    
     // redraw chart
     self.lineChart.notifyDataSetChanged()
     shouldDisplayBarChart(with: barValues)
+    barChart.setNeedsLayout()
     barChart.setNeedsDisplay()
   }
   
@@ -256,25 +312,28 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
   /// Handles line chart display update when user select a different time Range
   private func handleLineChartRedraw(for index: Int) {
     guard let linePoints = dataSet else { return}
+    
     self.lineChart.notifyDataSetChanged()
     shouldDisplayLineGraph(with: linePoints)
+    lineChart.setNeedsLayout()
     lineChart.setNeedsDisplay()
   }
   
   /// allows the user to zoom on a defined time range on all the charts
   private func shouldZoom(onLast index: Int) {
-    guard let linePoints = dataSet else { return}
     // Define max range of data to users max data amount if there is not enougth
     // data to be displayed
-    if index >= linePoints.count {
-      handleLineChartRedraw(for: linePoints.count)
-      handleBarChartRedraw(for: linePoints.count)
-    } else {
-      dataSet = linePoints.getLast(index)
-      handleLineChartRedraw(for: index)
-      handleBarChartRedraw(for: index)
-      
-    }
+    let center = Date().timeIntervalSince1970
+    let offset = Double ((index) * 86400)
+    lineChart.resetZoom()
+    barChart.resetZoom()
+    // set left edge
+    self.lineChart.setVisibleXRange(minXRange: offset, maxXRange: offset)
+    self.lineChart.moveViewToX(center )
+    handleLineChartRedraw(for: index)
+    self.barChart.setVisibleXRange(minXRange: offset, maxXRange: offset)
+    handleBarChartRedraw(for: index)
+    
   }
   
   /// Load Smiley Icons on left axis of LineChart
@@ -338,6 +397,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
       let value = ChartDataEntry(x: data[index].date, y: Double(data[index].state))
       lineChartEntry.append(value)
     }
+    
     return lineChartEntry
   }
   
@@ -404,27 +464,54 @@ class HistoryViewController: UIViewController, ChartViewDelegate  {
     //send comment from text view to model
     // instantiate pdfCreator
     let pdfCreator = PDFCreator()
-    var array = [Challenge]()
+    let snapshotter = ScrollViewSnapshotter()
     
-    DatabaseService.shared.challengeRef.observe(.value, with: { (snapshot) in
-      var newItems = [Challenge]()
-      for item in snapshot.children {
-        let newChallenge = Challenge(snapshot: (item as? DataSnapshot)!)
-        newItems.insert(newChallenge, at: 0)
-      }
-      for item in newItems where item.user == self.currentUser {
-        array.insert(item, at: 0)
-      }
-    })
-    array.sort(by: {$0.dueDate < $1.dueDate})
-    let pages = pdfCreator.pdfLayout(for: array,
-                                     mapView: nil,
-                                     display: .multipleSummariesReport)
-    // Instantiate the PDF previewer
-    if let controller = pdfCreator.generatePDF(for: pages) {
-      present(controller, animated: true, completion: nil)
-      
+    let data = snapshotter.PDFWithScrollView(scrollview: scrollView)
+
+   
+      if let controller = pdfCreator.scrollViewToPdf(data: data){
+      present(controller, animated: true, completion: nil)}
+    }
+ 
+}
+
+extension HistoryViewController: UIScrollViewDelegate {
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    // Y coordinates to reload animation when scroll
+    let trigger = progressCircle.frame.midY - barChart.frame.maxY
+    
+    // trigger circle animation when progress circle is revealed
+    if scrollView.contentOffset.y >= trigger {
+      loadDataCircle()
     }
   }
+}
+
+extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return history.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as? ChallengeDetailCell
+    let currentChallenge = history[indexPath.row]
+    cell?.titleLabel.text = currentChallenge.name
+    
+    let date = Date(timeIntervalSince1970: (currentChallenge.dueDate)!)
+    cell?.dateLabel.text = date.convertToString(format: .dayHourMinute)
+    
+    
+    if currentChallenge.isDone == 1 {
+      cell?.statusIndicator.image = UIImage(named: "Path")
+    } else {
+      cell?.statusIndicator.image = UIImage(named: "circle_green")
+    }
+    
+    return cell!
+  }
+  
+  
 }
 

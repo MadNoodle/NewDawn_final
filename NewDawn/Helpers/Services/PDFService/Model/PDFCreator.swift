@@ -24,6 +24,24 @@ class PDFCreator {
   var increment = 0
   var outputAsData: Bool = false
   
+  func scrollViewToPdf(data: NSData) -> PDFPreviewViewController? {
+    var controller: PDFPreviewViewController?
+    do {
+      // create the destination path
+      let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending("\(LocalisationString.attachmentName).pdf"))
+    
+        // generate the pdf
+        try data.write(to: dst, options: .atomicWrite)
+     
+      
+      // display in viewer
+      controller = openPDFViewer(dst)
+    } catch let error {
+      print(error.localizedDescription)
+    }
+    return controller
+  }
+  
   func generatePDF(for pages: [UIView]) -> PDFPreviewViewController? {
     var controller: PDFPreviewViewController?
     do {
@@ -45,7 +63,7 @@ class PDFCreator {
     return controller
   }
   
-  fileprivate func openPDFViewer(_ pdfPath: URL) -> PDFPreviewViewController {
+  func openPDFViewer(_ pdfPath: URL) -> PDFPreviewViewController {
     let controller = PDFPreviewViewController(nibName: nil, bundle: nil)
     controller.setupWithURL(pdfPath)
     return controller

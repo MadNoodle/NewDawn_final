@@ -26,9 +26,9 @@ extension MyChallengesViewController {
     print(currentChallenge)
     
     if currentChallenge.isDone == 1 {
-      cell?.statusIndicator.image = UIImage(named: "circle_green")
+      cell?.statusIndicator.image = UIImage(named: "Path")
     } else {
-      cell?.statusIndicator.image = UIImage(named: "circle")
+      cell?.statusIndicator.image = UIImage(named: "circle_green")
     }
 
     return cell!
