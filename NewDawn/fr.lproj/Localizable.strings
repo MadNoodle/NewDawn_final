@@ -5,3 +5,100 @@
   Created by Mathieu Janneau on 26/05/2018.
   Copyright © 2018 Mathieu Janneau. All rights reserved.
 */
+// MARK - ERRORS
+"Error" = "Erreur";
+"Sorry" = "Désolé";
+"Cancel" = "Annuler";
+
+// MARK= - ONBOARDING STRINGS
+"lastNamePlaceholder" = "Nom";
+"firstNamePlaceholder" = "Prénom";
+"emailPlaceholder" = "email";
+"passwordPlaceholder" = "Entrez votre mot de passe";
+"repeatPasswordPlaceholder" = "Entrez votre mot de passe";
+"createAccount" = "S'inscrire";
+"signIn" = "Se connecter";
+"fbLogin" = "Se connecter avec Facebook";
+"twitterLogin" = "Se connecter avec Twitter";
+"forgotPassword" = "Mot de passe oublié?";
+"back" = "retourr";
+"enterEmail" = "Entrez votre email";
+"resetPassord" = "Reinitialiser";
+"diffPasswords" = "Les deux mot de passe sont différents. Veuillez recommencer";
+
+// MARK: - VC TITLES
+"profilVcTitle" = "Acceuil";
+"challengesVcTitle" = "Challenges";
+"crisisVcTitle" = "Crise";
+"historyVcTitle" = "Historique";
+"medicVcTitle" = "Thérapeute";
+
+// MARK: - PROFIL VC
+"todayMood" = "Humeur du jour";
+"add challenge" = "ajouter";
+"New Challenge" = "Nouveau Challenge";
+"Empty" = "";
+
+// Mark: - HISTORY VC
+"Mood History" = "Historique humeurs";
+"Done Challenges" = "Challenges réussis";
+"Weekly progress" = "Progression de la semaine";
+"Challenges History" = "Historique des challenges";
+"week" = "Semaine";
+"month" = "Mois";
+"trimester" = "Trimestre";
+"all time" = "Tous";
+"You need to provide data for the chart." = "Il n'y a pas de données disponibles.";
+
+// MARK: - PROGRESS V
+"Start Challenge" = "Commencer";
+"Comments" = "Commentaires";
+"Success" = "Succès";
+"Fail" = "Echec";
+"Enter comments here..." = "Entrez vos commentaires...";
+"NICE TRY" = "BEL ESSAI";
+"You are making progresses" = "Vous êtes sur la bonne voie";
+"CONGRATULATIONS" = "FÉLICITATIONS";
+"You did it" = "Vous avez réussi";
+
+// MARK: - SEARCH LOCATION VC
+"Search place" = "Rechercher un lieu";
+"Choose a new date" = "Choisir une nouvelle date";
+"Validate new date for challenge" = "Valider la nouvelle date";
+
+// MARK: - ChALLENGES VC
+"Drive" = "Conduire";
+"Walk" = "Marcher";
+"Party" = "Sortir";
+"Transportation" = "Prendre les transports";
+"Travel" = "Voyager";
+"Custom" = "Personnalisé";
+"Done" = "Fait";
+"Delete" = "Effacer";
+"Please enter a valid date" = "Veuillez entrer une date";
+"it's Challenge Time" = "C'est l'heure de votre challenge";
+"here is your challenge:" = "Vous devez:";
+
+// MARK: - CREATE CHALLENGE VC
+"Give a name to your challenge" = "Donner un titre à votre challenge";
+"Add a date" = "Entrer une date";
+"Add an Objective Location" = "Entrer une destination" ;
+"Activate notifications" = "Activer les notifications";
+"What the situation anxiety level?" = "Quel niveau anxiété anticipez-vous?";
+"Rate the Benefit you expect" = "Donnez une note au bénéfice attendu";
+"Create Challenge" = "Créer le challenge";
+"Your challenge has been updated" = "Votre challenge a été mis à jour";
+
+// MARK: - CRISIS VC
+"BREATH" = "Respirez";
+"Start" = "Commencer";
+"stop" = "Arreter";
+
+// MARK: - MEDIC VC
+"Address" = "Addresse";
+"Profession" = "Profession";
+"Telephone" = "Téléphone";
+
+// MARK: - MAIL COMPOSER
+"NewDawn sent you an e-mail" = "NewDawn vous envoie un email";
+"Here is my report" = "Voici mon rapport";
