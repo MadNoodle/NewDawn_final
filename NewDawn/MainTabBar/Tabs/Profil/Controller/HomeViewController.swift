@@ -37,6 +37,7 @@ class HomeViewController: UIViewController {
   @IBOutlet var moodButtons: [CustomUIButtonForUIToolbar]!
   @IBOutlet weak var calendarView: JTAppleCalendarView!
   @IBOutlet weak var montDisplay: UILabel!
+  @IBOutlet weak var todaysMoodLabel: UILabel!
   
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
@@ -49,12 +50,11 @@ class HomeViewController: UIViewController {
     if let user = UserDefaults.standard.object(forKey: UIConfig.currentUserKey) as? String {
       currentUser = user
     }
+    
     // set up notification observers
     handleNotifications()
     loadDataInCalendar()
     shouldDisplayUI()
-    
-    //self.calendarView.reloadData()
   }
   
 
@@ -67,14 +67,16 @@ class HomeViewController: UIViewController {
   // MARK: - UI         //
   // ////////////////// //
   
+  /// Present and in stantiate all UI Elements
   fileprivate func shouldDisplayUI() {
     
+    todaysMoodLabel.text = NSLocalizedString("todayMood", comment: "")
     // set up of mood button color behavior on tap
     for button in moodButtons {
       button.typeOfButton = .imageButton
     }
-    
-    let rightButton: UIBarButtonItem =  UIBarButtonItem(title: "add challenge",
+    // Addd navigationBar buttons
+    let rightButton: UIBarButtonItem =  UIBarButtonItem(title: NSLocalizedString("add challenge", comment: ""),
                                                         style: .done,
                                                         target: self,
                                                         action: #selector(addChallenge))
@@ -82,6 +84,7 @@ class HomeViewController: UIViewController {
     setupCalendarView()
   }
   
+  /// Load all challenges date in the calendar
   fileprivate func loadDataInCalendar() {
     DispatchQueue.main.async {
       DatabaseService.shared.loadEventsDatabase(for: self.currentUser) { result in
@@ -91,28 +94,8 @@ class HomeViewController: UIViewController {
       }
     }
   }
-  func setupCalendarView() {
-    // register cell
-    let nib = UINib(nibName: "CalendarCell", bundle: nil)
-    let headerNib = UINib(nibName: "headerView", bundle: nil)
-    calendarView.register(nib, forCellWithReuseIdentifier: UIConfig.calendarCellId)
-    calendarView.register(headerNib, forSupplementaryViewOfKind: UIConfig.calendarHeaderId, withReuseIdentifier: UIConfig.calendarHeaderId)
-    // UI appearance settings
-    calendarView.minimumLineSpacing = 0
-    calendarView.minimumInteritemSpacing = 0
-    calendarView.backgroundColor = .clear
-    // delegation attribution
-    calendarView.ibCalendarDelegate = self
-    calendarView.ibCalendarDataSource = self
-    calendarView.isScrollEnabled = false
-    calendarView.scrollToDate(Date(), animateScroll: false)
-    calendarView.selectDates([Date()])
-    self.calendarView.visibleDates {[unowned self] (visibleDates: DateSegmentInfo) in
-      self.setupViewsOfCalendar(from: visibleDates)
-    }
-    
-  }
   
+  /// Observer that catch if a new challenge is added and modify calendar according to it
   fileprivate func handleNotifications() {
     NotificationCenter.default.addObserver(self,
                                            selector: #selector(addChallenge),
@@ -157,25 +140,26 @@ class HomeViewController: UIViewController {
   // ////////////////// //
   // MARK: - SELECTORS  //
   // ////////////////// //
+  
+  /// Display Detail view for challenge associated with a date
   func showChallenge() {
     if let challengeToPresent = selectedChallenge {
       let challengeVc = ProgressViewController()
-      // TODO: - delegation??
       challengeVc.challenge = challengeToPresent
       self.navigationController?.pushViewController(challengeVc, animated: true)
     }
-    
   }
   
+  /// Selector for navigationBar add button that present choices in an Alert Action sheet
   @objc func addChallenge() {
-    let alert = UIAlertController(title: LocalisationString.addAlert, message: LocalisationString.messageAlert, preferredStyle: .actionSheet)
-    let firstAction = UIAlertAction(title: LocalisationString.newChallengeAlert, style: .default) { (_) -> Void in
+    let alert = UIAlertController(title: NSLocalizedString("Add a New Challenge", comment: ""), message: NSLocalizedString("Empty", comment: ""), preferredStyle: .actionSheet)
+    let firstAction = UIAlertAction(title: NSLocalizedString("New Challenge", comment: ""), style: .default) { (_) -> Void in
       let objVc = ObjectiveViewController()
       // Renvoyer la date
       self.navigationController?.pushViewController(objVc, animated: true)
     } // 2
     
-    let secondAction = UIAlertAction(title: LocalisationString.ErrorTitles.cancel.rawValue, style: .default) { (_) -> Void in
+    let secondAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default) { (_) -> Void in
       NSLog("You pressed button two")
     }
     

@@ -1,9 +1,9 @@
 ///**
 /**
- NewDawn
- Created by: Mathieu Janneau on 02/05/2018
- Copyright (c) 2018 Mathieu Janneau
- */
+NewDawn
+Created by: Mathieu Janneau on 26/05/2018
+Copyright (c) 2018 Mathieu Janneau
+*/
 // swiftlint:disable trailing_whitespace
 
 import UIKit
@@ -11,52 +11,47 @@ import UserNotifications
 import Firebase
 import FirebaseDatabase
 
-/// This controller allows the user to create and edit predefined challenges
-class EditChallengeViewController: UIViewController {
+/// This controller allows use to create a custom challenge
+class CreateCustomChallengeViewController: UIViewController {
   
-  /// Currently loggged user
+  /// stores current user
   var currentUser = ""
   
-  /// Dummy location
+  /// Insttantiate an empty destination
   var destination = ChallengeDestination(locationName: "", lat: 0, long: 0)
   
   /// title
   var tableViewTitle: String?
   
-  /// Notification state
+  /// stores notification state
   var isNotified: Int = 0
   
-  /// Current Objective
+  /// Current objective
   var objective: String?
   
-  /// Container for challenge due date
+  /// stores challenge due date
   var challengeDate: Date?
   
-  /// Currenttly selected Challenge
+  /// stores current challenge
   var challenge: Challenge?
   
-  /// Challenge ref in Database
+  /// Stores  current Challenge Database key
   var challengeKey: String?
-  
-  /// Delegate that sends info for challenge
-  weak var delegate: EditableChallenge?
-  
-  /// Edit or create
-  var source: String?
-  
+
   // /////////////// //
   // MARK: - OUTLETS //
   // /////////////// //
   
-  @IBOutlet weak var titleLabel: UILabel!
+
+  @IBOutlet weak var titleField: UITextField!
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var notificationSwitch: UISwitch!
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var anxietySlider: NStopSlider!
   @IBOutlet weak var benefitSlider: NStopSlider!
   @IBOutlet weak var validateButton: GradientButton!
-  @IBOutlet weak var benefitLabel: UILabel!
   @IBOutlet weak var anxietyLabel: UILabel!
+  @IBOutlet weak var benefitLabel: UILabel!
   @IBOutlet weak var notificationLabel: UILabel!
   
   // ///////////////////////// //
@@ -65,6 +60,7 @@ class EditChallengeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    titleField.delegate = self
     NotificationCenter.default.addObserver(self,
                                            selector: #selector(didUpdateDate),
                                            name: NSNotification.Name(rawValue: "ValueChanged"),
@@ -76,36 +72,13 @@ class EditChallengeViewController: UIViewController {
     if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
       currentUser = user
     }
-    dateLabel.text = NSLocalizedString("Add a date", comment: "")
+    titleField.placeholder = NSLocalizedString("Give a name to your challenge", comment: "")
+   dateLabel.text = NSLocalizedString("Add a date", comment: "")
     locationLabel.text = NSLocalizedString("Add an Objective Location", comment: "")
     notificationLabel.text = NSLocalizedString("Activate notifications", comment: "")
     anxietyLabel.text = NSLocalizedString("What the situation anxiety level?", comment: "")
     benefitLabel.text = NSLocalizedString("Rate the Benefit you expect", comment: "")
     validateButton.setTitle(NSLocalizedString("Create Challenge", comment: ""), for: .normal)
-    if delegate != nil {
-     // guard let challengeKey = delegate?.challengeKey else { return}
-      guard let challenge = delegate?.challengeToSend else { return}
-      titleLabel.text = challenge.name
-      dateLabel.text = Date(timeIntervalSince1970: challenge.dueDate).convertToString(format: .annual)
-      challengeDate = Date(timeIntervalSince1970: challenge.dueDate)
-      objective = challenge.objective
-      if let location = challenge.destination {
-        locationLabel.text = location}
-      if let state = challenge.isNotified {
-        if state == 1 {
-          notificationSwitch.isOn = true
-        } else {notificationSwitch.isOn = false }
-      }
-      if let anxiety = challenge.anxietyLevel {
-        anxietySlider.value = Float(anxiety)
-      }
-      if let benefit = challenge.benefitLevel {
-        benefitSlider.value = Float(benefit)
-      }
-    } else {
-      guard let challenge = tableViewTitle else { return}
-      titleLabel.text = challenge
-    }
     shouldAskNotificationPermission()
     self.edgesForExtendedLayout = []
   }
@@ -147,6 +120,7 @@ class EditChallengeViewController: UIViewController {
   // MARK: - NOTIFICATIONS  //
   // ////////////////////// //
   
+  /// Container for notification Id allows to create multiple ids
   var notificationId = ""
   
   @IBAction func userDidActivateNotification(_ sender: UISwitch) {
@@ -161,7 +135,6 @@ class EditChallengeViewController: UIViewController {
       } else {
         isNotified = 0
       }
-      
     } else {
       isNotified = 0
       // purge notification
@@ -179,7 +152,7 @@ class EditChallengeViewController: UIViewController {
       
       let content = UNMutableNotificationContent()
       content.title = NSLocalizedString("it's Challenge Time", comment: "")
-      if let message = titleLabel.text {
+      if let message = titleField.text {
         content.body = NSLocalizedString("here is your challenge:", comment: "") + message
         
       }
@@ -212,14 +185,14 @@ class EditChallengeViewController: UIViewController {
       locationLabel.text = location.2
     }
   }
- 
+  
   @IBAction func updateChallenge(_ sender: GradientButton) {
     
+    // check if user has entered a date
     if let dueDate = challengeDate?.timeIntervalSince1970 {
       
-      if source != nil {
         // create challenge
-        DatabaseService.shared.createChallenge(dueDate: dueDate, user: currentUser, name: titleLabel.text!, objective: objective!, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isDone: 0, isNotified: isNotified, isSuccess: 0, destination: destination.locationName, destinationLat: destination.lat, destinationLong: destination.long) {(error) in
+        DatabaseService.shared.createChallenge(dueDate: dueDate, user: currentUser, name: titleField.text!, objective: objective!, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isDone: 0, isNotified: isNotified, isSuccess: 0, destination: destination.locationName, destinationLat: destination.lat, destinationLong: destination.long) {(error) in
           if error != nil {
             UserAlert.show(title: NSLocalizedString("Error", comment: ""), message: error!.localizedDescription, controller: self)
           }
@@ -229,39 +202,18 @@ class EditChallengeViewController: UIViewController {
           mainVc.selectedIndex = 1
           self.present(mainVc, animated: true)
         }
-      } else {
-      
-        if delegate != nil {
-          // grab uid for challenge
-          let key = delegate?.challengeKey
-          // update challenge
-          DatabaseService.shared.updateChallenge(dueDate: dueDate, key: key, user: currentUser, name: titleLabel.text!, objective: objective!, anxietyLevel: Int(anxietySlider.value), benefitLevel: Int(benefitSlider.value), isDone: 0, isNotified: isNotified, isSuccess: 0, destination: destination.locationName, destinationLat: destination.lat, destinationLong: destination.long) {(error) in
-            if error != nil {
-              UserAlert.show(title: NSLocalizedString("Error", comment: ""), message: error!.localizedDescription, controller: self)
-            }
-            
-            // send back to challenge list
-            let mainVc = MainTabBarController()
-            mainVc.selectedIndex = 1
-            self.present(mainVc, animated: true)
-            UserAlert.show(title: NSLocalizedString("Success", comment: ""), message: NSLocalizedString("Your challenge has been updated", comment: ""), controller: mainVc)
-            
-          }
-          
-        }
-        
-      }
+   
     } else {
       // show an alert if no date is entered
       UserAlert.show(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please enter a valid date", comment: ""), controller: self)}
     
   }
- 
+  
   /// Ask permission to use notifications to userx
   fileprivate func shouldAskNotificationPermission() {
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (_, error) in
       if error != nil {
-         UserAlert.show(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please allow notification use for NewDawn", comment: ""), controller: self)
+        UserAlert.show(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please allow notification use for NewDawn", comment: ""), controller: self)
       } else {
         print("authorization successful")
       }
@@ -269,3 +221,29 @@ class EditChallengeViewController: UIViewController {
   }
   
 }
+
+
+// MARK: - UITEXTFIELD DELEGATE
+extension CreateCustomChallengeViewController: UITextFieldDelegate {
+  
+  ///  When user touches outside of the text field. it validates his text
+  /// and send translation request. the keyboard disappear.
+  ///
+  /// - Parameters:
+  ///   - touches: Touch
+  ///   - event: event that trigger the action
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    self.view.endEditing(true)
+  }
+  
+  /// When user presses enter on keyboard. it validates his text
+  /// and send translation request. the keyboard disappear.
+  ///
+  /// - Parameter textField:  input textField
+  /// - Returns: Boolean
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return (true)
+  }
+}
+

@@ -38,13 +38,19 @@ class MedicViewController: UIViewController {
   @IBOutlet weak var detailAddress: UILabel!
   @IBOutlet weak var detailJob: UILabel!
   @IBOutlet weak var detailPhone: UILabel!
-
+  @IBOutlet weak var adressLabel: UILabel!
+  @IBOutlet weak var jobLabel: UILabel!
+  @IBOutlet weak var telLabel: UILabel!
+  
   // ///////////////////////// //
   // MARK: - LifeCycle Methods //
   // ///////////////////////// //
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    adressLabel.text = NSLocalizedString("Address", comment: "")
+    jobLabel.text = NSLocalizedString("Profession", comment: "")
+    telLabel.text = NSLocalizedString("Telephone", comment: "")
     locationServiceSetup()
     loadMedicAnnotations()
     infoStack.isHidden = true

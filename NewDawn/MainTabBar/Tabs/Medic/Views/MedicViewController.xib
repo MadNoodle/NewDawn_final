@@ -20,13 +20,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MedicViewController" customModule="NewDawn" customModuleProvider="target">
             <connections>
+                <outlet property="adressLabel" destination="MJs-Q1-R2r" id="9fa-Kf-44X"/>
                 <outlet property="constraint" destination="Pvn-Gz-rt8" id="SMu-4t-QZa"/>
                 <outlet property="detailAddress" destination="6pf-Ai-hZY" id="HjL-5C-qbo"/>
                 <outlet property="detailJob" destination="cwW-kQ-Icd" id="aj9-y1-ekZ"/>
                 <outlet property="detailName" destination="wDA-94-BSR" id="1cW-Sl-Yrv"/>
                 <outlet property="detailPhone" destination="Pr2-zB-V06" id="hLc-gP-pX1"/>
                 <outlet property="infoStack" destination="RhR-2R-PcT" id="DD2-7s-CXv"/>
+                <outlet property="jobLabel" destination="wzY-FH-x5G" id="iX1-tK-JuI"/>
                 <outlet property="map" destination="RX2-6I-fCd" id="bDd-Me-Utp"/>
+                <outlet property="telLabel" destination="fcU-BW-CtT" id="5Pi-7Z-4O6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -184,6 +187,6 @@
         <image name="call " width="20" height="20"/>
         <image name="close " width="20" height="20"/>
         <image name="map" width="20" height="18"/>
-        <image name="upload" width="21" height="21"/>
+        <image name="upload" width="20" height="20"/>
     </resources>
 </document>

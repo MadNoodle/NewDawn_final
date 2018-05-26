@@ -12,6 +12,7 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 
+/// This service handles all the relationship with Firebase Authentication
 struct FirebaseService {
   
   /// Firebase database reference
@@ -24,6 +25,12 @@ struct FirebaseService {
     return Storage.storage().reference()
   }()
   
+  /// Create a user mirroring the authetication in the BDD
+  ///
+  /// - Parameters:
+  ///   - user: User firebase user
+  ///   - username: String email
+  ///   - password: String Password
   func saveInfo(user: User!, username: String, password: String) {
     // create the user info dictionary
     
@@ -32,6 +39,11 @@ struct FirebaseService {
     userRef.setValue(userInfo)
   }
   
+  /// Sign In user and store a token
+  ///
+  /// - Parameters:
+  ///   - username: String email
+  ///   - password: String Password
   func signIn(email: String, password: String, completionHandler: @escaping (_ error: Error?) -> Void) {
     
     Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
@@ -39,6 +51,7 @@ struct FirebaseService {
         completionHandler(error)
       } else {
         if let user = user {
+          print(user)
         completionHandler(nil)
           
         }
@@ -46,6 +59,13 @@ struct FirebaseService {
     }
   }
   
+  /// Create a new Authentication Account
+  ///
+  /// - Parameters:
+  ///   - email: String email
+  ///   - username: String
+  ///   - password: String
+  ///   - controller: UIViewController to display Alert
   func signUp(email: String, username: String, password: String, in controller: UIViewController) {
     Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
       if error != nil {

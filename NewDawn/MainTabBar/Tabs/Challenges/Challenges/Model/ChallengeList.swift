@@ -19,19 +19,23 @@ struct ChallengeList {
   static let drivingSeven = "Drive on the highway"
   static let drivingEight = "Take a trip in car"
   
-  static func getChallenges(for category: ChallengeType ) -> [String] {
+  static func getChallenges(for category: String ) -> [String] {
     
     switch category {
-    case .drive:
+    case NSLocalizedString("Drive", comment: ""):
       return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
-    case .travel:
+    case NSLocalizedString("Travel", comment: ""):
       return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
-    case .walk:
+    case NSLocalizedString("Walk", comment: ""):
       return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
-    case .transport:
+    case NSLocalizedString("Transportation", comment: ""):
       return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
-    case .party:
+    case NSLocalizedString("Party", comment: ""):
       return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
+    case NSLocalizedString("Custom", comment: ""):
+      return []
+    default:
+      return []
     }
     
   }

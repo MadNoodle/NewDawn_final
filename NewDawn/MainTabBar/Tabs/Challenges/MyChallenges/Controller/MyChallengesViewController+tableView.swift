@@ -15,7 +15,8 @@ extension MyChallengesViewController {
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return data.count
   }
-  // MARK: - CELL DATA
+  
+  
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as? ChallengeDetailCell
    
@@ -61,13 +62,13 @@ extension MyChallengesViewController {
   override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     
     // Done action
-    let done = UITableViewRowAction(style: .normal, title: "Done") { _, _ in
+    let done = UITableViewRowAction(style: .normal, title: NSLocalizedString("Done", comment: "")) { _, _ in
  
       // update DB
       let ref = self.data[indexPath.row]
       DatabaseService.shared.updateChallenge(dueDate: ref.dueDate, key: ref.key, user: self.currentUser, name: ref.name, objective: ref.objective, anxietyLevel: ref.anxietyLevel, benefitLevel: ref.benefitLevel, isDone: 1, isNotified: 0, isSuccess: 1, destination: "", destinationLat: 0, destinationLong: 0) {(error) in
         if error != nil {
-          UserAlert.show(title: "Error", message: error!.localizedDescription, controller: self)
+          UserAlert.show(title: NSLocalizedString("Error", comment: ""), message: error!.localizedDescription, controller: self)
         }
       }
       
@@ -79,7 +80,7 @@ extension MyChallengesViewController {
     }
     done.backgroundColor = UIConfig.darkGreen
     
-    let delete = UITableViewRowAction(style: .normal, title: "Delete") { _, _ in
+    let delete = UITableViewRowAction(style: .normal, title: NSLocalizedString("Delete", comment: "")) { _, _ in
      let ref = self.data[indexPath.row].ref
       ref?.removeValue(completionBlock: { (error, _) in
         if error != nil {

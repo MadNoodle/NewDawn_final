@@ -76,7 +76,7 @@ class LoginService {
         Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
           if let error = error {
             // Shows an alert if error
-            UserAlert.show(title: LocalisationString.sorry, message: error.localizedDescription, controller: controller)
+            UserAlert.show(title: NSLocalizedString("Sorry", comment: ""), message: error.localizedDescription, controller: controller)
             return
           }
           
@@ -108,7 +108,7 @@ class LoginService {
         }
         } else {
         // show alert
-        UserAlert.show(title: LocalisationString.sorry, message: (error?.localizedDescription)!, controller: controller)
+        UserAlert.show(title: NSLocalizedString("Sorry", comment: ""), message: error!.localizedDescription, controller: controller)
       }
     })
   }
@@ -132,7 +132,7 @@ class LoginService {
           let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
           Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
             if let error = error {
-              UserAlert.show(title: "Sorry", message: error.localizedDescription, controller: controller)
+              UserAlert.show(title: NSLocalizedString("Sorry", comment: ""), message: error.localizedDescription, controller: controller)
               return
             }
             if let usr = user {
@@ -173,7 +173,7 @@ class LoginService {
          
           // present app
           self.validateUser(login)
-          completionHandler("succes", "")
+          completionHandler("success", "")
         }
         
       })
@@ -204,7 +204,7 @@ class LoginService {
  ///   - controller: Controller that display the info
  func resetPassword(for email: String, in controller: UIViewController) {
     Auth.auth().sendPasswordReset(withEmail: email) { error in
-       UserAlert.show(title: "Sorry", message: error!.localizedDescription, controller: controller)
+        UserAlert.show(title: NSLocalizedString("Sorry", comment: ""), message: error!.localizedDescription, controller: controller)
     }
   }
 }

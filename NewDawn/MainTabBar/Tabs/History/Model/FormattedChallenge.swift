@@ -8,6 +8,7 @@ Copyright (c) 2018 Mathieu Janneau
 
 import Foundation
 
+/// Converts Challenge to be conform ChartsDataEntry
 struct FormattedChallenge {
    var anxietyLevel: Int?
    var benefitLevel: Int?

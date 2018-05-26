@@ -19,6 +19,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResetViewController" customModule="NewDawn" customModuleProvider="target">
             <connections>
                 <outlet property="inputEmail" destination="XCe-j5-b4S" id="eLy-Kb-DR7"/>
+                <outlet property="resetButton" destination="2dS-9v-NVM" id="IUK-Dm-fcs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

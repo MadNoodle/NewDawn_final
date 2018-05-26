@@ -34,7 +34,7 @@ extension ProgressViewController: MKMapViewDelegate {
     return annotationView
   }
   
-  // Path Overlay Drawing
+  /// Path Overlay Drawing
   func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
     guard let polyline = overlay as? MKPolyline else {
       return MKOverlayRenderer(overlay: overlay)

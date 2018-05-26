@@ -43,6 +43,7 @@ struct UIConfig {
   static let partyThumbnail = "sortir"
   static let transportThumbnail = "transports"
   static let travelThumbnail = "voyager"
+  static let customThumbnail = "custom"
 
   // MARK: - CRISIS TIMER DISPLAY SETUP
   static let timerFormat = DateFormat.timer

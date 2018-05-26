@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+
+/// Controller that shows a breathing exercices to stop anxiety crisis
 class CrisisViewController: UIViewController {
   
   // ////////////////// //
@@ -21,12 +23,20 @@ class CrisisViewController: UIViewController {
   
   // Timer Properties
   var timer = Timer()
+  /// Initial duration in seconds
   var duration: Float = 120.0
+  /// Total breathing cycle duration inhale pause exhale in seconds
   let cycleLength: Float = 12.0
+  
+  /// Countdown to end of session
   var timeRemaining: Int = 0
+  
+  /// Alert sound displayed at the end od session
   let systemSoundID: SystemSoundID = 1023
   
-  // MARK: - OUTLETS
+  // /////////////// //
+  // MARK: - OUTLETS //
+  // /////////////// //
   @IBOutlet weak var startButton: UIButton!
   @IBOutlet weak var pulsatingCircles: PulsatingCirclesView!
   @IBOutlet weak var breathLabel: UILabel!
@@ -42,7 +52,6 @@ class CrisisViewController: UIViewController {
     timeRemaining = Int(duration)
     setupLabel()
     setupButton()
-  
   }
 
   // /////////////// //
@@ -58,7 +67,7 @@ class CrisisViewController: UIViewController {
       // start timer
       runTimer()
       // update button title
-      startButton.setTitle("stop", for: .normal)
+      startButton.setTitle(NSLocalizedString("stop", comment: ""), for: .normal)
       // start animation
       pulsatingCircles.circlesAnimation(for: numberOfCycles)
     } else {
@@ -67,7 +76,7 @@ class CrisisViewController: UIViewController {
       // stop timer
       timer.invalidate()
       // reset button title
-      startButton.setTitle("Start", for: .normal)
+      startButton.setTitle(NSLocalizedString("Start", comment: ""), for: .normal)
       // stop and reset animation
       pulsatingCircles.resetCirclesAnimation()
     }
@@ -114,7 +123,7 @@ class CrisisViewController: UIViewController {
   fileprivate func setupLabel() {
     breathLabel.layer.cornerRadius = breathLabel.frame.width / 2
     breathLabel.layer.masksToBounds = true
-    breathLabel.text = "BREATH"
+    breathLabel.text = NSLocalizedString("BREATH", comment: "")
   }
 
   // ////////////////// //
@@ -131,7 +140,7 @@ class CrisisViewController: UIViewController {
     } else {
       // Signal the end of countDown
       AudioServicesPlaySystemSound (systemSoundID)
-      timerLabel.text = "Congratulations"
+      timerLabel.text = NSLocalizedString("CONGRATULATIONS", comment: "")
       timer.invalidate()
     }
   }

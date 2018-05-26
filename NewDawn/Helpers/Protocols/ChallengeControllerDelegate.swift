@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 protocol ChallengeControllerDelegate: class {
-  func sendCategory() -> ChallengeType?
+  func sendCategory() -> String?
 }
 
 extension ChallengeControllerDelegate {
-  func sendCategory() -> ChallengeType? { return nil}
+  func sendCategory() -> String? { return nil}
 }

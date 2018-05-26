@@ -25,10 +25,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgressViewController" customModule="NewDawn" customModuleProvider="target">
             <connections>
                 <outlet property="challengeLabel" destination="pbe-Aq-8SE" id="tyE-Wn-Aue"/>
+                <outlet property="commentLabel" destination="HYE-UC-ztA" id="KDN-LH-Xj6"/>
                 <outlet property="dateLabel" destination="9D8-Nl-gVy" id="2kx-rD-cok"/>
+                <outlet property="failLabel" destination="YF9-OU-osy" id="8Wd-cP-JFY"/>
                 <outlet property="mapView" destination="4mc-DG-9c8" id="yDU-15-omy"/>
                 <outlet property="startButton" destination="nU7-O3-ZR5" id="j2y-k5-LS9"/>
                 <outlet property="startButtonHeight" destination="U7r-ec-cua" id="qan-qJ-HZG"/>
+                <outlet property="successLAbel" destination="ccp-lC-Qzq" id="lrp-PL-gtp"/>
                 <outlet property="textView" destination="MRm-gD-VLH" id="3ji-YL-uhf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

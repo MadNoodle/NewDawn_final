@@ -44,17 +44,17 @@ let mailComposerVC = MFMailComposeViewController()
     mailComposerVC.mailComposeDelegate = self
     
     // Populate the mail
-    mailComposerVC.setToRecipients([LocalisationString.messageRecipient])
-    mailComposerVC.setSubject(LocalisationString.messageSubject)
-    mailComposerVC.setMessageBody(LocalisationString.messageBody, isHTML: false)
+    mailComposerVC.setToRecipients([""])
+    mailComposerVC.setSubject(NSLocalizedString("NewDawn sent you an e-mail", comment: ""))
+    mailComposerVC.setMessageBody(NSLocalizedString("Here is my report", comment: ""), isHTML: false)
     
     do {
       // Attachment directory path
-      let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending("\(LocalisationString.attachmentName).\(LocalisationString.attachmentFormat)"))
+      let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending("NewDawnReport" + ".pdf"))
       // Convert to data
       let fileData = try Data(contentsOf: dst)
       // attach
-      mailComposerVC.addAttachmentData(fileData, mimeType: LocalisationString.mime, fileName: LocalisationString.attachmentName)
+      mailComposerVC.addAttachmentData(fileData, mimeType: "application/pdf", fileName: "NewDawnReport")
     } catch let error {
       print(error)
     }

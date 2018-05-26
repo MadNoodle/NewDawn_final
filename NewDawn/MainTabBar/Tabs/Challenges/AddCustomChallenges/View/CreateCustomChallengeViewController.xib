@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TitilliumWeb-Light.ttf">
+            <string>TitilliumWeb-Light</string>
+        </array>
+        <array key="TitilliumWeb-Regular.ttf">
+            <string>TitilliumWeb-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateCustomChallengeViewController" customModule="NewDawn" customModuleProvider="target">
+            <connections>
+                <outlet property="anxietyLabel" destination="agk-QZ-D0y" id="Vdj-SN-tZY"/>
+                <outlet property="anxietySlider" destination="uI6-i9-vh7" id="8Ql-7c-YmJ"/>
+                <outlet property="benefitLabel" destination="0rh-Gj-ejj" id="0RH-hM-XDA"/>
+                <outlet property="benefitSlider" destination="sHW-eo-knC" id="nHg-P7-6ON"/>
+                <outlet property="dateLabel" destination="SL3-O2-01p" id="ki3-fp-Yfz"/>
+                <outlet property="locationLabel" destination="Yq6-e1-rRR" id="cmC-fu-AVg"/>
+                <outlet property="notificationLabel" destination="GrO-q5-gBU" id="cXZ-IK-cxk"/>
+                <outlet property="notificationSwitch" destination="BOb-dY-cg9" id="A07-n6-1Es"/>
+                <outlet property="titleField" destination="csE-En-pBS" id="U2f-Fd-Brm"/>
+                <outlet property="validateButton" destination="zfm-6F-mct" id="sV7-he-kLy"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Igr-tE-1XM">
+                    <rect key="frame" x="16" y="12" width="343" height="639"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cu8-qs-62P">
+                            <rect key="frame" x="0.0" y="0.0" width="343" height="56"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle_green" translatesAutoresizingMaskIntoConstraints="NO" id="2dJ-CA-Urk">
+                                    <rect key="frame" x="0.0" y="21" width="15" height="15"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="2dJ-CA-Urk" secondAttribute="height" multiplier="1:1" id="gu2-cl-VNI"/>
+                                        <constraint firstAttribute="width" constant="15" id="wky-bd-sHn"/>
+                                    </constraints>
+                                </imageView>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Give a name to your challenge" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="csE-En-pBS">
+                                    <rect key="frame" x="23" y="13" width="320" height="30"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="2dJ-CA-Urk" firstAttribute="top" secondItem="cu8-qs-62P" secondAttribute="top" constant="21" id="Cfs-GN-j8z"/>
+                                <constraint firstAttribute="trailing" secondItem="csE-En-pBS" secondAttribute="trailing" id="DIX-oy-ZbI"/>
+                                <constraint firstItem="2dJ-CA-Urk" firstAttribute="centerY" secondItem="cu8-qs-62P" secondAttribute="centerY" id="J2n-IU-cp2"/>
+                                <constraint firstItem="2dJ-CA-Urk" firstAttribute="leading" secondItem="cu8-qs-62P" secondAttribute="leading" id="NWe-Ke-Lht"/>
+                                <constraint firstItem="csE-En-pBS" firstAttribute="leading" secondItem="2dJ-CA-Urk" secondAttribute="trailing" constant="8" id="bjU-Rq-iMW"/>
+                                <constraint firstItem="csE-En-pBS" firstAttribute="centerY" secondItem="cu8-qs-62P" secondAttribute="centerY" id="nIZ-bC-Wkb"/>
+                            </constraints>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9qL-MM-vC7">
+                            <rect key="frame" x="0.0" y="87.5" width="343" height="23"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SL3-O2-01p">
+                                    <rect key="frame" x="0.0" y="0.0" width="67" height="23"/>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pED-NA-y37">
+                                    <rect key="frame" x="67" y="0.0" width="276" height="23"/>
+                                    <state key="normal" image="plus "/>
+                                    <connections>
+                                        <action selector="addDate:" destination="-1" eventType="touchUpInside" id="OBo-Vh-1Hn"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="SL3-O2-01p" firstAttribute="bottom" secondItem="pED-NA-y37" secondAttribute="bottom" id="kkB-75-Ei7"/>
+                                <constraint firstItem="SL3-O2-01p" firstAttribute="top" secondItem="9qL-MM-vC7" secondAttribute="top" id="oeW-hk-rxt"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iyy-aV-L5Z">
+                            <rect key="frame" x="0.0" y="141.5" width="343" height="31"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activate notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GrO-q5-gBU">
+                                    <rect key="frame" x="0.0" y="4" width="294" height="23"/>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="BOb-dY-cg9">
+                                    <rect key="frame" x="294" y="0.0" width="51" height="31"/>
+                                    <color key="onTintColor" red="0.25882352939999997" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <action selector="userDidActivateNotification:" destination="-1" eventType="valueChanged" id="7UA-T4-HXD"/>
+                                    </connections>
+                                </switch>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="BOb-dY-cg9" firstAttribute="top" secondItem="iyy-aV-L5Z" secondAttribute="top" id="w8y-mk-mcx"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DcX-9X-AgP">
+                            <rect key="frame" x="0.0" y="204" width="343" height="23"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add an Objective Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yq6-e1-rRR">
+                                    <rect key="frame" x="0.0" y="0.0" width="161" height="23"/>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1GK-PY-rqX">
+                                    <rect key="frame" x="161" y="0.0" width="182" height="23"/>
+                                    <state key="normal" image="plus "/>
+                                    <connections>
+                                        <action selector="addLocation:" destination="-1" eventType="touchUpInside" id="1T7-wJ-Rbk"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Yq6-e1-rRR" firstAttribute="bottom" secondItem="1GK-PY-rqX" secondAttribute="bottom" id="Fvm-sZ-ewQ"/>
+                                <constraint firstItem="Yq6-e1-rRR" firstAttribute="top" secondItem="DcX-9X-AgP" secondAttribute="top" id="S6z-3F-ZRp"/>
+                            </constraints>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What the situation anxiety level?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agk-QZ-D0y">
+                            <rect key="frame" x="0.0" y="258" width="343" height="23"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="23" id="HJL-rF-zKl"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="uI6-i9-vh7" customClass="NStopSlider" customModule="NewDawn" customModuleProvider="target">
+                            <rect key="frame" x="-2" y="312.5" width="347" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="y3n-PG-VgL"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="image" keyPath="thumbImage" value="Knob"/>
+                            </userDefinedRuntimeAttributes>
+                        </slider>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="U5G-et-k36">
+                            <rect key="frame" x="0.0" y="374" width="343" height="18.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hT-tT-Hud">
+                                    <rect key="frame" x="0.0" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="zsa-Ht-K0W"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-3w-Q0z">
+                                    <rect key="frame" x="33" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="blt-ZV-PFw"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feU-34-2bL">
+                                    <rect key="frame" x="66" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="GUd-oI-rzu"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vI-qE-Z7w">
+                                    <rect key="frame" x="99" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="UxK-c0-Zqj"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXF-9I-h1O">
+                                    <rect key="frame" x="132" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="up0-s9-jHz"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQg-s1-VdI">
+                                    <rect key="frame" x="165" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="kjA-e8-WUO"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyg-9Z-QJs">
+                                    <rect key="frame" x="198" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="yfe-gM-alR"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rH9-zI-foU">
+                                    <rect key="frame" x="231" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="r6r-Tx-ETM"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3a-Uu-jZx">
+                                    <rect key="frame" x="264" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="RIN-Ia-7V7"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nl-5h-TPB">
+                                    <rect key="frame" x="297" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="TXc-c2-ZYh"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAb-u8-iuL">
+                                    <rect key="frame" x="330" y="0.0" width="13" height="18.5"/>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="rH9-zI-foU" firstAttribute="baseline" secondItem="I3a-Uu-jZx" secondAttribute="baseline" id="2Yq-Go-kfg"/>
+                                <constraint firstItem="I3a-Uu-jZx" firstAttribute="baseline" secondItem="1Nl-5h-TPB" secondAttribute="baseline" id="CzY-xE-aFq"/>
+                                <constraint firstItem="4vI-qE-Z7w" firstAttribute="baseline" secondItem="xXF-9I-h1O" secondAttribute="baseline" id="Gz5-Ag-WGO"/>
+                                <constraint firstItem="feU-34-2bL" firstAttribute="baseline" secondItem="4vI-qE-Z7w" secondAttribute="baseline" id="Ndb-UW-NUf"/>
+                                <constraint firstItem="7hT-tT-Hud" firstAttribute="baseline" secondItem="7dn-3w-Q0z" secondAttribute="baseline" id="TcE-kF-eM1"/>
+                                <constraint firstItem="7dn-3w-Q0z" firstAttribute="leading" secondItem="7hT-tT-Hud" secondAttribute="trailing" constant="26" id="cPN-yk-4Uz"/>
+                                <constraint firstItem="1Nl-5h-TPB" firstAttribute="baseline" secondItem="uAb-u8-iuL" secondAttribute="baseline" id="dYu-67-WtZ"/>
+                                <constraint firstAttribute="bottom" secondItem="7hT-tT-Hud" secondAttribute="bottom" id="dp7-XS-E94"/>
+                                <constraint firstItem="7dn-3w-Q0z" firstAttribute="baseline" secondItem="feU-34-2bL" secondAttribute="baseline" id="eEY-qk-Ykh"/>
+                                <constraint firstItem="xXF-9I-h1O" firstAttribute="baseline" secondItem="lQg-s1-VdI" secondAttribute="baseline" id="hWx-5c-BfD"/>
+                                <constraint firstItem="lQg-s1-VdI" firstAttribute="baseline" secondItem="fyg-9Z-QJs" secondAttribute="baseline" id="i0H-LT-AkY"/>
+                                <constraint firstItem="fyg-9Z-QJs" firstAttribute="baseline" secondItem="rH9-zI-foU" secondAttribute="baseline" id="mF2-an-eOw"/>
+                            </constraints>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate the Benefit you expect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rh-Gj-ejj">
+                            <rect key="frame" x="0.0" y="423.5" width="343" height="23"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="23" id="9rL-a8-2hT"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="sHW-eo-knC" customClass="NStopSlider" customModule="NewDawn" customModuleProvider="target">
+                            <rect key="frame" x="-2" y="478" width="347" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Zh9-In-fnL"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="image" keyPath="thumbImage" value="Knob"/>
+                            </userDefinedRuntimeAttributes>
+                        </slider>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="6JH-bF-IRX">
+                            <rect key="frame" x="0.0" y="539" width="343" height="18.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KW4-qj-S3P">
+                                    <rect key="frame" x="0.0" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="Z6L-lS-cP7"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Z4-B3-Hvu">
+                                    <rect key="frame" x="33" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="0np-x7-ZjQ"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hle-qw-SQU">
+                                    <rect key="frame" x="66" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="de5-bP-jWz"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsA-CL-ilQ">
+                                    <rect key="frame" x="99" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="3Z2-sX-H9T"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0P-gw-Hit">
+                                    <rect key="frame" x="132" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="i0G-xJ-0jg"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrO-fx-Q87">
+                                    <rect key="frame" x="165" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="C7B-Yb-G0Z"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edc-cG-0n1">
+                                    <rect key="frame" x="198" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="I9S-9X-sfQ"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBB-ay-bKC">
+                                    <rect key="frame" x="231" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="rqW-57-Gew"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdb-mP-5yE">
+                                    <rect key="frame" x="264" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="5M4-9z-II7"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwx-l1-4Px">
+                                    <rect key="frame" x="297" y="0.0" width="7" height="18.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="u6h-HE-tzP"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dv8-q6-gee">
+                                    <rect key="frame" x="330" y="0.0" width="13" height="18.5"/>
+                                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="7Z4-B3-Hvu" firstAttribute="leading" secondItem="KW4-qj-S3P" secondAttribute="trailing" constant="26" id="OAL-cj-wa1"/>
+                            </constraints>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfm-6F-mct" customClass="GradientButton" customModule="NewDawn" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="589" width="343" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="PSN-aE-Zgc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="20"/>
+                            <state key="normal" title="Create challenge">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="updateChallenge:" destination="-1" eventType="touchUpInside" id="eAK-z8-AZc"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Igr-tE-1XM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="0wZ-HE-xq3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Igr-tE-1XM" secondAttribute="bottom" constant="16" id="HoS-rN-4E0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="Igr-tE-1XM" secondAttribute="top" constant="8" id="WBs-3m-YZp"/>
+                <constraint firstAttribute="trailing" secondItem="Igr-tE-1XM" secondAttribute="trailing" constant="16" id="hKw-4w-Oq5"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Knob" width="35" height="30"/>
+        <image name="circle_green" width="15" height="15"/>
+        <image name="plus " width="22" height="22"/>
+    </resources>
+</document>

@@ -13,20 +13,18 @@ import UIKit
  This class handles the main tab bar inititailization and behaviours
  */
 class MainTabBarController: UITabBarController {
- 
+ /// Property to store username
   var currentUser: String = ""
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    // load current user
     if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
       currentUser = user
     }
-    print(currentUser)
     setupTabBar()
     self.tabBar.isTranslucent = false
     
-  }
-  override func viewWillAppear(_ animated: Bool) {
-
   }
   
   /**
@@ -34,25 +32,21 @@ class MainTabBarController: UITabBarController {
    */
   private func setupTabBar() {
     
+    // Instantiate controllers
     let profilVc = HomeViewController()
-    
     let historyVc = HistoryViewController()
-    
     let crisisVc = CrisisViewController()
-    
     let objectiveVc = MyChallengesViewController()
-    
     let medicVc = MedicViewController()
     
     // Assign controllers to tab bar
     viewControllers = [
-      createTabBarItem(LocalisationString.profilVcTitle, imageName: UIConfig.profilIcon, for: profilVc),
-      createTabBarItem(LocalisationString.challengesVcTitle, imageName: UIConfig.challengesIcon, for: objectiveVc),
-      createTabBarItem(LocalisationString.crisisVcTitle, imageName: UIConfig.crisisIcon, for: crisisVc),
-      createTabBarItem(LocalisationString.historyVcTitle, imageName: UIConfig.historyIcon, for: historyVc),
-      createTabBarItem(LocalisationString.medicVcTitle, imageName: UIConfig.medicIcon, for: medicVc)
+      createTabBarItem(NSLocalizedString("profilVcTitle", comment: ""), imageName: UIConfig.profilIcon, for: profilVc),
+      createTabBarItem(NSLocalizedString("challengesVcTitle", comment: ""), imageName: UIConfig.challengesIcon, for: objectiveVc),
+      createTabBarItem(NSLocalizedString("crisisVcTitle", comment: ""), imageName: UIConfig.crisisIcon, for: crisisVc),
+      createTabBarItem(NSLocalizedString("historyVcTitle", comment: ""), imageName: UIConfig.historyIcon, for: historyVc),
+      createTabBarItem(NSLocalizedString("medicVcTitle", comment: ""), imageName: UIConfig.medicIcon, for: medicVc)
     ]
-    
   }
   
   /**
@@ -68,15 +62,18 @@ class MainTabBarController: UITabBarController {
     navController.tabBarItem.title = title
     navController.navigationBar.topItem?.title = title
     setpMenuButton(controller)
-    
     //Set icon
     navController.tabBarItem.image = UIImage(named: imageName)
-    
     return navController
   }
   
   // MARK: - MENU BUTTON
+  
+  /// Add button to navigation controller nabvigation bar
+  ///
+  /// - Parameter controller: UIViewController
   fileprivate func setpMenuButton(_ controller: UIViewController) {
+    // settings button
     let firstBarItem = UIBarButtonItem(image: UIImage(named: "opt"),
                                        style: .plain, target: self,
                                        action: #selector(addTapped))
@@ -84,7 +81,9 @@ class MainTabBarController: UITabBarController {
     controller.navigationItem.leftBarButtonItem = firstBarItem
   }
   
+  /// Call back selector for bnavigation bar button
   @objc func addTapped() {
+    // present menu
     let settingsVc = SettingsViewController()
     present(settingsVc, animated: true)
   }

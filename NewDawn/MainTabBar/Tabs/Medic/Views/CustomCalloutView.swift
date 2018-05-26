@@ -8,6 +8,7 @@ Copyright (c) 2018 Mathieu Janneau
 import UIKit
 import MapKit
 
+/// Custom CallOutView for medics
 class CustomCalloutView: UIView {
   @IBOutlet var nameLabel: UILabel!
   @IBOutlet var addressLabel: UILabel!

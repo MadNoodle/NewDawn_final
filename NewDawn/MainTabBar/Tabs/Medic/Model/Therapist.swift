@@ -18,14 +18,6 @@ struct Therapist {
   var profession: String
   
   /// initialization
-  ///
-  /// - Parameters:
-  ///   - name: <#name description#>
-  ///   - lat: <#lat description#>
-  ///   - lng: <#lng description#>
-  ///   - adresse: <#adresse description#>
-  ///   - tel: <#tel description#>
-  ///   - profession: <#profession description#>
   init(name: String, lat: String, lng: String, adresse: String, tel: String, profession: String) {
     self.name = name
     self.lat = lat

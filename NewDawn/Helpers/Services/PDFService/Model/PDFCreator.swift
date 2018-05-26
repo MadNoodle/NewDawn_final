@@ -28,7 +28,7 @@ class PDFCreator {
     var controller: PDFPreviewViewController?
     do {
       // create the destination path
-      let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending("\(LocalisationString.attachmentName).pdf"))
+      let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending("Newdawn.pdf"))
     
         // generate the pdf
         try data.write(to: dst, options: .atomicWrite)
@@ -46,7 +46,7 @@ class PDFCreator {
     var controller: PDFPreviewViewController?
     do {
       // create the destination path
-      let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending("\(LocalisationString.attachmentName).pdf"))
+      let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending("Newdawn.pdf"))
       if outputAsData {
         // generate the pdf
         let data = try PDFGenerator.generated(by: pages)

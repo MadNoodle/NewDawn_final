@@ -31,6 +31,8 @@ class RegisteringViewController: UIViewController {
   @IBOutlet weak var emailTextField: CustomTextField!
   @IBOutlet weak var repeatPasswordTexfield: CustomTextField!
   @IBOutlet weak var passwordTextField: CustomTextField!
+  @IBOutlet weak var createButton: GradientButton!
+  @IBOutlet weak var backButton: UIButton!
   
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
@@ -64,7 +66,8 @@ class RegisteringViewController: UIViewController {
     case .success:
       if passwordTextField.text! != repeatPasswordTexfield.text! {
         // show alert if conditions are not fulfilled
-        UserAlert.show(title: LocalisationString.ErrorTitles.error.rawValue, message: LocalisationString.RegisteringAlert.differentPassword.rawValue , controller: self)
+        // if not valid display error
+        UserAlert.show(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("diffPasswords", comment: ""), controller: self)
       } else {
 
         // set username
@@ -91,7 +94,8 @@ class RegisteringViewController: UIViewController {
       
     case .failure(_, let message):
       // if not valid display error
-      UserAlert.show(title: LocalisationString.ErrorTitles.error.rawValue, message: message.localized(), controller: self)
+      
+      UserAlert.show(title: NSLocalizedString("Error", comment: ""), message: message.localized(), controller: self)
     }
   }
   
@@ -100,10 +104,12 @@ class RegisteringViewController: UIViewController {
   // ////////////////// //
   
   func shouldDisplayPlaceholders() {
-    lastNameTextfield.placeholder = LocalisationString.RegisterString.lastNamePlaceholder.rawValue
-    firstNameTextfield.placeholder = LocalisationString.RegisterString.firstNamePlaceholder.rawValue
-    emailTextField.placeholder = LocalisationString.RegisterString.emailPlaceholder.rawValue
-    passwordTextField.placeholder = LocalisationString.RegisterString.passwordPlaceholder.rawValue
-    repeatPasswordTexfield.placeholder = LocalisationString.RegisterString.repeatPasswordPlaceholder.rawValue
+    lastNameTextfield.placeholder = NSLocalizedString("lastNamePlaceholder", comment: "")
+    firstNameTextfield.placeholder = NSLocalizedString("firstNamePlaceholder", comment: "")
+    emailTextField.placeholder = NSLocalizedString("emailPlaceholder", comment: "")
+    passwordTextField.placeholder = NSLocalizedString("passwordPlaceholder", comment: "")
+    repeatPasswordTexfield.placeholder = NSLocalizedString("repeatPasswordPlaceholder", comment: "")
+    createButton.setTitle(NSLocalizedString("createAccount", comment: ""), for: .normal)
+    backButton.setTitle(NSLocalizedString("back", comment: ""), for: .normal)
   }
 }

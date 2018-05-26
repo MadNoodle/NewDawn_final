@@ -20,6 +20,7 @@
             <connections>
                 <outlet property="calendarView" destination="0p1-5f-Zpg" id="hGF-BX-aOf"/>
                 <outlet property="montDisplay" destination="60a-1i-hff" id="BM4-Mu-UZR"/>
+                <outlet property="todaysMoodLabel" destination="d8a-Lg-1eh" id="UD9-Mb-Mxh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="moodButtons" destination="Lrs-yi-vhS" collectionClass="NSMutableArray" id="TQh-0g-xwC"/>
                 <outletCollection property="moodButtons" destination="67K-jT-4FK" collectionClass="NSMutableArray" id="mdc-wV-tMg"/>

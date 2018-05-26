@@ -9,6 +9,7 @@ Copyright (c) 2018 Mathieu Janneau
 import UIKit
 import JTAppleCalendar
 
+/// Calendar Header cell
 class HeaderView: JTAppleCollectionReusableView {
 
     override func awakeFromNib() {

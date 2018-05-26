@@ -26,7 +26,7 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
   let postPoneLauncher = PostPoneLauncher()
   let reuseId = "myCell"
   /// Objective category
-  let sections: [String] = ["Drive", "Walk", "Party", "Travel"]
+  let sections: [String] = [NSLocalizedString("Drive", comment: ""), NSLocalizedString("Walk", comment: ""), NSLocalizedString("Party", comment: ""), NSLocalizedString("Travel", comment: ""), NSLocalizedString("Custom", comment: "")]
   var currentCell: IndexPath?
   
   // ////////////////////////// //

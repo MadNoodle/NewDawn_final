@@ -20,8 +20,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="NewDawn" customModuleProvider="target">
             <connections>
+                <outlet property="createAccount" destination="Ia8-jo-vZ5" id="0cP-hC-vSW"/>
+                <outlet property="fbButton" destination="KLZ-qX-Xrg" id="EUj-kj-4Bq"/>
+                <outlet property="forgotPasswordButton" destination="IkT-8s-Xak" id="80E-Vm-Xo9"/>
                 <outlet property="loginTextfield" destination="uID-pd-yJY" id="Ldd-ja-2GY"/>
                 <outlet property="passwordTextfield" destination="NMh-6n-arj" id="DVk-hQ-Xdx"/>
+                <outlet property="signInButton" destination="H1C-3S-yDb" id="xYb-B2-xNt"/>
+                <outlet property="twitterButton" destination="Z3l-rE-B6i" id="S2t-dW-M6N"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

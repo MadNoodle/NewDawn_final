@@ -21,6 +21,11 @@ class LoginViewController: UIViewController {
   
   @IBOutlet weak var passwordTextfield: CustomTextField!
   @IBOutlet weak var loginTextfield: CustomTextField!
+  @IBOutlet weak var signInButton: GradientButton!
+  @IBOutlet weak var fbButton: UIButton!
+  @IBOutlet weak var twitterButton: UIButton!
+  @IBOutlet weak var createAccount: GradientButton!
+  @IBOutlet weak var forgotPasswordButton: UIButton!
   
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
@@ -32,24 +37,39 @@ class LoginViewController: UIViewController {
     if let user = UserDefaults.standard.object(forKey: UIConfig.currentUserKey) as? String {
       currentUser = user
     }
+    shouldDisplayUIText()
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    // check if a user is already login
     if Auth.auth().currentUser != nil {
-      
+      // user logged
       LoginService.shared.validateUser(currentUser)
     } else {
       print("no user logged")
     }
+  }
+  
+  // /////////////// //
+  // MARK: - UI METHODS //
+  // /////////////// //
+  
+  /// Populate all UI texts
+  fileprivate func shouldDisplayUIText() {
+    loginTextfield.placeholder = NSLocalizedString("emailPlaceholder", comment: "")
+    passwordTextfield.placeholder = NSLocalizedString("passwordPlaceholder", comment: "")
+    signInButton.setTitle(NSLocalizedString("signIn", comment: ""), for: .normal)
+    forgotPasswordButton.setTitle(NSLocalizedString("forgotPassword", comment: ""), for: .normal)
+    fbButton.setTitle(NSLocalizedString("fbLogin", comment: ""), for: .normal)
+    twitterButton.setTitle(NSLocalizedString("twitterLogin", comment: ""), for: .normal)
+    createAccount.setTitle(NSLocalizedString("createAccount", comment: ""), for: .normal)
   }
   // /////////////// //
   // MARK: - ACTIONS //
   // /////////////// //
   
   @IBAction func signIn(_ sender: GradientButton) {
-    // check if fields are empty
-    
     // check if fields are valid
     let response = Validator.shared.validate(values:
                                               (ValidationType.email, loginTextfield.text!),
@@ -61,7 +81,7 @@ class LoginViewController: UIViewController {
     
     case .failure(_, let message):
       // if not valid display error
-      UserAlert.show(title: LocalisationString.ErrorTitles.error.rawValue, message: message.localized(), controller: self)
+      UserAlert.show(title: NSLocalizedString("Error", comment: ""), message: message.localized(), controller: self)
     }
   }
   

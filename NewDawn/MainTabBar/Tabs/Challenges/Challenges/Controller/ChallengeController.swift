@@ -17,7 +17,7 @@ class ChallengeController: UIViewController {
   let window = UIApplication.shared.keyWindow
   var data = [String]()
   weak var delegate: ChallengeControllerDelegate?
-  var category: ChallengeType?
+  var category: String = ""
   let reuseId = "myCell"
  
   private var divider: UIView = {
@@ -40,10 +40,9 @@ class ChallengeController: UIViewController {
     super.viewDidLoad()
     
     // receive data from objective controller
-    if let category = delegate?.sendCategory() {
       data = ChallengeList.getChallenges(for: category)
-      titleLabel.text = category.rawValue
-    }
+      titleLabel.text = category
+    
     
     // Setup views
     shouldDisplayUI()

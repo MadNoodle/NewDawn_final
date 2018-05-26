@@ -33,16 +33,13 @@ class ProgressViewController: UIViewController, EditableChallenge {
   var outputAsData: Bool = false
   // grab the challenge
   var challenge: Challenge?
-
   // Initiate location functionnality
   let locationManager = CLLocationManager()
-  
   // Temporary store route points
   var locationList: [CLLocation] = []
   var seconds = 0
   var timer: Timer?
   var distance = Measurement(value: 0, unit: UnitLength.meters)
-  // instantiate timer
   
   // /////////////// //
   // MARK: - OUTLETS //
@@ -53,6 +50,9 @@ class ProgressViewController: UIViewController, EditableChallenge {
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var startButton: UIButton!
   @IBOutlet weak var textView: UITextView!
+  @IBOutlet weak var successLAbel: UILabel!
+  @IBOutlet weak var failLabel: UILabel!
+  @IBOutlet weak var commentLabel: UILabel!
   
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
@@ -68,7 +68,7 @@ class ProgressViewController: UIViewController, EditableChallenge {
     super.viewWillDisappear(animated)
     // stop CLLocation from fetcing GPS coordinates
     locationManager.stopUpdatingLocation()
-    
+    // hide start button when challenge tracking starts
     UIView.animate(withDuration: 0.5) {
       self.startButtonHeight.constant = 37
     }
@@ -93,7 +93,7 @@ class ProgressViewController: UIViewController, EditableChallenge {
     }
   }
   
-  let sorryPop = Popup(title: "NICE TRY", message: "You are making progresses", image: UIImage(named: "tryAgain")!)
+  let sorryPop = Popup(title: NSLocalizedString("NICE TRY", comment: ""), message: NSLocalizedString("You are making progresses", comment: ""), image: UIImage(named: "tryAgain")!)
   
   /// Used to stop the challenge progress and declare it failed
   @IBAction func invalidateChallenge(_ sender: UIButton) {
@@ -105,7 +105,7 @@ class ProgressViewController: UIViewController, EditableChallenge {
   }
   
   /// Instatiate the challenge helper object
-  let popup = Popup(title: "CONGRATULATIONS", message: "You did it", image: UIImage(named: "thumbsUp")!)
+  let popup = Popup(title: NSLocalizedString("CONGRATULATIONS", comment: ""), message: NSLocalizedString("You did it", comment: ""), image: UIImage(named: "thumbsUp")!)
   
   /// Used to stop the current challenge progress and declare it done
   @IBAction func validateChallenge(_ sender: UIButton) {
@@ -122,7 +122,7 @@ class ProgressViewController: UIViewController, EditableChallenge {
         
         DatabaseService.shared.uploadImagePic(data: mapImage, for: key, isDone: 1, isSuccess: 1, comment: textView.text) { (_, error) in
           if error != nil {
-            UserAlert.show(title: "Error", message: error!.localizedDescription, controller: self)
+            UserAlert.show(title: NSLocalizedString("Error", comment: ""), message: error!.localizedDescription, controller: self)
           }
  
         }
@@ -169,7 +169,11 @@ class ProgressViewController: UIViewController, EditableChallenge {
   
   /// Draws all the UI elements
   fileprivate func shouldDrawUI() {
-    
+    startButton.setTitle(NSLocalizedString("Start Challenge", comment: ""), for: .normal)
+    commentLabel.text = NSLocalizedString("Comments", comment: "")
+    successLAbel.text = NSLocalizedString("Success", comment: "")
+    failLabel.text = NSLocalizedString("Fail", comment: "")
+    textView.text = NSLocalizedString("Enter comments here...", comment: "")
     // load title and date
     if let currentChallenge = challenge {
       challengeLabel.text = currentChallenge.name

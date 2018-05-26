@@ -20,6 +20,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisteringViewController" customModule="NewDawn" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="cNR-vz-c8k" id="bgm-M9-XPF"/>
+                <outlet property="createButton" destination="d5U-ur-aFF" id="gBI-7n-yZn"/>
                 <outlet property="emailTextField" destination="ah4-Wh-Rhv" id="tda-nI-N9h"/>
                 <outlet property="firstNameTextfield" destination="FEX-yU-hGt" id="vjW-6x-FBq"/>
                 <outlet property="lastNameTextfield" destination="lsv-V1-33d" id="n69-Eg-zQC"/>

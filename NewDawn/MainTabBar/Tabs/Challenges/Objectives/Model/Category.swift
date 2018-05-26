@@ -9,15 +9,16 @@ Copyright (c) 2018 Mathieu Janneau
 import Foundation
 
 struct Category {
-  var title: ChallengeType
+  var title: String
   var imageName: String
   
   static func getCategories() -> [Category] {
-    return [ Category(title: .drive, imageName: UIConfig.driveThumbnail),
-             Category(title: .walk, imageName: UIConfig.walkThumbnail),
-             Category(title: .party, imageName: UIConfig.partyThumbnail),
-             Category(title: .transport, imageName: UIConfig.transportThumbnail),
-             Category(title: .travel, imageName: UIConfig.travelThumbnail)
+    return [ Category(title: NSLocalizedString("Drive", comment: ""), imageName: UIConfig.driveThumbnail),
+             Category(title: NSLocalizedString("Walk", comment: ""), imageName: UIConfig.walkThumbnail),
+             Category(title: NSLocalizedString("Party", comment: ""), imageName: UIConfig.partyThumbnail),
+             Category(title: NSLocalizedString("Transportation", comment: ""), imageName: UIConfig.transportThumbnail),
+             Category(title: NSLocalizedString("Travel", comment: ""), imageName: UIConfig.travelThumbnail),
+             Category(title: NSLocalizedString("Custom", comment: ""), imageName: UIConfig.customThumbnail)
       ]
   }
 }

@@ -1,0 +1,105 @@
+/* 
+  Localizable.strings
+  NewDawn
+
+  Created by Mathieu Janneau on 26/05/2018.
+  Copyright © 2018 Mathieu Janneau. All rights reserved.
+*/
+
+// MARK - ERRORS
+"Error" = "Error";
+"Sorry" = "Sorry";
+"Cancel" = "Cancel";
+
+// MARK= - ONBOARDING STRINGS
+"lastNamePlaceholder" = "Lastname";
+"firstNamePlaceholder" = "firstName";
+"emailPlaceholder" = "email";
+"passwordPlaceholder" = "Enter password";
+"repeatPasswordPlaceholder" = "Re-enter password";
+"createAccount" = "Create your account";
+"signIn" = "Sign In";
+"fbLogin" = "Login with Facebook";
+"twitterLogin" = "Login with Twitter";
+"forgotPassword" = "Forgot your password?";
+"back" = "back";
+"enterEmail" = "Enter your email";
+"resetPassord" = "reset password";
+"diffPasswords" = "the two passords are differents, please retry";
+
+// MARK: - VC TITLES
+"profilVcTitle" = "Today";
+"challengesVcTitle" = "Challenges";
+"crisisVcTitle" = "Crisis";
+"historyVcTitle" = "History";
+"medicVcTitle" = "Find a Medic";
+
+// MARK: - PROFIL VC
+"todayMood" = "Today's mood";
+"add challenge" = "add challenge";
+"New Challenge" = "New Challenge";
+"Empty" = "";
+
+// Mark: - HISTORY VC
+"Mood History" = "Mood History";
+"Done Challenges" = "Done Challenges";
+"Weekly progress" = "Weekly progress";
+"Challenges History" = "Challenges History";
+"week" = "Week";
+"month" = "Month";
+"trimester" = "Trimester";
+"all time" = "All time";
+"You need to provide data for the chart." = "You need to provide data for the chart.";
+
+// MARK: - PROGRESS V
+"Start Challenge" = "Start Challenge";
+"Comments" = "Comments";
+"Success" = "Success";
+"Fail" = "Fail";
+"Enter comments here..." = "Enter comments here...";
+"NICE TRY" = "NICE TRY";
+"You are making progresses" = "You are making progresses";
+"CONGRATULATIONS" = "CONGRATULATIONS";
+"You did it" = "You did it";
+
+// MARK: - SEARCH LOCATION VC
+"Search place" = "Search place";
+"Choose a new date" = "Choose a new date";
+"Validate new date for challenge" = "Validate new date for challenge";
+
+// MARK: - ChALLENGES VC
+"Drive" = "Drive";
+"Walk" = "Walk";
+"Party" = "Party";
+"Transportation" = "Transportation";
+"Travel" = "Travel";
+"Custom" = "Custom";
+"Done" = "Done";
+"Delete" = "Delete";
+"Please enter a valid date" = "Please enter a valid date";
+"it's Challenge Time" = "it's Challenge Time";
+"here is your challenge:" = "here is your challenge:";
+
+// MARK: - CREATE CHALLENGE VC
+"Give a name to your challenge" = "Give a name to your challenge";
+"Add a date" = "Add a date";
+"Add an Objective Location" = "Add an Objective Location" ;
+"Activate notifications" = "Activate notifications";
+"What the situation anxiety level?" = "What the situation anxiety level?";
+"Rate the Benefit you expect" = "Rate the Benefit you expect";
+"Create Challenge" = "Create Challenge";
+"Your challenge has been updated" = "Your challenge has been updated";
+
+// MARK: - CRISIS VC
+"BREATH" = "BREATH";
+"Start" = "Start";
+"stop" = "stop";
+
+// MARK: - MEDIC VC
+"Address" = "Address";
+"Profession" = "Profession";
+"Telephone" = "Telephone";
+
+// MARK: - MAIL COMPOSER
+"NewDawn sent you an e-mail" = "NewDawn sent you an e-mail";
+"Here is my report" = "Here is my report";

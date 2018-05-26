@@ -30,7 +30,7 @@ class PostPoneLauncher: NSObject {
   
   let titleLabel: UILabel = {
     let label = UILabel()
-    label.text = "Choose a new date"
+    label.text = NSLocalizedString("Choose a new date", comment: "")
     label.font = UIFont(name: UIConfig.lightFont, size: 24)
     label.textAlignment = .center
     return label
@@ -66,7 +66,7 @@ class PostPoneLauncher: NSObject {
       
       // initial State
       
-      button.setTitle("validate new date for challenge", for: .normal)
+      button.setTitle(NSLocalizedString("Validate new date for challenge", comment: ""), for: .normal)
       button.titleLabel?.font = UIFont(name: UIConfig.lightFont, size: 16)
       
       blackView.frame = window.frame
@@ -133,14 +133,15 @@ class PostPoneLauncher: NSObject {
   // MARK: - SELECTORS //
   // ///////////////// //
   
+  /// Selector for changing challenge date
   @objc func changeDate() {
     NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "DateValueChanged"), object: nil, userInfo: ["Key": "key", "Date": datePicker.date]))
     print("button tapped")
     handleDismiss()
   }
   
+  /// Dismiss the postPone Launcher
   @objc func handleDismiss() {
-    print("boom")
     UIView.animate(withDuration: 0.5) {
       self.blackView.alpha = 0
       self.container.alpha = 0
@@ -153,8 +154,8 @@ class PostPoneLauncher: NSObject {
     }
   }
   
+  /// Send new date to challenge
   @objc func userDidSelectDate() {
-    
     // send data back to controller
     NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "ValueChanged"), object: nil, userInfo: ["Key": "key", "Date": datePicker.date]))
     

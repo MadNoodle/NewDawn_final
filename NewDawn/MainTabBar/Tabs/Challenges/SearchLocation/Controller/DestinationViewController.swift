@@ -11,11 +11,23 @@ import MapKit
 
 class DestinationViewController: UIViewController, UISearchBarDelegate {
   
+  // ////////////////// //
+  // MARK: - PROPERTIES //
+  // ////////////////// //
+  
   /// Data of challenge final destination
   var challengeLocation : (lat: Double, long: Double, place: String)?
   
-  // MARK: - OUTLETS
+  // /////////////// //
+  // MARK: - OUTLETS //
+  // /////////////// //
+  
   @IBOutlet weak var map: MKMapView!
+  
+  
+  // ///////////////////////// //
+  // MARK: - LIFECYCLE METHODS //
+  // ///////////////////////// //
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,7 +42,7 @@ class DestinationViewController: UIViewController, UISearchBarDelegate {
     
     let searchController = UISearchController(searchResultsController: nil)
     searchController.obscuresBackgroundDuringPresentation = false
-    searchController.searchBar.placeholder = "Search place"
+    searchController.searchBar.placeholder = NSLocalizedString("Search place", comment: "")
     navigationItem.searchController = searchController
     definesPresentationContext = true
     searchController.searchBar.delegate = self
@@ -83,9 +95,7 @@ class DestinationViewController: UIViewController, UISearchBarDelegate {
           NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "LocationChanged"),
                                                        object: nil,
                                                        userInfo: ["Key": "key", "Location": location ]))
-          // Place name
-        
-        ////////////// REFACTOR ///////////////
+       
         // Add annotation to map
         self.map.addAnnotation(annotation)
         
@@ -109,8 +119,6 @@ extension DestinationViewController: MKMapViewDelegate {
       let identifier = "stopAnnotation"
       var pinView = map.dequeueReusableAnnotationView(withIdentifier: identifier)
       if pinView == nil {
-        //println("Pinview was nil")
-        
         //Create a plain MKAnnotationView if using a custom image...
         pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
         pinView?.canShowCallout = true
