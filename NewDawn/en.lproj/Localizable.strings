@@ -10,7 +10,22 @@
 "Error" = "Error";
 "Sorry" = "Sorry";
 "Cancel" = "Cancel";
+"Warning" = "Warning";
 
+"You are about to delete all your data" = "You are about to delete all your data";
+"Error signing out" = "Error signing out";
+"Log out" = "Log out";
+"ResetData" = "Reset your data";
+"changePassword" = "Change Password";
+
+// MARK: - DAYS
+"Sun" = "Sun";
+"Mon" = "Mon";
+"Tue" = "Tue";
+"Wed" = "Wed";
+"Thu" = "Thu";
+"fri" = "Fri";
+"Sat" = "Sat";
 // MARK= - ONBOARDING STRINGS
 "lastNamePlaceholder" = "Lastname";
 "firstNamePlaceholder" = "firstName";
@@ -103,3 +118,57 @@
 // MARK: - MAIL COMPOSER
 "NewDawn sent you an e-mail" = "NewDawn sent you an e-mail";
 "Here is my report" = "Here is my report";
+
+// MARK: - CHALLENGES
+// driving
+"drivingOne" = "Drive 1 Km with someone";
+"drivingTwo" = "Drive 2 Km with Someone";
+"drivingThree" = "Drive 1 Km alone";
+"drivingFour" = "Drive 2 Km alone";
+"drivingSix" = "Drive outside the city";
+"drivingSeven" = "Drive on the highway";
+"drivingEight" = "stay blocked in traffic";
+// Everyday
+"dailyOne" = "go to the local grocery";
+"dailyTwo" = "go to the hypermarket";
+"dailyThree" = "go to the pharmacy";
+"dailyFour" = "take an elevator";
+"dailySix" = "go to the haidresser";
+"dailySeven" = "have a lunch with a friend";
+"dailyEight" = "go to the gym";
+// travel
+"travelOne" = "go to the airport";
+"travelTwo" = "take a plane with someone";
+"travelThree" = "take a plane with alone";
+"travelFour" = "go the train station";
+"travelSix" = "take the train with someone";
+"travelSeven" = "take the train alone";
+"travelEight" = "go on holiday";
+// walk
+"walkOne" = "Walk 500 m outside";
+"walkTwo" = "go to the park";
+"walkThree" = "go the the nearest monument";
+"walkFour" = "Walk half an hour";
+"walkSix" = "Walk one hour";
+"walkSeven" = "go for a hike";
+"walkEight" = "go for long hike in moutain";
+// transport
+"transportOne" = "take subway for one stop";
+"transportTwo" = "take subway for many stops";
+"transportThree" = "take a cab";
+"transportFour" = "take a bus for one stop";
+"transportSix" = "take a bus for many stops";
+"transportSeven" = "Take a trip in car";
+// party
+"partyOne" = "go in bar with friends";
+"partyTwo" = "go in a bar alone";
+"partyThree" = "go party with friends";
+"partyFour" = "go party alone";
+"partySix" = "go to the movie theater";
+"partySeven" = "go to a concert";
+"partyEight" = "go to a museum/ exhibition";
+
+
+
+
+

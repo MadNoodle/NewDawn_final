@@ -20,19 +20,25 @@ var currentUser = ""
   
   let backButton: UIButton = {
     let button = UIButton()
-    button.setTitle("back", for: .normal)
+    button.setTitle(NSLocalizedString("back", comment: ""), for: .normal)
     button.setTitleColor(.white, for: .normal)
     button.contentHorizontalAlignment = .left
     return button
   }()
   
-    override func viewDidLoad() {
+  @IBOutlet weak var logOutButton: UIButton!
+  @IBOutlet weak var resetButton: UIButton!
+  @IBOutlet weak var changePasswordButton: UIButton!
+
+  override func viewDidLoad() {
         super.viewDidLoad()
       
       if let user = UserDefaults.standard.object(forKey: "currentUser") as? String {
         currentUser = user
       }
-    
+    logOutButton.setTitle(NSLocalizedString("Log out", comment: ""), for: .normal)
+    resetButton.setTitle(NSLocalizedString("ResetData", comment: ""), for: .normal)
+    changePasswordButton.setTitle(NSLocalizedString("changePassword", comment: ""), for: .normal)
       self.view.addSubview(navBar)
       navBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64)
       navBar.addSubview(backButton)
@@ -46,11 +52,11 @@ var currentUser = ""
   /// there is no recovery for this action
   @IBAction func resetData(_ sender: UIButton) {
     // instantiate alertController
-    let alert = UIAlertController(title: "Warning",
-                                  message: "You are about to delete all your data",
+    let alert = UIAlertController(title: NSLocalizedString("Warning", comment: ""),
+                                  message: NSLocalizedString("You are about to delete all your data", comment: ""),
                                   preferredStyle: .actionSheet)
     // delete action
-    let firstAction = UIAlertAction(title: "Delete", style: .default) { _ -> Void in
+    let firstAction = UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: .default) { _ -> Void in
       // purge challenges and moods for user
       DatabaseService.shared.purgeChallenges(for: self.currentUser)
       DatabaseService.shared.purgeMoods(for: self.currentUser, completionHandler: { status in
@@ -58,7 +64,7 @@ var currentUser = ""
       })
     }
     // cancel action
-    let secondAction = UIAlertAction(title: "Cancel", style: .default) { (_) -> Void in
+    let secondAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default) { (_) -> Void in
       NSLog("You pressed button two")
     }
     
@@ -80,7 +86,7 @@ var currentUser = ""
       self.present(loginVc, animated: true)
       
     } catch let signOutError as NSError {
-      UserAlert.show(title: "Error signing out", message: signOutError.localizedDescription, controller: self)
+      UserAlert.show(title: NSLocalizedString("Error signing out", comment: ""), message: signOutError.localizedDescription, controller: self)
     }
   }
   

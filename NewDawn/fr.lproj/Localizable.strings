@@ -9,7 +9,20 @@
 "Error" = "Erreur";
 "Sorry" = "Désolé";
 "Cancel" = "Annuler";
-
+"Warning" = "Attention";
+"You are about to delete all your data" = "Vous êtes sur le point d'effacer toutes vos données";
+"Error signing out" = "Erreur lors de la déconnexion";
+"Log out" = "Se déconneter";
+"ResetData" = "Reinitialiser les données";
+"changePassword" = "Changer de mot de passe";
+// MARK: - DAYS
+"Sun" = "Dim";
+"Mon" = "Lun";
+"Tue" = "Mar";
+"Wed" = "Mer";
+"Thu" = "Jeu";
+"fri" = "Ven";
+"Sat" = "Sam";
 // MARK= - ONBOARDING STRINGS
 "lastNamePlaceholder" = "Nom";
 "firstNamePlaceholder" = "Prénom";
@@ -102,3 +115,57 @@
 // MARK: - MAIL COMPOSER
 "NewDawn sent you an e-mail" = "NewDawn vous envoie un email";
 "Here is my report" = "Voici mon rapport";
+
+// MARK: - CHALLENGES
+// driving
+"drivingOne" = "Conduire 1km accompagné(e)";
+"drivingTwo" = "Conduire 1km seul(e)";
+"drivingThree" = "Conduire plusieurs km accompagné(e)";
+"drivingFour" = "Conduire plusieurs km seul(e)";
+"drivingSix" = "Se rendre en dehors de sa ville en voiture";
+"drivingSeven" = "Conduire sur l'autoroute";
+"drivingEight" = "Rester bloqué(e) dans les embouteillages";
+// Everyday
+"dailyOne" = "Aller à l'épicerie";
+"dailyTwo" = "Aller au supermarché";
+"dailyThree" = "Aller à la pharmacie";
+"dailyFour" = "Prendre un ascenseur";
+"dailySix" = "Aller chez le coiffeur";
+"dailySeven" = "Allez déjeuner avec un(e) ami(e)";
+"dailyEight" = "Aller dans un club de sport";
+// travel
+"travelOne" = "Se rendre à l'aéroport";
+"travelTwo" = "Prendre l'avion accompagné(e)";
+"travelThree" = "Prendre l'avion seul(e)";
+"travelFour" = "Se rendre à la gare";
+"travelSix" = "Prendre le train accompagné(e)";
+"travelSeven" = "Prendre le train seul(e)";
+"travelEight" = "Partir en vacances";
+// walk
+"walkOne" = "Marcher 500 m";
+"walkTwo" = "Allez dans un parc";
+"walkThree" = "Se rendre au monument le plus proche";
+"walkFour" = "Marcher 30 minutes seul(e)";
+"walkSix" = "Marcher 1 heure seul(e)";
+"walkSeven" = "Allez faire une randonnée";
+"walkEight" = "Partir en randonnée plusieurs jours";
+// transport
+"transportOne" = "Prendre une station de métro";
+"transportTwo" = "Prendre plusieurs stations de métro";
+"transportThree" = "Prendre un taxi";
+"transportFour" = "Prendre une station de bus";
+"transportSix" = "Prendre plusieurs stations de bus";
+"transportSeven" = "Prendre le car sur une longue distance";
+// party
+"partyOne" = "Aller prendre un café avec un(e) ami(e)";
+"partyTwo" = "Aller au café seul(e)";
+"partyThree" = "Sortir avec des amis";
+"partyFour" = "Sortir seul(e)";
+"partySix" = "Aller au cinéma";
+"partySeven" = "Aller à un concert";
+"partyEight" = "Allez au musée ou a une exposition";
+
+
+
+
+

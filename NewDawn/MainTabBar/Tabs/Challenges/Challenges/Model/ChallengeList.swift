@@ -10,28 +10,19 @@ import Foundation
 
 struct ChallengeList {
   
-  static let drivingOne = "Drive 1 Km with someone"
-  static let drivingTwo = "Drive 2 Km with Someone"
-  static let drivingThree = "Drive 1 Km alone"
-  static let drivingFour = "Drive 2 Km alone"
-  static let drivingFive = "Drive in traffic"
-  static let drivingSix = "Drive outside the city"
-  static let drivingSeven = "Drive on the highway"
-  static let drivingEight = "Take a trip in car"
-  
   static func getChallenges(for category: String ) -> [String] {
     
     switch category {
     case NSLocalizedString("Drive", comment: ""):
-      return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
+      return [NSLocalizedString("drivingOne", comment: ""), NSLocalizedString("drivingOTwo", comment: ""), NSLocalizedString("drivingThree", comment: ""), NSLocalizedString("drivingFour", comment: ""), NSLocalizedString("drivingFive", comment: ""), NSLocalizedString("drivingSix", comment: ""), NSLocalizedString("drivingSeven", comment: ""), NSLocalizedString("drivingEight", comment: "")]
     case NSLocalizedString("Travel", comment: ""):
-      return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
+      return [NSLocalizedString("travelOne", comment: ""), NSLocalizedString("travelOTwo", comment: ""), NSLocalizedString("travelThree", comment: ""), NSLocalizedString("travelFour", comment: ""), NSLocalizedString("travelFive", comment: ""), NSLocalizedString("travelSix", comment: ""), NSLocalizedString("travelSeven", comment: ""), NSLocalizedString("travelEight", comment: "")]
     case NSLocalizedString("Walk", comment: ""):
-      return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
+      return [NSLocalizedString("walkOne", comment: ""), NSLocalizedString("walkOTwo", comment: ""), NSLocalizedString("walkThree", comment: ""), NSLocalizedString("walkFour", comment: ""), NSLocalizedString("walkFive", comment: ""), NSLocalizedString("walkSix", comment: ""), NSLocalizedString("walkSeven", comment: ""), NSLocalizedString("walkEight", comment: "")]
     case NSLocalizedString("Transportation", comment: ""):
-      return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
+      return [NSLocalizedString("transportOne", comment: ""), NSLocalizedString("transportOTwo", comment: ""), NSLocalizedString("transportThree", comment: ""), NSLocalizedString("transportFour", comment: ""), NSLocalizedString("transportFive", comment: ""), NSLocalizedString("transportSix", comment: ""), NSLocalizedString("transportSeven", comment: ""), NSLocalizedString("transportEight", comment: "")]
     case NSLocalizedString("Party", comment: ""):
-      return [drivingOne, drivingTwo, drivingThree, drivingFour, drivingFive, drivingSix, drivingSeven, drivingEight]
+      return [NSLocalizedString("partyOne", comment: ""), NSLocalizedString("partyTwo", comment: ""), NSLocalizedString("partyThree", comment: ""), NSLocalizedString("partyFour", comment: ""), NSLocalizedString("partyFive", comment: ""), NSLocalizedString("partySix", comment: ""), NSLocalizedString("partySeven", comment: ""), NSLocalizedString("partyEight", comment: "")]
     case NSLocalizedString("Custom", comment: ""):
       return []
     default:

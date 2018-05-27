@@ -108,6 +108,12 @@ extension HomeViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDa
   func calendar(_ calendar: JTAppleCalendarView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTAppleCollectionReusableView {
     // Custom header cell
     let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "header", for: indexPath) as? HeaderView
+    header?.mon.text = NSLocalizedString("Mon", comment: "")
+    header?.tue.text = NSLocalizedString("Tue", comment: "")
+    header?.wed.text = NSLocalizedString("Wed", comment: "")
+    header?.fri.text = NSLocalizedString("fri", comment: "")
+    header?.sat.text = NSLocalizedString("Sat", comment: "")
+    header?.sun.text = NSLocalizedString("Sun", comment: "")
     return header!
   }
   

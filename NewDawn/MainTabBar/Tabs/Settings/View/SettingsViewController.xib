@@ -17,6 +17,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="NewDawn" customModuleProvider="target">
             <connections>
+                <outlet property="changePasswordButton" destination="zpa-5U-9VR" id="yhu-Hy-dNw"/>
+                <outlet property="logOutButton" destination="gaL-Wt-chG" id="Wql-if-1be"/>
+                <outlet property="resetButton" destination="8ZJ-CS-ydJ" id="JgP-bg-Zft"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
