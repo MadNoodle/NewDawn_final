@@ -16,6 +16,9 @@ class MainTabBarController: UITabBarController {
  /// Property to store username
   var currentUser: String = ""
   
+
+  // MARK: -- LIFECYLCE METHODS
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // load current user

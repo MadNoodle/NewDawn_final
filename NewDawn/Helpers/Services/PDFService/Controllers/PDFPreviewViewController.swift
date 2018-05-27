@@ -11,7 +11,8 @@ import WebKit
 
 class PDFPreviewViewController: UIViewController {
   
-  @IBOutlet weak var webView: WKWebView!
+  var webView: WKWebView?
+  var uiWebView: UIWebView?
   /// File to preview url path
   var url: URL!
   override func viewDidLoad() {
@@ -21,7 +22,16 @@ class PDFPreviewViewController: UIViewController {
     // check timeout and cache data
     req.timeoutInterval = 60.0
     req.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
-    webView.load(req as URLRequest)
+    if #available(iOS 11.0, *){
+      webView?.frame = self.view.frame
+      view.addSubview(webView!)
+      webView?.load(req as URLRequest)
+      
+    } else {
+      uiWebView?.frame = self.view.frame
+      view.addSubview(uiWebView!)
+      uiWebView?.loadRequest(req as URLRequest)
+    }
   }
   
   override func didReceiveMemoryWarning() {

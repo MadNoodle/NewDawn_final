@@ -1,9 +1,9 @@
 ///**
 /**
-NewDawn
-Created by: Mathieu Janneau on 31/03/2018
-Copyright (c) 2018 Mathieu Janneau
-*/
+ NewDawn
+ Created by: Mathieu Janneau on 31/03/2018
+ Copyright (c) 2018 Mathieu Janneau
+ */
 // swiftlint:disable trailing_whitespace
 
 import UIKit
@@ -40,15 +40,26 @@ class DestinationViewController: UIViewController, UISearchBarDelegate {
   @objc func searchLocation(_ sender: UIBarButtonItem) {
     // instantiate searchBar
     
-    let searchController = UISearchController(searchResultsController: nil)
-    searchController.obscuresBackgroundDuringPresentation = false
-    searchController.searchBar.placeholder = NSLocalizedString("Search place", comment: "")
-    navigationItem.searchController = searchController
-    definesPresentationContext = true
-    searchController.searchBar.delegate = self
-    present(searchController, animated: true, completion: nil)
+    // Use of UISearchController for iOS 11.0 and later
+    if #available(iOS 11.0, *) {
+      let searchController = UISearchController(searchResultsController: nil)
+      searchController.obscuresBackgroundDuringPresentation = false
+      searchController.searchBar.placeholder = NSLocalizedString("Search place", comment: "")
+      navigationItem.searchController = searchController
+      definesPresentationContext = true
+      searchController.searchBar.delegate = self
+      present(searchController, animated: true, completion: nil)
+    } else {
+      
+      // use of UI SearchBar in iOS 10 Situation
+      let searchBar = UISearchBar()
+      searchBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
+      self.view.addSubview(searchBar)
+      searchBar.placeholder = NSLocalizedString("Search place", comment: "")
+      searchBar.delegate = self
+    }
   }
- 
+  
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     // Ignoring user
     UIApplication.shared.beginIgnoringInteractionEvents()
@@ -81,29 +92,29 @@ class DestinationViewController: UIViewController, UISearchBarDelegate {
         // fetching data
         if let latitude = response?.boundingRegion.center.latitude {
           if let longitude = response?.boundingRegion.center.longitude {
-        // create Annotation
-        let annotation = MKPointAnnotation()
-        // grap name from searchBar
-        annotation.title = searchBar.text
-        // send coordinate for the annotation
-        annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        // Send data back to the challengeCreator controller
-        let location: (Double, Double, String) = (annotation.coordinate.latitude,
-                                                  annotation.coordinate.longitude,
-                                                  searchBar.text!)
-          // Coordinates
-          NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "LocationChanged"),
-                                                       object: nil,
-                                                       userInfo: ["Key": "key", "Location": location ]))
-       
-        // Add annotation to map
-        self.map.addAnnotation(annotation)
-        
-        // Set Zoom 
-        let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-        let region: MKCoordinateRegion = MKCoordinateRegion(center: coordinate, span: span)
-        self.map.setRegion(region, animated: true)
+            // create Annotation
+            let annotation = MKPointAnnotation()
+            // grap name from searchBar
+            annotation.title = searchBar.text
+            // send coordinate for the annotation
+            annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            // Send data back to the challengeCreator controller
+            let location: (Double, Double, String) = (annotation.coordinate.latitude,
+                                                      annotation.coordinate.longitude,
+                                                      searchBar.text!)
+            // Coordinates
+            NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "LocationChanged"),
+                                                         object: nil,
+                                                         userInfo: ["Key": "key", "Location": location ]))
+            
+            // Add annotation to map
+            self.map.addAnnotation(annotation)
+            
+            // Set Zoom
+            let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            let region: MKCoordinateRegion = MKCoordinateRegion(center: coordinate, span: span)
+            self.map.setRegion(region, animated: true)
           }
         }
       }
@@ -131,5 +142,5 @@ extension DestinationViewController: MKMapViewDelegate {
     }
     return nil
   }
-
+  
 }

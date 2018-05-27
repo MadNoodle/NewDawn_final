@@ -19,7 +19,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PDFPreviewViewController" customModule="NewDawn" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="webView" destination="woX-ax-de8" id="zce-m5-FuK"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -72,24 +71,12 @@
                                 <constraint firstItem="Sqj-gL-xYo" firstAttribute="leading" secondItem="cP6-CD-tqa" secondAttribute="leading" constant="16" id="zBv-bS-uRj"/>
                             </constraints>
                         </view>
-                        <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="woX-ax-de8">
-                            <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <wkWebViewConfiguration key="configuration">
-                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                <wkPreferences key="preferences"/>
-                            </wkWebViewConfiguration>
-                        </wkWebView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="cP6-CD-tqa" secondAttribute="trailing" id="728-Os-i4k"/>
-                        <constraint firstAttribute="trailing" secondItem="woX-ax-de8" secondAttribute="trailing" id="Skt-rU-3P4"/>
                         <constraint firstItem="cP6-CD-tqa" firstAttribute="leading" secondItem="PgP-pD-ha3" secondAttribute="leading" id="Xyd-wY-F2D"/>
-                        <constraint firstItem="woX-ax-de8" firstAttribute="top" secondItem="cP6-CD-tqa" secondAttribute="bottom" id="YsN-hm-TPg"/>
-                        <constraint firstAttribute="bottom" secondItem="woX-ax-de8" secondAttribute="bottom" id="cfk-Uq-OIV"/>
                         <constraint firstItem="cP6-CD-tqa" firstAttribute="top" secondItem="PgP-pD-ha3" secondAttribute="top" id="jOI-Hf-BnS"/>
-                        <constraint firstItem="woX-ax-de8" firstAttribute="leading" secondItem="PgP-pD-ha3" secondAttribute="leading" id="tnT-b3-sb6"/>
                     </constraints>
                 </view>
             </subviews>
