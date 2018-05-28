@@ -1,0 +1,532 @@
+{
+  "challenges" : {
+
+    "-LDIKnOWkPuhxlzo_sa7" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1526133709,
+      "isDone" : 0,
+      "isNotified" : 0,
+      "isSuccess" : 0,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILHcVltcVdwzqpnxb" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "test Comment",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1526047309,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "map" : "https://firebasestorage.googleapis.com/v0/b/newdawn-20992.appspot.com/o/0E8DB1D9-D3D7-4DF8-B6C5-C33A666616A5?alt=media&token=a5138262-808c-440e-8f16-d3e2d9c136f5",
+      "name" : "Drive outside the city",
+      "objective" : "Walk",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDIqC3c6SOe-QibSybX" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "Comments...",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1525960909,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "map" : "https://firebasestorage.googleapis.com/v0/b/newdawn-20992.appspot.com/o/6F960CFD-11C5-468D-A8CC-0192D8327AB6?alt=media&token=eefbcf8c-7cef-4346-acf0-f324a7acbaf2",
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLNrKZrMi127kMRAiJ" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "Comments...",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1525874509,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "map" : "https://firebasestorage.googleapis.com/v0/b/newdawn-20992.appspot.com/o/3CD31C76-46E4-4776-B34E-2EE7B365A4B6?alt=media&token=b237d562-c666-41ad-8513-344d92d2c357",
+      "name" : "Drive 2 Km with Someone",
+      "objective" : "Walk",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1525788109,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD888" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1525788109,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD1" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1525701709,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD2" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1525615309,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD3" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1525528909,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD4" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1525269709,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD444" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1525269709,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD5" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1525183309,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD6" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1525096909,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD61" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1525096909,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD62" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1525096909,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD7" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1525010509,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD8" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1524924109,
+      "isDone" : 0,
+      "isNotified" : 0,
+      "isSuccess" : 0,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD9" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1524837709,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 0,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD645" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1524837709,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 1,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDLQysHmLkhqnIwkdeD10" : {
+      "anxietyLevel" : 1,
+      "benefitLevel" : 1,
+      "comment" : "",
+      "destination" : "",
+      "destinationLat" : 0,
+      "destinationLong" : 0,
+      "dueDate" : 1524751309,
+      "isDone" : 1,
+      "isNotified" : 0,
+      "isSuccess" : 0,
+      "name" : "Drive 1 Km with someone",
+      "objective" : "Drive",
+      "user" : "mjanneau@gmail.com"
+    }
+
+
+  },
+  "moods" : {
+
+    "-LDILMdQTgD5QtMoTVkm1" : {
+      "date" : 1527256909,
+      "state" : 5,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm2" : {
+      "date" : 1527170509,
+      "state" : 5,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm3" : {
+      "date" : 1527084109,
+      "state" : 4,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm4" : {
+      "date" : 1526997709,
+      "state" : 3,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm5" : {
+      "date" : 1526911309,
+      "state" : 2,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm6" : {
+      "date" : 1526824909,
+      "state" : 3,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm7" : {
+      "date" : 1526738509,
+      "state" : 4,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm8" : {
+      "date" : 1526652109,
+      "state" : 3,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm9" : {
+      "date" : 1526565709,
+      "state" : 3,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm10" : {
+      "date" : 1526479309,
+      "state" : 3,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm11" : {
+      "date" : 1526392909,
+      "state" : 2,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm12" : {
+      "date" : 1526306509,
+      "state" : 2,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm13" : {
+      "date" : 1526220109,
+      "state" : 2,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm14" : {
+      "date" : 1526133709,
+      "state" : 4,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm15" : {
+      "date" : 1526047309,
+      "state" : 0,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm16" : {
+      "date" : 1525960909,
+      "state" : 0,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm17" : {
+      "date" : 1525874509,
+      "state" : 1,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm18" : {
+      "date" : 1525788109,
+      "state" : 2,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm19" : {
+      "date" : 1525701709,
+      "state" : 1,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm20" : {
+      "date" : 1525615309,
+      "state" : 3,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm21" : {
+      "date" : 1525528909,
+      "state" : 4,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm22" : {
+      "date" : 1525442509,
+      "state" : 3,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm23" : {
+      "date" : 1525356109,
+      "state" : 3,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm24" : {
+      "date" : 1525269709,
+      "state" : 3,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm25" : {
+      "date" : 1525183309,
+      "state" : 2,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm26" : {
+      "date" : 1525096909,
+      "state" : 2,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm27" : {
+      "date" : 1525010509,
+      "state" : 4,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm28" : {
+      "date" : 1524924109,
+      "state" : 4,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm29" : {
+      "date" : 1524837709,
+      "state" : 4,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm30" : {
+      "date" : 1524751309,
+      "state" : 1,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm31" : {
+      "date" : 1524664909,
+      "state" : 2,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm32" : {
+      "date" : 1524578509,
+      "state" : 1,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm33" : {
+      "date" : 1524492109,
+      "state" : 3,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm34" : {
+      "date" : 1524405709,
+      "state" : 4,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm35" : {
+      "date" : 1524319309,
+      "state" : 3,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm36" : {
+      "date" : 1524232909,
+      "state" : 3,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm37" : {
+      "date" : 1524146509,
+      "state" : 3,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm38" : {
+      "date" : 1524060109,
+      "state" : 2,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm39" : {
+      "date" : 1523973709,
+      "state" : 2,
+      "user" : "mjanneau@gmail.com"
+    },
+    "-LDILMdQTgD5QtMoTVkm40" : {
+      "date" : 1523887309,
+      "state" : 2,
+      "user" : "mjanneau@gmail.com"
+    }
+
+  },
+  "users" : {
+    "-LBfBdcZMWF-0K8VE3cn" : {
+      "email" : "pompom@boum.de",
+      "password" : "Tetsuogi1",
+      "uid" : "Sihq25ST80NuPabG7XNnHGQxjf72",
+      "username" : "Pom pomp"
+    },
+    "-LBjHiYFZTrFFHRIwKwO" : {
+      "password" : "wT3oPexAqdUsum0savMHYLLgNSl1",
+      "uid" : "wT3oPexAqdUsum0savMHYLLgNSl1",
+      "username" : "wT3oPexAqdUsum0savMHYLLgNSl1"
+    },
+    "-LDIKWUIPCSs1Tt0DmCR" : {
+      "creation" : "2018 05 24",
+      "password" : "KhJw8kqFnoY0fz0ERhRFKWqodMi2",
+      "username" : "mjanneau@gmail.com"
+    }
+  }
+}
