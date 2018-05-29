@@ -65,9 +65,6 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
       self.data = loadedChallenges
       // sort newest first
       self.data = self.data.sorted(by: {$0.dueDate > $1.dueDate})
-      // Show only upcoming
-      let today = Date().timeIntervalSince1970
-      self.data = self.data.filter({$0.dueDate > today})
       self.tableView.reloadData()
     }
   }

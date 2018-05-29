@@ -101,8 +101,6 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
       
       guard let loadedChallenges = challengeArray else { return}
       self.history = loadedChallenges
-      print(self.history.count)
-      self.tableView.reloadData()
       self.tableView.reloadData()
     }
   }
