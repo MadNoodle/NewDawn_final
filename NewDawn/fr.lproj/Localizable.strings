@@ -34,7 +34,7 @@
 "fbLogin" = "Se connecter avec Facebook";
 "twitterLogin" = "Se connecter avec Twitter";
 "forgotPassword" = "Mot de passe oublié?";
-"back" = "retourr";
+"back" = "retour";
 "enterEmail" = "Entrez votre email";
 "resetPassord" = "Reinitialiser";
 "diffPasswords" = "Les deux mot de passe sont différents. Veuillez recommencer";
