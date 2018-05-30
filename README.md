@@ -1,5 +1,7 @@
 # NewDawn
-NewDawn is an iOS app, that has been designed to be a BCT therapy companion. It has been design to help the [aftcc](http://www.aftcc.org/)
+NewDawn is an iOS app, that has been designed to be a BCT therapy companion. It has been design to help the [aftcc](http://www.aftcc.org/). The app is available in English and French.
+
+Please contact me if you want to try it and have a testFlight redeem code.
 
 **Features:**
 
