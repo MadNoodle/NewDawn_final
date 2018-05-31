@@ -54,6 +54,8 @@ class ProgressViewController: UIViewController, EditableChallenge {
   @IBOutlet weak var failLabel: UILabel!
   @IBOutlet weak var commentLabel: UILabel!
   
+  @IBOutlet weak var failButton: UIButton!
+  @IBOutlet weak var successButton: UIButton!
   // ///////////////////////// //
   // MARK: - LIFECYCLE METHODS //
   // ///////////////////////// //
@@ -180,6 +182,13 @@ class ProgressViewController: UIViewController, EditableChallenge {
       // Convert double to date
       let date = Date(timeIntervalSince1970: currentChallenge.dueDate)
       dateLabel.text = date.convertToString(format: .day)
+      if currentChallenge.isDone == 1 {
+        startButton.isHidden = true
+        successLAbel.isHidden = true
+        failLabel.isHidden = true
+        successButton.isHidden = true
+        failButton.isHidden = true
+      }
     }
     
     // Set frame border for textView

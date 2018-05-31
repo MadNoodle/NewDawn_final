@@ -45,6 +45,10 @@ class MyChallengesViewController: UITableViewController, EditableChallenge {
     
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    shouldLoadTableView()
+  }
+  
   override func viewWillDisappear(_ animated: Bool) {
     self.data.removeAll()
   }

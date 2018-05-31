@@ -22,7 +22,8 @@ class PDFPreviewViewController: UIViewController {
     // check timeout and cache data
     req.timeoutInterval = 60.0
     req.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
-    if #available(iOS 11.0, *){
+    if #available(iOS 11.0, *) {
+      // todo faire un guard pour eviter nil
       webView?.frame = self.view.frame
       view.addSubview(webView!)
       webView?.load(req as URLRequest)
