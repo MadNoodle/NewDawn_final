@@ -1,0 +1,3638 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 16,
+      "symbol": "UIConfig.darkGreen",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 17,
+      "symbol": "UIConfig.ultraDarkGreen",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 18,
+      "symbol": "UIConfig.lightGreen",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 19,
+      "symbol": "UIConfig.neutralGreen",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 20,
+      "symbol": "UIConfig.blueGray",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 23,
+      "symbol": "UIConfig.currentUserKey",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 24,
+      "symbol": "UIConfig.loaderBg",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 28,
+      "symbol": "UIConfig.profilIcon",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 29,
+      "symbol": "UIConfig.challengesIcon",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 30,
+      "symbol": "UIConfig.crisisIcon",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 31,
+      "symbol": "UIConfig.historyIcon",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 32,
+      "symbol": "UIConfig.medicIcon",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 36,
+      "symbol": "UIConfig.lightFont",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 37,
+      "symbol": "UIConfig.boldFont",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 38,
+      "symbol": "UIConfig.semiBoldFont",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 41,
+      "symbol": "UIConfig.driveThumbnail",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 42,
+      "symbol": "UIConfig.walkThumbnail",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 43,
+      "symbol": "UIConfig.partyThumbnail",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 44,
+      "symbol": "UIConfig.transportThumbnail",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 45,
+      "symbol": "UIConfig.travelThumbnail",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 46,
+      "symbol": "UIConfig.customThumbnail",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 49,
+      "symbol": "UIConfig.timerFormat",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 52,
+      "symbol": "UIConfig.chartDateFormat",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 59,
+      "symbol": "UIConfig.calendarStartDate",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 60,
+      "symbol": "UIConfig.calendarCellId",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 61,
+      "symbol": "UIConfig.calendarNibName",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 62,
+      "symbol": "UIConfig.calendarHeaderId",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 63,
+      "symbol": "UIConfig.calendarHeaderNib",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 66,
+      "symbol": "DateFormat",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 67,
+      "symbol": "DateFormat.timer",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 68,
+      "symbol": "DateFormat.hourMinute",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 69,
+      "symbol": "DateFormat.day",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 70,
+      "symbol": "DateFormat.dayHourMinute",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 71,
+      "symbol": "DateFormat.display",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 72,
+      "symbol": "DateFormat.sortingFormat",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 73,
+      "symbol": "DateFormat.month",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/ConfigFiles/UIConfig.swift",
+      "line": 74,
+      "symbol": "DateFormat.annual",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/DateLauncher.swift",
+      "line": 10,
+      "symbol": "DateLauncher",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/DateLauncher.swift",
+      "line": 16,
+      "symbol": "DateLauncher.selectedDate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/DateLauncher.swift",
+      "line": 22,
+      "symbol": "DateLauncher.blackView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/DateLauncher.swift",
+      "line": 24,
+      "symbol": "DateLauncher.container",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/DateLauncher.swift",
+      "line": 30,
+      "symbol": "DateLauncher.doneButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/DateLauncher.swift",
+      "line": 38,
+      "symbol": "DateLauncher.datePicker",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/DateLauncher.swift",
+      "line": 49,
+      "symbol": "DateLauncher.showSettings()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/DateLauncher.swift",
+      "line": 78,
+      "symbol": "DateLauncher.insantiateViewIn(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/DateLauncher.swift",
+      "line": 92,
+      "symbol": "DateLauncher.closePicker(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/DateLauncher.swift",
+      "line": 102,
+      "symbol": "DateLauncher.handleDismiss()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/DateLauncher.swift",
+      "line": 111,
+      "symbol": "DateLauncher.userDidSelectDate()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/DateLauncher.swift",
+      "line": 125,
+      "symbol": "DateLauncher.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/NotificationService.swift",
+      "line": 18,
+      "symbol": "NotificationService.center",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/NotificationService.swift",
+      "line": 21,
+      "symbol": "NotificationService.setupNotificationCenter()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/NotificationService.swift",
+      "line": 43,
+      "symbol": "NotificationService.addNotification(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/NotificationService.swift",
+      "line": 54,
+      "symbol": "NotificationService.removeNotification(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/NotificationService.swift",
+      "line": 59,
+      "symbol": "NotificationService.getNotifications()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/NotificationService.swift",
+      "line": 70,
+      "symbol": "NotificationService.setContent(_:challenge:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/NotificationService.swift",
+      "line": 78,
+      "symbol": "NotificationService.scheduleNotification(_:to:challenge:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/UserAlert.swift",
+      "line": 12,
+      "symbol": "UserAlert",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/UserAlert.swift",
+      "line": 14,
+      "symbol": "UserAlert.show(title:message:controller:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 11,
+      "symbol": "Alert",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 12,
+      "symbol": "Alert.success",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 13,
+      "symbol": "Alert.failure",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 14,
+      "symbol": "Alert.error",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 17,
+      "symbol": "Valid",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 18,
+      "symbol": "Valid.success",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 19,
+      "symbol": "Valid.failure",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 21,
+      "symbol": "ValidationType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 22,
+      "symbol": "ValidationType.email",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 23,
+      "symbol": "ValidationType.stringWithFirstLetterCaps",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 24,
+      "symbol": "ValidationType.phoneNo",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 25,
+      "symbol": "ValidationType.alphabeticString",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 26,
+      "symbol": "ValidationType.password",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 28,
+      "symbol": "RegEx",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 29,
+      "symbol": "RegEx.email",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 30,
+      "symbol": "RegEx.password",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 31,
+      "symbol": "RegEx.alphabeticStringWithSpace",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 32,
+      "symbol": "RegEx.alphabeticStringFirstLetterCaps",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 33,
+      "symbol": "RegEx.phoneNo",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 36,
+      "symbol": "AlertMessages",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 37,
+      "symbol": "AlertMessages.inValidEmail",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 38,
+      "symbol": "AlertMessages.invalidFirstLetterCaps",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 39,
+      "symbol": "AlertMessages.inValidPhone",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 40,
+      "symbol": "AlertMessages.invalidAlphabeticString",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 41,
+      "symbol": "AlertMessages.inValidPSW",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 43,
+      "symbol": "AlertMessages.emptyPhone",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 44,
+      "symbol": "AlertMessages.emptyEmail",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 45,
+      "symbol": "AlertMessages.emptyFirstLetterCaps",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 46,
+      "symbol": "AlertMessages.emptyAlphabeticString",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 47,
+      "symbol": "AlertMessages.emptyPSW",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 49,
+      "symbol": "AlertMessages.localized()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 54,
+      "symbol": "Validator",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 56,
+      "symbol": "Validator.shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 58,
+      "symbol": "Validator.validate(values:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 92,
+      "symbol": "Validator.isValidString(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Classes/Validator.swift",
+      "line": 101,
+      "symbol": "Validator.isValidRegEx(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Extensions/Array+chunks.swift",
+      "line": 12,
+      "symbol": "Array.chunks(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Extensions/Array+chunks.swift",
+      "line": 18,
+      "symbol": "Array.getLast(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Extensions/TimeInterval + extensions.swift",
+      "line": 12,
+      "symbol": "Int.secondsToMinutesSeconds()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Extensions/TimeInterval + extensions.swift",
+      "line": 18,
+      "symbol": "Date.convertToString(format:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Extensions/UIImage+snapshot.swift",
+      "line": 12,
+      "symbol": "UIImage.init(view:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Extensions/UIView+gradientExtensions.swift",
+      "line": 14,
+      "symbol": "UIView.setGradientBackground(from:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Extensions/UIView+gradientExtensions.swift",
+      "line": 31,
+      "symbol": "UIView.getGradientLayer(from:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Protocols/ChallengeControllerDelegate.swift",
+      "line": null,
+      "symbol": "ChallengeControllerDelegate",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Protocols/ChallengeControllerDelegate.swift",
+      "line": 10,
+      "symbol": "ChallengeControllerDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Protocols/ChallengeControllerDelegate.swift",
+      "line": 11,
+      "symbol": "ChallengeControllerDelegate.sendCategory()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Protocols/ChallengeControllerDelegate.swift",
+      "line": 15,
+      "symbol": "ChallengeControllerDelegate.sendCategory()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/DatabaseService.swift",
+      "line": 14,
+      "symbol": "DatabaseService",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/DatabaseService.swift",
+      "line": 17,
+      "symbol": "DatabaseService.shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/DatabaseService.swift",
+      "line": 18,
+      "symbol": "DatabaseService.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/DatabaseService.swift",
+      "line": 278,
+      "symbol": "DatabaseService.getSucceededChallengeByDate(data:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Controllers/MailPresenterViewController.swift",
+      "line": 11,
+      "symbol": "MailPresenterViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Controllers/MailPresenterViewController.swift",
+      "line": 13,
+      "symbol": "MailPresenterViewController.mailComposerVC",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Controllers/MailPresenterViewController.swift",
+      "line": 15,
+      "symbol": "MailPresenterViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Controllers/MailPresenterViewController.swift",
+      "line": 20,
+      "symbol": "MailPresenterViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Controllers/MailPresenterViewController.swift",
+      "line": 42,
+      "symbol": "MailPresenterViewController.configuredMailComposeViewController()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Controllers/MailPresenterViewController.swift",
+      "line": 66,
+      "symbol": "MailPresenterViewController.mailComposeController(_:didFinishWith:error:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Controllers/PDFPreviewViewController.swift",
+      "line": 12,
+      "symbol": "PDFPreviewViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Controllers/PDFPreviewViewController.swift",
+      "line": 14,
+      "symbol": "PDFPreviewViewController.webView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Controllers/PDFPreviewViewController.swift",
+      "line": 15,
+      "symbol": "PDFPreviewViewController.uiWebView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Controllers/PDFPreviewViewController.swift",
+      "line": 18,
+      "symbol": "PDFPreviewViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Controllers/PDFPreviewViewController.swift",
+      "line": 38,
+      "symbol": "PDFPreviewViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Controllers/PDFPreviewViewController.swift",
+      "line": 42,
+      "symbol": "PDFPreviewViewController.close(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Controllers/PDFPreviewViewController.swift",
+      "line": 46,
+      "symbol": "PDFPreviewViewController.share(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Controllers/PDFPreviewViewController.swift",
+      "line": 54,
+      "symbol": "PDFPreviewViewController.setupWithURL(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Model/PDFCreator.swift",
+      "line": 14,
+      "symbol": "Layouts",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Model/PDFCreator.swift",
+      "line": 15,
+      "symbol": "Layouts.singleReport",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Model/PDFCreator.swift",
+      "line": 16,
+      "symbol": "Layouts.multipleSummariesReport",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Model/PDFCreator.swift",
+      "line": 17,
+      "symbol": "Layouts.homepage",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Model/PDFCreator.swift",
+      "line": 20,
+      "symbol": "PDFCreator",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Model/PDFCreator.swift",
+      "line": 25,
+      "symbol": "PDFCreator.outputAsData",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Model/PDFCreator.swift",
+      "line": 27,
+      "symbol": "PDFCreator.scrollViewToPdf(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Model/PDFCreator.swift",
+      "line": 45,
+      "symbol": "PDFCreator.generatePDF(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Model/PDFCreator.swift",
+      "line": 66,
+      "symbol": "PDFCreator.openPDFViewer(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Model/PDFCreator.swift",
+      "line": 72,
+      "symbol": "PDFCreator.pdfLayout(for:mapView:display:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Model/PDFCreator.swift",
+      "line": 77,
+      "symbol": "PDFCreator.generatePages(_:_:_:display:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Model/PDFCreator.swift",
+      "line": 107,
+      "symbol": "PDFCreator.generateDetail(for:in:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Model/PDFCreator.swift",
+      "line": 133,
+      "symbol": "PDFCreator.generateCell(for:in:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Model/ScrollViewSnapshotter.swift",
+      "line": 10,
+      "symbol": "ScrollViewSnapshotter",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Model/ScrollViewSnapshotter.swift",
+      "line": 12,
+      "symbol": "ScrollViewSnapshotter.PDFWithScrollView(scrollview:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/SingleChallengeExportView.swift",
+      "line": 11,
+      "symbol": "SingleChallengeExportView",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/SingleChallengeExportView.swift",
+      "line": 13,
+      "symbol": "SingleChallengeExportView.contentView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/SingleChallengeExportView.swift",
+      "line": 14,
+      "symbol": "SingleChallengeExportView.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/SingleChallengeExportView.swift",
+      "line": 15,
+      "symbol": "SingleChallengeExportView.dateLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/SingleChallengeExportView.swift",
+      "line": 16,
+      "symbol": "SingleChallengeExportView.comments",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/SingleChallengeExportView.swift",
+      "line": 17,
+      "symbol": "SingleChallengeExportView.map",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/SingleChallengeExportView.swift",
+      "line": 18,
+      "symbol": "SingleChallengeExportView.anxietyLvl",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/SingleChallengeExportView.swift",
+      "line": 19,
+      "symbol": "SingleChallengeExportView.benefit",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/SingleChallengeExportView.swift",
+      "line": 20,
+      "symbol": "SingleChallengeExportView.feltAnxiety",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/SingleChallengeExportView.swift",
+      "line": 21,
+      "symbol": "SingleChallengeExportView.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/SingleChallengeExportView.swift",
+      "line": 26,
+      "symbol": "SingleChallengeExportView.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/SingleChallengeExportView.swift",
+      "line": 31,
+      "symbol": "SingleChallengeExportView.commonInit()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/homepageExportView.swift",
+      "line": 12,
+      "symbol": "HomepageExportView",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/homepageExportView.swift",
+      "line": 13,
+      "symbol": "HomepageExportView.contentView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/homepageExportView.swift",
+      "line": 14,
+      "symbol": "HomepageExportView.capture",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/homepageExportView.swift",
+      "line": 16,
+      "symbol": "HomepageExportView.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/homepageExportView.swift",
+      "line": 21,
+      "symbol": "HomepageExportView.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/homepageExportView.swift",
+      "line": 26,
+      "symbol": "HomepageExportView.commonInit()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/reportCellView.swift",
+      "line": 13,
+      "symbol": "ReportCellView",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/reportCellView.swift",
+      "line": 15,
+      "symbol": "ReportCellView.contentView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/reportCellView.swift",
+      "line": 16,
+      "symbol": "ReportCellView.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/reportCellView.swift",
+      "line": 17,
+      "symbol": "ReportCellView.dateLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/reportCellView.swift",
+      "line": 18,
+      "symbol": "ReportCellView.comments",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/reportCellView.swift",
+      "line": 19,
+      "symbol": "ReportCellView.map",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/reportCellView.swift",
+      "line": 20,
+      "symbol": "ReportCellView.anxietyLvl",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/reportCellView.swift",
+      "line": 21,
+      "symbol": "ReportCellView.benefit",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/reportCellView.swift",
+      "line": 22,
+      "symbol": "ReportCellView.feltAnxiety",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/reportCellView.swift",
+      "line": 24,
+      "symbol": "ReportCellView.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/reportCellView.swift",
+      "line": 29,
+      "symbol": "ReportCellView.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/Services/PDFService/Views/Layouts/reportCellView.swift",
+      "line": 34,
+      "symbol": "ReportCellView.commonInit()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/CustomButton.swift",
+      "line": 11,
+      "symbol": "CustomUIButtonForUIToolbarStyle",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/CustomButton.swift",
+      "line": 12,
+      "symbol": "CustomUIButtonForUIToolbarStyle.imageButton",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/CustomButton.swift",
+      "line": 13,
+      "symbol": "CustomUIButtonForUIToolbarStyle.textButton",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/CustomButton.swift",
+      "line": 21,
+      "symbol": "CustomUIButtonForUIToolbar.typeOfButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/CustomButton.swift",
+      "line": 23,
+      "symbol": "CustomUIButtonForUIToolbar.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/CustomButton.swift",
+      "line": 53,
+      "symbol": "CustomUIButtonForUIToolbar.changeImage()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/CustomButton.swift",
+      "line": 63,
+      "symbol": "CustomUIButtonForUIToolbar.changeText()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/GradientButton.swift",
+      "line": 12,
+      "symbol": "GradientButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/GradientButton.swift",
+      "line": 13,
+      "symbol": "GradientButton.startColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/GradientButton.swift",
+      "line": 14,
+      "symbol": "GradientButton.endColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/GradientButton.swift",
+      "line": 16,
+      "symbol": "GradientButton.draw(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/PopupView.swift",
+      "line": 10,
+      "symbol": "Popup",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/PopupView.swift",
+      "line": 16,
+      "symbol": "Popup.blackView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/PopupView.swift",
+      "line": 18,
+      "symbol": "Popup.container",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/PopupView.swift",
+      "line": 24,
+      "symbol": "Popup.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/PopupView.swift",
+      "line": 32,
+      "symbol": "Popup.subTitleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/PopupView.swift",
+      "line": 40,
+      "symbol": "Popup.reward",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/PopupView.swift",
+      "line": 50,
+      "symbol": "Popup.showSettings()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/PopupView.swift",
+      "line": 73,
+      "symbol": "Popup.instantiateViews(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/PopupView.swift",
+      "line": 100,
+      "symbol": "Popup.handleDismiss()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/PopupView.swift",
+      "line": 116,
+      "symbol": "Popup.init(title:message:image:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/Trapezium.swift",
+      "line": 24,
+      "symbol": "Trapezium.draw(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/customTextField.swift",
+      "line": 11,
+      "symbol": "CustomTextField",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/customTextField.swift",
+      "line": 12,
+      "symbol": "CustomTextField.dividerOffset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/customTextField.swift",
+      "line": 13,
+      "symbol": "CustomTextField.strokeWidth",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/customTextField.swift",
+      "line": 14,
+      "symbol": "CustomTextField.color",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/customTextField.swift",
+      "line": 16,
+      "symbol": "CustomTextField.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/nStopSlider.swift",
+      "line": 11,
+      "symbol": "NStopSlider",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/nStopSlider.swift",
+      "line": 13,
+      "symbol": "NStopSlider.thumbImage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/nStopSlider.swift",
+      "line": 19,
+      "symbol": "NStopSlider.draw(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/roundedImage.swift",
+      "line": 11,
+      "symbol": "RoundedImage",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/roundedImage.swift",
+      "line": 12,
+      "symbol": "RoundedImage.init(image:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/roundedImage.swift",
+      "line": 16,
+      "symbol": "RoundedImage.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/roundedImage.swift",
+      "line": 20,
+      "symbol": "RoundedImage.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/Helpers/UIElements/roundedImage.swift",
+      "line": 24,
+      "symbol": "RoundedImage.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Root/Controller/MainTabBarController.swift",
+      "line": 22,
+      "symbol": "MainTabBarController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/Model/ChallengeDestination.swift",
+      "line": 12,
+      "symbol": "ChallengeDestination.locationName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/Model/ChallengeDestination.swift",
+      "line": 13,
+      "symbol": "ChallengeDestination.lat",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/Model/ChallengeDestination.swift",
+      "line": 14,
+      "symbol": "ChallengeDestination.long",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 51,
+      "symbol": "EditChallengeViewController.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 52,
+      "symbol": "EditChallengeViewController.dateLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 53,
+      "symbol": "EditChallengeViewController.notificationSwitch",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 54,
+      "symbol": "EditChallengeViewController.locationLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 55,
+      "symbol": "EditChallengeViewController.anxietySlider",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 56,
+      "symbol": "EditChallengeViewController.benefitSlider",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 57,
+      "symbol": "EditChallengeViewController.validateButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 58,
+      "symbol": "EditChallengeViewController.benefitLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 59,
+      "symbol": "EditChallengeViewController.anxietyLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 60,
+      "symbol": "EditChallengeViewController.notificationLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 66,
+      "symbol": "EditChallengeViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 113,
+      "symbol": "EditChallengeViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 123,
+      "symbol": "EditChallengeViewController.launcher",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 125,
+      "symbol": "EditChallengeViewController.addDate(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 129,
+      "symbol": "EditChallengeViewController.didUpdateDate(notif:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 150,
+      "symbol": "EditChallengeViewController.notificationId",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 152,
+      "symbol": "EditChallengeViewController.userDidActivateNotification(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 172,
+      "symbol": "EditChallengeViewController.notification(completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 202,
+      "symbol": "EditChallengeViewController.addLocation(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 207,
+      "symbol": "EditChallengeViewController.didUpdateLocation(notif:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddChallencges/New Group/EditChallengeViewController.swift",
+      "line": 216,
+      "symbol": "EditChallengeViewController.updateChallenge(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 46,
+      "symbol": "CreateCustomChallengeViewController.titleField",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 47,
+      "symbol": "CreateCustomChallengeViewController.dateLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 48,
+      "symbol": "CreateCustomChallengeViewController.notificationSwitch",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 49,
+      "symbol": "CreateCustomChallengeViewController.locationLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 50,
+      "symbol": "CreateCustomChallengeViewController.anxietySlider",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 51,
+      "symbol": "CreateCustomChallengeViewController.benefitSlider",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 52,
+      "symbol": "CreateCustomChallengeViewController.validateButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 53,
+      "symbol": "CreateCustomChallengeViewController.anxietyLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 54,
+      "symbol": "CreateCustomChallengeViewController.benefitLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 55,
+      "symbol": "CreateCustomChallengeViewController.notificationLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 61,
+      "symbol": "CreateCustomChallengeViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 86,
+      "symbol": "CreateCustomChallengeViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 99,
+      "symbol": "CreateCustomChallengeViewController.addDate(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 130,
+      "symbol": "CreateCustomChallengeViewController.userDidActivateNotification(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 182,
+      "symbol": "CreateCustomChallengeViewController.addLocation(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/AddCustomChallenges/Controller/CreateCustomChallengeViewController.swift",
+      "line": 199,
+      "symbol": "CreateCustomChallengeViewController.updateChallenge(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Challenges/Controller/ChallengeController.swift",
+      "line": null,
+      "symbol": "ChallengeController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Challenges/Controller/ChallengeController.swift",
+      "line": 11,
+      "symbol": "ChallengeController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Challenges/Controller/ChallengeController.swift",
+      "line": 39,
+      "symbol": "ChallengeController.tableView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Challenges/Controller/ChallengeController.swift",
+      "line": 40,
+      "symbol": "ChallengeController.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Challenges/Controller/ChallengeController.swift",
+      "line": 45,
+      "symbol": "ChallengeController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Challenges/Controller/ChalllengeController+tableView.swift",
+      "line": 13,
+      "symbol": "ChallengeController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Challenges/Controller/ChalllengeController+tableView.swift",
+      "line": 17,
+      "symbol": "ChallengeController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Challenges/Controller/ChalllengeController+tableView.swift",
+      "line": 24,
+      "symbol": "ChallengeController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Challenges/Controller/ChalllengeController+tableView.swift",
+      "line": 34,
+      "symbol": "ChallengeController.tableView(_:didHighlightRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Challenges/View/ChallengeTwo.swift",
+      "line": 11,
+      "symbol": "ChallengeTwo",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Challenges/View/ChallengeTwo.swift",
+      "line": 13,
+      "symbol": "ChallengeTwo.challengeTitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Challenges/View/ChallengeTwo.swift",
+      "line": 15,
+      "symbol": "ChallengeTwo.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Challenges/View/ChallengeTwo.swift",
+      "line": 20,
+      "symbol": "ChallengeTwo.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController+tableView.swift",
+      "line": 17,
+      "symbol": "MyChallengesViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController+tableView.swift",
+      "line": 21,
+      "symbol": "MyChallengesViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController+tableView.swift",
+      "line": 39,
+      "symbol": "MyChallengesViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController+tableView.swift",
+      "line": 53,
+      "symbol": "MyChallengesViewController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController+tableView.swift",
+      "line": 57,
+      "symbol": "MyChallengesViewController.tableView(_:canEditRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController+tableView.swift",
+      "line": 63,
+      "symbol": "MyChallengesViewController.tableView(_:editActionsForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController.swift",
+      "line": 18,
+      "symbol": "MyChallengesViewController.challengeKey",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController.swift",
+      "line": 19,
+      "symbol": "MyChallengesViewController.challengeToSend",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController.swift",
+      "line": 24,
+      "symbol": "MyChallengesViewController.currentUser",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController.swift",
+      "line": 25,
+      "symbol": "MyChallengesViewController.data",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController.swift",
+      "line": 26,
+      "symbol": "MyChallengesViewController.postPoneLauncher",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController.swift",
+      "line": 27,
+      "symbol": "MyChallengesViewController.reuseId",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController.swift",
+      "line": 30,
+      "symbol": "MyChallengesViewController.currentCell",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController.swift",
+      "line": 36,
+      "symbol": "MyChallengesViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController.swift",
+      "line": 48,
+      "symbol": "MyChallengesViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController.swift",
+      "line": 52,
+      "symbol": "MyChallengesViewController.viewWillDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController.swift",
+      "line": 56,
+      "symbol": "MyChallengesViewController.addChallenge()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController.swift",
+      "line": 63,
+      "symbol": "MyChallengesViewController.shouldLoadTableView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/Controller/MyChallengesViewController.swift",
+      "line": 76,
+      "symbol": "MyChallengesViewController.shouldDisplayNavBarItems()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/ChallengeDetailCell.swift",
+      "line": 11,
+      "symbol": "ChallengeDetailCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/ChallengeDetailCell.swift",
+      "line": 13,
+      "symbol": "ChallengeDetailCell.statusIndicator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/ChallengeDetailCell.swift",
+      "line": 14,
+      "symbol": "ChallengeDetailCell.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/ChallengeDetailCell.swift",
+      "line": 15,
+      "symbol": "ChallengeDetailCell.dateLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/ChallengeDetailCell.swift",
+      "line": 17,
+      "symbol": "ChallengeDetailCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/ChallengeDetailCell.swift",
+      "line": 21,
+      "symbol": "ChallengeDetailCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/PostPoneLauncher.swift",
+      "line": 11,
+      "symbol": "PostPoneLauncher",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/PostPoneLauncher.swift",
+      "line": 17,
+      "symbol": "PostPoneLauncher.selectedDate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/PostPoneLauncher.swift",
+      "line": 23,
+      "symbol": "PostPoneLauncher.blackView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/PostPoneLauncher.swift",
+      "line": 25,
+      "symbol": "PostPoneLauncher.container",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/PostPoneLauncher.swift",
+      "line": 31,
+      "symbol": "PostPoneLauncher.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/PostPoneLauncher.swift",
+      "line": 39,
+      "symbol": "PostPoneLauncher.divider",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/PostPoneLauncher.swift",
+      "line": 45,
+      "symbol": "PostPoneLauncher.datePicker",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/PostPoneLauncher.swift",
+      "line": 50,
+      "symbol": "PostPoneLauncher.button",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/PostPoneLauncher.swift",
+      "line": 59,
+      "symbol": "PostPoneLauncher.showSettings()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/PostPoneLauncher.swift",
+      "line": 91,
+      "symbol": "PostPoneLauncher.instantiateViews(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/MyChallenges/View/PostPoneLauncher.swift",
+      "line": 171,
+      "symbol": "PostPoneLauncher.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/Controller/ObjectiveViewController.swift",
+      "line": null,
+      "symbol": "ObjectiveViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/Controller/ObjectiveViewController.swift",
+      "line": 12,
+      "symbol": "ObjectiveViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/Controller/ObjectiveViewController.swift",
+      "line": 17,
+      "symbol": "ObjectiveViewController.data",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/Controller/ObjectiveViewController.swift",
+      "line": 18,
+      "symbol": "ObjectiveViewController.reuseId",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/Controller/ObjectiveViewController.swift",
+      "line": 19,
+      "symbol": "ObjectiveViewController.categoryTitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/Controller/ObjectiveViewController.swift",
+      "line": 25,
+      "symbol": "ObjectiveViewController.collectionView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/Controller/ObjectiveViewController.swift",
+      "line": 30,
+      "symbol": "ObjectiveViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/Controller/ObjectiveViewController.swift",
+      "line": 50,
+      "symbol": "ObjectiveViewController.collectionView(_:numberOfItemsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/Controller/ObjectiveViewController.swift",
+      "line": 54,
+      "symbol": "ObjectiveViewController.collectionView(_:cellForItemAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/Controller/ObjectiveViewController.swift",
+      "line": 65,
+      "symbol": "ObjectiveViewController.collectionView(_:layout:sizeForItemAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/Controller/ObjectiveViewController.swift",
+      "line": 70,
+      "symbol": "ObjectiveViewController.collectionView(_:didSelectItemAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/Model/Category.swift",
+      "line": 13,
+      "symbol": "Category.title",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/Model/Category.swift",
+      "line": 14,
+      "symbol": "Category.imageName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/View/ObjectiveCollectionViewCell.swift",
+      "line": 13,
+      "symbol": "ObjectiveCollectionViewCell.thumbnail",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/View/ObjectiveCollectionViewCell.swift",
+      "line": 14,
+      "symbol": "ObjectiveCollectionViewCell.label",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/Objectives/View/ObjectiveCollectionViewCell.swift",
+      "line": 15,
+      "symbol": "ObjectiveCollectionViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController+CLlocationManager.swift",
+      "line": 41,
+      "symbol": "ProgressViewController.locationManager(_:didFailWithError:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController.swift",
+      "line": 16,
+      "symbol": "EditableChallenge",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController.swift",
+      "line": 17,
+      "symbol": "EditableChallenge.challengeToSend",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController.swift",
+      "line": 18,
+      "symbol": "EditableChallenge.challengeKey",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController.swift",
+      "line": 53,
+      "symbol": "ProgressViewController.challengeLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController.swift",
+      "line": 54,
+      "symbol": "ProgressViewController.mapView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController.swift",
+      "line": 55,
+      "symbol": "ProgressViewController.dateLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController.swift",
+      "line": 56,
+      "symbol": "ProgressViewController.startButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController.swift",
+      "line": 57,
+      "symbol": "ProgressViewController.textView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController.swift",
+      "line": 58,
+      "symbol": "ProgressViewController.successLAbel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController.swift",
+      "line": 59,
+      "symbol": "ProgressViewController.failLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController.swift",
+      "line": 60,
+      "symbol": "ProgressViewController.commentLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController.swift",
+      "line": 61,
+      "symbol": "ProgressViewController.failButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController.swift",
+      "line": 62,
+      "symbol": "ProgressViewController.successButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController.swift",
+      "line": 68,
+      "symbol": "ProgressViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/ProgressChallenge/Controller/ProgressViewController.swift",
+      "line": 74,
+      "symbol": "ProgressViewController.viewWillDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/SearchLocation/Controller/DestinationViewController.swift",
+      "line": 26,
+      "symbol": "DestinationViewController.map",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/SearchLocation/Controller/DestinationViewController.swift",
+      "line": 33,
+      "symbol": "DestinationViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Challenges/SearchLocation/Controller/DestinationViewController.swift",
+      "line": 133,
+      "symbol": "DestinationViewController.mapView(_:viewFor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Crisis/Controller/CrisisViewController.swift",
+      "line": 39,
+      "symbol": "CrisisViewController.startButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Crisis/Controller/CrisisViewController.swift",
+      "line": 40,
+      "symbol": "CrisisViewController.pulsatingCircles",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Crisis/Controller/CrisisViewController.swift",
+      "line": 41,
+      "symbol": "CrisisViewController.breathLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Crisis/Controller/CrisisViewController.swift",
+      "line": 42,
+      "symbol": "CrisisViewController.timerLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Crisis/Controller/CrisisViewController.swift",
+      "line": 43,
+      "symbol": "CrisisViewController.segmentedControl",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Crisis/Controller/CrisisViewController.swift",
+      "line": 49,
+      "symbol": "CrisisViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Crisis/Controller/CrisisViewController.swift",
+      "line": 60,
+      "symbol": "CrisisViewController.animation(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Crisis/Controller/CrisisViewController.swift",
+      "line": 84,
+      "symbol": "CrisisViewController.setBreathDuration(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Crisis/Controller/CrisisViewController.swift",
+      "line": 107,
+      "symbol": "CrisisViewController.runTimer()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Crisis/Controller/CrisisViewController.swift",
+      "line": 116,
+      "symbol": "CrisisViewController.setupButton()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Crisis/Controller/CrisisViewController.swift",
+      "line": 122,
+      "symbol": "CrisisViewController.setupLabel()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Crisis/Controller/CrisisViewController.swift",
+      "line": 132,
+      "symbol": "CrisisViewController.updateTimerLabel()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Crisis/View/PulsatingCirclesView.swift",
+      "line": 19,
+      "symbol": "PulsatingCirclesView.draw(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Crisis/View/PulsatingCirclesView.swift",
+      "line": 48,
+      "symbol": "PulsatingCirclesView.circlesAnimation(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Crisis/View/PulsatingCirclesView.swift",
+      "line": 68,
+      "symbol": "PulsatingCirclesView.resetCirclesAnimation()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/ChartsHelpers/HistoryRange.swift",
+      "line": 13,
+      "symbol": "HistoryRange.week",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/ChartsHelpers/HistoryRange.swift",
+      "line": 14,
+      "symbol": "HistoryRange.month",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/ChartsHelpers/HistoryRange.swift",
+      "line": 15,
+      "symbol": "HistoryRange.trimester",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/ChartsHelpers/HistoryRange.swift",
+      "line": 16,
+      "symbol": "HistoryRange.year",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/ChartsHelpers/Icons.swift",
+      "line": 14,
+      "symbol": "Icons.superHappy",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/ChartsHelpers/Icons.swift",
+      "line": 15,
+      "symbol": "Icons.happy",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/ChartsHelpers/Icons.swift",
+      "line": 16,
+      "symbol": "Icons.neutral",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/ChartsHelpers/Icons.swift",
+      "line": 17,
+      "symbol": "Icons.sad",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/ChartsHelpers/Icons.swift",
+      "line": 18,
+      "symbol": "Icons.dead",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/ChartsHelpers/Icons.swift",
+      "line": 24,
+      "symbol": "Offset.step1",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/ChartsHelpers/Icons.swift",
+      "line": 25,
+      "symbol": "Offset.step2",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/ChartsHelpers/Icons.swift",
+      "line": 26,
+      "symbol": "Offset.step3",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/ChartsHelpers/Icons.swift",
+      "line": 27,
+      "symbol": "Offset.step4",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/ChartsHelpers/Icons.swift",
+      "line": 28,
+      "symbol": "Offset.step5",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/HistoryViewController.swift",
+      "line": 46,
+      "symbol": "HistoryViewController.scrollView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/HistoryViewController.swift",
+      "line": 47,
+      "symbol": "HistoryViewController.rangeSelector",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/HistoryViewController.swift",
+      "line": 48,
+      "symbol": "HistoryViewController.lineChart",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/HistoryViewController.swift",
+      "line": 49,
+      "symbol": "HistoryViewController.barChart",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/HistoryViewController.swift",
+      "line": 50,
+      "symbol": "HistoryViewController.progressCircle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/HistoryViewController.swift",
+      "line": 51,
+      "symbol": "HistoryViewController.progressLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/HistoryViewController.swift",
+      "line": 52,
+      "symbol": "HistoryViewController.tableView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/HistoryViewController.swift",
+      "line": 53,
+      "symbol": "HistoryViewController.moodHistoryLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/HistoryViewController.swift",
+      "line": 54,
+      "symbol": "HistoryViewController.doneChallenges",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/HistoryViewController.swift",
+      "line": 55,
+      "symbol": "HistoryViewController.weeklyProgressLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/HistoryViewController.swift",
+      "line": 56,
+      "symbol": "HistoryViewController.challengesHistory",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/HistoryViewController.swift",
+      "line": 62,
+      "symbol": "HistoryViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/HistoryViewController.swift",
+      "line": 80,
+      "symbol": "HistoryViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/extensionHistory+scrol+tableView.swift",
+      "line": 14,
+      "symbol": "HistoryViewController.scrollViewDidScroll(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/extensionHistory+scrol+tableView.swift",
+      "line": 27,
+      "symbol": "HistoryViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/extensionHistory+scrol+tableView.swift",
+      "line": 31,
+      "symbol": "HistoryViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Controller/extensionUIViewControllerChartSettings.swift",
+      "line": 13,
+      "symbol": "HistoryViewController.chartSettings(chart:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 13,
+      "symbol": "FormattedChallenge.anxietyLevel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 14,
+      "symbol": "FormattedChallenge.benefitLevel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 15,
+      "symbol": "FormattedChallenge.comment",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 16,
+      "symbol": "FormattedChallenge.destination",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 17,
+      "symbol": "FormattedChallenge.destinationLat",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 18,
+      "symbol": "FormattedChallenge.destinationLong",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 19,
+      "symbol": "FormattedChallenge.dueDate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 20,
+      "symbol": "FormattedChallenge.felt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 21,
+      "symbol": "FormattedChallenge.isDone",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 22,
+      "symbol": "FormattedChallenge.isNotified",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 23,
+      "symbol": "FormattedChallenge.isSuccess",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 24,
+      "symbol": "FormattedChallenge.map",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 25,
+      "symbol": "FormattedChallenge.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 26,
+      "symbol": "FormattedChallenge.objective",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 27,
+      "symbol": "FormattedChallenge.user",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 28,
+      "symbol": "FormattedChallenge.formattedDate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/History/Model/FormattedChallenge.swift",
+      "line": 30,
+      "symbol": "FormattedChallenge.init(challenge:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController+CLLocation.swift",
+      "line": 14,
+      "symbol": "MedicViewController.locationManager(_:didUpdateLocations:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController+CLLocation.swift",
+      "line": 26,
+      "symbol": "MedicViewController.locationManager(_:didFailWithError:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController+MapKit.swift",
+      "line": 14,
+      "symbol": "MedicViewController.mapView(_:viewFor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController+MapKit.swift",
+      "line": 33,
+      "symbol": "MedicViewController.mapView(_:didSelect:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController+MapKit.swift",
+      "line": 50,
+      "symbol": "MedicViewController.mapView(_:didDeselect:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 26,
+      "symbol": "MedicViewController.map",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 39,
+      "symbol": "MedicViewController.constraint",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 40,
+      "symbol": "MedicViewController.infoStack",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 41,
+      "symbol": "MedicViewController.detailName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 42,
+      "symbol": "MedicViewController.detailAddress",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 43,
+      "symbol": "MedicViewController.detailJob",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 44,
+      "symbol": "MedicViewController.detailPhone",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 45,
+      "symbol": "MedicViewController.adressLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 46,
+      "symbol": "MedicViewController.jobLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 47,
+      "symbol": "MedicViewController.telLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 53,
+      "symbol": "MedicViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 67,
+      "symbol": "MedicViewController.locationServiceSetup()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 76,
+      "symbol": "MedicViewController.centerMapOnLocation(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 83,
+      "symbol": "MedicViewController.loadMedicAnnotations()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 101,
+      "symbol": "MedicViewController.calloutSetup(_:_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 122,
+      "symbol": "MedicViewController.showDetail(_:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 137,
+      "symbol": "MedicViewController.loadMedicDetails(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 147,
+      "symbol": "MedicViewController.closeDetail(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 156,
+      "symbol": "MedicViewController.callTherapist(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 167,
+      "symbol": "MedicViewController.shareDetail(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Controllers/MedicViewController.swift",
+      "line": 176,
+      "symbol": "MedicViewController.getDirection(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Model/MedicAnnotation.swift",
+      "line": 15,
+      "symbol": "MedicAnnotation.coordinate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Model/MedicAnnotation.swift",
+      "line": 16,
+      "symbol": "MedicAnnotation.title",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Model/MedicAnnotation.swift",
+      "line": 17,
+      "symbol": "MedicAnnotation.image",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Model/MedicAnnotation.swift",
+      "line": 18,
+      "symbol": "MedicAnnotation.subtitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Model/MedicAnnotation.swift",
+      "line": 19,
+      "symbol": "MedicAnnotation.tel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Model/MedicAnnotation.swift",
+      "line": 20,
+      "symbol": "MedicAnnotation.job",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Model/MedicAnnotation.swift",
+      "line": 23,
+      "symbol": "MedicAnnotation.init(lat:lng:name:image:subtitle:tel:job:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Model/Therapist.swift",
+      "line": 13,
+      "symbol": "Therapist.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Model/Therapist.swift",
+      "line": 14,
+      "symbol": "Therapist.lat",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Model/Therapist.swift",
+      "line": 15,
+      "symbol": "Therapist.lng",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Model/Therapist.swift",
+      "line": 16,
+      "symbol": "Therapist.adresse",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Model/Therapist.swift",
+      "line": 17,
+      "symbol": "Therapist.tel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Model/Therapist.swift",
+      "line": 18,
+      "symbol": "Therapist.profession",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Views/CustomCalloutView.swift",
+      "line": 13,
+      "symbol": "CustomCalloutView.nameLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Views/CustomCalloutView.swift",
+      "line": 14,
+      "symbol": "CustomCalloutView.addressLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Views/CustomCalloutView.swift",
+      "line": 15,
+      "symbol": "CustomCalloutView.detail",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Medic/Views/CustomCalloutView.swift",
+      "line": 16,
+      "symbol": "CustomCalloutView.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Model/Challenge.swift",
+      "line": 50,
+      "symbol": "Challenge.init(user:name:objective:dueDate:anxietyLevel:benefitLevel:isNotified:isDone:isSuccess:destination:destinationLat:destinationLong:key:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Model/Mood.swift",
+      "line": 26,
+      "symbol": "Mood.init(user:state:date:key:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/Controller/HomeViewController.swift",
+      "line": 17,
+      "symbol": "HomeViewController.currentUser",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/Controller/HomeViewController.swift",
+      "line": 30,
+      "symbol": "HomeViewController.iii",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/Controller/HomeViewController.swift",
+      "line": 38,
+      "symbol": "HomeViewController.moodButtons",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/Controller/HomeViewController.swift",
+      "line": 39,
+      "symbol": "HomeViewController.calendarView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/Controller/HomeViewController.swift",
+      "line": 40,
+      "symbol": "HomeViewController.montDisplay",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/Controller/HomeViewController.swift",
+      "line": 41,
+      "symbol": "HomeViewController.todaysMoodLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/Controller/HomeViewController.swift",
+      "line": 47,
+      "symbol": "HomeViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/Controller/HomeViewController.swift",
+      "line": 61,
+      "symbol": "HomeViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/Controller/HomeViewController.swift",
+      "line": 123,
+      "symbol": "HomeViewController.previousMonth(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/Controller/HomeViewController.swift",
+      "line": 127,
+      "symbol": "HomeViewController.nextMonth(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/View/CalendarCell.swift",
+      "line": 15,
+      "symbol": "CalendarCell.selectedView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/View/CalendarCell.swift",
+      "line": 16,
+      "symbol": "CalendarCell.dateLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/View/CalendarCell.swift",
+      "line": 17,
+      "symbol": "CalendarCell.eventDotView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/View/CalendarCell.swift",
+      "line": 19,
+      "symbol": "CalendarCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/View/headerView.swift",
+      "line": 15,
+      "symbol": "HeaderView.mon",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/View/headerView.swift",
+      "line": 16,
+      "symbol": "HeaderView.tue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/View/headerView.swift",
+      "line": 17,
+      "symbol": "HeaderView.wed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/View/headerView.swift",
+      "line": 18,
+      "symbol": "HeaderView.thu",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/View/headerView.swift",
+      "line": 19,
+      "symbol": "HeaderView.fri",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/View/headerView.swift",
+      "line": 20,
+      "symbol": "HeaderView.sat",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/View/headerView.swift",
+      "line": 21,
+      "symbol": "HeaderView.sun",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Profil/View/headerView.swift",
+      "line": 23,
+      "symbol": "HeaderView.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Settings/Controller/SettingsViewController.swift",
+      "line": 13,
+      "symbol": "SettingsViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Settings/Controller/SettingsViewController.swift",
+      "line": 14,
+      "symbol": "SettingsViewController.currentUser",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Settings/Controller/SettingsViewController.swift",
+      "line": 15,
+      "symbol": "SettingsViewController.navBar",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Settings/Controller/SettingsViewController.swift",
+      "line": 21,
+      "symbol": "SettingsViewController.backButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Settings/Controller/SettingsViewController.swift",
+      "line": 29,
+      "symbol": "SettingsViewController.logOutButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Settings/Controller/SettingsViewController.swift",
+      "line": 30,
+      "symbol": "SettingsViewController.resetButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Settings/Controller/SettingsViewController.swift",
+      "line": 31,
+      "symbol": "SettingsViewController.changePasswordButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/MainTabBar/Tabs/Settings/Controller/SettingsViewController.swift",
+      "line": 33,
+      "symbol": "SettingsViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Login/Controller/LoginViewController.swift",
+      "line": 15,
+      "symbol": "LoginViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Login/Controller/LoginViewController.swift",
+      "line": 25,
+      "symbol": "LoginViewController.passwordTextfield",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Login/Controller/LoginViewController.swift",
+      "line": 26,
+      "symbol": "LoginViewController.loginTextfield",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Login/Controller/LoginViewController.swift",
+      "line": 27,
+      "symbol": "LoginViewController.signInButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Login/Controller/LoginViewController.swift",
+      "line": 28,
+      "symbol": "LoginViewController.fbButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Login/Controller/LoginViewController.swift",
+      "line": 29,
+      "symbol": "LoginViewController.twitterButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Login/Controller/LoginViewController.swift",
+      "line": 30,
+      "symbol": "LoginViewController.createAccount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Login/Controller/LoginViewController.swift",
+      "line": 31,
+      "symbol": "LoginViewController.forgotPasswordButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Login/Controller/LoginViewController.swift",
+      "line": 37,
+      "symbol": "LoginViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Login/Controller/LoginViewController.swift",
+      "line": 46,
+      "symbol": "LoginViewController.viewDidAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Login/Controller/LoginViewController.swift",
+      "line": 75,
+      "symbol": "LoginViewController.signIn(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Login/Controller/LoginViewController.swift",
+      "line": 91,
+      "symbol": "LoginViewController.resetPassword(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Login/Controller/LoginViewController.swift",
+      "line": 96,
+      "symbol": "LoginViewController.loginWithTwitter(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Login/Controller/LoginViewController.swift",
+      "line": 101,
+      "symbol": "LoginViewController.loginWithFB(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Login/Controller/LoginViewController.swift",
+      "line": 106,
+      "symbol": "LoginViewController.createAccount(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Model/LoginService.swift",
+      "line": 23,
+      "symbol": "LoginService.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Model/LoginService.swift",
+      "line": 37,
+      "symbol": "LoginService.Source.email",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Model/LoginService.swift",
+      "line": 38,
+      "symbol": "LoginService.Source.facebook",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Model/LoginService.swift",
+      "line": 39,
+      "symbol": "LoginService.Source.twitter",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Registering/Controller/RegisteringViewController.swift",
+      "line": 29,
+      "symbol": "RegisteringViewController.lastNameTextfield",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Registering/Controller/RegisteringViewController.swift",
+      "line": 30,
+      "symbol": "RegisteringViewController.firstNameTextfield",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Registering/Controller/RegisteringViewController.swift",
+      "line": 31,
+      "symbol": "RegisteringViewController.emailTextField",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Registering/Controller/RegisteringViewController.swift",
+      "line": 32,
+      "symbol": "RegisteringViewController.repeatPasswordTexfield",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Registering/Controller/RegisteringViewController.swift",
+      "line": 33,
+      "symbol": "RegisteringViewController.passwordTextField",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Registering/Controller/RegisteringViewController.swift",
+      "line": 34,
+      "symbol": "RegisteringViewController.createButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Registering/Controller/RegisteringViewController.swift",
+      "line": 35,
+      "symbol": "RegisteringViewController.backButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Registering/Controller/RegisteringViewController.swift",
+      "line": 43,
+      "symbol": "RegisteringViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Registering/Controller/RegisteringViewController.swift",
+      "line": 52,
+      "symbol": "RegisteringViewController.back(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Registering/Controller/RegisteringViewController.swift",
+      "line": 56,
+      "symbol": "RegisteringViewController.createAccount(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Registering/Controller/RegisteringViewController.swift",
+      "line": 106,
+      "symbol": "RegisteringViewController.shouldDisplayPlaceholders()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Reset/Controller/ResetViewController.swift",
+      "line": 11,
+      "symbol": "ResetViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Reset/Controller/ResetViewController.swift",
+      "line": 17,
+      "symbol": "ResetViewController.inputEmail",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Reset/Controller/ResetViewController.swift",
+      "line": 18,
+      "symbol": "ResetViewController.resetButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Reset/Controller/ResetViewController.swift",
+      "line": 23,
+      "symbol": "ResetViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Reset/Controller/ResetViewController.swift",
+      "line": 32,
+      "symbol": "ResetViewController.back(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/OnBoarding/Reset/Controller/ResetViewController.swift",
+      "line": 36,
+      "symbol": "ResetViewController.reset(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 19,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 21,
+      "symbol": "AppDelegate.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 23,
+      "symbol": "AppDelegate.application(_:didFinishLaunchingWithOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 34,
+      "symbol": "AppDelegate.application(_:open:options:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 40,
+      "symbol": "AppDelegate.applicationWillResignActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 43,
+      "symbol": "AppDelegate.applicationDidEnterBackground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 46,
+      "symbol": "AppDelegate.applicationWillEnterForeground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 49,
+      "symbol": "AppDelegate.applicationDidBecomeActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 53,
+      "symbol": "AppDelegate.applicationWillTerminate(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 63,
+      "symbol": "AppDelegate.persistentContainer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 77,
+      "symbol": "AppDelegate.saveContext()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 90,
+      "symbol": "AppDelegate.navigationBarSetup()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 99,
+      "symbol": "AppDelegate.statusBarSetup()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 109,
+      "symbol": "AppDelegate.userNotificationCenter(_:willPresent:withCompletionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 117,
+      "symbol": "AppDelegate.userNotificationCenter(_:didReceive:withCompletionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 123,
+      "symbol": "AppDelegate.handleUISetup()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mathieujanneau/NewDawn_final/NewDawn/SupportingFiles/AppDelegate.swift",
+      "line": 135,
+      "symbol": "AppDelegate.handleFirebaseInitialization()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/mathieujanneau/NewDawn_final"
+}
