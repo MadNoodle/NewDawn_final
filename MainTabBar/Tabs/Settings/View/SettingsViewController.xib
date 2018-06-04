@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TitilliumWeb-SemiBold.ttf">
+            <string>TitilliumWeb-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="NewDawn" customModuleProvider="target">
+            <connections>
+                <outlet property="changePasswordButton" destination="zpa-5U-9VR" id="yhu-Hy-dNw"/>
+                <outlet property="logOutButton" destination="gaL-Wt-chG" id="Wql-if-1be"/>
+                <outlet property="resetButton" destination="8ZJ-CS-ydJ" id="JgP-bg-Zft"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Si-fB-l0Q">
+                    <rect key="frame" x="16" y="65" width="359" height="102"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaL-Wt-chG">
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="34"/>
+                            <fontDescription key="fontDescription" name="TitilliumWeb-SemiBold" family="Titillium Web" pointSize="17"/>
+                            <state key="normal" title="Logout">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="logOut:" destination="-1" eventType="touchUpInside" id="dK9-P6-KyG"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZJ-CS-ydJ">
+                            <rect key="frame" x="0.0" y="34" width="359" height="34"/>
+                            <fontDescription key="fontDescription" name="TitilliumWeb-SemiBold" family="Titillium Web" pointSize="17"/>
+                            <state key="normal" title="Reset Data">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="resetData:" destination="-1" eventType="touchUpInside" id="ZOC-38-i9q"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpa-5U-9VR">
+                            <rect key="frame" x="0.0" y="68" width="359" height="34"/>
+                            <fontDescription key="fontDescription" name="TitilliumWeb-SemiBold" family="Titillium Web" pointSize="17"/>
+                            <state key="normal" title="Change Password">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="zpa-5U-9VR" secondAttribute="trailing" id="HsQ-LG-RtW"/>
+                        <constraint firstAttribute="trailing" secondItem="gaL-Wt-chG" secondAttribute="trailing" id="ctM-Gb-fNa"/>
+                        <constraint firstItem="zpa-5U-9VR" firstAttribute="leading" secondItem="5Si-fB-l0Q" secondAttribute="leading" id="eMJ-9r-5Aw"/>
+                        <constraint firstItem="gaL-Wt-chG" firstAttribute="leading" secondItem="5Si-fB-l0Q" secondAttribute="leading" id="eeS-ok-7Mh"/>
+                        <constraint firstAttribute="trailing" secondItem="8ZJ-CS-ydJ" secondAttribute="trailing" id="p4d-hn-Gzj"/>
+                        <constraint firstItem="8ZJ-CS-ydJ" firstAttribute="leading" secondItem="5Si-fB-l0Q" secondAttribute="leading" id="pOp-gC-TFt"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="0.19090235229999999" green="0.80607491730000003" blue="0.76304298640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5Si-fB-l0Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="6QR-h2-x1t"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5Si-fB-l0Q" secondAttribute="trailing" id="OyZ-v8-Oq2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5Si-fB-l0Q" secondAttribute="bottom" constant="500" id="RGq-gX-P0D"/>
+                <constraint firstItem="5Si-fB-l0Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="ibD-Mg-y5M"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

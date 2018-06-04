@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TitilliumWeb-Light.ttf">
+            <string>TitilliumWeb-Light</string>
+        </array>
+        <array key="TitilliumWeb-Regular.ttf">
+            <string>TitilliumWeb-Regular</string>
+        </array>
+        <array key="TitilliumWeb-SemiBold.ttf">
+            <string>TitilliumWeb-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomCalloutView" customModule="NewDawn" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomCalloutView" customModule="NewDawn" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="255" height="61"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPd-Gh-sdK">
+                    <rect key="frame" x="8" y="36" width="239" height="20"/>
+                    <fontDescription key="fontDescription" name="TitilliumWeb-Light" family="Titillium Web" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" details " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftr-ag-Fsf">
+                    <rect key="frame" x="197" y="8" width="50" height="17"/>
+                    <color key="backgroundColor" red="0.25882352939999997" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="tl6-tu-re1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="TitilliumWeb-SemiBold" family="Titillium Web" pointSize="11"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRi-o7-tmC">
+                    <rect key="frame" x="8" y="5" width="181" height="23"/>
+                    <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Ftr-ag-Fsf" firstAttribute="leading" secondItem="JRi-o7-tmC" secondAttribute="trailing" constant="8" id="0ca-kN-F2o"/>
+                <constraint firstItem="JRi-o7-tmC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="FT7-6M-EaY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="VPd-Gh-sdK" secondAttribute="bottom" constant="5" id="Ksv-fA-zSx"/>
+                <constraint firstItem="JRi-o7-tmC" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="Pjc-vF-lwA"/>
+                <constraint firstItem="Ftr-ag-Fsf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="QsS-fl-scT"/>
+                <constraint firstItem="VPd-Gh-sdK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="gIO-Ux-Azr"/>
+                <constraint firstItem="VPd-Gh-sdK" firstAttribute="top" secondItem="JRi-o7-tmC" secondAttribute="bottom" constant="8" id="hnb-6m-1SI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VPd-Gh-sdK" secondAttribute="trailing" constant="8" id="quX-U7-3Jg"/>
+                <constraint firstItem="JRi-o7-tmC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="rpD-6y-HAC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ftr-ag-Fsf" secondAttribute="trailing" constant="8" id="ue1-V0-1d2"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="addressLabel" destination="VPd-Gh-sdK" id="yI1-xV-tmp"/>
+                <outlet property="detail" destination="Ftr-ag-Fsf" id="P2o-2W-WcV"/>
+                <outlet property="nameLabel" destination="JRi-o7-tmC" id="pie-fy-aPd"/>
+            </connections>
+            <point key="canvasLocation" x="-4.5" y="-36.5"/>
+        </view>
+    </objects>
+</document>
